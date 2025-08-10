@@ -5,14 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clinic Blog - Mehar Physiotherapy Clinic</title>
     <style>
-        body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
-        header { background: #00796b; color: white; padding: 15px; text-align: center; }
-        nav a { color: white; margin: 0 10px; text-decoration: none; font-weight: bold; }
-        nav a:hover { text-decoration: underline; }
-        section { max-width: 900px; margin: 20px auto; background: white; padding: 20px; border-radius: 5px; }
-        h2 { color: #8bc34a; }
-        .post { margin-bottom: 30px; }
-        .date { color: gray; font-size: 0.9em; }
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #00796b;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 10px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+
+        .card-content {
+            padding: 20px;
+            flex: 1;
+        }
+
+        .card h2 {
+            color: #8bc34a;
+            margin-top: 0;
+        }
+
+        .date {
+            color: gray;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #333;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        .read-more {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 15px;
+            background: #00796b;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .read-more:hover {
+            background: #005f53;
+        }
     </style>
 </head>
 <body>
@@ -26,73 +103,83 @@
 </header>
 
 <section>
-    <div class="post">
-        <h2>Blog 1: 5 Common Physiotherapy Myths Debunked</h2>
-        <p class="date">10 August 2025</p>
-        <p>5 Common Physiotherapy Myths Debunked
+    <div class="card">
+        <div class="card-content">
+            <h2>5 Common Physiotherapy Myths Debunked</h2>
+            <p class="date">10 August 2025</p>
+            <p>5 Common Physiotherapy Myths Debunked
 <br>Title: 5 Common Physiotherapy Myths Debunked
 <br>Many people have misconceptions about physiotherapy, which can prevent them from seeking the care they need. At Mehar Physiotherapy Clinic, we believe in empowering our patients with knowledge. Here are five common myths about physiotherapy, debunked:
-            <br>Myth 1: Physiotherapy is only for injuries and accidents.
+<br>Myth 1: Physiotherapy is only for injuries and accidents.
 <br>Fact: While physiotherapy is crucial for recovering from injuries, it's also a proactive way to improve your overall health. It can help with posture correction, managing chronic conditions like arthritis, and improving athletic performance. Think of it as a way to both recover and prevent future problems.
-            <br>Myth 2: I need a doctor's referral to see a physiotherapist.
+<br>Myth 2: I need a doctor's referral to see a physiotherapist.
 <br>Fact: In India, you do not need a doctor's referral to see a qualified physiotherapist. You can directly book an appointment with a physiotherapist for an assessment and treatment plan. This allows you to get the help you need sooner.
-            <br>Myth 3: Physiotherapy is painful.
+<br>Myth 3: Physiotherapy is painful.
 <br>Fact: The goal of physiotherapy is to relieve pain, not cause it. While some exercises and movements might cause mild discomfort as you work to restore function, your physiotherapist will work with you to manage any pain and ensure you're comfortable with your treatment plan.
-            <br>Myth 4: Physiotherapy is just a series of exercises.
+<br>Myth 4: Physiotherapy is just a series of exercises.
 <br>Fact: Exercise is a key component of physiotherapy, but it's much more than that. A physiotherapist's treatment plan may also include manual therapy (such as massage and joint mobilization), education, and advice on lifestyle changes. It's a holistic approach to your health.
-            <br>Myth 5: I can just find exercises online and do them myself.
-<br>Fact: While there are many resources available online, a "one-size-fits-all" approach to physiotherapy is not effective and can even be dangerous. A qualified physiotherapist will conduct a thorough assessment to understand your specific needs and create a personalized treatment plan. This ensures that you're doing the right exercises correctly and safely.</p>
+<br>Myth 5: I can just find exercises online and do them myself.
+<br>Fact: While there are many resources available online, a "one-size-fits-all" approach to physiotherapy is not effective and can even be dangerous. A qualified physiotherapist will conduct a thorough assessment to understand your specific needs and create a personalized treatment plan. This ensures that you're doing the right exercises correctly and safely.
+</p>
+            <a href="#" class="read-more">Read More</a>
+        </div>
     </div>
 
-    <div class="post">
-        <h2>Blog 2: The Importance of Ergonomics in Preventing Workplace Injuries</h2>
-        <p class="date">5 August 2025</p>
-        <p>The Importance of Ergonomics in Preventing Workplace Injuries
+    <div class="card">
+        <div class="card-content">
+            <h2>The Importance of Ergonomics in Preventing Workplace Injuries</h2>
+            <p class="date">5 August 2025</p>
+            <p>The Importance of Ergonomics in Preventing Workplace Injuries
 <br>Title: The Importance of Ergonomics in Preventing Workplace Injuries
 <br>In today's world, many of us spend long hours at a desk, which can lead to a variety of musculoskeletal issues. Poor posture and a non-ergonomic workspace can cause back pain, neck stiffness, and repetitive strain injuries. This is where ergonomics comes in.
-            <br>What is Ergonomics?
+<br>What is Ergonomics?
 <br>Ergonomics is the science of designing and arranging things so that people can use them easily and safely. In the workplace, this means creating a workspace that is tailored to your body and the tasks you perform.
-            <br>Why is Ergonomics Important?
-            <br>* Reduces Pain and Discomfort: A well-designed workspace can significantly reduce the strain on your body, leading to less pain and discomfort.
-            <br>* Prevents Injuries: By promoting good posture and reducing repetitive strain, ergonomics can help prevent common workplace injuries.
-            <br>* Improves Productivity: When you're comfortable and pain-free, you can focus better on your work and be more productive.
-            <br>Simple Ergonomic Tips for Your Workspace:
-            <br>* Adjust your chair: Your feet should be flat on the floor, and your knees should be at a 90-degree angle. Your back should be supported by the backrest.
-            <br>* Position your monitor: The top of your screen should be at or slightly below eye level. This will help you maintain a neutral neck position.
-            <br>* Keep your keyboard and mouse close: Your keyboard and mouse should be close enough that you can use them with your elbows at a 90-degree angle and your wrists in a neutral position.
-            <br>* Take regular breaks: Get up, stretch, and walk around every 30-60 minutes to avoid staying in one position for too long.
-            <br>At Mehar Physiotherapy Clinic, we can provide you with a detailed ergonomic assessment and personalized recommendations to help you create a safer and more comfortable workspace.</p>
+<br>Why is Ergonomics Important?
+<br>* Reduces Pain and Discomfort: A well-designed workspace can significantly reduce the strain on your body, leading to less pain and discomfort.
+<br>* Prevents Injuries: By promoting good posture and reducing repetitive strain, ergonomics can help prevent common workplace injuries.
+<br>* Improves Productivity: When you're comfortable and pain-free, you can focus better on your work and be more productive.
+<br>Simple Ergonomic Tips for Your Workspace:
+<br>* Adjust your chair: Your feet should be flat on the floor, and your knees should be at a 90-degree angle. Your back should be supported by the backrest.
+<br>* Position your monitor: The top of your screen should be at or slightly below eye level. This will help you maintain a neutral neck position.
+<br>* Keep your keyboard and mouse close: Your keyboard and mouse should be close enough that you can use them with your elbows at a 90-degree angle and your wrists in a neutral position.
+<br>* Take regular breaks: Get up, stretch, and walk around every 30-60 minutes to avoid staying in one position for too long.
+<br>At Mehar Physiotherapy Clinic, we can provide you with a detailed ergonomic assessment and personalized recommendations to help you create a safer and more comfortable workspace.
+</p>
+            <a href="#" class="read-more">Read More</a>
+        </div>
     </div>
 
-    <div class="post">
-        <h2>Blog 3: Recovering from a Sports Injury: A Physiotherapist's Guide</h2>
-        <p class="date">5 August 2025</p>
-        <p>Recovering from a Sports Injury: A Physiotherapist's Guide
+    <div class="card">
+        <div class="card-content">
+            <h2>Recovering from a Sports Injury: A Physiotherapist's Guide</h2>
+            <p class="date">5 August 2025</p>
+            <p>Recovering from a Sports Injury: A Physiotherapist's Guide
 <br>Title: Recovering from a Sports Injury: A Physiotherapist's Guide
 <br>Whether you're a professional athlete or a weekend warrior, a sports injury can be a frustrating setback. The right approach to recovery is crucial for getting back to your sport safely and preventing re-injury. Here's a guide from a physiotherapist's perspective:
-            <br>1. The RICE Principle (Rest, Ice, Compression, Elevation):
-            <br>In the initial stages of an injury, the RICE principle is often recommended to reduce pain and swelling:
-             <br>* Rest: Avoid activities that cause pain.
-             <br>* Ice: Apply an ice pack to the injured area for 15-20 minutes at a time, several times a day.
-             <br>* Compression: Use a compression bandage to help reduce swelling.
-             <br>* Elevation: Keep the injured limb elevated above the level of your heart.
-            <br>2. Seek a Professional Assessment:
+<br>1. The RICE Principle (Rest, Ice, Compression, Elevation):
+<br>In the initial stages of an injury, the RICE principle is often recommended to reduce pain and swelling:
+<br>* Rest: Avoid activities that cause pain.
+<br>* Ice: Apply an ice pack to the injured area for 15-20 minutes at a time, several times a day.
+<br>* Compression: Use a compression bandage to help reduce swelling.
+<br>* Elevation: Keep the injured limb elevated above the level of your heart.
+<br>2. Seek a Professional Assessment:
 <br>It's important to get a proper diagnosis from a healthcare professional, such as a physiotherapist. They can assess the extent of your injury and create a personalized treatment plan.
-            <br>3. Gradual Rehabilitation:
+<br>3. Gradual Rehabilitation:
 <br>Your physiotherapist will guide you through a gradual rehabilitation program that will likely include:
- <br>* Pain management: Techniques to reduce pain and inflammation.
- <br>* Range of motion exercises: To restore movement to the injured joint or muscle.
- <br>* Strengthening exercises: To rebuild strength and stability.
- <br>* Proprioception and balance exercises: To improve your body's awareness of its position in space.
- <br>* Sport-specific exercises: To prepare you for a safe return to your sport.
+<br>* Pain management: Techniques to reduce pain and inflammation.
+<br>* Range of motion exercises: To restore movement to the injured joint or muscle.
+<br>* Strengthening exercises: To rebuild strength and stability.
+<br>* Proprioception and balance exercises: To improve your body's awareness of its position in space.
+<br>* Sport-specific exercises: To prepare you for a safe return to your sport.
 <br>4. Listen to Your Body:
 <br>It's important to be patient and not rush your recovery. Pushing yourself too hard, too soon can lead to re-injury. Your physiotherapist will help you progress at a safe and appropriate pace.
 <br>5. Focus on Prevention:
 <br>Once you've recovered, your physiotherapist can help you identify and address any underlying factors that may have contributed to your injury. This may include a warm-up and cool-down routine, strengthening exercises, and advice on proper technique.
-If you've suffered a sports injury, the team at Mehar Physiotherapy Clinic is here to help you get back in the game safely and confidently.</p>
+If you've suffered a sports injury, the team at Mehar Physiotherapy Clinic is here to help you get back in the game safely and confidently.
+</p>
+            <a href="#" class="read-more">Read More</a>
+        </div>
     </div>
-
-    <!-- Add new blog posts here -->
 </section>
 </body>
 </html>
