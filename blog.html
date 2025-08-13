@@ -1,182 +1,244 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clinic Blog - Mehar Physiotherapy Clinic</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>5 Common Physiotherapy Myths Debunked — Mehar Physiotherapy Clinic</title>
+  <meta name="description" content="Debunking five common myths about physiotherapy. Learn how physiotherapy helps with recovery, prevention, chronic conditions, and more." />
+  <meta name="author" content="Mehar Physiotherapy Clinic" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="5 Common Physiotherapy Myths Debunked — Mehar Physiotherapy Clinic" />
+  <meta property="og:description" content="Debunking five common myths about physiotherapy. Learn how physiotherapy helps with recovery, prevention, chronic conditions, and more." />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Mehar Physiotherapy Clinic" />
+  <meta property="article:published_time" content="2025-08-10" />
 
-        header {
-            background: #00796b;
-            color: white;
-            padding: 15px;
-            text-align: center;
-        }
+  <style>
+    :root{
+      --page-max-width:900px;
+      --brand-green: #0f6b3a; /* dark green button color */
+      --muted:#6b7280;
+      --bg:#ffffff;
+      --text:#0b0b0b;
+      --card:#fbfbfb;
+      --radius:12px;
+      --gap:18px;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,#f7f9fb,white);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.6;
+      padding:28px 16px;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      font-size:16px;
+    }
+    .container{
+      max-width:var(--page-max-width);
+      width:100%;
+      background:var(--card);
+      border-radius:calc(var(--radius) + 4px);
+      box-shadow:0 8px 30px rgba(15,23,42,0.08);
+      padding:28px;
+      box-sizing:border-box;
+    }
 
-        nav a {
-            color: white;
-            margin: 0 10px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+    header.site-header{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      margin-bottom:8px;
+    }
+    .logo {
+      width:64px;
+      height:64px;
+      border-radius:10px;
+      background:linear-gradient(135deg,var(--brand-green),#1b8a57);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-weight:700;
+      font-size:18px;
+      box-shadow:0 4px 12px rgba(15,23,42,0.12);
+    }
+    .site-title{
+      display:flex;
+      flex-direction:column;
+      line-height:1;
+    }
+    .clinic-name{font-weight:700; font-size:18px}
+    .clinic-tag{color:var(--muted); font-size:13px}
 
-        nav a:hover {
-            text-decoration: underline;
-        }
+    article.blog-post{
+      margin-top:18px;
+    }
 
-        section {
-            max-width: 1100px;
-            margin: 20px auto;
-            padding: 10px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 20px;
-        }
+    .meta {
+      display:flex;
+      gap:12px;
+      align-items:center;
+      margin:12px 0 20px;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .hero{
+      border-radius:10px;
+      background:linear-gradient(180deg,#ffffff,#f2fbf6);
+      padding:18px;
+      margin-bottom:18px;
+      display:flex;
+      gap:16px;
+      align-items:center;
+      box-shadow:0 2px 8px rgba(15,23,42,0.04);
+    }
+    .hero .thumb{
+      width:110px;
+      height:80px;
+      border-radius:8px;
+      background:linear-gradient(180deg,#e6f6ee,#ffffff);
+      display:block;
+      flex:0 0 110px;
+      box-shadow:inset 0 -8px 16px rgba(15,23,42,0.02);
+      align-self:stretch;
+    }
+    h1{
+      margin:0 0 6px 0;
+      font-size:22px;
+      line-height:1.15;
+    }
+    p.lead{margin:0;color:var(--muted)}
 
-        .card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            display: flex;
-            flex-direction: column;
-        }
+    .content h2{
+      margin-top:20px;
+      font-size:18px;
+      color:var(--brand-green);
+    }
+    .content ul{padding-left:20px}
+    .myth{background:linear-gradient(180deg,#fff,#fbfffb); padding:14px; border-radius:10px; margin:12px 0; border:1px solid rgba(11,11,11,0.03);}
+    .myth strong{display:block; margin-bottom:6px; font-weight:700}
+    .cta{
+      margin-top:22px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .button{
+      display:inline-block;
+      text-decoration:none;
+      padding:12px 16px;
+      border-radius:10px;
+      font-weight:600;
+      box-shadow:0 6px 18px rgba(15,23,42,0.08);
+      border:1px solid rgba(0,0,0,0.06);
+    }
+    .button--primary{
+      background:var(--brand-green);
+      color:white;
+    }
+    .button--outline{
+      background:transparent;
+      color:var(--brand-green);
+      border:1.5px solid rgba(15,107,58,0.12);
+    }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-        }
+    footer.post-footer{
+      margin-top:28px;
+      padding-top:18px;
+      border-top:1px solid rgba(11,11,11,0.04);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+      color:var(--muted);
+      font-size:14px;
+    }
 
-        .card-content {
-            padding: 20px;
-            flex: 1;
-        }
-
-        .card h2 {
-            color: #8bc34a;
-            margin-top: 0;
-        }
-
-        .date {
-            color: gray;
-            font-size: 0.9em;
-            margin-bottom: 10px;
-        }
-
-        .card p {
-            color: #333;
-            font-size: 0.95em;
-            line-height: 1.5;
-        }
-
-        .read-more {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 8px 15px;
-            background: #00796b;
-            color: white;
-            border-radius: 4px;
-            text-decoration: none;
-            transition: background 0.3s ease;
-        }
-
-        .read-more:hover {
-            background: #005f53;
-        }
-    </style>
+    /* responsive */
+    @media (max-width:640px){
+      .hero{flex-direction:row; gap:12px}
+      .hero .thumb{width:90px;height:64px}
+      .logo{width:56px;height:56px;font-size:16px}
+      h1{font-size:20px}
+    }
+  </style>
 </head>
 <body>
-<header>
-    <h1>Clinic Blog</h1>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="blog.html">Blog</a>
-        <a href="gallery.html">Gallery</a>
-    </nav>
-</header>
+  <div class="container" role="main">
+    <header class="site-header" role="banner">
+      <div class="logo" aria-hidden="true">MPC</div>
+      <div class="site-title">
+        <div class="clinic-name">Mehar Physiotherapy Clinic</div>
+        <div class="clinic-tag">Gaur City 2, Greater Noida</div>
+      </div>
+    </header>
 
-<section>
-    <div class="card">
-        <div class="card-content">
-            <h2>5 Common Physiotherapy Myths Debunked</h2>
-            <p class="date">10 August 2025</p>
-            <p>5 Common Physiotherapy Myths Debunked
-<br>Title: 5 Common Physiotherapy Myths Debunked
-<br>Many people have misconceptions about physiotherapy, which can prevent them from seeking the care they need. At Mehar Physiotherapy Clinic, we believe in empowering our patients with knowledge. Here are five common myths about physiotherapy, debunked:
-<br>Myth 1: Physiotherapy is only for injuries and accidents.
-<br>Fact: While physiotherapy is crucial for recovering from injuries, it's also a proactive way to improve your overall health. It can help with posture correction, managing chronic conditions like arthritis, and improving athletic performance. Think of it as a way to both recover and prevent future problems.
-<br>Myth 2: I need a doctor's referral to see a physiotherapist.
-<br>Fact: In India, you do not need a doctor's referral to see a qualified physiotherapist. You can directly book an appointment with a physiotherapist for an assessment and treatment plan. This allows you to get the help you need sooner.
-<br>Myth 3: Physiotherapy is painful.
-<br>Fact: The goal of physiotherapy is to relieve pain, not cause it. While some exercises and movements might cause mild discomfort as you work to restore function, your physiotherapist will work with you to manage any pain and ensure you're comfortable with your treatment plan.
-<br>Myth 4: Physiotherapy is just a series of exercises.
-<br>Fact: Exercise is a key component of physiotherapy, but it's much more than that. A physiotherapist's treatment plan may also include manual therapy (such as massage and joint mobilization), education, and advice on lifestyle changes. It's a holistic approach to your health.
-<br>Myth 5: I can just find exercises online and do them myself.
-<br>Fact: While there are many resources available online, a "one-size-fits-all" approach to physiotherapy is not effective and can even be dangerous. A qualified physiotherapist will conduct a thorough assessment to understand your specific needs and create a personalized treatment plan. This ensures that you're doing the right exercises correctly and safely.
-</p>
+    <article class="blog-post" aria-labelledby="post-title">
+      <div class="meta" aria-hidden="true">
+        <time datetime="2025-08-10">10 August 2025</time>
+        <span>•</span>
+        <span>Patient education</span>
+      </div>
+
+      <div class="hero" role="img" aria-label="Physiotherapy consultation">
+        <div class="thumb" aria-hidden="true"></div>
+        <div>
+          <h1 id="post-title">5 Common Physiotherapy Myths Debunked</h1>
+          <p class="lead">Many people have misconceptions about physiotherapy, which can prevent them from seeking the care they need. At Mehar Physiotherapy Clinic, we believe in empowering our patients with knowledge.</p>
         </div>
-    </div>
+      </div>
 
-    <div class="card">
-        <div class="card-content">
-            <h2>The Importance of Ergonomics in Preventing Workplace Injuries</h2>
-            <p class="date">5 August 2025</p>
-            <p>The Importance of Ergonomics in Preventing Workplace Injuries
-<br>Title: The Importance of Ergonomics in Preventing Workplace Injuries
-<br>In today's world, many of us spend long hours at a desk, which can lead to a variety of musculoskeletal issues. Poor posture and a non-ergonomic workspace can cause back pain, neck stiffness, and repetitive strain injuries. This is where ergonomics comes in.
-<br>What is Ergonomics?
-<br>Ergonomics is the science of designing and arranging things so that people can use them easily and safely. In the workplace, this means creating a workspace that is tailored to your body and the tasks you perform.
-<br>Why is Ergonomics Important?
-<br>* Reduces Pain and Discomfort: A well-designed workspace can significantly reduce the strain on your body, leading to less pain and discomfort.
-<br>* Prevents Injuries: By promoting good posture and reducing repetitive strain, ergonomics can help prevent common workplace injuries.
-<br>* Improves Productivity: When you're comfortable and pain-free, you can focus better on your work and be more productive.
-<br>Simple Ergonomic Tips for Your Workspace:
-<br>* Adjust your chair: Your feet should be flat on the floor, and your knees should be at a 90-degree angle. Your back should be supported by the backrest.
-<br>* Position your monitor: The top of your screen should be at or slightly below eye level. This will help you maintain a neutral neck position.
-<br>* Keep your keyboard and mouse close: Your keyboard and mouse should be close enough that you can use them with your elbows at a 90-degree angle and your wrists in a neutral position.
-<br>* Take regular breaks: Get up, stretch, and walk around every 30-60 minutes to avoid staying in one position for too long.
-<br>At Mehar Physiotherapy Clinic, we can provide you with a detailed ergonomic assessment and personalized recommendations to help you create a safer and more comfortable workspace.
-</p>
-    </div>
-    </div>
+      <div class="content">
+        <p>Here are five common myths about physiotherapy, debunked:</p>
 
-    <div class="card">
-        <div class="card-content">
-            <h2>Recovering from a Sports Injury: A Physiotherapist's Guide</h2>
-            <p class="date">5 August 2025</p>
-            <p>Recovering from a Sports Injury: A Physiotherapist's Guide
-<br>Title: Recovering from a Sports Injury: A Physiotherapist's Guide
-<br>Whether you're a professional athlete or a weekend warrior, a sports injury can be a frustrating setback. The right approach to recovery is crucial for getting back to your sport safely and preventing re-injury. Here's a guide from a physiotherapist's perspective:
-<br>1. The RICE Principle (Rest, Ice, Compression, Elevation):
-<br>In the initial stages of an injury, the RICE principle is often recommended to reduce pain and swelling:
-<br>* Rest: Avoid activities that cause pain.
-<br>* Ice: Apply an ice pack to the injured area for 15-20 minutes at a time, several times a day.
-<br>* Compression: Use a compression bandage to help reduce swelling.
-<br>* Elevation: Keep the injured limb elevated above the level of your heart.
-<br>2. Seek a Professional Assessment:
-<br>It's important to get a proper diagnosis from a healthcare professional, such as a physiotherapist. They can assess the extent of your injury and create a personalized treatment plan.
-<br>3. Gradual Rehabilitation:
-<br>Your physiotherapist will guide you through a gradual rehabilitation program that will likely include:
-<br>* Pain management: Techniques to reduce pain and inflammation.
-<br>* Range of motion exercises: To restore movement to the injured joint or muscle.
-<br>* Strengthening exercises: To rebuild strength and stability.
-<br>* Proprioception and balance exercises: To improve your body's awareness of its position in space.
-<br>* Sport-specific exercises: To prepare you for a safe return to your sport.
-<br>4. Listen to Your Body:
-<br>It's important to be patient and not rush your recovery. Pushing yourself too hard, too soon can lead to re-injury. Your physiotherapist will help you progress at a safe and appropriate pace.
-<br>5. Focus on Prevention:
-<br>Once you've recovered, your physiotherapist can help you identify and address any underlying factors that may have contributed to your injury. This may include a warm-up and cool-down routine, strengthening exercises, and advice on proper technique.
-If you've suffered a sports injury, the team at Mehar Physiotherapy Clinic is here to help you get back in the game safely and confidently.
-</p>
-        </div>
-    </div>
-</section>
+        <section class="myth" aria-labelledby="myth1">
+          <h2 id="myth1">Myth 1: Physiotherapy is only for injuries and accidents.</h2>
+          <strong>Fact:</strong>
+          <p>While physiotherapy is crucial for recovering from injuries, it's also a proactive way to improve your overall health. It can help with posture correction, managing chronic conditions like arthritis, and improving athletic performance. Think of it as a way to both recover and prevent future problems.</p>
+        </section>
+
+        <section class="myth" aria-labelledby="myth2">
+          <h2 id="myth2">Myth 2: I need a doctor's referral to see a physiotherapist.</h2>
+          <strong>Fact:</strong>
+          <p>In India, you do not need a doctor's referral to see a qualified physiotherapist. You can directly book an appointment with a physiotherapist for an assessment and treatment plan. This allows you to get the help you need sooner.</p>
+        </section>
+
+        <section class="myth" aria-labelledby="myth3">
+          <h2 id="myth3">Myth 3: Physiotherapy is painful.</h2>
+          <strong>Fact:</strong>
+          <p>The goal of physiotherapy is to relieve pain, not cause it. While some exercises and movements might cause mild discomfort as you work to restore function, your physiotherapist will work with you to manage any pain and ensure you're comfortable with your treatment plan.</p>
+        </section>
+
+        <section class="myth" aria-labelledby="myth4">
+          <h2 id="myth4">Myth 4: Physiotherapy is just a series of exercises.</h2>
+          <strong>Fact:</strong>
+          <p>Exercise is a key component of physiotherapy, but it's much more than that. A physiotherapist's treatment plan may also include manual therapy (such as massage and joint mobilization), education, and advice on lifestyle changes. It's a holistic approach to your health.</p>
+        </section>
+
+        <section class="myth" aria-labelledby="myth5">
+          <h2 id="myth5">Myth 5: I can just find exercises online and do them myself.</h2>
+          <strong>Fact:</strong>
+          <p>While there are many resources available online, a "one-size-fits-all" approach to physiotherapy is not effective and can even be dangerous. A qualified physiotherapist will conduct a thorough assessment to understand your specific needs and create a personalized treatment plan. This ensures that you're doing the right exercises correctly and safely.</p>
+        </section>
+      </div>
+
+      <footer class="post-footer">
+        <div>Published by <strong>Mehar Physiotherapy Clinic</strong></div>
+        <div>© <span id="year">2025</span></div>
+      </footer>
+    </article>
+  </div>
+
+  <script>
+    // small script: set copyright year automatically
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
