@@ -1,0 +1,63 @@
+name: Update Sitemap
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install sitemap generator
+        run: npm install sitemap
+
+      - name: Generate sitemap
+        run: |
+          node << 'EOF'
+          const fs = require('fs');
+          const path = require('path');
+          const { SitemapStream, streamToPromise } = require('sitemap');
+
+          const hostname = 'https://meharphysiotherapyclinic.github.io/website';
+          const files = [];
+
+          function scanDir(dir) {
+            fs.readdirSync(dir).forEach(file => {
+              const filePath = path.join(dir, file);
+              if (fs.statSync(filePath).isDirectory()) {
+                scanDir(filePath);
+              } else if (file.endsWith('.html')) {
+                let relative = filePath.replace(/^public\/|^\.\//, '');
+                files.push('/' + relative.replace(/\\/g, '/'));
+              }
+            });
+          }
+
+          scanDir('.');
+          const smStream = new SitemapStream({ hostname });
+
+          files.forEach(file => smStream.write({ url: file, changefreq: 'weekly', priority: 0.8 }));
+          smStream.end();
+
+          streamToPromise(smStream).then(data => {
+            fs.writeFileSync('sitemap.xml', data.toString());
+          });
+          EOF
+
+      - name: Commit sitemap
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add sitemap.xml
+          git commit -m "Auto-update sitemap" || echo "No changes to commit"
+          git push
