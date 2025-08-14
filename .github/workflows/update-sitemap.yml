@@ -6,6 +6,9 @@ on:
       - main
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   generate:
     runs-on: ubuntu-latest
@@ -43,7 +46,7 @@ jobs:
             });
           }
 
-          scanDir('.');
+          scanDir('public');
           const smStream = new SitemapStream({ hostname });
 
           files.forEach(file => smStream.write({ url: file, changefreq: 'weekly', priority: 0.8 }));
