@@ -6,9 +6,6 @@ on:
       - main
   workflow_dispatch:
 
-permissions:
-  contents: write
-
 jobs:
   generate:
     runs-on: ubuntu-latest
@@ -46,7 +43,7 @@ jobs:
             });
           }
 
-          scanDir('public');
+          scanDir('.');
           const smStream = new SitemapStream({ hostname });
 
           files.forEach(file => smStream.write({ url: file, changefreq: 'weekly', priority: 0.8 }));
@@ -64,3 +61,8 @@ jobs:
           git add sitemap.xml
           git commit -m "Auto-update sitemap" || echo "No changes to commit"
           git push
+
+      - name: Ping Google & Bing
+        run: |
+          curl "https://www.google.com/ping?sitemap=https://meharphysiotherapyclinic.github.io/website/sitemap.xml"
+          curl "https://www.bing.com/ping?sitemap=https://meharphysiotherapyclinic.github.io/website/sitemap.xml"
