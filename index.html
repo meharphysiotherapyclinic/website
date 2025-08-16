@@ -48,8 +48,48 @@
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; color: #333; }
         header { background: #00796b; color: white; padding: 15px 0; text-align: center; }
-        nav a { margin: 0 15px; color: white; text-decoration: none; font-weight: bold; }
-        nav a:hover { text-decoration: underline; }
+        nav {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 12px; /* Space between links (horizontal and vertical) */
+          margin-top: 18px;
+          margin-bottom: 6px;
+        }
+        nav a {
+          display: inline-block;
+          padding: 16px 24px;          /* Increase vertical and horizontal tap area */
+          margin: 0;
+          color: white;
+          text-decoration: none;
+          font-weight: bold;
+          border-radius: 6px;
+          min-width: 48px;             /* WCAG: minimum 44-48px for touch targets */
+          min-height: 48px;
+          text-align: center;
+          font-size: 1.1em;
+          transition: background 0.15s, color 0.15s;
+        }
+        nav a:hover, nav a:focus {
+          background: #00695c;
+          color: #fff;
+          text-decoration: underline;
+        }
+        /* Stack links vertically on small screens */
+        @media (max-width: 700px) {
+          nav {
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+          }
+          nav a {
+            width: 80%;
+            padding: 18px 0;
+            font-size: 1.15em;
+            min-height: 48px;
+            margin: 0;
+          }
+        }
         section { padding: 20px; max-width: 900px; margin: auto; background: white; margin-bottom: 20px; border-radius: 5px; }
         h1 { color: #ffffff; }
         section h2 { color: #0f6b3a; }
