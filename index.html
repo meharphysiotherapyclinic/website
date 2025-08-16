@@ -42,40 +42,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Mehar Physiotherapy Clinic in Greater Noida West offers expert physiotherapy by Dr. Govindpreet Singh Arneja (B.P.T., M.I.A.P.). Specializing in orthopedic, neurological, sports injury, pediatric, spinal rehabilitation, post-surgical care, manual therapy, gait analysis, and pain management. Book an appointment today.">
-<meta name="keywords" content="Mehar Physiotherapy Clinic, physiotherapy clinic Greater Noida West, physiotherapist near me, orthopedic physiotherapy Greater Noida West, neurological rehabilitation Greater Noida West, sports injury physiotherapy Greater Noida West, pediatric physiotherapy Greater Noida West, post-surgical physiotherapy, spinal rehabilitation Greater Noida West, back pain treatment Greater Noida West, neck pain physiotherapy, knee pain physiotherapy, frozen shoulder physiotherapy, manual therapy Greater Noida West, gait analysis Greater Noida West, Dr. Govindpreet Singh Arneja">
-<meta name="author" content="Dr. Govindpreet Singh Arneja">
+    <meta name="keywords" content="Mehar Physiotherapy Clinic, physiotherapy clinic Greater Noida West, physiotherapist near me, orthopedic physiotherapy Greater Noida West, neurological rehabilitation Greater Noida West, sports injury physiotherapy Greater Noida West, pediatric physiotherapy Greater Noida West, post-surgical physiotherapy, spinal rehabilitation Greater Noida West, back pain treatment Greater Noida West, neck pain physiotherapy, knee pain physiotherapy, frozen shoulder physiotherapy, manual therapy Greater Noida West, gait analysis Greater Noida West, Dr. Govindpreet Singh Arneja">
+    <meta name="author" content="Dr. Govindpreet Singh Arneja">
     <title>Mehar Physiotherapy Clinic</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; color: #333; }
-        header { background: #00796b; color: white; padding: 15px 0; text-align: center; }
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; color: #333; transition: background 0.3s ease; }
+        header { background: #00796b; color: white; padding: 15px 0; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
         nav {
           display: flex;
           flex-wrap: wrap;
           justify-content: center;
-          gap: 12px; /* Space between links (horizontal and vertical) */
+          gap: 12px;
           margin-top: 18px;
           margin-bottom: 6px;
         }
         nav a {
           display: inline-block;
-          padding: 16px 24px;          /* Increase vertical and horizontal tap area */
+          padding: 16px 24px;
           margin: 0;
           color: white;
           text-decoration: none;
           font-weight: bold;
           border-radius: 6px;
-          min-width: 48px;             /* WCAG: minimum 44-48px for touch targets */
+          min-width: 48px;
           min-height: 48px;
           text-align: center;
           font-size: 1.1em;
-          transition: background 0.15s, color 0.15s;
+          transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
         }
         nav a:hover, nav a:focus {
           background: #00695c;
           color: #fff;
+          transform: translateY(-3px) scale(1.05);
           text-decoration: underline;
+          box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
-        /* Stack links vertically on small screens */
         @media (max-width: 700px) {
           nav {
             flex-direction: column;
@@ -90,12 +91,39 @@
             margin: 0;
           }
         }
-        section { padding: 20px; max-width: 900px; margin: auto; background: white; margin-bottom: 20px; border-radius: 5px; }
+        section { 
+          padding: 20px; 
+          max-width: 900px; 
+          margin: auto; 
+          background: white; 
+          margin-bottom: 20px; 
+          border-radius: 5px; 
+          box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        section:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
         h1 { color: #ffffff; }
         section h2 { color: #0f6b3a; }
         footer { background: #333; color: white; text-align: center; padding: 10px; }
-        .contact-btn { display: inline-block; padding: 10px 20px; background: #00796b; color: white; text-decoration: none; border-radius: 5px; margin-top: 10px; }
-        .contact-btn:hover { background: #004d40; }
+        .contact-btn { 
+          display: inline-block; 
+          padding: 12px 22px; 
+          background: #00796b; 
+          color: white; 
+          text-decoration: none; 
+          border-radius: 6px; 
+          margin-top: 10px; 
+          font-weight: bold;
+          transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .contact-btn:hover {
+          background: #004d40;
+          transform: translateY(-3px) scale(1.05);
+          box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+        }
     </style>
 </head>
 <body>
