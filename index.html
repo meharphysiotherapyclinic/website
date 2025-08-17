@@ -47,15 +47,54 @@
     <title>Mehar Physiotherapy Clinic</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; color: #333; transition: background 0.3s ease; }
-        header { background: #00796b; color: white; padding: 15px 0; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+
+        /* Header */
+        header {
+          background: #00796b;
+          color: white;
+          padding: 15px 20px;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .header-top {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 15px;
+          flex-wrap: wrap; /* responsive stacking */
+        }
+
+        header img {
+          max-height: 80px;
+          width: auto;
+          border-radius: 8px;
+        }
+
+        .header-text {
+          text-align: left;
+        }
+
+        .header-text h1 {
+          margin: 0;
+          font-size: 1.8em;
+          color: #fff;
+        }
+
+        .header-text p {
+          margin: 5px 0 0;
+          font-size: 1em;
+          color: #e0f2f1;
+        }
+
         nav {
           display: flex;
           flex-wrap: wrap;
           justify-content: center;
           gap: 12px;
-          margin-top: 18px;
+          margin-top: 15px;
           margin-bottom: 6px;
         }
+
         nav a {
           display: inline-block;
           padding: 16px 24px;
@@ -70,6 +109,7 @@
           font-size: 1.1em;
           transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
         }
+
         nav a:hover, nav a:focus {
           background: #00695c;
           color: #fff;
@@ -77,7 +117,15 @@
           text-decoration: underline;
           box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
+
         @media (max-width: 700px) {
+          .header-top {
+            flex-direction: column;
+            text-align: center;
+          }
+          .header-text {
+            text-align: center;
+          }
           nav {
             flex-direction: column;
             align-items: center;
@@ -91,6 +139,7 @@
             margin: 0;
           }
         }
+
         section { 
           padding: 20px; 
           max-width: 900px; 
@@ -129,16 +178,22 @@
 <body>
 
 <header>
-    <h1>Mehar Physiotherapy Clinic</h1>
-    <p>By Dr. Govindpreet Singh Arneja (B.P.T., M.I.A.P.)</p>
-    <nav>
-        <a href="index.html#home">Home</a>
-        <a href="index.html#about">About</a>
-        <a href="index.html#services">Services</a>
-        <a href="index.html#contact">Contact</a>
-        <a href="blog.html">Blog</a>
-        <a href="gallery.html">Gallery</a>
-    </nav>
+  <div class="header-top">
+    <img src="images/logo.jpeg" alt="Mehar Physiotherapy Clinic Logo">
+    <div class="header-text">
+      <h1>Mehar Physiotherapy Clinic</h1>
+      <p>By Dr. Govindpreet Singh Arneja (B.P.T., M.I.A.P.)</p>
+    </div>
+  </div>
+  
+  <nav>
+      <a href="index.html#home">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="blog.html">Blog</a>
+      <a href="gallery.html">Gallery</a>
+  </nav>
 </header>
 
 <section id="home">
