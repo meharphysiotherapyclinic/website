@@ -59,19 +59,21 @@
         .header-top {
           display: flex;
           align-items: center;
-          justify-content: center;
+          justify-content: space-between;
           gap: 15px;
-          flex-wrap: wrap; /* responsive stacking */
+          flex-wrap: wrap;
+        }
+
+        .logo-title {
+          display: flex;
+          align-items: center;
+          gap: 15px;
         }
 
         header img {
           max-height: 50px;
           width: auto;
           border-radius: 5px;
-        }
-
-        .header-text {
-          text-align: left;
         }
 
         .header-text h1 {
@@ -91,8 +93,6 @@
           flex-wrap: wrap;
           justify-content: center;
           gap: 12px;
-          margin-top: 15px;
-          margin-bottom: 6px;
         }
 
         nav a {
@@ -118,25 +118,40 @@
           box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
+        .menu-toggle {
+          display: none;
+          flex-direction: column;
+          cursor: pointer;
+        }
+
+        .menu-toggle span {
+          height: 3px;
+          width: 25px;
+          background: white;
+          margin: 4px 0;
+          border-radius: 3px;
+          transition: all 0.3s ease;
+        }
+
         @media (max-width: 700px) {
           .header-top {
-            flex-direction: column;
-            text-align: center;
+            flex-direction: row;
+            justify-content: space-between;
+            text-align: left;
           }
-          .header-text {
-            text-align: center;
-          }
+
           nav {
             flex-direction: column;
-            align-items: center;
-            gap: 16px;
+            width: 100%;
+            display: none;
           }
-          nav a {
-            width: 80%;
-            padding: 18px 0;
-            font-size: 1.15em;
-            min-height: 48px;
-            margin: 0;
+
+          nav.active {
+            display: flex;
+          }
+
+          .menu-toggle {
+            display: flex;
           }
         }
 
@@ -173,20 +188,60 @@
           transform: translateY(-3px) scale(1.05);
           box-shadow: 0 6px 15px rgba(0,0,0,0.25);
         }
+
+        /* Responsive About Section */
+        .about-container {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: flex-start;
+          gap: 20px;
+        }
+        .doctor-photo {
+          max-width: 220px;
+          width: 100%;
+          border-radius: 10px;
+          box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+          flex-shrink: 0;
+        }
+        .about-text {
+          flex: 1;
+          min-width: 250px;
+        }
+        @media (max-width: 700px) {
+          .about-container {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+          }
+          .about-text {
+            min-width: 100%;
+          }
+          .doctor-photo {
+            max-width: 80%;
+          }
+        }
     </style>
 </head>
 <body>
 
 <header>
   <div class="header-top">
-    <img src="logo.webp" alt="Mehar Physiotherapy Clinic Logo">
-    <div class="header-text">
-      <h1>Mehar Physiotherapy Clinic</h1>
-      <p>By Dr. Govindpreet Singh Arneja (B.P.T., M.I.A.P.)</p>
+    <div class="logo-title">
+      <img src="logo.webp" alt="Mehar Physiotherapy Clinic Logo">
+      <div class="header-text">
+        <h1>Mehar Physiotherapy Clinic</h1>
+        <p>By Dr. Govindpreet Singh Arneja (B.P.T., M.I.A.P.)</p>
+      </div>
+    </div>
+
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
   </div>
-  
-  <nav>
+
+  <nav id="nav-menu">
       <a href="index.html#home">Home</a>
       <a href="index.html#about">About</a>
       <a href="index.html#services">Services</a>
@@ -203,13 +258,18 @@
 
 <section id="about">
   <h2>About Me</h2>
-  <p><strong>Dr. Govindpreet Singh Arneja (B.P.T., M.I.A.P.)</strong> — I am a physiotherapist with over two decades of experience providing expert physiotherapy treatment in <strong>Greater Noida West</strong>. At <strong>Mehar Physiotherapy Clinic</strong>, I deliver personalised, evidence-based care to help patients recover from pain, injuries, and mobility issues while restoring long-term function and confidence.</p>
+  <div class="about-container">
+    <img src="images/doctor.jpg" alt="Dr. Govindpreet Singh Arneja" class="doctor-photo">
+    <div class="about-text">
+      <p><strong>Dr. Govindpreet Singh Arneja (B.P.T., M.I.A.P.)</strong> — I am a physiotherapist with over two decades of experience providing expert physiotherapy treatment in <strong>Greater Noida West</strong>. At <strong>Mehar Physiotherapy Clinic</strong>, I deliver personalised, evidence-based care to help patients recover from pain, injuries, and mobility issues while restoring long-term function and confidence.</p>
 
-  <p>My areas of expertise include <strong>orthopedic physiotherapy</strong>, <strong>neurological rehabilitation</strong>, <strong>sports injury management</strong>, <strong>post-surgical physiotherapy</strong>, <strong>pediatric physiotherapy</strong>, and comprehensive <strong>spinal &amp; musculoskeletal rehabilitation</strong>. I also specialise in <strong>manual therapy</strong>, <strong>upper limb mobilisation (MRL)</strong>, <strong>PNF techniques</strong>, and <strong>gait analysis</strong>. Treatment plans are tailored to your condition, goals, and lifestyle, with clear home-exercise guidance for sustained results.</p>
+      <p>My areas of expertise include <strong>orthopedic physiotherapy</strong>, <strong>neurological rehabilitation</strong>, <strong>sports injury management</strong>, <strong>post-surgical physiotherapy</strong>, <strong>pediatric physiotherapy</strong>, and comprehensive <strong>spinal &amp; musculoskeletal rehabilitation</strong>. I also specialise in <strong>manual therapy</strong>, <strong>upper limb mobilisation (MRL)</strong>, <strong>PNF techniques</strong>, and <strong>gait analysis</strong>. Treatment plans are tailored to your condition, goals, and lifestyle, with clear home-exercise guidance for sustained results.</p>
 
-  <p>Patients frequently visit me for <strong>back pain</strong>, <strong>neck pain</strong>, <strong>knee pain</strong>, <strong>frozen shoulder</strong>, <strong>sports injuries</strong>, <strong>stroke recovery</strong>, and <strong>post-fracture rehabilitation</strong>. I provide one-on-one attention in a calm, professional setting, combining clinical expertise with compassionate care so you can regain mobility, reduce pain, and improve quality of life.</p>
+      <p>Patients frequently visit me for <strong>back pain</strong>, <strong>neck pain</strong>, <strong>knee pain</strong>, <strong>frozen shoulder</strong>, <strong>sports injuries</strong>, <strong>stroke recovery</strong>, and <strong>post-fracture rehabilitation</strong>. I provide one-on-one attention in a calm, professional setting, combining clinical expertise with compassionate care so you can regain mobility, reduce pain, and improve quality of life.</p>
 
-  <p>Conveniently located in <strong>Gaur City 2, Greater Noida West</strong>, my clinic is easily accessible to nearby neighbourhoods and Noida Extension. If you are looking for a trusted <strong>physiotherapist near you</strong>, I invite you to visit Mehar Physiotherapy Clinic for advanced and personalised treatment.</p>
+      <p>Conveniently located in <strong>Gaur City 2, Greater Noida West</strong>, my clinic is easily accessible to nearby neighbourhoods and Noida Extension. If you are looking for a trusted <strong>physiotherapist near you</strong>, I invite you to visit Mehar Physiotherapy Clinic for advanced and personalised treatment.</p>
+    </div>
+  </div>
 </section>
 
 <section id="services">
@@ -241,5 +301,14 @@
     <p>&copy; 2025 Mehar Physiotherapy Clinic. All Rights Reserved.</p>
 </footer>
 
+<script>
+  // Mobile menu toggle
+  const toggle = document.getElementById('menu-toggle');
+  const nav = document.getElementById('nav-menu');
+  toggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+  });
+</script>
+
 </body>
-    </html>
+</html>
