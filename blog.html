@@ -23,7 +23,12 @@ body{
   margin:auto;
   padding:20px;
 }
-header{text-align:center;margin-bottom:30px;position:relative;}
+header{
+  text-align:center;
+  margin-bottom:30px;
+  position:relative;
+  padding-top:50px; /* Keeps space at top for header */
+}
 h1{color:var(--brand-green);}
 .blog-grid{
   display:grid;
@@ -74,16 +79,16 @@ footer{
 }
 /* Home button styling */
 .home-button{
-  position:absolute;
-  top:0;
-  left:0;
-  margin:10px;
+  position:fixed;   /* Changed from absolute to fixed */
+  top:10px;
+  left:10px;
   background:var(--brand-green);
   color:#fff;
   padding:8px 14px;
   border-radius:6px;
   font-size:14px;
   text-decoration:none;
+  z-index:1000;     /* Ensures it stays above content */
   transition: background 0.3s, transform 0.2s;
 }
 .home-button:hover{
@@ -96,7 +101,7 @@ footer{
 <div class="container">
 <header>
   <a href="index.html" class="home-button">Home</a>
-  <h1>Mehar Physiotherapy Clinic Blog</h1>
+  <h1>Mehar Physiotherapy Clinic Blogs</h1>
   <p>Expert tips and insights for your health and recovery</p>
 </header>
 <div class="blog-grid">
