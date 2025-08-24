@@ -6,7 +6,7 @@
 <title>Sports Injury Recovery Guide | Mehar Physiotherapy Clinic</title>
 <meta name="description" content="Recover from sports injuries safely with physiotherapy. Learn expert tips on pain relief, rehabilitation, and prevention from Mehar Physiotherapy Clinic." />
 <style>
-/* Box sizing for consistent padding/margin handling */
+/* Box sizing for consistent padding and margin handling */
 * {
   box-sizing: border-box;
 }
@@ -48,7 +48,7 @@ a.button, button.button {
   margin-bottom: 20px;
   text-decoration: none;
   background: #0f6b3a;
-  color: white;
+  color: #ffffff;
   padding: 10px 16px;
   border-radius: 6px;
   font-size: 14px;
@@ -56,11 +56,29 @@ a.button, button.button {
   cursor: pointer;
   text-align: center;
   word-break: break-word; /* Prevent button text overflow */
+  transition: background 0.3s ease, transform 0.2s ease, color 0.3s ease;
+}
+
+a.button:hover, button.button:hover {
+  background: #0c522d;
+  color: #ffffff; /* keep text bright white */
+  transform: scale(1.05);
 }
 
 /* Related articles list */
 ul {
   padding-left: 20px;
+}
+
+ul li a {
+  color: #0f6b3a;
+  text-decoration: none;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+ul li a:hover {
+  color: #0c522d;
+  text-decoration: underline;
 }
 
 /* Responsive adjustments for small screens */
