@@ -219,7 +219,40 @@
           .doctor-photo {
             max-width: 80%;
           }
+
+          /* Back to top button only for mobile */
+          #backToTop {
+            right: 20px;
+            left: auto;
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            background: rgba(0, 121, 107, 0.5);   /* Translucent background */
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            padding: 12px 16px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 9999;
+            transition: background 0.25s, transform 0.25s;
+            outline: none;
+          }
+          #backToTop svg, #backToTop span {
+            color: #fff;
+            font-weight: bold;
+            filter: none;
+            text-shadow: 0 2px 8px #00796b, 0 0 20px #ffffff;
+          }
+          #backToTop:hover {
+            background: rgba(0,77,64,0.7);
+            transform: scale(1.1);
+          }
         }
+
+        /* Hide back-to-top button on larger screens */
+        #backToTop { display: none; }
     </style>
 </head>
 <body>
@@ -301,6 +334,9 @@
     <p>&copy; 2025 Mehar Physiotherapy Clinic. All Rights Reserved.</p>
 </footer>
 
+<!-- Back to Top Button (visible only on mobile and after scroll) -->
+<button id="backToTop" title="Back to Top">↑</button>
+
 <script>
   // Mobile menu toggle
   const toggle = document.getElementById('menu-toggle');
@@ -308,7 +344,32 @@
   toggle.addEventListener('click', () => {
       nav.classList.toggle('active');
   });
+
+  // Back to top functionality (show after 100px scroll, mobile only)
+  const backToTopBtn = document.getElementById('backToTop');
+
+  function handleBackToTopVisibility() {
+    // Only on mobile screens (max-width:700px)
+    if (window.innerWidth <= 700) {
+      if (window.pageYOffset > 100) {
+        backToTopBtn.style.display = "block";
+      } else {
+        backToTopBtn.style.display = "none";
+      }
+    } else {
+      backToTopBtn.style.display = "none";
+    }
+  }
+
+  window.addEventListener('scroll', handleBackToTopVisibility);
+  window.addEventListener('resize', handleBackToTopVisibility);
+  document.addEventListener('DOMContentLoaded', handleBackToTopVisibility);
+
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  });
 </script>
 
 </body>
-</html>
+          </html>
+          
