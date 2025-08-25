@@ -1,42 +1,60 @@
-const fs = require('fs');
-const path = require('path');
-const { SitemapStream, streamToPromise } = require('sitemap');
+const fs = require("fs");
+const path = require("path");
+const { SitemapStream, streamToPromise } = require("sitemap");
+
+const baseUrl = "https://yourdomain.com"; // <-- replace with your actual website URL
+
+// Collect all .html files
+function scanDir(dir, fileList = []) {
+  const files = fs.readdirSync(dir);
+
+  files.forEach((file) => {
+    const filePath = path.join(dir, file);
+    const stat = fs.statSync(filePath);
+
+    if (stat.isDirectory()) {
+      scanDir(filePath, fileList);
+    } else if (file.endsWith(".html")) {
+      // Turn file path into a URL path
+      let urlPath = path.relative(".", filePath).replace(/\\/g, "/");
+
+      // remove "index.html" from URLs
+      if (urlPath.endsWith("index.html")) {
+        urlPath = urlPath.replace("index.html", "");
+      }
+
+      fileList.push(`/${urlPath}`);
+    }
+  });
+
+  return fileList;
+}
 
 (async () => {
   try {
-    const hostname = 'https://meharphysiotherapyclinic.github.io';
-    const basePath = 'website';
-    const files = [];
+    console.log("🔍 Scanning repo for .html files...");
+    const links = scanDir(".");
 
-    function scanDir(dir) {
-      fs.readdirSync(dir).forEach(file => {
-        const filePath = path.join(dir, file);
-        if (fs.statSync(filePath).isDirectory()) {
-          scanDir(filePath);
-        } else if (file.endsWith('.html')) {
-          let relative = path.relative(basePath, filePath).replace(/\\/g, '/');
-          files.push('/' + basePath + '/' + relative);
-        }
-      });
+    if (links.length === 0) {
+      throw new Error("No .html files found in repo!");
     }
 
-    scanDir(basePath);
+    console.log("✅ Found HTML files:", links);
 
-    const smStream = new SitemapStream({ hostname });
+    // Generate sitemap
+    const stream = new SitemapStream({ hostname: baseUrl });
+    links.forEach((link) => stream.write({ url: link, changefreq: "weekly" }));
+    stream.end();
 
-    files.forEach(file => {
-      const filePath = path.join(basePath, file.replace('/' + basePath + '/', ''));
-      const stats = fs.statSync(filePath);
-      const lastmod = stats.mtime.toISOString();
-      smStream.write({ url: file, changefreq: 'weekly', priority: 0.8, lastmod });
-    });
-    smStream.end();
+    const data = await streamToPromise(stream);
 
-    const data = await streamToPromise(smStream);
-    fs.writeFileSync('website/sitemap.xml', data.toString());
-    console.log('✅ Sitemap generated successfully');
+    // Ensure folder exists (repo root)
+    const outputPath = path.join(".", "sitemap.xml");
+    fs.writeFileSync(outputPath, data.toString());
+
+    console.log("🎉 Sitemap generated successfully:", outputPath);
   } catch (err) {
-    console.error('❌ Error generating sitemap:', err);
+    console.error("❌ Error generating sitemap:", err);
     process.exit(1);
   }
 })();
