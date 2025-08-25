@@ -1,11 +1,17 @@
 const { SitemapStream, streamToPromise } = require('sitemap');
-const { createWriteStream, readdirSync, statSync } = require('fs');
+const { createWriteStream, readdirSync, statSync, mkdirSync, existsSync } = require('fs');
 const path = require('path');
 
 // Folder containing your website HTML files
-const WEBSITE_DIR = path.join(__dirname, 'website'); // adjust if your HTML files are elsewhere
+const WEBSITE_DIR = path.join(__dirname, 'website'); // adjust if HTML files are elsewhere
 const OUTPUT_FILE = path.join(__dirname, 'sitemap.xml'); // sitemap at repo root
 const BASE_URL = 'https://meharphysiotherapyclinic.github.io/website'; // Your live URL
+
+// Ensure website folder exists
+if (!existsSync(WEBSITE_DIR)) {
+  console.warn('⚠ Website folder not found, creating it...');
+  mkdirSync(WEBSITE_DIR, { recursive: true });
+}
 
 // Recursively find HTML files (ignore non-HTML)
 function getHtmlFiles(dir) {
@@ -35,8 +41,16 @@ async function generateSitemap() {
     htmlFiles.forEach(file => {
       const relativePath = path.relative(WEBSITE_DIR, file).replace(/\\/g, '/');
       const urlPath = relativePath === 'index.html' ? '/' : '/' + relativePath;
-      console.log('✔', urlPath);
-      sitemap.write({ url: urlPath, changefreq: 'weekly', priority: 0.7 });
+
+      const stats = statSync(file); // get file last modified date
+      sitemap.write({
+        url: urlPath,
+        changefreq: 'weekly',
+        priority: 0.7,
+        lastmod: stats.mtime.toISOString() // dynamically add lastmod
+      });
+
+      console.log('✔', urlPath, 'lastmod:', stats.mtime.toISOString());
     });
 
     sitemap.end();
