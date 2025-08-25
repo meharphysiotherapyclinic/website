@@ -6,7 +6,7 @@ on:
       - main
   workflow_dispatch:
   schedule:
-    - cron: "0 0 * * 0"   # Every Sunday at midnight (UTC)
+    - cron: "0 0 * * 0"   # Every Sunday at midnight UTC
 
 jobs:
   generate:
@@ -20,8 +20,8 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install sitemap generator
-        run: npm install sitemap
+      - name: Install sitemap library
+        run: npm install -g sitemap
 
       - name: Generate sitemap
         run: |
@@ -67,8 +67,7 @@ jobs:
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           git add website/sitemap.xml
-          git commit -m "Auto-update sitemap" || echo "No changes to commit"
-          git push
+          git diff --quiet && echo "No changes to commit" || (git commit -m "Auto-update sitemap" && git push)
 
       - name: Ping Google & Bing
         run: |
