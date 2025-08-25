@@ -1,22 +1,22 @@
-const { SitemapStream, streamToPromise } = require('sitemap');
+const { SitemapStream, streamToPromise } = require('sitemap'); // Correct for v3.2.2
 const { createWriteStream, readdirSync, statSync } = require('fs');
 const path = require('path');
 
 // Folder containing your website HTML files
 const WEBSITE_DIR = path.join(__dirname, 'website'); 
-const OUTPUT_FILE = path.join(WEBSITE_DIR, 'sitemap.xml'); // Sitemap saved inside 'website'
-const BASE_URL = 'https://meharphysiotherapyclinic.github.io/website'; // Replace with your live URL
+const OUTPUT_FILE = path.join(WEBSITE_DIR, 'sitemap.xml'); // Sitemap inside 'website' folder
+const BASE_URL = 'https://meharphysiotherapyclinic.github.io/website'; // Your live URL
 
-// Recursively find all HTML files (ignore non-HTML files)
+// Recursively find HTML files (ignore non-HTML)
 function getHtmlFiles(dir) {
   let results = [];
   const list = readdirSync(dir);
   list.forEach(file => {
     const filePath = path.join(dir, file);
     const stat = statSync(filePath);
-    if (stat && stat.isDirectory()) {
+    if (stat.isDirectory()) {
       results = results.concat(getHtmlFiles(filePath));
-    } else if (file.endsWith('.html')) { // Only include HTML files
+    } else if (file.endsWith('.html')) {
       results.push(filePath);
     }
   });
@@ -25,22 +25,21 @@ function getHtmlFiles(dir) {
 
 // Generate sitemap
 async function generateSitemap() {
-  const sitemap = new SitemapStream({ hostname: BASE_URL });
-  const writeStream = createWriteStream(OUTPUT_FILE);
-  sitemap.pipe(writeStream);
-
-  const htmlFiles = getHtmlFiles(WEBSITE_DIR);
-  console.log('Adding URLs to sitemap:');
-  htmlFiles.forEach(file => {
-    const relativePath = path.relative(WEBSITE_DIR, file).replace(/\\/g, '/');
-    const urlPath = relativePath === 'index.html' ? '/' : '/' + relativePath;
-    console.log('✔', urlPath);
-    sitemap.write({ url: urlPath, changefreq: 'weekly', priority: 0.7 });
-  });
-
-  sitemap.end();
-
   try {
+    const sitemap = new SitemapStream({ hostname: BASE_URL });
+    const writeStream = createWriteStream(OUTPUT_FILE);
+    sitemap.pipe(writeStream);
+
+    const htmlFiles = getHtmlFiles(WEBSITE_DIR);
+    console.log('Adding URLs to sitemap:');
+    htmlFiles.forEach(file => {
+      const relativePath = path.relative(WEBSITE_DIR, file).replace(/\\/g, '/');
+      const urlPath = relativePath === 'index.html' ? '/' : '/' + relativePath;
+      console.log('✔', urlPath);
+      sitemap.write({ url: urlPath, changefreq: 'weekly', priority: 0.7 });
+    });
+
+    sitemap.end();
     await streamToPromise(sitemap);
     console.log('✅ Sitemap generated successfully at', OUTPUT_FILE);
   } catch (err) {
