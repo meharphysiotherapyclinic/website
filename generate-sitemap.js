@@ -4,7 +4,7 @@ const path = require('path');
 
 // Folder containing your website HTML files
 const WEBSITE_DIR = path.join(__dirname, 'website'); // adjust if HTML files are elsewhere
-const OUTPUT_FILE = path.join(WEBSITE_DIR, 'sitemap.xml'); // inside website folder
+const OUTPUT_FILE = path.join(__dirname, 'sitemap.xml'); // sitemap at repo root
 const BASE_URL = 'https://meharphysiotherapyclinic.github.io/website'; // Your live URL
 
 // Ensure website folder exists
