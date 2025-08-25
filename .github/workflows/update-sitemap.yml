@@ -22,14 +22,12 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: |
-          npm init -y
-          npm install sitemap@3.2.2
+        run: npm install sitemap@3.2.2
 
       - name: Generate sitemap
         run: node generate-sitemap.js
 
-      - name: Commit sitemap
+      - name: Commit sitemap if changed
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
