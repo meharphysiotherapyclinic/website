@@ -1,40 +1,37 @@
-name: Update Sitemap
+name: Generate Sitemap
 
 on:
   push:
     branches:
       - main
-  workflow_dispatch:
   schedule:
-    - cron: "0 0 * * 0"   # Every Sunday at midnight UTC
+    - cron: '30 17 * * *'  # Runs daily at 11 PM IST
 
 jobs:
-  generate:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: '20'
 
-      - name: Install sitemap dependency
-        run: npm install sitemap@3.2.2
+      - name: Install sitemap generator
+        run: npm install -g sitemap-generator-cli
 
-      - name: Generate sitemap
-        run: node generate-sitemap.js
+      - name: Generate the sitemap
+        run: sitemap-generator-cli https://meharphysiotherapyclinic.github.io/website/ -o sitemap.xml --verbose
 
-      - name: Commit sitemap if changed
-        run: |
-          git config --local user.email "actions@github.com"
-          git config --local user.name "GitHub Actions"
-          git add sitemap.xml
-          git diff --quiet && echo "No changes to commit" || (git commit -m "Auto-update sitemap" && git push origin HEAD:main)
-
-      - name: Ping Google & Bing
-        run: |
-          curl "https://www.google.com/ping?sitemap=https://meharphysiotherapyclinic.github.io/website/sitemap.xml"
-          curl "https://www.bing.com/ping?sitemap=https://meharphysiotherapyclinic.github.io/website/sitemap.xml"
+      - name: Commit and push the sitemap
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "docs: Auto-generate sitemap.xml"
+          file_pattern: sitemap.xml
+          commit_user_name: "GitHub Actions Bot"
+          commit_user_email: "github-actions[bot]@users.noreply.github.com"
+          commit_author: "GitHub Actions Bot <github-actions[bot]@users.noreply.github.com>"
+          
