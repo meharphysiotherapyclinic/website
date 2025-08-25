@@ -1,60 +1,51 @@
-const fs = require("fs");
-const path = require("path");
-const { SitemapStream, streamToPromise } = require("sitemap");
+const { SitemapStream, streamToPromise } = require('sitemap');
+const { createWriteStream, readdirSync, statSync } = require('fs');
+const path = require('path');
 
-const baseUrl = "https://yourdomain.com"; // <-- replace with your actual website URL
+// Folder containing your website HTML files
+const WEBSITE_DIR = path.join(__dirname, 'website'); 
+const OUTPUT_FILE = path.join(WEBSITE_DIR, 'sitemap.xml'); // Sitemap saved inside 'website'
+const BASE_URL = 'https://meharphysiotherapyclinic.github.io/website'; // Replace with your live URL
 
-// Collect all .html files
-function scanDir(dir, fileList = []) {
-  const files = fs.readdirSync(dir);
-
-  files.forEach((file) => {
+// Recursively find all HTML files (ignore non-HTML files)
+function getHtmlFiles(dir) {
+  let results = [];
+  const list = readdirSync(dir);
+  list.forEach(file => {
     const filePath = path.join(dir, file);
-    const stat = fs.statSync(filePath);
-
-    if (stat.isDirectory()) {
-      scanDir(filePath, fileList);
-    } else if (file.endsWith(".html")) {
-      // Turn file path into a URL path
-      let urlPath = path.relative(".", filePath).replace(/\\/g, "/");
-
-      // remove "index.html" from URLs
-      if (urlPath.endsWith("index.html")) {
-        urlPath = urlPath.replace("index.html", "");
-      }
-
-      fileList.push(`/${urlPath}`);
+    const stat = statSync(filePath);
+    if (stat && stat.isDirectory()) {
+      results = results.concat(getHtmlFiles(filePath));
+    } else if (file.endsWith('.html')) { // Only include HTML files
+      results.push(filePath);
     }
   });
-
-  return fileList;
+  return results;
 }
 
-(async () => {
+// Generate sitemap
+async function generateSitemap() {
+  const sitemap = new SitemapStream({ hostname: BASE_URL });
+  const writeStream = createWriteStream(OUTPUT_FILE);
+  sitemap.pipe(writeStream);
+
+  const htmlFiles = getHtmlFiles(WEBSITE_DIR);
+  console.log('Adding URLs to sitemap:');
+  htmlFiles.forEach(file => {
+    const relativePath = path.relative(WEBSITE_DIR, file).replace(/\\/g, '/');
+    const urlPath = relativePath === 'index.html' ? '/' : '/' + relativePath;
+    console.log('✔', urlPath);
+    sitemap.write({ url: urlPath, changefreq: 'weekly', priority: 0.7 });
+  });
+
+  sitemap.end();
+
   try {
-    console.log("🔍 Scanning repo for .html files...");
-    const links = scanDir(".");
-
-    if (links.length === 0) {
-      throw new Error("No .html files found in repo!");
-    }
-
-    console.log("✅ Found HTML files:", links);
-
-    // Generate sitemap
-    const stream = new SitemapStream({ hostname: baseUrl });
-    links.forEach((link) => stream.write({ url: link, changefreq: "weekly" }));
-    stream.end();
-
-    const data = await streamToPromise(stream);
-
-    // Ensure folder exists (repo root)
-    const outputPath = path.join(".", "sitemap.xml");
-    fs.writeFileSync(outputPath, data.toString());
-
-    console.log("🎉 Sitemap generated successfully:", outputPath);
+    await streamToPromise(sitemap);
+    console.log('✅ Sitemap generated successfully at', OUTPUT_FILE);
   } catch (err) {
-    console.error("❌ Error generating sitemap:", err);
-    process.exit(1);
+    console.error('❌ Error generating sitemap:', err);
   }
-})();
+}
+
+generateSitemap();
