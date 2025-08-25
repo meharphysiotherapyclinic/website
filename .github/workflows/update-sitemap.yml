@@ -11,6 +11,7 @@ on:
 jobs:
   generate:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -21,53 +22,17 @@ jobs:
           node-version: 18
 
       - name: Install sitemap library
-        run: npm install -g sitemap
+        run: npm install -g sitemap@3.2.2   # CommonJS-compatible version
 
       - name: Generate sitemap
-        run: |
-          node << 'EOF'
-          const fs = require('fs');
-          const path = require('path');
-          const { SitemapStream, streamToPromise } = require('sitemap');
-
-          const hostname = 'https://meharphysiotherapyclinic.github.io';
-          const basePath = 'website';
-          const files = [];
-
-          function scanDir(dir) {
-            fs.readdirSync(dir).forEach(file => {
-              const filePath = path.join(dir, file);
-              if (fs.statSync(filePath).isDirectory()) {
-                scanDir(filePath);
-              } else if (file.endsWith('.html')) {
-                let relative = path.relative(basePath, filePath).replace(/\\/g, '/');
-                files.push('/' + basePath + '/' + relative);
-              }
-            });
-          }
-
-          scanDir(basePath);
-          const smStream = new SitemapStream({ hostname });
-
-          files.forEach(file => {
-            const filePath = path.join(basePath, file.replace('/' + basePath + '/', ''));
-            const stats = fs.statSync(filePath);
-            const lastmod = stats.mtime.toISOString();
-            smStream.write({ url: file, changefreq: 'weekly', priority: 0.8, lastmod });
-          });
-          smStream.end();
-
-          streamToPromise(smStream).then(data => {
-            fs.writeFileSync('website/sitemap.xml', data.toString());
-          });
-          EOF
+        run: node generate-sitemap.js       # Run external script
 
       - name: Commit sitemap
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           git add website/sitemap.xml
-          git diff --quiet && echo "No changes to commit" || (git commit -m "Auto-update sitemap" && git push)
+          git diff --quiet && echo "No changes to commit" || (git commit -m "Auto-update sitemap" && git push origin HEAD:main)
 
       - name: Ping Google & Bing
         run: |
