@@ -37,20 +37,21 @@ async function generateSitemap() {
     sitemap.pipe(writeStream);
 
     const htmlFiles = getHtmlFiles(WEBSITE_DIR);
+    const now = new Date().toISOString(); // use current date for lastmod
     console.log('Adding URLs to sitemap:');
+    
     htmlFiles.forEach(file => {
       const relativePath = path.relative(WEBSITE_DIR, file).replace(/\\/g, '/');
       const urlPath = relativePath === 'index.html' ? '/' : '/' + relativePath;
 
-      const stats = statSync(file); // get file last modified date
       sitemap.write({
         url: urlPath,
         changefreq: 'weekly',
         priority: 0.7,
-        lastmod: stats.mtime.toISOString() // dynamically add lastmod
+        lastmod: now
       });
 
-      console.log('✔', urlPath, 'lastmod:', stats.mtime.toISOString());
+      console.log('✔', urlPath, 'lastmod:', now);
     });
 
     sitemap.end();
