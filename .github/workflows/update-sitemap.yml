@@ -21,11 +21,13 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install sitemap library
-        run: npm install -g sitemap@3.2.2   # CommonJS-compatible version
+      - name: Install dependencies
+        run: |
+          npm init -y
+          npm install sitemap@3.2.2
 
       - name: Generate sitemap
-        run: node generate-sitemap.js       # Run external script
+        run: node generate-sitemap.js
 
       - name: Commit sitemap
         run: |
