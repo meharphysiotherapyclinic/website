@@ -1,11 +1,18 @@
-const { SitemapStream, streamToPromise } = require('sitemap'); // Correct for v3.2.2
-const { createWriteStream, readdirSync, statSync } = require('fs');
+const { SitemapStream, streamToPromise } = require('sitemap');
+const { createWriteStream, readdirSync, statSync, mkdirSync, existsSync } = require('fs');
 const path = require('path');
 
 // Folder containing your website HTML files
+// Change this if your HTML files are in a subfolder
 const WEBSITE_DIR = path.join(__dirname, 'website'); 
-const OUTPUT_FILE = path.join(WEBSITE_DIR, 'sitemap.xml'); // Sitemap inside 'website' folder
+const OUTPUT_FILE = path.join(__dirname, 'sitemap.xml'); // Sitemap at repo root
 const BASE_URL = 'https://meharphysiotherapyclinic.github.io/website'; // Your live URL
+
+// Ensure output folder exists
+if (!existsSync(WEBSITE_DIR)) {
+  console.warn('⚠ Website folder not found, creating it...');
+  mkdirSync(WEBSITE_DIR, { recursive: true });
+}
 
 // Recursively find HTML files (ignore non-HTML)
 function getHtmlFiles(dir) {
