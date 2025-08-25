@@ -1,4 +1,4 @@
-name: Generate Sitemap
+name: Generate Sitemap with Lastmod Update
 
 on:
   push:
@@ -26,10 +26,33 @@ jobs:
       - name: Generate the sitemap
         run: npx sitemap-generator-cli https://meharphysiotherapyclinic.github.io/website/ -o sitemap.xml --verbose
 
+      - name: Install xmlstarlet tool
+        run: sudo apt-get update && sudo apt-get install -y xmlstarlet
+
+      - name: Update lastmod dates in sitemap
+        run: |
+          # Get list of files tracked by git that relate to your site (adjust path as needed)
+          git ls-files > files.txt
+
+          # Backup sitemap
+          cp sitemap.xml sitemap_backup.xml
+
+          # Loop over each file to update corresponding URL's lastmod tag
+          while IFS= read -r file; do
+            # Get last commit date in ISO8601 format
+            lastmod_date=$(git log -1 --format=%cd --date=iso-strict "$file")
+
+            # Construct URL from file path (adjust base URL and mapping logic if needed)
+            url="https://meharphysiotherapyclinic.github.io/website/$(echo $file | sed 's/^public\///')"
+
+            # Update lastmod in sitemap.xml where matching <loc> text equals $url
+            xmlstarlet ed -L -u "//url[loc[text()='$url']]/lastmod" -v "$lastmod_date" sitemap.xml || true
+          done < files.txt
+
       - name: Commit and push the sitemap
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "docs: Auto-generate sitemap.xml"
+          commit_message: "docs: Auto-generate sitemap.xml with lastmod update"
           file_pattern: sitemap.xml
           commit_user_name: "GitHub Actions Bot"
           commit_user_email: "github-actions[bot]@users.noreply.github.com"
