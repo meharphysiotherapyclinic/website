@@ -1,11 +1,11 @@
 const { SitemapStream, streamToPromise } = require('sitemap');
-const { createWriteStream, readdirSync, mkdirSync, existsSync } = require('fs');
+const { createWriteStream, readdirSync, statSync, mkdirSync, existsSync } = require('fs');
 const path = require('path');
 
 // Folder containing your website HTML files
-const WEBSITE_DIR = path.join(__dirname, 'website'); // folder served by GitHub Pages
-const OUTPUT_FILE = path.join(WEBSITE_DIR, 'sitemap.xml'); // sitemap inside website/
-const BASE_URL = 'https://meharphysiotherapyclinic.github.io/website'; // live URL
+const WEBSITE_DIR = path.join(__dirname, 'website'); // adjust if HTML files are elsewhere
+const OUTPUT_FILE = path.join(WEBSITE_DIR, 'sitemap.xml'); // inside website folder
+const BASE_URL = 'https://meharphysiotherapyclinic.github.io/website'; // Your live URL
 
 // Ensure website folder exists
 if (!existsSync(WEBSITE_DIR)) {
@@ -19,8 +19,8 @@ function getHtmlFiles(dir) {
   const list = readdirSync(dir);
   list.forEach(file => {
     const filePath = path.join(dir, file);
-    const stat = existsSync(filePath) ? require('fs').statSync(filePath) : null;
-    if (stat && stat.isDirectory()) {
+    const stat = statSync(filePath);
+    if (stat.isDirectory()) {
       results = results.concat(getHtmlFiles(filePath));
     } else if (file.endsWith('.html')) {
       results.push(filePath);
@@ -37,9 +37,9 @@ async function generateSitemap() {
     sitemap.pipe(writeStream);
 
     const htmlFiles = getHtmlFiles(WEBSITE_DIR);
-    const now = new Date().toISOString(); // current timestamp
+    const now = new Date().toISOString(); // use current date for lastmod
     console.log('Adding URLs to sitemap:');
-
+    
     htmlFiles.forEach(file => {
       const relativePath = path.relative(WEBSITE_DIR, file).replace(/\\/g, '/');
       const urlPath = relativePath === 'index.html' ? '/' : '/' + relativePath;
