@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '30 17 * * *'  # Runs daily at 11 PM IST
+    - cron: '30 17 * * *'  # Runs daily at 11 PM IST (17:30 UTC)
 
 jobs:
   build:
@@ -21,10 +21,10 @@ jobs:
           node-version: '20'
 
       - name: Install sitemap generator
-        run: npm install -g sitemap-generator-cli
+        run: npm install sitemap-generator-cli
 
       - name: Generate the sitemap
-        run: sitemap-generator-cli https://meharphysiotherapyclinic.github.io/website/ -o sitemap.xml --verbose
+        run: npx sitemap-generator-cli https://meharphysiotherapyclinic.github.io/website/ -o sitemap.xml --verbose
 
       - name: Commit and push the sitemap
         uses: stefanzweifel/git-auto-commit-action@v5
