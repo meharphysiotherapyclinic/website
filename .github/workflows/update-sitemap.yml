@@ -32,11 +32,17 @@ jobs:
 
       - name: Update lastmod dates in sitemap
         run: |
-          git ls-files > files.txt
+          # Get only .html files tracked in git
+          git ls-files '*.html' > files.txt
 
           while IFS= read -r file; do
             lastmod_date=$(git log -1 --format=%cd --date=iso-strict "$file")
-            url="https://meharphysiotherapyclinic.github.io/website/$(echo "$file" | sed 's/^public\///')"
+
+            if [ "$file" = "index.html" ]; then
+              url="https://meharphysiotherapyclinic.github.io/website/"
+            else
+              url="https://meharphysiotherapyclinic.github.io/website/$file"
+            fi
 
             echo "Updating $url with lastmod $lastmod_date"
 
@@ -57,4 +63,3 @@ jobs:
           commit_user_name: "GitHub Actions Bot"
           commit_user_email: "github-actions[bot]@users.noreply.github.com"
           commit_author: "GitHub Actions Bot <github-actions[bot]@users.noreply.github.com>"
-          
