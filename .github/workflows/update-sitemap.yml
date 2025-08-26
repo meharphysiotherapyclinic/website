@@ -6,7 +6,7 @@ on:
       - main
   schedule:
     - cron: '30 17 * * *'  # Runs daily at 11 PM IST (17:30 UTC)
-  workflow_dispatch:       # Enables manual runs from the Actions tab
+  workflow_dispatch:
 
 jobs:
   build:
@@ -32,7 +32,6 @@ jobs:
 
       - name: Update lastmod dates in sitemap
         run: |
-          # Get only .html files tracked in git
           git ls-files '*.html' > files.txt
 
           while IFS= read -r file; do
@@ -51,11 +50,11 @@ jobs:
                 -t -v "count(//x:url[x:loc[text()='$url']]/x:lastmod)" sitemap.xml)
 
               if [ "$lastmod_exists" -eq 0 ]; then
-                xmlstarlet ed -N x="http://www.sitemaps.org/schemas/sitemap/0.9" -L \
-                  -s "//x:url[x:loc[text()='$url']]" -t elem -n lastmod -v "$lastmod_date" sitemap.xml
+                xmlstarlet ed -N x="http://www.sitemaps.org/schemas/sitemap/0.9" \
+                  -s "//x:url[x:loc[text()='$url']]" -t elem -n lastmod -v "$lastmod_date" sitemap.xml > sitemap.tmp && mv sitemap.tmp sitemap.xml
               else
-                xmlstarlet ed -N x="http://www.sitemaps.org/schemas/sitemap/0.9" -L \
-                  -u "//x:url[x:loc[text()='$url']]/x:lastmod" -v "$lastmod_date" sitemap.xml
+                xmlstarlet ed -N x="http://www.sitemaps.org/schemas/sitemap/0.9" \
+                  -u "//x:url[x:loc[text()='$url']]/x:lastmod" -v "$lastmod_date" sitemap.xml > sitemap.tmp && mv sitemap.tmp sitemap.xml
               fi
             done
           done < files.txt
