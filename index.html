@@ -215,20 +215,19 @@
           }
           .about-text {
             min-width: 100%;
-            text-align: left; /* ✅ Keep text left-aligned on mobile */
+            text-align: left;
           }
           .doctor-photo {
             max-width: 80%;
           }
 
-          /* Back to top button only for mobile */
           #backToTop {
             right: 20px;
             left: auto;
             display: none;
             position: fixed;
             bottom: 20px;
-            background: rgba(0, 121, 107, 0.5);   /* Translucent background */
+            background: rgba(0, 121, 107, 0.5);
             color: #fff;
             border: none;
             border-radius: 50%;
@@ -240,19 +239,12 @@
             transition: background 0.25s, transform 0.25s;
             outline: none;
           }
-          #backToTop svg, #backToTop span {
-            color: #fff;
-            font-weight: bold;
-            filter: none;
-            text-shadow: 0 2px 8px #00796b, 0 0 20px #ffffff;
-          }
           #backToTop:hover {
             background: rgba(0,77,64,0.7);
             transform: scale(1.1);
           }
         }
 
-        /* Hide back-to-top button on larger screens */
         #backToTop { display: none; }
     </style>
 </head>
@@ -329,13 +321,14 @@
     <a href="https://maps.app.goo.gl/24Ryeu3vgkUWpB7a8" class="contact-btn" target="_blank">📍 Location</a>
     <a href="https://wa.me/919810359247" class="contact-btn" target="_blank">WhatsApp</a>
     <a href="https://meharphysiotherapyclinic.github.io/vcard" class="contact-btn" target="_blank">📇 vCard</a>
+    <a href="appointment.html" class="contact-btn" target="_blank">📅 Book Appointment</a>
 </section>
 
 <footer>
     <p>&copy; 2025 Mehar Physiotherapy Clinic. All Rights Reserved.</p>
 </footer>
 
-<!-- Back to Top Button (visible only on mobile and after scroll) -->
+<!-- Back to Top Button -->
 <button id="backToTop" title="Back to Top">↑</button>
 
 <script>
@@ -346,11 +339,10 @@
       nav.classList.toggle('active');
   });
 
-  // Back to top functionality (show after 100px scroll, mobile only)
+  // Back to top functionality
   const backToTopBtn = document.getElementById('backToTop');
 
   function handleBackToTopVisibility() {
-    // Only on mobile screens (max-width:700px)
     if (window.innerWidth <= 700) {
       if (window.pageYOffset > 100) {
         backToTopBtn.style.display = "block";
