@@ -7,49 +7,90 @@
   <meta name="description" content="Book an appointment at Mehar Physiotherapy Clinic, Greater Noida. Fill out the form with your preferred date and time, and we will confirm your slot.">
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: system-ui, Arial, sans-serif;
       margin: 0;
-      padding: 20px;
+      padding: 0;
       background: #f7f7f7;
+      color: #222;
+      line-height: 1.6;
     }
+
+    /* Clinic Branding */
+    header {
+      background: #0f6b3a;
+      color: #fff;
+      text-align: center;
+      padding: 20px 10px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+    header p {
+      margin: 5px 0 0;
+      font-size: 0.95rem;
+    }
+
+    /* Appointment Container */
     .container {
-      max-width: 600px;
-      margin: 0 auto;
+      max-width: 700px;
+      margin: 40px auto;
       background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
     }
+
     h2 {
       text-align: center;
-      color: #2a5d84;
+      color: #0f6b3a;
+      margin-bottom: 20px;
     }
+
     label {
-      font-weight: bold;
+      font-weight: 600;
       display: block;
       margin-top: 15px;
+      margin-bottom: 5px;
     }
+
     input, textarea, button {
       width: 100%;
-      padding: 10px;
-      margin-top: 5px;
+      padding: 12px;
       border: 1px solid #ccc;
-      border-radius: 5px;
+      border-radius: 6px;
       font-size: 1rem;
     }
+
+    textarea {
+      resize: vertical;
+    }
+
     button {
-      background: #2a5d84;
-      color: white;
+      background: #0f6b3a;
+      color: #fff;
       border: none;
       cursor: pointer;
       margin-top: 20px;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: background 0.3s ease, transform 0.2s ease;
     }
+
     button:hover {
-      background: #1d405b;
+      background: #0c522d;
+      transform: scale(1.03);
     }
   </style>
 </head>
 <body>
+
+  <!-- Clinic Branding -->
+  <header>
+    <h1>Mehar Physiotherapy Clinic</h1>
+  </header>
+
+  <!-- Appointment Form -->
   <div class="container">
     <h2>Book an Appointment</h2>
     <form id="appointmentForm">
@@ -98,5 +139,6 @@
       }
     });
   </script>
+
 </body>
 </html>
