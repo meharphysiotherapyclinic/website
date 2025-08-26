@@ -39,20 +39,25 @@ jobs:
             lastmod_date=$(git log -1 --format=%cd --date=iso-strict "$file")
 
             if [ "$file" = "index.html" ]; then
-              url="https://meharphysiotherapyclinic.github.io/website/"
+              urls=("https://meharphysiotherapyclinic.github.io/website/" "https://meharphysiotherapyclinic.github.io/website/index.html")
             else
-              url="https://meharphysiotherapyclinic.github.io/website/$file"
+              urls=("https://meharphysiotherapyclinic.github.io/website/$file")
             fi
 
-            echo "Updating $url with lastmod $lastmod_date"
+            for url in "${urls[@]}"; do
+              echo "Updating $url with lastmod $lastmod_date"
 
-            lastmod_exists=$(xmlstarlet sel -t -v "count(//url[loc[text()='$url']]/lastmod)" sitemap.xml)
+              lastmod_exists=$(xmlstarlet sel -N x="http://www.sitemaps.org/schemas/sitemap/0.9" \
+                -t -v "count(//x:url[x:loc[text()='$url']]/x:lastmod)" sitemap.xml)
 
-            if [ "$lastmod_exists" -eq 0 ]; then
-              xmlstarlet ed -L -s "//url[loc[text()='$url']]" -t elem -n lastmod -v "$lastmod_date" sitemap.xml
-            else
-              xmlstarlet ed -L -u "//url[loc[text()='$url']]/lastmod" -v "$lastmod_date" sitemap.xml
-            fi
+              if [ "$lastmod_exists" -eq 0 ]; then
+                xmlstarlet ed -N x="http://www.sitemaps.org/schemas/sitemap/0.9" -L \
+                  -s "//x:url[x:loc[text()='$url']]" -t elem -n lastmod -v "$lastmod_date" sitemap.xml
+              else
+                xmlstarlet ed -N x="http://www.sitemaps.org/schemas/sitemap/0.9" -L \
+                  -u "//x:url[x:loc[text()='$url']]/x:lastmod" -v "$lastmod_date" sitemap.xml
+              fi
+            done
           done < files.txt
 
       - name: Commit and push the sitemap
