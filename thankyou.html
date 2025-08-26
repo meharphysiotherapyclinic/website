@@ -1,33 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Thank You | Mehar Physiotherapy Clinic</title>
+  <meta name="description" content="Thank you for booking an appointment with Mehar Physiotherapy Clinic. I will get in touch with you shortly to confirm." />
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f7f7f7;
-      text-align: center;
-      padding: 50px;
-    }
-    .message {
+      font-family: system-ui, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
       background: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      display: inline-block;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      color: #222;
     }
-    h2 {
-      color: #2a5d84;
+
+    /* Clinic Branding */
+    header {
+      background: #0f6b3a;
+      color: #fff;
+      text-align: center;
+      padding: 20px 10px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+    header p {
+      margin: 5px 0 0;
+      font-size: 0.95rem;
+    }
+
+    /* Thank You Box */
+    .box {
+      max-width: 800px;
+      margin: 50px auto;
+      background: #f7f7f7;
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.08);
+    }
+    .box h2 {
+      color: #0f6b3a;
+      margin-bottom: 15px;
+    }
+    .box p {
+      margin-bottom: 20px;
+    }
+    a.button {
+      display: inline-block;
+      margin-top: 15px;
+      text-decoration: none;
+      background: #0f6b3a;
+      color: #ffffff;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 15px;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    a.button:hover {
+      background: #0c522d;
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
-  <div class="message">
+
+  <!-- Clinic Branding -->
+  <header>
+    <h1>Mehar Physiotherapy Clinic</h1>
+ </header>
+
+  <!-- Thank You Message -->
+  <div class="box">
     <h2>Thank You!</h2>
     <p>Your appointment request has been received.<br>
-    We will contact you shortly to confirm the exact timing.</p>
+    I will contact you shortly to confirm the timing.</p>
+
+    <a href="index.html" class="button">← Back to Home</a>
   </div>
+
 </body>
 </html>
