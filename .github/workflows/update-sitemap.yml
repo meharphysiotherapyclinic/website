@@ -6,6 +6,7 @@ on:
       - main
   schedule:
     - cron: '30 17 * * *'  # Runs daily at 11 PM IST (17:30 UTC)
+  workflow_dispatch:       # Enables manual runs from the Actions tab
 
 jobs:
   build:
