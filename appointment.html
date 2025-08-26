@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book an Appointment | Mehar Physiotherapy Clinic</title>
+  <meta name="description" content="Book an appointment at Mehar Physiotherapy Clinic, Greater Noida. Fill out the form with your preferred date and time, and we will confirm your slot.">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f7f7f7;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #2a5d84;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+    input, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    button {
+      background: #2a5d84;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    button:hover {
+      background: #1d405b;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Book an Appointment</h2>
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" required>
+
+      <label for="date">Preferred Date:</label>
+      <input type="date" id="date" name="date" required>
+
+      <label for="time">Preferred Time:</label>
+      <input type="time" id="time" name="time" required>
+
+      <label for="message">Concern / Problem:</label>
+      <textarea id="message" name="message" rows="4"></textarea>
+
+      <!-- Redirect after submission -->
+      <input type="hidden" name="_next" value="https://meharphysiotherapyclinic.github.io/website/thankyou.html">
+
+      <button type="submit">Submit Request</button>
+    </form>
+  </div>
+</body>
+</html>
