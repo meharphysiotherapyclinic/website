@@ -197,8 +197,9 @@
           gap: 20px;
         }
         .doctor-photo {
-          max-width: 75px;
-          width: 100%;
+          width: 150px;        /* default desktop size */
+          max-width: 40%;      /* keeps responsive */
+          height: auto;
           border-radius: 10px;
           box-shadow: 0 4px 10px rgba(0,0,0,0.2);
           flex-shrink: 0;
@@ -218,7 +219,8 @@
             text-align: left;
           }
           .doctor-photo {
-            max-width: 80%;
+            width: 100px; 
+            max-width: 60%;
           }
 
           #backToTop {
@@ -242,6 +244,12 @@
           #backToTop:hover {
             background: rgba(0,77,64,0.7);
             transform: scale(1.1);
+          }
+        }
+        @media (max-width: 480px) {
+          .doctor-photo {
+            width: 80px;
+            max-width: 80%;
           }
         }
 
@@ -285,7 +293,8 @@
 <section id="about">
   <h2>About Me</h2>
   <div class="about-container">
-    <img src="doctor.webp" alt="Dr. Govindpreet Singh Arneja" width="298" height="405" loading="lazy">
+    <!-- Removed fixed width/height, added responsive doctor-photo class -->
+    <img src="doctor.webp" alt="Dr. Govindpreet Singh Arneja" class="doctor-photo" loading="lazy">
     <div class="about-text">
       <p><strong>Dr. Govindpreet Singh Arneja (B.P.T., M.I.A.P.)</strong> — I am a physiotherapist with over two decades of experience providing expert physiotherapy treatment in <strong>Greater Noida West</strong>. At <strong>Mehar Physiotherapy Clinic</strong>, I deliver personalised, evidence-based care to help patients recover from pain, injuries, and mobility issues while restoring long-term function and confidence.</p>
 
