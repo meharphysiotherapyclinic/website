@@ -6,6 +6,11 @@
   <title>Book an Appointment | Mehar Physiotherapy Clinic</title>
   <meta name="description" content="Book an appointment at Mehar Physiotherapy Clinic, Greater Noida. Fill out the form with your preferred date and time, and we will confirm your slot.">
   <style>
+    /* Prevent horizontal overflow on small screens */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: system-ui, Arial, sans-serif;
       margin: 0;
@@ -33,7 +38,9 @@
 
     /* Appointment Container */
     .container {
+      /* keep same max width but allow it to shrink on small screens */
       max-width: 700px;
+      width: 100%;
       margin: 40px auto;
       background: #fff;
       padding: 30px;
@@ -142,4 +149,4 @@
   </script>
 
 </body>
-</html>
+  </html>
