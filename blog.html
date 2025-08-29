@@ -100,11 +100,10 @@ footer{
   color:var(--muted);
   text-align:center;
 }
-/* Home button styling - rectangular with text, always visible */
-.home-button {
+/* Home and Gallery button styling - rectangular with text, always visible */
+.home-button, .gallery-button {
   position: fixed;
   left: 20px;
-  bottom: 70px;
   background: rgba(15, 107, 58, 0.5); /* translucent green */
   color: #fff;
   padding: 8px 14px;
@@ -118,8 +117,18 @@ footer{
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   user-select: none;
   display: block; /* always visible including desktop */
+  width: auto;
 }
-.home-button:hover {
+
+/* Position home and gallery buttons vertically */
+.home-button {
+  bottom: 70px;
+}
+.gallery-button {
+  bottom: 120px;
+}
+
+.home-button:hover, .gallery-button:hover {
   background: rgba(12, 81, 43, 0.7);
   transform: scale(1.1);
 }
@@ -162,6 +171,7 @@ footer{
 
 <header>
   <a href="index.html" class="home-button" aria-label="Go to Home">Home</a>
+  <a href="gallery.html" class="gallery-button" aria-label="Go to Gallery">Gallery</a>
   <h1>Mehar Physiotherapy Clinic Blogs</h1>
   <p>By Dr. Govindpreet Singh Arneja (B.P.T., M.I.A.P.)</p>
 </header>
@@ -213,6 +223,7 @@ footer{
 
 <!-- Back to Top Button (only visible in mobile and after scroll) -->
 <button id="backToTop" title="Back to Top"><span>↑</span></button>
+
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
 
