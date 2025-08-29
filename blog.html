@@ -18,20 +18,16 @@ body{
   background:#f5f7f6;
   color:#222;
 }
-.container{
-  max-width:1100px;
-  margin:auto;
-  padding:20px;
-  position:relative;
-}
 
-/* Header style updated as requested */
+/* Header style updated to full width background */
 header{
   background:#00796b;
   color:white;
   padding:15px;
   text-align:center;
   margin-bottom:30px;
+  width: 100vw;
+  box-sizing: border-box;
 }
 
 /* keep original global h1 rule (will be overridden for header h1 below) */
@@ -48,6 +44,13 @@ header p{
   margin:6px 0 0;
   color:#fff;
   font-size:14px;
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:20px;
+  position:relative;
 }
 
 .blog-grid{
@@ -97,23 +100,28 @@ footer{
   color:var(--muted);
   text-align:center;
 }
-/* Home button styling */
-.home-button{
-  position:fixed;
-  top:10px;
-  left:10px;
-  background:var(--brand-green);
-  color:#fff;
-  padding:8px 14px;
-  border-radius:6px;
-  font-size:14px;
-  text-decoration:none;
-  z-index:1000;
-  transition: background 0.3s, transform 0.2s;
+/* Home button styling - rectangular with text, always visible */
+.home-button {
+  position: fixed;
+  left: 20px;
+  bottom: 70px;
+  background: rgba(15, 107, 58, 0.5); /* translucent green */
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  z-index: 1000;
+  transition: background 0.25s, transform 0.25s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  user-select: none;
+  display: block; /* always visible including desktop */
 }
-.home-button:hover{
-  background:#00695c;
-  transform: scale(1.05);
+.home-button:hover {
+  background: rgba(12, 81, 43, 0.7);
+  transform: scale(1.1);
 }
 
 /* Back to top button styling - only mobile */
@@ -151,55 +159,58 @@ footer{
 </style>
 </head>
 <body>
-<div class="container">
+
 <header>
-  <a href="index.html" class="home-button">Home</a>
+  <a href="index.html" class="home-button" aria-label="Go to Home">Home</a>
   <h1>Mehar Physiotherapy Clinic Blogs</h1>
   <p>By Dr. Govindpreet Singh Arneja (B.P.T., M.I.A.P.)</p>
 </header>
-<p class="intro">Expert tips and insights for your health and recovery</p>
-<div class="blog-grid">
-  <div class="card">
-    <h2>5 Common Physiotherapy Myths Debunked</h2>
-    <p>Debunking common misconceptions about physiotherapy to help you make informed health decisions.</p>
-    <a class="button" href="blog1.html" target="_blank">Read More</a>
-  </div>
-  <div class="card">
-    <h2>The Importance of Ergonomics in Preventing Workplace Injuries</h2>
-    <p>Learn how proper ergonomics can protect your health and improve productivity at work.</p>
-    <a class="button" href="blog2.html" target="_blank">Read More</a>
-  </div>
-  <div class="card">
-    <h2>Recovering from a Sports Injury: A Physiotherapist's Guide</h2>
-    <p>Essential steps and tips for safe recovery from sports injuries and avoiding re-injury.</p>
-    <a class="button" href="blog3.html" target="_blank">Read More</a>
-  </div>
 
-  <!-- New Blog 4 -->
-  <div class="card">
-    <h2>Say Goodbye to 'Tech Neck': 5 Tips for a Healthier Neck</h2>
-    <p>Learn simple physiotherapy tips to prevent tech neck and keep your neck pain-free in the digital age.</p>
-    <a class="button" href="blog4.html" target="_blank">Read More</a>
-  </div>
+<div class="container">
+  <p class="intro">Expert tips and insights for your health and recovery</p>
+  <div class="blog-grid">
+    <div class="card">
+      <h2>5 Common Physiotherapy Myths Debunked</h2>
+      <p>Debunking common misconceptions about physiotherapy to help you make informed health decisions.</p>
+      <a class="button" href="blog1.html" target="_blank">Read More</a>
+    </div>
+    <div class="card">
+      <h2>The Importance of Ergonomics in Preventing Workplace Injuries</h2>
+      <p>Learn how proper ergonomics can protect your health and improve productivity at work.</p>
+      <a class="button" href="blog2.html" target="_blank">Read More</a>
+    </div>
+    <div class="card">
+      <h2>Recovering from a Sports Injury: A Physiotherapist's Guide</h2>
+      <p>Essential steps and tips for safe recovery from sports injuries and avoiding re-injury.</p>
+      <a class="button" href="blog3.html" target="_blank">Read More</a>
+    </div>
 
-  <!-- New Blog 5 -->
-  <div class="card">
-    <h2>Is Your Back Aching? Simple Stretches to Relieve Lower Back Pain</h2>
-    <p>Discover easy stretches and habits to ease lower back pain and keep your spine strong.</p>
-    <a class="button" href="blog5.html" target="_blank">Read More</a>
-  </div>
+    <!-- New Blog 4 -->
+    <div class="card">
+      <h2>Say Goodbye to 'Tech Neck': 5 Tips for a Healthier Neck</h2>
+      <p>Learn simple physiotherapy tips to prevent tech neck and keep your neck pain-free in the digital age.</p>
+      <a class="button" href="blog4.html" target="_blank">Read More</a>
+    </div>
 
-  <!-- New Blog 6 -->
-  <div class="card">
-    <h2>Staying Active and Independent: How Physiotherapy Helps Seniors</h2>
-    <p>Learn how physiotherapy supports seniors in staying active, independent, and pain-free.</p>
-    <a class="button" href="blog6.html" target="_blank">Read More</a>
+    <!-- New Blog 5 -->
+    <div class="card">
+      <h2>Is Your Back Aching? Simple Stretches to Relieve Lower Back Pain</h2>
+      <p>Discover easy stretches and habits to ease lower back pain and keep your spine strong.</p>
+      <a class="button" href="blog5.html" target="_blank">Read More</a>
+    </div>
+
+    <!-- New Blog 6 -->
+    <div class="card">
+      <h2>Staying Active and Independent: How Physiotherapy Helps Seniors</h2>
+      <p>Learn how physiotherapy supports seniors in staying active, independent, and pain-free.</p>
+      <a class="button" href="blog6.html" target="_blank">Read More</a>
+    </div>
   </div>
+  <footer>
+    © <span id="year"></span> Mehar Physiotherapy Clinic — Gaur City 2, Greater Noida West
+  </footer>
 </div>
-<footer>
-  © <span id="year"></span> Mehar Physiotherapy Clinic — Gaur City 2, Greater Noida West
-</footer>
-</div>
+
 <!-- Back to Top Button (only visible in mobile and after scroll) -->
 <button id="backToTop" title="Back to Top"><span>↑</span></button>
 <script>
@@ -227,3 +238,4 @@ backToTopBtn.addEventListener('click', function(){
 </script>
 </body>
   </html>
+  
