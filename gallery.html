@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Clinic Gallery - Mehar Physiotherapy Clinic</title>
-    <meta name="description" content="Explore the Clinic Gallery of Mehar Physiotherapy Clinic in Greater Noida. View treatment rooms, rehabilitation equipment, and modern facilities designed for effective physiotherapy care.">
+    <meta name="description" content="Explore the Clinic Gallery of Mehar Physiotherapy Clinic in Greater Noida. View treatment rooms, rehabilitation equipment, and modern facilities designed for effective physiotherapy care." />
     <style>
         body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
-        header { background: #00796b; color: white; padding: 15px; text-align: center; }
+        header { background: #00796b; color: white; padding: 15px; text-align: center; margin-bottom: 20px; width: 100vw; box-sizing: border-box; }
+
         nav a { 
             color: white; 
             margin: 0 10px; 
@@ -106,25 +107,55 @@
                 display: block;
             }
         }
+
+        /* Sticky translucent Home and Blogs buttons on left */
+        .fixed-button {
+            position: fixed;
+            left: 20px;
+            background: rgba(15, 107, 58, 0.5); /* translucent green */
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            z-index: 3000;
+            transition: background 0.25s, transform 0.25s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            user-select: none;
+            width: auto;
+            display: block; /* always visible */
+        }
+        .fixed-button:hover {
+            background: rgba(12, 81, 43, 0.7);
+            transform: scale(1.1);
+        }
+        .home-button {
+            bottom: 90px;
+        }
+        .blogs-button {
+            bottom: 40px;
+        }
     </style>
 </head>
 <body>
 <header>
     <h1>Mehar Physiotherapy Clinic Gallery</h1>
     <p>By Dr. Govindpreet Singh Arneja (B.P.T., M.I.A.P.)</p>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="blog.html">Blogs</a>
-    </nav>
 </header>
+
+<!-- Sticky translucent buttons on left -->
+<a href="index.html" class="fixed-button home-button" aria-label="Go to Home">Home</a>
+<a href="blog.html" class="fixed-button blogs-button" aria-label="Go to Blogs">Blogs</a>
 
 <section>
     <h2>Our Clinic in Pictures</h2>
     <div class="gallery">
-        <img src="ex1.jpeg" alt="Physiotherapy treatment room at Mehar Physiotherapy Clinic" onclick="openLightbox(this.src)">
-        <img src="ex2.jpeg" alt="Exercise and rehabilitation equipment at Mehar Physiotherapy Clinic" onclick="openLightbox(this.src)">
-        <img src="logo.webp" alt="Official logo of Mehar Physiotherapy Clinic" onclick="openLightbox(this.src)">
-        <img src="mpc.jpeg" alt="Front view of Mehar Physiotherapy Clinic in Greater Noida" onclick="openLightbox(this.src)">
+        <img src="ex1.jpeg" alt="Physiotherapy treatment room at Mehar Physiotherapy Clinic" onclick="openLightbox(this.src)" />
+        <img src="ex2.jpeg" alt="Exercise and rehabilitation equipment at Mehar Physiotherapy Clinic" onclick="openLightbox(this.src)" />
+        <img src="logo.webp" alt="Official logo of Mehar Physiotherapy Clinic" onclick="openLightbox(this.src)" />
+        <img src="mpc.jpeg" alt="Front view of Mehar Physiotherapy Clinic in Greater Noida" onclick="openLightbox(this.src)" />
         <!-- Add more images here with descriptive alt text -->
     </div>
 </section>
@@ -132,10 +163,10 @@
 <!-- Lightbox container -->
 <div id="lightbox" class="lightbox" onclick="closeLightbox()">
     <a href="#" class="close">&times;</a>
-    <img id="lightbox-img" src="" alt="">
+    <img id="lightbox-img" src="" alt="" />
 </div>
 
-<!-- Back to Top Button (mobile only, sticky, translucent) -->
+<!-- Back to Top Button (only visible in mobile and after scroll) -->
 <button id="backToTop" title="Back to Top"><span>↑</span></button>
 
 <script>
@@ -169,4 +200,5 @@ backToTopBtn.addEventListener('click', function(){
 </script>
 
 </body>
-</html>
+            </html>
+            
