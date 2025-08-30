@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Book an Appointment | Mehar Physiotherapy Clinic</title>
-  <meta name="description" content="Book an appointment at Mehar Physiotherapy Clinic, Greater Noida. Fill out the form with your preferred date and time, and we will confirm your slot.">
+  <meta name="description" content="Book an appointment at Mehar Physiotherapy Clinic, Greater Noida. Fill out the form with your preferred date and time, and we will confirm your slot." />
   <style>
     /* Prevent horizontal overflow on small screens */
     *, *::before, *::after {
@@ -18,6 +18,8 @@
       background: #f7f7f7;
       color: #222;
       line-height: 1.6;
+      max-width: 100vw;
+      overflow-x: hidden; /* Prevent horizontal scroll */
     }
 
     /* Clinic Branding */
@@ -42,10 +44,12 @@
       max-width: 700px;
       width: 100%;
       margin: 40px auto;
+      padding: 30px 15px; /* added left and right padding */
       background: #fff;
-      padding: 30px;
       border-radius: 12px;
       box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+      box-sizing: border-box;
+      overflow-wrap: break-word; /* Ensure long content wraps */
     }
 
     h2 {
@@ -67,6 +71,9 @@
       border: 1px solid #ccc;
       border-radius: 6px;
       font-size: 1rem;
+      box-sizing: border-box;
+      word-wrap: break-word;
+      /* Prevent overflow from content */
     }
 
     textarea {
@@ -82,43 +89,33 @@
       font-size: 1rem;
       font-weight: 600;
       transition: background 0.3s ease, transform 0.2s ease;
+      box-sizing: border-box;
     }
 
     button:hover {
       background: #00695c;
       transform: scale(1.03);
     }
-    @media (max-width: 576px) {
-  .container {
-    padding: 15px;
-    margin: 10px;
-    box-shadow: none;
-  }
-  input, textarea, button {
-    padding: 10px;
-    font-size: 0.98rem;
-  }
-  h2 {
-    font-size: 1.25rem;
-    margin-bottom: 10px;
-  }
-  header {
-    padding: 12px 2px;
-    font-size: 0.98rem;
-  }
-}
 
-html, body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-    /* Explicitly ensure all fields are sized properly inside .container */
-.container input,
-.container textarea,
-.container button {
-  width: 100%;
-  box-sizing: border-box;
-}
+    @media (max-width: 576px) {
+      .container {
+        padding: 15px 10px; /* Reduced padding on small screens */
+        margin: 10px auto;
+        box-shadow: none;
+      }
+      input, textarea, button {
+        padding: 10px;
+        font-size: 0.98rem;
+      }
+      h2 {
+        font-size: 1.25rem;
+        margin-bottom: 10px;
+      }
+      header {
+        padding: 12px 2px;
+        font-size: 0.98rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -135,16 +132,16 @@ html, body {
     <form id="appointmentForm">
       
       <label for="name">Your Name:</label>
-      <input type="text" id="name" name="name" required>
+      <input type="text" id="name" name="name" required autocomplete="name" />
 
       <label for="phone">Phone Number:</label>
-      <input type="tel" id="phone" name="phone" required>
+      <input type="tel" id="phone" name="phone" required autocomplete="tel" />
 
       <label for="date">Preferred Date:</label>
-      <input type="date" id="date" name="date" required>
+      <input type="date" id="date" name="date" required />
 
       <label for="time">Preferred Time:</label>
-      <input type="time" id="time" name="time" required>
+      <input type="time" id="time" name="time" required />
 
       <label for="message">Concern / Problem:</label>
       <textarea id="message" name="message" rows="4"></textarea>
@@ -180,4 +177,5 @@ html, body {
   </script>
 
 </body>
-  </html>
+        </html>
+        
