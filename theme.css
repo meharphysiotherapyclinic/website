@@ -1,17 +1,23 @@
-/* =======================
-   Default (Light Mode)
-   ======================= */
+/* =======================================
+   LIGHT MODE (default)
+   ======================================= */
 @media (prefers-color-scheme: light) {
   html, body {
     background: #f7f7f7;
     color: #222;
   }
 
+  /* Header / Branding */
   header {
     background: #00796b;
     color: #fff;
   }
+  header h1,
+  header p {
+    color: #fff; /* always white inside header */
+  }
 
+  /* Main sections / containers */
   .container,
   section {
     background: #fff;
@@ -19,15 +25,18 @@
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
   }
 
+  /* Headings outside header */
+  h1, h2, h3, h4, h5, h6 {
+    color: #00796b;
+  }
+
+  /* Footer */
   footer {
     background: #f0f0f0;
     color: #555;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    color: #00796b;
-  }
-
+  /* Buttons */
   button {
     background: #00796b;
     color: #fff;
@@ -35,23 +44,36 @@
   button:hover {
     background: #00695c;
   }
+
+  /* Form fields */
+  input, textarea {
+    background: #fff;
+    color: #222;
+    border: 1px solid #ccc;
+  }
 }
 
 
-/* =======================
-   Dark Mode
-   ======================= */
+/* =======================================
+   DARK MODE
+   ======================================= */
 @media (prefers-color-scheme: dark) {
   html, body {
     background: #121212 !important;
     color: #e0e0e0 !important;
   }
 
+  /* Header / Branding */
   header {
     background: #004d40;
-    color: #ffffff;
+    color: #fff;
+  }
+  header h1,
+  header p {
+    color: #fff; /* keep branding visible */
   }
 
+  /* Main sections / containers */
   .container,
   section {
     background: #1e1e1e !important;
@@ -59,15 +81,18 @@
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
   }
 
+  /* Headings outside header */
+  h1, h2, h3, h4, h5, h6 {
+    color: #4db6ac; /* softer accent for dark mode */
+  }
+
+  /* Footer */
   footer {
     background: #1a1a1a;
     color: #ccc;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    color: #4db6ac; /* lighter green accent in dark mode */
-  }
-
+  /* Buttons */
   button {
     background: #009688;
     color: #fff;
@@ -76,9 +101,15 @@
     background: #00796b;
   }
 
+  /* Form fields */
   input, textarea {
     background: #2a2a2a;
     color: #f5f5f5;
     border: 1px solid #555;
   }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: #aaa;
   }
+     }
