@@ -16,11 +16,9 @@
 }
 body{
   margin:0;
-  background:#f5f7f6;
+  background:#000;
   color:#222;
 }
-
-/* Header style updated to full width background */
 header{
   background:#00796b;
   color:white;
@@ -30,11 +28,7 @@ header{
   width: 100vw;
   box-sizing: border-box;
 }
-
-/* keep original global h1 rule (will be overridden for header h1 below) */
 h1{color:var(--brand-green);}
-
-/* Ensure header title/subtitle contrast with the green background */
 header h1{
   color:#fff;
   margin:0;
@@ -46,20 +40,17 @@ header p{
   color:#fff;
   font-size:14px;
 }
-
 .container{
   max-width:1100px;
   margin:auto;
   padding:20px;
   position:relative;
 }
-
 .blog-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:20px;
 }
-
 /* GLASSMORPHISM EFFECT FOR CARDS */
 .card{
   background: rgba(255,255,255,0.18);
@@ -74,7 +65,6 @@ header p{
   transform: perspective(1000px) translateZ(0);
   will-change: transform, box-shadow, background;
 }
-
 .card:hover{
   transform:translateY(-5px);
 }
@@ -110,11 +100,10 @@ footer{
   color:var(--muted);
   text-align:center;
 }
-/* Home and Gallery button styling - rectangular with text, always visible */
 .home-button, .gallery-button {
   position: fixed;
   left: 20px;
-  background: rgba(15, 107, 58, 0.5); /* translucent green */
+  background: rgba(15, 107, 58, 0.5);
   color: #fff;
   padding: 8px 14px;
   border-radius: 6px;
@@ -126,30 +115,21 @@ footer{
   transition: background 0.25s, transform 0.25s;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   user-select: none;
-  display: block; /* always visible including desktop */
+  display: block;
   width: auto;
 }
-
-/* Position home and gallery buttons vertically */
-.home-button {
-  bottom: 70px;
-}
-.gallery-button {
-  bottom: 120px;
-}
-
+.home-button { bottom: 70px; }
+.gallery-button { bottom: 120px; }
 .home-button:hover, .gallery-button:hover {
   background: rgba(12, 81, 43, 0.7);
   transform: scale(1.1);
 }
-
-/* Back to top button styling - only mobile */
 #backToTop {
   display: none;
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: rgba(15, 107, 58, 0.5); /* translucent */
+  background: rgba(15, 107, 58, 0.5);
   color: #fff;
   border: none;
   border-radius: 50%;
@@ -171,11 +151,8 @@ footer{
   transform: scale(1.1);
 }
 @media (max-width:700px) {
-  #backToTop {
-    display: block;
-  }
+  #backToTop { display: block; }
 }
-
 /*==== ADD THIS BLOCK FOR DARK MODE FIX ====*/
 @media (prefers-color-scheme: dark) {
   :root {
@@ -183,7 +160,7 @@ footer{
     --muted: #bcbcbc;
   }
   body {
-    background: #121212;
+    background: #000 !important;
     color: #e0e0e0;
   }
   .card {
@@ -222,22 +199,16 @@ footer{
       <p>Essential steps and tips for safe recovery from sports injuries and avoiding re-injury.</p>
       <a class="button" href="blog3.html" target="_blank">Read More</a>
     </div>
-
-    <!-- New Blog 4 -->
     <div class="card">
       <h2>Say Goodbye to 'Tech Neck': 5 Tips for a Healthier Neck</h2>
       <p>Learn simple physiotherapy tips to prevent tech neck and keep your neck pain-free in the digital age.</p>
       <a class="button" href="blog4.html" target="_blank">Read More</a>
     </div>
-
-    <!-- New Blog 5 -->
     <div class="card">
       <h2>Is Your Back Aching? Simple Stretches to Relieve Lower Back Pain</h2>
       <p>Discover easy stretches and habits to ease lower back pain and keep your spine strong.</p>
       <a class="button" href="blog5.html" target="_blank">Read More</a>
     </div>
-
-    <!-- New Blog 6 -->
     <div class="card">
       <h2>Staying Active and Independent: How Physiotherapy Helps Seniors</h2>
       <p>Learn how physiotherapy supports seniors in staying active, independent, and pain-free.</p>
