@@ -65,6 +65,9 @@ header p{
   padding:20px;
   box-shadow:0 4px 10px rgba(0,0,0,0.05);
   transition:transform 0.2s;
+  transform-style: preserve-3d;
+  transform: perspective(1000px) translateZ(0);
+  will-change: transform, box-shadow;
 }
 .card:hover{
   transform:translateY(-5px);
@@ -259,6 +262,37 @@ window.addEventListener('resize', handleBackToTopVisibility);
 document.addEventListener('DOMContentLoaded', handleBackToTopVisibility);
 backToTopBtn.addEventListener('click', function(){
   window.scrollTo({top:0, behavior:'smooth'});
+});
+
+// ==== 3D Mouse-Follow Tilt for Blog Cards ====
+document.querySelectorAll('.card').forEach(card => {
+  const tiltAmount = 12;
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const percentX = (x - centerX) / centerX;
+    const percentY = (y - centerY) / centerY;
+    const rotateY = percentX * tiltAmount;
+    const rotateX = -percentY * tiltAmount;
+    card.style.transform =
+      `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+    card.style.boxShadow =
+      `0 15px 35px rgba(0,0,0,0.25), 0 ${8 + 5*Math.abs(rotateX)+5*Math.abs(rotateY)}px 20px rgba(0,0,0,0.20)`;
+    card.style.transition = 'transform 0.18s cubic-bezier(.17,.67,.83,.67), box-shadow 0.22s';
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform =
+      'perspective(1000px) translateZ(0) scale(1)';
+    card.style.boxShadow =
+      '0 4px 10px rgba(0,0,0,0.05)';
+    card.style.transition = 'transform 0.45s cubic-bezier(.17,.67,.83,.67), box-shadow 0.35s';
+  });
+  card.addEventListener('mouseenter', () => {
+    card.style.transition = 'transform 0.18s cubic-bezier(.17,.67,.83,.67), box-shadow 0.22s';
+  });
 });
 </script>
 </body>
