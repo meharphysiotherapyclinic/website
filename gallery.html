@@ -6,140 +6,15 @@
     <title>Clinic Gallery - Mehar Physiotherapy Clinic</title>
     <meta name="description" content="Explore the Clinic Gallery of Mehar Physiotherapy Clinic in Greater Noida. View treatment rooms, rehabilitation equipment, and modern facilities designed for effective physiotherapy care." />
     <meta name="color-scheme" content="light dark">
+    <link rel="stylesheet" href="theme.css">
     <style>
-        body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
-        header { background: #00796b; color: white; padding: 15px; text-align: center; margin-bottom: 20px; width: 100vw; box-sizing: border-box; }
-
-        nav a { 
-            color: white; 
-            margin: 0 10px; 
-            text-decoration: none; 
-            font-weight: bold; 
-            transition: background 0.3s, transform 0.2s; 
-            padding: 6px 10px; 
-            border-radius: 4px;
-        }
-        nav a:hover { 
-            text-decoration: none; 
-            background: rgba(255,255,255,0.2);
-            transform: scale(1.05);
-        }
-        section { max-width: 1000px; margin: 20px auto; background: white; padding: 20px; border-radius: 5px; }
-        h2 { color: #00796b; }
-        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
-        .gallery img { 
-            width: 100%; 
-            border-radius: 5px; 
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .gallery img:hover { 
-            transform: scale(1.08); 
-            box-shadow: 0 6px 15px rgba(0,0,0,0.3); 
-        }
-
-        /* Lightbox styles */
-        .lightbox {
-            display: none; 
-            position: fixed;
-            z-index: 1000;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.9);
-            justify-content: center;
-            align-items: center;
-        }
-        .lightbox img {
-            max-width: 90%;
-            max-height: 80%;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(255,255,255,0.3);
-        }
-        .lightbox:target {
-            display: flex;
-        }
-        .close {
-            position: absolute;
-            top: 20px; right: 30px;
-            font-size: 35px;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s, transform 0.2s;
-            padding: 4px 10px;
-            border-radius: 4px;
-        }
-        .close:hover {
-            color: #ff5555;
-            background: rgba(255,255,255,0.1);
-            transform: scale(1.1);
-        }
-
-        /* Back to top button styling - only mobile */
-        #backToTop {
-            display: none;
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(0,121,107,0.5); /* translucent */
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            padding: 12px 16px;
-            font-size: 24px;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            z-index: 2000;
-            transition: background 0.25s, transform 0.25s;
-            outline: none;
-        }
-        #backToTop span {
-            color: #fff;
-            text-shadow: 0 2px 8px #00796b, 0 0 20px #fff;
-            font-weight:bold;
-        }
-        #backToTop:hover {
-            background: rgba(0,77,64,0.7);
-            transform: scale(1.1);
-        }
-        @media (max-width: 700px) {
-            #backToTop {
-                display: block;
-            }
-        }
-
-        /* Sticky translucent Home and Blogs buttons on left */
-        .fixed-button {
-            position: fixed;
-            left: 20px;
-            background: rgba(15, 107, 58, 0.5); /* translucent green */
-            color: #fff;
-            padding: 8px 14px;
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: bold;
-            text-align: center;
-            text-decoration: none;
-            z-index: 3000;
-            transition: background 0.25s, transform 0.25s;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            user-select: none;
-            width: auto;
-            display: block; /* always visible */
-        }
-        .fixed-button:hover {
-            background: rgba(12, 81, 43, 0.7);
-            transform: scale(1.1);
-        }
         .home-button {
-            bottom: 90px;
+        bottom: 90px;
         }
         .blogs-button {
-            bottom: 40px;
+        bottom: 40px;
         }
     </style>
-    <link rel="stylesheet" href="theme.css">
 </head>
 <body>
 <header>
@@ -150,7 +25,6 @@
 <!-- Sticky translucent buttons on left -->
   <a href="blog.html" class="fixed-button blogs-button" aria-label="Go to Blogs">Blogs</a>
   <a href="index.html" class="fixed-button home-button" aria-label="Go to Home">Home</a>
-
 <section>
     <h2>Our Clinic in Pictures</h2>
     <div class="gallery">
@@ -200,7 +74,7 @@ backToTopBtn.addEventListener('click', function(){
     window.scrollTo({top:0, behavior:'smooth'});
 });
 </script>
-
+<br>
+<br>
 </body>
-            </html>
-            
+</html>
