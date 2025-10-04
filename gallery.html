@@ -9,7 +9,6 @@
     <style>
         body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
         header { background: #00796b; color: white; padding: 15px; text-align: center; margin-bottom: 20px; width: 100vw; box-sizing: border-box; }
-
         nav a { 
             color: white; 
             margin: 0 10px; 
@@ -24,7 +23,24 @@
             background: rgba(255,255,255,0.2);
             transform: scale(1.05);
         }
-        section { max-width: 1000px; margin: 20px auto; background: white; padding: 20px; border-radius: 5px; }
+        section {
+            max-width: 1000px;
+            margin: 20px auto;
+            background: rgba(255,255,255,0.23);
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.10);
+            border: 1.5px solid rgba(255,255,255,0.32);
+            will-change: transform, opacity;
+            transition: box-shadow 0.3s, background 0.3s;
+            transform-style: preserve-3d;
+            perspective: 800px;
+        }
+        section.hover-3d {
+            box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+            background: rgba(255,255,255,0.33);
+            transition: box-shadow 0.4s, background 0.4s;
+        }
         h2 { color: #00796b; }
         .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
         .gallery img { 
@@ -32,14 +48,12 @@
             border-radius: 5px; 
             box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
             cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         .gallery img:hover { 
             transform: scale(1.08); 
             box-shadow: 0 6px 15px rgba(0,0,0,0.3); 
         }
-
-        /* Lightbox styles */
         .lightbox {
             display: none; 
             position: fixed;
@@ -75,14 +89,12 @@
             background: rgba(255,255,255,0.1);
             transform: scale(1.1);
         }
-
-        /* Back to top button styling - only mobile */
         #backToTop {
             display: none;
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: rgba(0,121,107,0.5); /* translucent */
+            background: rgba(0,121,107,0.5);
             color: #fff;
             border: none;
             border-radius: 50%;
@@ -108,12 +120,10 @@
                 display: block;
             }
         }
-
-        /* Sticky translucent Home and Blogs buttons on left */
         .fixed-button {
             position: fixed;
             left: 20px;
-            background: rgba(15, 107, 58, 0.5); /* translucent green */
+            background: rgba(15, 107, 58, 0.5);
             color: #fff;
             padding: 8px 14px;
             border-radius: 6px;
@@ -126,7 +136,7 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
             user-select: none;
             width: auto;
-            display: block; /* always visible */
+            display: block;
         }
         .fixed-button:hover {
             background: rgba(12, 81, 43, 0.7);
@@ -138,6 +148,17 @@
         .blogs-button {
             bottom: 40px;
         }
+        /* Footer styles */
+        footer {
+            background: #000;
+            color: #fff;
+            text-align: center;
+            padding: 15px 10px;
+            font-size: 1em;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 30px;
+        }
     </style>
     <link rel="stylesheet" href="theme.css">
 </head>
@@ -146,11 +167,8 @@
     <h1>Mehar Physiotherapy Clinic Gallery</h1>
     <p>By Dr. Govindpreet Singh Arneja (B.P.T., M.I.A.P.)</p>
 </header>
-
-<!-- Sticky translucent buttons on left -->
-  <a href="blog.html" class="fixed-button blogs-button" aria-label="Go to Blogs">Blogs</a>
-  <a href="index.html" class="fixed-button home-button" aria-label="Go to Home">Home</a>
-
+<a href="blog.html" class="fixed-button blogs-button" aria-label="Go to Blogs">Blogs</a>
+<a href="index.html" class="fixed-button home-button" aria-label="Go to Home">Home</a>
 <section>
     <h2>Our Clinic in Pictures</h2>
     <div class="gallery">
@@ -158,19 +176,16 @@
         <img src="ex2.jpeg" alt="Exercise and rehabilitation equipment at Mehar Physiotherapy Clinic" onclick="openLightbox(this.src)" />
         <img src="logo.webp" alt="Official logo of Mehar Physiotherapy Clinic" onclick="openLightbox(this.src)" />
         <img src="mpc.jpeg" alt="Front view of Mehar Physiotherapy Clinic in Greater Noida" onclick="openLightbox(this.src)" />
-        <!-- Add more images here with descriptive alt text -->
     </div>
 </section>
-
-<!-- Lightbox container -->
 <div id="lightbox" class="lightbox" onclick="closeLightbox()">
     <a href="#" class="close">&times;</a>
     <img id="lightbox-img" src="" alt="" />
 </div>
-
-<!-- Back to Top Button (only visible in mobile and after scroll) -->
 <button id="backToTop" title="Back to Top"><span>↑</span></button>
-
+<footer>
+    &copy; 2025 Mehar Physiotherapy Clinic. All Rights Reserved.
+</footer>
 <script>
 function openLightbox(src) {
     document.getElementById("lightbox").style.display = "flex";
@@ -179,8 +194,6 @@ function openLightbox(src) {
 function closeLightbox() {
     document.getElementById("lightbox").style.display = "none";
 }
-
-// Back to top button show/hide logic
 const backToTopBtn = document.getElementById('backToTop');
 function handleBackToTopVisibility() {
     if (window.innerWidth <= 700) {
@@ -199,8 +212,36 @@ document.addEventListener('DOMContentLoaded', handleBackToTopVisibility);
 backToTopBtn.addEventListener('click', function(){
     window.scrollTo({top:0, behavior:'smooth'});
 });
+// Floating animation and 3D hover effect for section
+document.addEventListener('DOMContentLoaded', function() {
+    const section = document.querySelector('section');
+    section.style.opacity = "0";
+    section.style.transform = "translateX(-100px)";
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                section.style.opacity = "1";
+                section.style.transform = "translateX(0)";
+                observer.unobserve(section);
+            }
+        });
+    }, {threshold: 0.1});
+    observer.observe(section);
+    section.classList.add('hover-3d');
+    section.addEventListener('mousemove', function(e) {
+        const rect = section.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * 5;
+        const rotateY = ((x - centerX) / centerX) * 10;
+        section.style.transform = `translateX(0) rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+    section.addEventListener('mouseleave', function() {
+        section.style.transform = "translateX(0) rotateX(0) rotateY(0)";
+    });
+});
 </script>
-
 </body>
-            </html>
-            
+</html>
