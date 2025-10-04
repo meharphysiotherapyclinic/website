@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thank You | Mehar Physiotherapy Clinic</title>
@@ -13,6 +14,11 @@
       line-height: 1.6;
       background: #fff;
       color: #222;
+
+      /* Flexbox fix for sticky footer */
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     /* Clinic Branding */
@@ -40,6 +46,7 @@
       padding: 30px;
       text-align: center;
       box-shadow: 0 0 10px rgba(0,0,0,0.08);
+      flex: 1; /* ensures footer stays at bottom */
     }
     .box h2 {
       color: #00796b;
@@ -64,6 +71,15 @@
       transform: scale(1.05);
     }
 
+    /* Footer */
+    footer {
+      background: #f1f1f1;
+      color: #222;
+      text-align: center;
+      padding: 10px;
+      margin-top: auto;
+    }
+
     /* Dark Mode Fix */
     @media (prefers-color-scheme: dark) {
       body {
@@ -78,7 +94,7 @@
       .box h2 {
         color: #4db6ac;
       }
-        footer { background: #333; color: white; text-align: center; padding: 10px; }
+      footer { background: #333; color: white; }
     }
   </style>
   <link rel="stylesheet" href="theme.css">
@@ -99,10 +115,11 @@
 
     <a href="index.html" class="button">Home</a>
   </div>
-    <div>
+
+  <!-- Footer -->
   <footer>
     © <span id="year"></span> Mehar Physiotherapy Clinic. All Rights Reserved.
   </footer>
-    </div>
 
-</body></html>
+</body>
+</html>
