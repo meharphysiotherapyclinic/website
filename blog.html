@@ -1,6 +1,5 @@
 <!doctype html>
-<html lang="en">
-<head>
+<html lang="en"><head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Clinic Blog — Mehar Physiotherapy Clinic</title>
@@ -96,12 +95,13 @@
       transform: scale(1.05);
     }
     footer {
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(0, 0, 0, 0.05);
+      padding: 1rem;
       font-size: 14px;
       color: var(--muted);
       text-align: center;
+    display:flex;
+        flex-direction:row;
+        justify-content:center
     }
     .home-button,
     .gallery-button {
@@ -199,39 +199,36 @@
       <p>Debunking common misconceptions about physiotherapy to help you make informed health decisions.</p>
       <a class="button" href="blog1.html" target="_blank">Read More</a>
     </div>
-    <div class="card">
+    <div class="card" style="transition: transform 0.45s cubic-bezier(0.17, 0.67, 0.83, 0.67), box-shadow 0.35s; transform: perspective(1000px) translateZ(0px) scale(1); box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 10px;">
       <h2>The Importance of Ergonomics in Preventing Workplace Injuries</h2>
       <p>Learn how proper ergonomics can protect your health and improve productivity at work.</p>
       <a class="button" href="blog2.html" target="_blank">Read More</a>
     </div>
-    <div class="card">
+    <div class="card" style="transition: transform 0.45s cubic-bezier(0.17, 0.67, 0.83, 0.67), box-shadow 0.35s; transform: perspective(1000px) translateZ(0px) scale(1); box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 10px;">
       <h2>Recovering from a Sports Injury: A Physiotherapist's Guide</h2>
       <p>Essential steps and tips for safe recovery from sports injuries and avoiding re-injury.</p>
       <a class="button" href="blog3.html" target="_blank">Read More</a>
     </div>
-    <div class="card">
+    <div class="card" style="transition: transform 0.45s cubic-bezier(0.17, 0.67, 0.83, 0.67), box-shadow 0.35s; transform: perspective(1000px) translateZ(0px) scale(1); box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 10px;">
       <h2>Say Goodbye to 'Tech Neck': 5 Tips for a Healthier Neck</h2>
       <p>Learn simple physiotherapy tips to prevent tech neck and keep your neck pain-free in the digital age.</p>
       <a class="button" href="blog4.html" target="_blank">Read More</a>
     </div>
-    <div class="card">
+    <div class="card" style="transition: transform 0.45s cubic-bezier(0.17, 0.67, 0.83, 0.67), box-shadow 0.35s; transform: perspective(1000px) translateZ(0px) scale(1); box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 10px;">
       <h2>Is Your Back Aching? Simple Stretches to Relieve Lower Back Pain</h2>
       <p>Discover easy stretches and habits to ease lower back pain and keep your spine strong.</p>
       <a class="button" href="blog5.html" target="_blank">Read More</a>
     </div>
-    <div class="card">
+    <div class="card" style="transition: transform 0.45s cubic-bezier(0.17, 0.67, 0.83, 0.67), box-shadow 0.35s; transform: perspective(1000px) translateZ(0px) scale(1); box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 10px;">
       <h2>Staying Active and Independent: How Physiotherapy Helps Seniors</h2>
       <p>Learn how physiotherapy supports seniors in staying active, independent, and pain-free.</p>
       <a class="button" href="blog6.html" target="_blank">Read More</a>
     </div>
   </div>
-  <footer>
-    © <span id="year"></span> Mehar Physiotherapy Clinic. All Rights Reserved.
-  </footer>
 </div>
 
 <!-- Back to Top Button (only visible in mobile and after scroll) -->
-<button id="backToTop" title="Back to Top"><span>↑</span></button>
+<button id="backToTop" title="Back to Top" style="display: none;"><span>↑</span></button>
 
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
@@ -286,6 +283,13 @@ document.querySelectorAll('.card').forEach(card => {
     card.style.transition = 'transform 0.18s cubic-bezier(.17,.67,.83,.67), box-shadow 0.22s';
   });
 });
-</script>
-</body>
-  </html>
+</script><br>
+<br>
+<br>
+<br>
+
+<footer>
+    © 2025 Mehar Physiotherapy Clinic. All Rights Reserved.
+  </footer>
+  
+</body></html>
