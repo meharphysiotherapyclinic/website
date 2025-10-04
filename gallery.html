@@ -159,7 +159,18 @@
             background: rgba(0,77,64,0.7);
             transform: scale(1.1);
         }
+        @media (max-width: 700px) {
+        .gallery {
+            grid-template-columns: 1fr;
+        }
 
+        .image-card {
+            width: 90%;  /* smaller width on mobile */
+            max-width: 350px;
+            height: auto; 
+            aspect-ratio: 1/1; /* maintain square shape */
+            }
+        }
         @media (max-width: 700px) {
             #backToTop {
                 display: block;
