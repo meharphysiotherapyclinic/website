@@ -15,7 +15,7 @@
       background: #fff;
       color: #222;
 
-      /* Flexbox fix for sticky footer */
+      /* Flexbox for sticky footer */
       display: flex;
       flex-direction: column;
       min-height: 100vh;
@@ -38,15 +38,20 @@
     }
 
     /* Thank You Box */
+    main {
+      flex: 1; /* pushes footer down */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 15px;
+    }
     .box {
-      max-width: 800px;
-      margin: 50px auto;
+      max-width: 600px;
       background: #f7f7f7;
       border-radius: 10px;
       padding: 30px;
       text-align: center;
       box-shadow: 0 0 10px rgba(0,0,0,0.08);
-      flex: 1; /* ensures footer stays at bottom */
     }
     .box h2 {
       color: #00796b;
@@ -108,18 +113,25 @@
  </header>
 
   <!-- Thank You Message -->
-  <div class="box">
-    <h2>Thank You!</h2>
-    <p>Your appointment request has been received.<br>
-    I will contact you shortly to confirm the timing.</p>
+  <main>
+    <div class="box">
+      <h2>Thank You!</h2>
+      <p>Your appointment request has been received.<br>
+      I will contact you shortly to confirm the timing.</p>
 
-    <a href="index.html" class="button">Home</a>
-  </div>
+      <a href="index.html" class="button">Home</a>
+    </div>
+  </main>
 
   <!-- Footer -->
   <footer>
     © <span id="year"></span> Mehar Physiotherapy Clinic. All Rights Reserved.
   </footer>
+
+  <script>
+    // auto-update year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>
