@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clinic Gallery - Mehar Physiotherapy Clinic</title>
-    <meta name="description" content="Explore the Clinic Gallery of Mehar Physiotherapy Clinic in Greater Noida. View treatment rooms, rehabilitation equipment, and modern facilities designed for effective physiotherapy care." />
+    <meta name="description" content="Explore the Clinic Gallery of Mehar Physiotherapy Clinic in Greater Noida. View treatment rooms, rehabilitation equipment, and modern facilities designed for effective physiotherapy care.">
     <meta name="color-scheme" content="light dark">
     <style>
         body { 
@@ -57,43 +57,45 @@
         h2 { 
             color: #00796b; 
         }
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 2 per row */
+    gap: 20px; /* spacing */
+    justify-items: center;
+}
 
-        /* Gallery Grid */
-        .gallery { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-            gap: 20px; 
-        }
+.image-card {
+    width: 250px;        /* square width */
+    height: 250px;       /* square height */
+    overflow: hidden;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.25);
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-        /* Individual Image Container - Frosted Glass Card */
-        .image-card {
-            position: relative;
-            border-radius: 16px;
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1.5px solid rgba(255, 255, 255, 0.35);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-            transform-style: preserve-3d;
-            cursor: pointer;
-            overflow: hidden;
-        }
+.image-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ensures the image fills the square without distortion */
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
         .image-card:hover {
             transform: scale(1.05) rotateY(5deg) rotateX(3deg);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
             background: rgba(255, 255, 255, 0.35);
         }
-
-        .image-card img { 
-            width: 100%; 
-            height: 100%;
-            border-radius: 12px; 
-            transition: transform 0.4s ease;
-            display: block;
+        .image-card:hover img {
+            transform: scale(.8)
         }
-        /* Lightbox */
+        
         .lightbox {
             display: none; 
             position: fixed;
@@ -217,8 +219,8 @@
 <a href="blog.html" class="fixed-button blogs-button" aria-label="Go to Blogs">Blogs</a>
 <a href="index.html" class="fixed-button home-button" aria-label="Go to Home">Home</a>
 
-<section>
-    <h2>Our Clinic in Pictures</h2>
+<section style="opacity: 1; transform: translateX(0px) rotateX(0deg) rotateY(0deg);">
+    <h2>Our Clinic in Pictures <small>(click on images to view)</small></h2>
     <div class="gallery">
         <div class="image-card" onclick="openLightbox('ex1.jpeg')">
             <img src="ex1.jpeg" alt="Physiotherapy treatment room at Mehar Physiotherapy Clinic">
@@ -235,15 +237,15 @@
     </div>
 </section>
 
-<div id="lightbox" class="lightbox" onclick="closeLightbox()">
-    <a href="#" class="close">&times;</a>
-    <img id="lightbox-img" src="" alt="" />
+<div id="lightbox" class="lightbox" onclick="closeLightbox()" style="display: none;">
+    <a href="#" class="close">×</a>
+    <img id="lightbox-img" src="ex2.jpeg" alt="">
 </div>
 
-<button id="backToTop" title="Back to Top"><span>↑</span></button>
+<button id="backToTop" title="Back to Top" style="display: none;"><span>↑</span></button>
 
 <footer>
-    &copy; 2025 Mehar Physiotherapy Clinic. All Rights Reserved.
+    © 2025 Mehar Physiotherapy Clinic. All Rights Reserved.
 </footer>
 
 <script>
