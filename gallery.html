@@ -294,18 +294,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, {threshold: 0.1});
     observer.observe(section);
-
-    section.classList.add('hover-3d');
-    section.addEventListener('mousemove', function(e) {
-        const rect = section.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const rotateX = ((y - centerY) / centerY) * 5;
-        const rotateY = ((x - centerX) / centerX) * 10;
-        section.style.transform = `translateX(0) rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`;
-    });
     section.addEventListener('mouseleave', function() {
         section.style.transform = "translateX(0) rotateX(0) rotateY(0)";
     });
