@@ -1,17 +1,270 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <script type="application/ld+json">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Frequently Asked Questions — Mehar Physiotherapy Clinic, Greater Noida West. Answers about services, sessions, home visits and bookings.">
+    <meta name="keywords" content="Mehar Physiotherapy Clinic FAQ, physiotherapy FAQ Greater Noida West, physiotherapist FAQs">
+    <meta name="author" content="Dr. Govindpreet Singh Arneja">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#00796b">
+    <link rel="canonical" href="https://meharphysiotherapyclinic.github.io/website/faq.html">
+    <title>FAQ — Mehar Physiotherapy Clinic</title>
+
+    <style>
+        /* Core layout & theme */
+        :root{--brand:#00796b;--brand-dark:#00695c;--panel-bg:#fff;--text:#333}
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; color: var(--text); transition: background 0.3s ease; }
+        a { color: var(--brand); }
+        header { background: var(--brand); color: white; padding: 15px 20px; text-align: center; }
+        header h1 { margin: 0; font-size: 1.8em; color: #fff; }
+        header p { margin: 5px 0 0; font-size: 1em; color: #e0f2f1; }
+        main { padding: 20px; max-width: 900px; margin: 16px auto; }
+        .card { background: var(--panel-bg); padding: 20px; border-radius: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.06); margin-bottom: 16px; }
+        .card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); transition: transform .18s ease, box-shadow .18s ease; }
+        section h2 { color: #0f6b3a; }
+
+        /* Skip link */
+        .skip-link { position: absolute; left: -999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+        .skip-link:focus { left: 10px; top: 10px; width: auto; height: auto; padding: 8px 12px; background: #000; color: #fff; z-index: 9999; border-radius: 4px; text-decoration: none; }
+
+        /* Accordion */
+        .accordion { margin: 0; padding: 0; }
+        .accordion-item { border-bottom: 1px solid #e6e6e6; padding: 12px 0; }
+        .accordion-button { display: flex; align-items: center; justify-content: space-between; width: 100%; background: transparent; border: none; padding: 0; font-size: 1.05em; text-align: left; color: #0f6b3a; cursor: pointer; }
+        .accordion-button:focus { outline: 3px solid #B2DFDB; outline-offset: 3px; border-radius: 4px; }
+        .accordion-icon { margin-left: 12px; font-size: 0.95em; }
+        .accordion-panel { max-height: 0; overflow: hidden; transition: max-height 0.28s ease, padding 0.28s ease; }
+        .accordion-panel.open { padding-top: 10px; max-height: 1000px; }
+
+        /* Buttons */
+        .bottom-buttons { text-align: center; margin: 20px 0; }
+        .contact-btn { display: inline-block; padding: 12px 22px; background: var(--brand); color: white; text-decoration: none; border-radius: 6px; margin: 5px; font-weight: bold; transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease; }
+        .contact-btn:hover { background: var(--brand-dark); transform: translateY(-3px) scale(1.03); box-shadow: 0 6px 15px rgba(0,0,0,0.18); }
+        .back-home { display: inline-block; background: var(--brand); color: white; padding: 12px 22px; border-radius: 6px; text-decoration: none; font-weight: bold; margin-left: 20px; margin-top: 10px; }
+        .back-home:hover { background: var(--brand-dark); transform: translateY(-3px) scale(1.03); }
+
+        /* Back to top */
+        #backToTop { display: none; right: 20px; bottom: 70px; position: fixed; background: rgba(0, 121, 107, 0.85); color: #fff; border: none; border-radius: 50%; padding: 12px 14px; font-size: 20px; cursor: pointer; z-index: 9999; transition: background 0.25s, transform 0.25s; outline: none; }
+        #backToTop.show { display: block; }
+        #backToTop:hover { background: rgba(0,77,64,0.9); transform: scale(1.06); }
+
+        /* Visual state for expanded button */
+        .accordion-button[aria-expanded="true"] { background: var(--brand); color: #fff !important; font-weight: 700; border-radius: 4px; transition: background 0.25s, color 0.25s; padding: 6px; }
+
+        @media (prefers-color-scheme: dark) {
+          body { background: #181818; color: #e0e0e0; }
+          .card { background: #232323; color: #e0e0e0; }
+          .accordion-button { color: #4db6ac; }
+          .accordion-button[aria-expanded="true"] { background: #004d40; color: #fff !important; }
+        }
+    </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header>
+    <h1>Mehar Physiotherapy Clinic</h1>
+    <p>By Dr. Govindpreet Singh Arneja (B.P.T., M.I.A.P.)</p>
+</header>
+
+<main id="main-content" role="main">
+  <section class="card" id="faq-intro" aria-labelledby="faq-heading">
+    <h2 id="faq-heading">Frequently Asked Questions</h2>
+    <p class="intro">Find answers to common questions about services, sessions, home visits and bookings.</p>
+  </section>
+
+  <section class="card accordion" id="faq" aria-label="Frequently Asked Questions">
+    <!-- Each item -->
+    <div class="accordion-item">
+      <button class="accordion-button" aria-expanded="false" aria-controls="faq1" id="faq1-btn" type="button">
+        <span>What conditions are treated at Mehar Physiotherapy Clinic?</span>
+        <span class="accordion-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="accordion-panel" id="faq1" role="region" aria-labelledby="faq1-btn">
+        <p>Treatment is provided for back and neck pain, joint pain, arthritis, sports injuries, post-surgical rehabilitation, neurological conditions, pediatric cases, and age-related mobility issues.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-button" aria-expanded="false" aria-controls="faq2" id="faq2-btn" type="button">
+        <span>Do I need a doctor’s referral to visit the clinic?</span>
+        <span class="accordion-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="accordion-panel" id="faq2" role="region" aria-labelledby="faq2-btn">
+        <p>No referral is required. Appointments can be booked directly.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-button" aria-expanded="false" aria-controls="faq3" id="faq3-btn" type="button">
+        <span>How long does each physiotherapy session last?</span>
+        <span class="accordion-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="accordion-panel" id="faq3" role="region" aria-labelledby="faq3-btn">
+        <p>A typical session lasts <strong>30 to 45 minutes</strong>, depending on the treatment plan and patient condition.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-button" aria-expanded="false" aria-controls="faq4" id="faq4-btn" type="button">
+        <span>How many physiotherapy sessions will I need?</span>
+        <span class="accordion-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="accordion-panel" id="faq4" role="region" aria-labelledby="faq4-btn">
+        <p>The number of sessions depends on the severity of the condition, treatment goals, and progress. A personalized treatment plan is prepared after the first assessment.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-button" aria-expanded="false" aria-controls="faq5" id="faq5-btn" type="button">
+        <span>Is physiotherapy painful?</span>
+        <span class="accordion-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="accordion-panel" id="faq5" role="region" aria-labelledby="faq5-btn">
+        <p>Physiotherapy is designed to <strong>reduce pain and improve mobility</strong>. Some exercises may cause mild discomfort initially, but treatments remain safe and comfortable.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-button" aria-expanded="false" aria-controls="faq6" id="faq6-btn" type="button">
+        <span>What should I bring for my first appointment?</span>
+        <span class="accordion-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="accordion-panel" id="faq6" role="region" aria-labelledby="faq6-btn">
+        <p>Bring any <strong>medical reports, X-rays, MRI/CT scans, prescriptions, or doctor’s notes</strong>, along with comfortable clothing for movement and exercise.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-button" aria-expanded="false" aria-controls="faq7" id="faq7-btn" type="button">
+        <span>Do you offer home physiotherapy services?</span>
+        <span class="accordion-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="accordion-panel" id="faq7" role="region" aria-labelledby="faq7-btn">
+        <p>Home physiotherapy sessions can be arranged depending on the condition and location. Please contact for details.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-button" aria-expanded="false" aria-controls="faq8" id="faq8-btn" type="button">
+        <span>What safety measures are followed at the clinic?</span>
+        <span class="accordion-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="accordion-panel" id="faq8" role="region" aria-labelledby="faq8-btn">
+        <p>Strict <strong>hygiene, sanitization, and sterilization protocols</strong> are maintained to provide a safe environment for all patients.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-button" aria-expanded="false" aria-controls="faq9" id="faq9-btn" type="button">
+        <span>Can physiotherapy help senior citizens?</span>
+        <span class="accordion-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="accordion-panel" id="faq9" role="region" aria-labelledby="faq9-btn">
+        <p>Physiotherapy helps seniors with <strong>balance, flexibility, arthritis management, fall prevention, and post-surgery recovery</strong>, allowing them to stay independent and active.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-button" aria-expanded="false" aria-controls="faq10" id="faq10-btn" type="button">
+        <span>How can I book an appointment?</span>
+        <span class="accordion-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="accordion-panel" id="faq10" role="region" aria-labelledby="faq10-btn">
+        <p>Appointments can be booked <strong>online through the website</strong> or by <strong>calling directly</strong>.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-button" aria-expanded="false" aria-controls="faq11" id="faq11-btn" type="button">
+        <span>Are treatment plans customized for each patient?</span>
+        <span class="accordion-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="accordion-panel" id="faq11" role="region" aria-labelledby="faq11-btn">
+        <p>Each treatment plan is tailored to the patient’s condition, goals, and lifestyle to ensure effective recovery and long-term results.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-button" aria-expanded="false" aria-controls="faq12" id="faq12-btn" type="button">
+        <span>Do you treat sports injuries?</span>
+        <span class="accordion-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="accordion-panel" id="faq12" role="region" aria-labelledby="faq12-btn">
+        <p>Sports injury management includes sprains, strains, ligament injuries, and rehabilitation to help patients return to activity safely.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-button" aria-expanded="false" aria-controls="faq13" id="faq13-btn" type="button">
+        <span>Can physiotherapy help with post-surgical recovery?</span>
+        <span class="accordion-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="accordion-panel" id="faq13" role="region" aria-labelledby="faq13-btn">
+        <p>Physiotherapy supports recovery after surgeries such as joint replacement, fracture repair, or spinal procedures, improving mobility and reducing pain.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-button" aria-expanded="false" aria-controls="faq14" id="faq14-btn" type="button">
+        <span>Is follow-up care required after the sessions?</span>
+        <span class="accordion-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="accordion-panel" id="faq14" role="region" aria-labelledby="faq14-btn">
+        <p>Follow-up sessions and home exercises are often recommended to maintain improvements and prevent recurrence of pain or injury.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-button" aria-expanded="false" aria-controls="faq15" id="faq15-btn" type="button">
+        <span>What equipment and techniques are used during therapy?</span>
+        <span class="accordion-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="accordion-panel" id="faq15" role="region" aria-labelledby="faq15-btn">
+        <p>Treatment may include manual therapy, mobilization techniques, PNF (Proprioceptive Neuromuscular Facilitation), gait analysis, and exercise programs designed for specific conditions.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-button" aria-expanded="false" aria-controls="faq16" id="faq16-btn" type="button">
+        <span>Are there any precautions to follow after a physiotherapy session?</span>
+        <span class="accordion-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="accordion-panel" id="faq16" role="region" aria-labelledby="faq16-btn">
+        <p>Patients may be advised to perform specific home exercises, avoid certain movements temporarily, and follow posture or activity guidelines to support recovery and prevent injury.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="bottom-buttons card" aria-hidden="false">
+      <a href="appointment.html" class="contact-btn" aria-label="Book appointment">📅 Book Appointment</a>
+      <a href="tel:+919810359247" class="contact-btn" aria-label="Call now">Call Now</a>
+      <a href="index.html" class="back-home" aria-label="Homepage">Home</a>
+  </div>
+</main>
+
+<footer class="card" role="contentinfo" aria-label="Footer">
+  <p style="text-align:center;margin:0">© 2025 Mehar Physiotherapy Clinic. All Rights Reserved.</p>
+</footer>
+
+<button id="backToTop" aria-hidden="true" aria-label="Back to top">↑</button>
+
+<!-- Structured data: LocalBusiness -->
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "PhysiotherapyClinic"],
+  "@type": ["MedicalBusiness","LocalBusiness"],
   "@id": "https://maps.app.goo.gl/24Ryeu3vgkUWpB7a8",
   "name": "Mehar Physiotherapy Clinic",
   "url": "https://meharphysiotherapyclinic.github.io/website/faq.html",
   "telephone": "+91-9810359247"
 }
-    </script>
-    <script type="application/ld+json">
+</script>
+
+<!-- Structured data: FAQPage -->
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -19,384 +272,184 @@
     {
       "@type": "Question",
       "name": "What conditions are treated at Mehar Physiotherapy Clinic?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Treatment is provided for back and neck pain, joint pain, arthritis, sports injuries, post-surgical rehabilitation, neurological conditions, pediatric cases, and age-related mobility issues."
-      }
+      "acceptedAnswer": { "@type": "Answer", "text": "Treatment is provided for back and neck pain, joint pain, arthritis, sports injuries, post-surgical rehabilitation, neurological conditions, pediatric cases, and age-related mobility issues." }
     },
     {
       "@type": "Question",
       "name": "Do I need a doctor’s referral to visit the clinic?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No referral is required. Appointments can be booked directly."
-      }
+      "acceptedAnswer": { "@type": "Answer", "text": "No referral is required. Appointments can be booked directly." }
     },
     {
       "@type": "Question",
       "name": "How long does each physiotherapy session last?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A typical session lasts 30 to 45 minutes, depending on the treatment plan and patient condition."
-      }
+      "acceptedAnswer": { "@type": "Answer", "text": "A typical session lasts 30 to 45 minutes, depending on the treatment plan and patient condition." }
     },
     {
       "@type": "Question",
       "name": "How many physiotherapy sessions will I need?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The number of sessions depends on the severity of the condition, treatment goals, and progress. A personalized treatment plan is prepared after the first assessment."
-      }
+      "acceptedAnswer": { "@type": "Answer", "text": "The number of sessions depends on the severity of the condition, treatment goals, and progress. A personalized treatment plan is prepared after the first assessment." }
     },
     {
       "@type": "Question",
       "name": "Is physiotherapy painful?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Physiotherapy is designed to reduce pain and improve mobility. Some exercises may cause mild discomfort initially, but treatments remain safe and comfortable."
-      }
+      "acceptedAnswer": { "@type": "Answer", "text": "Physiotherapy is designed to reduce pain and improve mobility. Some exercises may cause mild discomfort initially, but treatments remain safe and comfortable." }
     },
     {
       "@type": "Question",
       "name": "What should I bring for my first appointment?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Bring any medical reports, X-rays, MRI/CT scans, prescriptions, or doctor’s notes, along with comfortable clothing for movement and exercise."
-      }
+      "acceptedAnswer": { "@type": "Answer", "text": "Bring any medical reports, X-rays, MRI/CT scans, prescriptions, or doctor’s notes, along with comfortable clothing for movement and exercise." }
     },
     {
       "@type": "Question",
       "name": "Do you offer home physiotherapy services?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Home physiotherapy sessions can be arranged depending on the condition and location. Please contact for details."
-      }
+      "acceptedAnswer": { "@type": "Answer", "text": "Home physiotherapy sessions can be arranged depending on the condition and location. Please contact for details." }
     },
     {
       "@type": "Question",
       "name": "What safety measures are followed at the clinic?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Strict hygiene, sanitization, and sterilization protocols are maintained to provide a safe environment for all patients."
-      }
+      "acceptedAnswer": { "@type": "Answer", "text": "Strict hygiene, sanitization, and sterilization protocols are maintained to provide a safe environment for all patients." }
     },
     {
       "@type": "Question",
       "name": "Can physiotherapy help senior citizens?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Physiotherapy helps seniors with balance, flexibility, arthritis management, fall prevention, and post-surgery recovery, allowing them to stay independent and active."
-      }
+      "acceptedAnswer": { "@type": "Answer", "text": "Physiotherapy helps seniors with balance, flexibility, arthritis management, fall prevention, and post-surgery recovery, allowing them to stay independent and active." }
     },
     {
       "@type": "Question",
       "name": "How can I book an appointment?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Appointments can be booked online through the website or by calling directly."
-      }
+      "acceptedAnswer": { "@type": "Answer", "text": "Appointments can be booked online through the website or by calling directly." }
     },
     {
       "@type": "Question",
       "name": "Are treatment plans customized for each patient?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Each treatment plan is tailored to the patient’s condition, goals, and lifestyle to ensure effective recovery and long-term results."
-      }
+      "acceptedAnswer": { "@type": "Answer", "text": "Each treatment plan is tailored to the patient’s condition, goals, and lifestyle to ensure effective recovery and long-term results." }
     },
     {
       "@type": "Question",
       "name": "Do you treat sports injuries?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sports injury management includes sprains, strains, ligament injuries, and rehabilitation to help patients return to activity safely."
-      }
+      "acceptedAnswer": { "@type": "Answer", "text": "Sports injury management includes sprains, strains, ligament injuries, and rehabilitation to help patients return to activity safely." }
     },
     {
       "@type": "Question",
       "name": "Can physiotherapy help with post-surgical recovery?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Physiotherapy supports recovery after surgeries such as joint replacement, fracture repair, or spinal procedures, improving mobility and reducing pain."
-      }
+      "acceptedAnswer": { "@type": "Answer", "text": "Physiotherapy supports recovery after surgeries such as joint replacement, fracture repair, or spinal procedures, improving mobility and reducing pain." }
     },
     {
       "@type": "Question",
       "name": "Is follow-up care required after the sessions?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Follow-up sessions and home exercises are often recommended to maintain improvements and prevent recurrence of pain or injury."
-      }
+      "acceptedAnswer": { "@type": "Answer", "text": "Follow-up sessions and home exercises are often recommended to maintain improvements and prevent recurrence of pain or injury." }
     },
     {
       "@type": "Question",
       "name": "What equipment and techniques are used during therapy?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Treatment may include manual therapy, mobilization techniques, PNF (Proprioceptive Neuromuscular Facilitation), gait analysis, and exercise programs designed for specific conditions."
-      }
+      "acceptedAnswer": { "@type": "Answer", "text": "Treatment may include manual therapy, mobilization techniques, PNF (Proprioceptive Neuromuscular Facilitation), gait analysis, and exercise programs designed for specific conditions." }
     },
     {
       "@type": "Question",
       "name": "Are there any precautions to follow after a physiotherapy session?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Patients may be advised to perform specific home exercises, avoid certain movements temporarily, and follow posture or activity guidelines to support recovery and prevent injury."
-      }
+      "acceptedAnswer": { "@type": "Answer", "text": "Patients may be advised to perform specific home exercises, avoid certain movements temporarily, and follow posture or activity guidelines to support recovery and prevent injury." }
     }
   ]
 }
-    </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Frequently Asked Questions — Mehar Physiotherapy Clinic, Greater Noida West. Answers about services, sessions, home visits and bookings." />
-    <meta name="keywords" content="Mehar Physiotherapy Clinic FAQ, physiotherapy FAQ Greater Noida West, physiotherapist FAQs">
-    <meta name="author" content="Dr. Govindpreet Singh Arneja">
-    <meta name="color-scheme" content="light dark">
-    <link rel="canonical" href="https://meharphysiotherapyclinic.github.io/website/faq.html" />
-    <title>FAQ — Mehar Physiotherapy Clinic</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; color: #333; transition: background 0.3s ease; }
-        header { background: #00796b; color: white; padding: 15px 20px; text-align: center; }
-        header h1 { margin: 0; font-size: 1.8em; color: #fff; }
-        header p { margin: 5px 0 0; font-size: 1em; color: #e0f2f1; }
-        section { padding: 20px; max-width: 900px; margin: auto; background: white; margin-bottom: 20px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        section:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
-        section h2 { color: #0f6b3a; }
-        footer { background: #333; color: white; text-align: center; padding: 10px; }
-        .accordion { max-width: 900px; margin: 20px auto; padding: 0 20px 20px; }
-        .accordion-item { border-bottom: 1px solid #e6e6e6; padding: 12px 0; }
-        .accordion-button { display: flex; align-items: center; justify-content: space-between; width: 100%; background: transparent; border: none; padding: 0; font-size: 1.05em; text-align: left; color: #0f6b3a; cursor: pointer; }
-        .accordion-button:focus { outline: 2px dashed #00796b; outline-offset: 4px; }
-        .accordion-panel { max-height: 0; overflow: hidden; transition: max-height 0.28s ease, padding 0.28s ease; }
-        .accordion-panel.open { padding-top: 10px; max-height: 1000px; }
-        .accordion-icon { margin-left: 12px; font-size: 0.95em; }
-        .bottom-buttons { text-align: center; margin: 20px 0; }
-        .contact-btn { display: inline-block; padding: 12px 22px; background: #00796b; color: white; text-decoration: none; border-radius: 6px; margin: 5px; font-weight: bold; transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease; }
-        .contact-btn:hover { background: #00695c; transform: translateY(-3px) scale(1.05); box-shadow: 0 6px 15px rgba(0,0,0,0.25); }
-        .back-home { display: inline-block; background: #00796b; color: white; padding: 12px 22px; border-radius: 6px; text-decoration: none; font-weight: bold; box-shadow: 0 6px 15px rgba(0,0,0,0.25); margin-left: 20px; margin-top: 10px; }
-        .back-home:hover { background: #00695c; transform: translateY(-3px) scale(1.05); }
-        #backToTop { display: none; right: 20px; bottom: 70px; position: fixed; background: rgba(0, 121, 107, 0.5); color: #fff; border: none; border-radius: 50%; padding: 12px 16px; font-size: 24px; cursor: pointer; z-index: 9999; transition: background 0.25s, transform 0.25s; outline: none; }
-        #backToTop:hover { background: rgba(0,77,64,0.7); transform: scale(1.1); }
-        .accordion-button[aria-expanded="true"] {
-          background: #00796b;
-          color: #fff !important;
-          font-weight: 700;
-          border-radius: 4px;
-          transition: background 0.25s, color 0.25s;
-        }
-        @media (prefers-color-scheme: dark) {
-          body { background: #181818; color: #e0e0e0; }
-          section { background: #232323; color: #e0e0e0; }
-          .accordion-button {
-            color: #4db6ac;
-          }
-          .accordion-button[aria-expanded="true"] {
-            background: #004d40;
-            color: #fff !important;
-            font-weight: 700;
-            border-radius: 4px;
-          }
-        }
-    </style>
-    <link rel="stylesheet" href="theme.css">
-</head>
-<body>
-
-<header>
-    <h1>Mehar Physiotherapy Clinic</h1>
-    <p>By Dr. Govindpreet Singh Arneja (B.P.T., M.I.A.P.)</p>
-</header>
-
-<section id="faq-intro">
-  <h2>Frequently Asked Questions</h2>
-  <p class="intro">Find answers to common questions about services, sessions, home visits and bookings.</p>
-</section>
-
-<section class="accordion" id="faq">
-  <div class="accordion-item">
-    <button class="accordion-button" aria-expanded="false" aria-controls="faq1" id="faq1-btn">
-      <span>What conditions are treated at Mehar Physiotherapy Clinic?</span>
-      <span class="accordion-icon">+</span>
-    </button>
-    <div class="accordion-panel" id="faq1" role="region" aria-labelledby="faq1-btn">
-      <p>Treatment is provided for back and neck pain, joint pain, arthritis, sports injuries, post-surgical rehabilitation, neurological conditions, pediatric cases, and age-related mobility issues.</p>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <button class="accordion-button" aria-expanded="false" aria-controls="faq2" id="faq2-btn">
-      <span>Do I need a doctor’s referral to visit the clinic?</span>
-      <span class="accordion-icon">+</span>
-    </button>
-    <div class="accordion-panel" id="faq2" role="region" aria-labelledby="faq2-btn">
-      <p>No referral is required. Appointments can be booked directly.</p>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <button class="accordion-button" aria-expanded="false" aria-controls="faq3" id="faq3-btn">
-      <span>How long does each physiotherapy session last?</span>
-      <span class="accordion-icon">+</span>
-    </button>
-    <div class="accordion-panel" id="faq3" role="region" aria-labelledby="faq3-btn">
-      <p>A typical session lasts <strong>30 to 45 minutes</strong>, depending on the treatment plan and patient condition.</p>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <button class="accordion-button" aria-expanded="false" aria-controls="faq4" id="faq4-btn">
-      <span>How many physiotherapy sessions will I need?</span>
-      <span class="accordion-icon">+</span>
-    </button>
-    <div class="accordion-panel" id="faq4" role="region" aria-labelledby="faq4-btn">
-      <p>The number of sessions depends on the severity of the condition, treatment goals, and progress. A personalized treatment plan is prepared after the first assessment.</p>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <button class="accordion-button" aria-expanded="false" aria-controls="faq5" id="faq5-btn">
-      <span>Is physiotherapy painful?</span>
-      <span class="accordion-icon">+</span>
-    </button>
-    <div class="accordion-panel" id="faq5" role="region" aria-labelledby="faq5-btn">
-      <p>Physiotherapy is designed to <strong>reduce pain and improve mobility</strong>. Some exercises may cause mild discomfort initially, but treatments remain safe and comfortable.</p>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <button class="accordion-button" aria-expanded="false" aria-controls="faq6" id="faq6-btn">
-      <span>What should I bring for my first appointment?</span>
-      <span class="accordion-icon">+</span>
-    </button>
-    <div class="accordion-panel" id="faq6" role="region" aria-labelledby="faq6-btn">
-      <p>Bring any <strong>medical reports, X-rays, MRI/CT scans, prescriptions, or doctor’s notes</strong>, along with comfortable clothing for movement and exercise.</p>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <button class="accordion-button" aria-expanded="false" aria-controls="faq7" id="faq7-btn">
-      <span>Do you offer home physiotherapy services?</span>
-      <span class="accordion-icon">+</span>
-    </button>
-    <div class="accordion-panel" id="faq7" role="region" aria-labelledby="faq7-btn">
-      <p>Home physiotherapy sessions can be arranged depending on the condition and location. Please contact for details.</p>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <button class="accordion-button" aria-expanded="false" aria-controls="faq8" id="faq8-btn">
-      <span>What safety measures are followed at the clinic?</span>
-      <span class="accordion-icon">+</span>
-    </button>
-    <div class="accordion-panel" id="faq8" role="region" aria-labelledby="faq8-btn">
-      <p>Strict <strong>hygiene, sanitization, and sterilization protocols</strong> are maintained to provide a safe environment for all patients.</p>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <button class="accordion-button" aria-expanded="false" aria-controls="faq9" id="faq9-btn">
-      <span>Can physiotherapy help senior citizens?</span>
-      <span class="accordion-icon">+</span>
-    </button>
-    <div class="accordion-panel" id="faq9" role="region" aria-labelledby="faq9-btn">
-      <p>Physiotherapy helps seniors with <strong>balance, flexibility, arthritis management, fall prevention, and post-surgery recovery</strong>, allowing them to stay independent and active.</p>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <button class="accordion-button" aria-expanded="false" aria-controls="faq10" id="faq10-btn">
-      <span>How can I book an appointment?</span>
-      <span class="accordion-icon">+</span>
-    </button>
-    <div class="accordion-panel" id="faq10" role="region" aria-labelledby="faq10-btn">
-      <p>Appointments can be booked <strong>online through the website</strong> or by <strong>calling directly</strong>.</p>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <button class="accordion-button" aria-expanded="false" aria-controls="faq11" id="faq11-btn">
-      <span>Are treatment plans customized for each patient?</span>
-      <span class="accordion-icon">+</span>
-    </button>
-    <div class="accordion-panel" id="faq11" role="region" aria-labelledby="faq11-btn">
-      <p>Each treatment plan is tailored to the patient’s condition, goals, and lifestyle to ensure effective recovery and long-term results.</p>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <button class="accordion-button" aria-expanded="false" aria-controls="faq12" id="faq12-btn">
-      <span>Do you treat sports injuries?</span>
-      <span class="accordion-icon">+</span>
-    </button>
-    <div class="accordion-panel" id="faq12" role="region" aria-labelledby="faq12-btn">
-      <p>Sports injury management includes sprains, strains, ligament injuries, and rehabilitation to help patients return to activity safely.</p>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <button class="accordion-button" aria-expanded="false" aria-controls="faq13" id="faq13-btn">
-      <span>Can physiotherapy help with post-surgical recovery?</span>
-      <span class="accordion-icon">+</span>
-    </button>
-    <div class="accordion-panel" id="faq13" role="region" aria-labelledby="faq13-btn">
-      <p>Physiotherapy supports recovery after surgeries such as joint replacement, fracture repair, or spinal procedures, improving mobility and reducing pain.</p>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <button class="accordion-button" aria-expanded="false" aria-controls="faq14" id="faq14-btn">
-      <span>Is follow-up care required after the sessions?</span>
-      <span class="accordion-icon">+</span>
-    </button>
-    <div class="accordion-panel" id="faq14" role="region" aria-labelledby="faq14-btn">
-      <p>Follow-up sessions and home exercises are often recommended to maintain improvements and prevent recurrence of pain or injury.</p>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <button class="accordion-button" aria-expanded="false" aria-controls="faq15" id="faq15-btn">
-      <span>What equipment and techniques are used during therapy?</span>
-      <span class="accordion-icon">+</span>
-    </button>
-    <div class="accordion-panel" id="faq15" role="region" aria-labelledby="faq15-btn">
-      <p>Treatment may include manual therapy, mobilization techniques, PNF (Proprioceptive Neuromuscular Facilitation), gait analysis, and exercise programs designed for specific conditions.</p>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <button class="accordion-button" aria-expanded="false" aria-controls="faq16" id="faq16-btn">
-      <span>Are there any precautions to follow after a physiotherapy session?</span>
-      <span class="accordion-icon">+</span>
-    </button>
-    <div class="accordion-panel" id="faq16" role="region" aria-labelledby="faq16-btn">
-      <p>Patients may be advised to perform specific home exercises, avoid certain movements temporarily, and follow posture or activity guidelines to support recovery and prevent injury.</p>
-    </div>
-  </div>
-</section>
-
-<div class="bottom-buttons">
-    <a href="appointment.html" class="contact-btn">📅 Book Appointment</a>
-    <a href="tel:+919810359247" class="contact-btn">Call Now</a>
-    <a href="index.html" class="back-home">Home</a>
-</div>
-
-<button id="backToTop" title="Back to Top">↑</button>
+</script>
 
 <script>
-  const items = document.querySelectorAll('.accordion-item');
-  items.forEach(item => {
-    const btn = item.querySelector('.accordion-button');
-    const panel = item.querySelector('.accordion-panel');
-    const icon = item.querySelector('.accordion-icon');
-    btn.addEventListener('click', () => {
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
-      document.querySelectorAll('.accordion-button').forEach(b => b.setAttribute('aria-expanded', 'false'));
-      document.querySelectorAll('.accordion-panel').forEach(p => p.classList.remove('open'));
-      document.querySelectorAll('.accordion-icon').forEach(i => i.textContent = '+');
-      if (!expanded) {
-        btn.setAttribute('aria-expanded', 'true');
-        panel.classList.add('open');
-        icon.textContent = '−';
-      }
-    });
-  });
+(function () {
+  // Ensure JS runs after DOM is ready
+  function ready(fn){ if (document.readyState!='loading') fn(); else document.addEventListener('DOMContentLoaded', fn); }
 
-  const backToTopBtn = document.getElementById('backToTop');
-  function handleBackToTopVisibility() {
-    if (window.innerWidth <= 700) {
-      backToTopBtn.style.display = window.pageYOffset > 100 ? 'block' : 'none';
-    } else { backToTopBtn.style.display = 'none'; }
-  }
-  window.addEventListener('scroll', handleBackToTopVisibility);
-  window.addEventListener('resize', handleBackToTopVisibility);
-  document.addEventListener('DOMContentLoaded', handleBackToTopVisibility);
-  backToTopBtn.addEventListener('click', () => { window.scrollTo({top:0, behavior:'smooth'}); });
+  ready(function () {
+    const items = Array.from(document.querySelectorAll('.accordion-item'));
+    const buttons = items.map(i => i.querySelector('.accordion-button'));
+    const panels = items.map(i => i.querySelector('.accordion-panel'));
+
+    function closeAll() {
+      buttons.forEach((b, idx) => {
+        b.setAttribute('aria-expanded', 'false');
+        panels[idx].classList.remove('open');
+        const icon = b.querySelector('.accordion-icon');
+        if (icon) icon.textContent = '+';
+      });
+    }
+
+    buttons.forEach((btn, idx) => {
+      const panel = panels[idx];
+      const icon = btn.querySelector('.accordion-icon');
+      // Mouse / pointer click
+      btn.addEventListener('click', function (e) {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        closeAll();
+        if (!expanded) {
+          btn.setAttribute('aria-expanded', 'true');
+          panel.classList.add('open');
+          if (icon) icon.textContent = '−';
+          // Move focus inside expanded panel for screen reader users? keep focus on button
+        }
+      });
+
+      // Keyboard navigation for each button: Enter/Space handled by default for button element.
+      btn.addEventListener('keydown', function (e) {
+        const key = e.key;
+        const currentIndex = buttons.indexOf(btn);
+        if (key === 'ArrowDown') {
+          e.preventDefault();
+          const next = buttons[(currentIndex + 1) % buttons.length];
+          next.focus();
+        } else if (key === 'ArrowUp') {
+          e.preventDefault();
+          const prev = buttons[(currentIndex - 1 + buttons.length) % buttons.length];
+          prev.focus();
+        } else if (key === 'Home') {
+          e.preventDefault();
+          buttons[0].focus();
+        } else if (key === 'End') {
+          e.preventDefault();
+          buttons[buttons.length - 1].focus();
+        }
+      });
+    });
+
+    // Back to top button behavior and accessible toggling
+    const backToTopBtn = document.getElementById('backToTop');
+    function handleBackToTopVisibility() {
+      // show on scroll > 150 on small screens or > 400 on larger
+      const show = (window.pageYOffset > (window.innerWidth <= 700 ? 100 : 400));
+      if (show) {
+        backToTopBtn.classList.add('show');
+        backToTopBtn.setAttribute('aria-hidden', 'false');
+      } else {
+        backToTopBtn.classList.remove('show');
+        backToTopBtn.setAttribute('aria-hidden', 'true');
+      }
+    }
+    window.addEventListener('scroll', handleBackToTopVisibility, { passive: true });
+    window.addEventListener('resize', handleBackToTopVisibility);
+    handleBackToTopVisibility();
+
+    backToTopBtn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      backToTopBtn.blur();
+    });
+
+    // If a deep-linked accordion id is present, open it
+    if (location.hash) {
+      const target = document.getElementById(location.hash.replace('#',''));
+      if (target && target.classList.contains('accordion-panel')) {
+        // find button
+        const btn = document.querySelector('[aria-controls="' + target.id + '"]');
+        if (btn) {
+          closeAll();
+          btn.setAttribute('aria-expanded', 'true');
+          target.classList.add('open');
+          const icon = btn.querySelector('.accordion-icon');
+          if (icon) icon.textContent = '−';
+          // focus to the button for keyboard users
+          btn.focus();
+        }
+      }
+    }
+  });
+})();
 </script>
 
 </body>
