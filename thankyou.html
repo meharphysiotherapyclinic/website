@@ -14,14 +14,11 @@
       line-height: 1.6;
       background: #fff;
       color: #222;
-
-      /* Flexbox for sticky footer */
       display: flex;
       flex-direction: column;
       min-height: 100vh;
     }
 
-    /* Clinic Branding */
     header {
       background: #00796b;
       color: #fff;
@@ -37,9 +34,8 @@
       font-size: 0.95rem;
     }
 
-    /* Thank You Box */
     main {
-      flex: 1; /* pushes footer down */
+      flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -60,23 +56,34 @@
     .box p {
       margin-bottom: 20px;
     }
+
+    /* Home Button styled like blog page buttons */
     a.button {
       display: inline-block;
-      margin-top: 15px;
+      margin-top: 20px;
+      margin-bottom: 20px;
       text-decoration: none;
       background: #00796b;
       color: #ffffff;
       padding: 10px 18px;
       border-radius: 6px;
       font-size: 15px;
-      transition: background 0.3s ease, transform 0.2s ease;
+      transition: background 0.3s ease, transform 0.2s ease, color 0.3s ease;
     }
+
+    a.button img {
+      vertical-align: middle;
+      margin-right: 8px;
+      width: 20px;
+      height: 20px;
+    }
+
     a.button:hover {
       background: #00695c;
+      color: #ffffff;
       transform: scale(1.05);
     }
 
-    /* Footer */
     footer {
       background: #f1f1f1;
       color: #222;
@@ -85,20 +92,14 @@
       margin-top: auto;
     }
 
-    /* Dark Mode Fix */
     @media (prefers-color-scheme: dark) {
-      body {
-        background: #121212;
-        color: #e0e0e0;
-      }
+      body { background: #121212; color: #e0e0e0; }
       .box {
         background: #1e1e1e !important;
         color: #e0e0e0 !important;
         box-shadow: 0 0 12px rgba(0,0,0,0.4);
       }
-      .box h2 {
-        color: #4db6ac;
-      }
+      .box h2 { color: #4db6ac; }
       footer { background: #333; color: white; }
     }
   </style>
@@ -106,30 +107,28 @@
 </head>
 <body>
 
-  <!-- Clinic Branding -->
   <header>
     <h1>Mehar Physiotherapy Clinic</h1>
     <p>By Dr. Govindpreet Singh Arneja (B.P.T., M.I.A.P.)</p>
- </header>
+  </header>
 
-  <!-- Thank You Message -->
   <main>
     <div class="box">
       <h2>Thank You!</h2>
       <p>Your appointment request has been received.<br>
       I will contact you shortly to confirm the timing.</p>
 
-      <a href="index.html" class="button">Home</a>
+      <a href="index.html" class="button" aria-label="Homepage">
+        <img src="https://cdn-icons-png.flaticon.com/512/1946/1946433.png" alt="Home icon">Home
+      </a>
     </div>
   </main>
 
-  <!-- Footer -->
   <footer>
     © <span id="year"></span> Mehar Physiotherapy Clinic. All Rights Reserved.
   </footer>
 
   <script>
-    // auto-update year
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 
