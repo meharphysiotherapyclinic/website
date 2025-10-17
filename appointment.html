@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Book an Appointment | Mehar Physiotherapy Clinic</title>
@@ -22,7 +23,7 @@
       overflow-x: hidden; /* Prevent horizontal scroll */
     }
     footer { background: #333; color: white; text-align: center; padding: 10px; }
- /* Clinic Branding */
+    /* Clinic Branding */
     header {
       background: #00796b;
       color: #fff;
@@ -97,6 +98,40 @@
       transform: scale(1.03);
     }
 
+    /* Home Button styles */
+    .home-btn-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    a.button {
+      display: inline-block;
+      text-decoration: none;
+      background: #00796b;
+      color: #ffffff;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: bold;
+      transition: background 0.3s ease, transform 0.2s ease, color 0.3s ease;
+    }
+
+    a.button img {
+      vertical-align: middle;
+      margin-right: 8px;
+      width: 20px;
+      height: 20px;
+    }
+
+    a.button:hover {
+      background: #00695c;
+      color: #ffffff;
+      transform: scale(1.05);
+    }
+
     @media (max-width: 576px) {
       .container {
         padding: 15px 10px; /* Reduced padding on small screens */
@@ -114,6 +149,10 @@
       header {
         padding: 12px 2px;
         font-size: 0.98rem;
+      }
+      .home-btn-wrapper {
+        margin-top: 15px;
+        margin-bottom: 15px;
       }
     }
   </style>
@@ -149,6 +188,11 @@
 
       <button type="submit">Submit Request</button>
     </form>
+    <div class="home-btn-wrapper">
+      <a href="index.html" class="button" aria-label="Homepage">
+        <img src="https://cdn-icons-png.flaticon.com/512/1946/1946433.png" alt="Home icon">Home
+      </a>
+    </div>
   </div>
   <footer>
     © 2025 Mehar Physiotherapy Clinic. All Rights Reserved.
@@ -179,4 +223,5 @@
       }
     });
   </script>        
-</body></html>
+</body>
+</html>
