@@ -101,9 +101,9 @@ header img {
 /* 3. The Teal Floating Window */
 #nav-menu {
   position: fixed;
-  top: 70px;          /* ✅ move below header (IMPORTANT FIX) */
-  right: 15px;        /* ✅ anchor to right */
-  left: auto;         /* ✅ ensure no left conflict */
+  top: 70px;
+  right: 15px;
+  left: auto;
 
   width: 150px; 
   background-color: #00796b;
@@ -111,16 +111,22 @@ header img {
   border-radius: 12px;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
 
-  padding: 15px;      /* ✅ removed fake top padding */
-  
+  padding: 15px;
+
   display: flex;
   flex-direction: column;
   gap: 5px;
   z-index: 9999;
 
+  /* ✅ KEY FIX START */
+  max-height: calc(100vh - 90px); /* limit height based on screen */
+  overflow-y: auto;               /* enable scroll inside menu */
+  -webkit-overflow-scrolling: touch; /* smooth scrolling on mobile */
+  /* ✅ KEY FIX END */
+
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-10px); /* ✅ vertical animation (better UX) */
+  transform: translateY(-10px);
   transition: all 0.25s ease;
 }
 
@@ -129,6 +135,15 @@ header img {
   opacity: 1;
   visibility: visible;
   transform: translateX(0); 
+}
+
+/* Optional: Custom scrollbar for menu */
+#nav-menu::-webkit-scrollbar {
+  width: 4px;
+}
+#nav-menu::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.4);
+  border-radius: 10px;
 }
 
 /* 5. Styling the Links (White text for Teal background) */
