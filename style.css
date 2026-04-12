@@ -57,7 +57,8 @@ header img {
 
 .header-text {
   text-align: center;
-  justify-self: center; /* exact center */
+  justify-self: center;
+  width: 100%;   /* ✅ ensures true center */
 }
 
 .header-text h1 {
