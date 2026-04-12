@@ -74,28 +74,46 @@ header img {
 /* NEW FLOATING MENU CSS - UPDATED           */
 /* ========================================= */
 
-/* 1. Burger Button Styling */
+/* ===== Burger Base ===== */
 .menu-toggle {
   display: flex !important;
   flex-direction: column;
   justify-content: space-between;
   width: 28px;
-  height: 20px;
+  height: 22px; /* ✅ IMPORTANT (controls spacing) */
   cursor: pointer;
-
   justify-self: end;
-
-  position: relative;   /* ✅ needed for z-index to work */
-  z-index: 10001;       /* ✅ higher than menu */
+  position: relative;
+  z-index: 10001;
 }
 
-/* 2. Positioning the burger inside the menu box when active */
-/* This ensures the burger moves to the top-left corner of the teal box */
-.menu-toggle span { 
-  height: 3px; 
-  width: 100%; 
-  background: white; 
-  border-radius: 3px; 
+/* Lines */
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: white;
+  border-radius: 3px;
+
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+/* ===== ACTIVE STATE (Burger → X) ===== */
+
+/* Top line */
+.menu-toggle.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+/* Middle line disappears */
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+/* Bottom line */
+.menu-toggle.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
 }
 
 /* 3. The Teal Floating Window */
