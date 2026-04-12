@@ -1,14 +1,18 @@
-const CACHE_NAME = "mehar-vcard-v2";
+const CACHE_NAME = "mehar-main-v1";
 const urlsToCache = [
-  "/vcard/",
-  "/vcard/index.html",
-  "/vcard/logo.png",
-  "/vcard/qr_vcard.png"
+  "./",
+  "./index.html",
+  "./style.css",
+  "./theme.css",
+  "./logo.webp",
+  "./doctor.webp"
 ];
 
 self.addEventListener("install", event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
+    caches.open(CACHE_NAME).then(cache => {
+      return cache.addAll(urlsToCache);
+    })
   );
 });
 
