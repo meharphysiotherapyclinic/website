@@ -317,4 +317,9 @@
   .review-author strong { color: #4da3ff; }
 }
 
-
+button.contact-btn {
+  font-size: 16px; /* Matches standard <a> text size */
+  line-height: normal;
+  appearance: none;
+  -webkit-appearance: none;
+}
