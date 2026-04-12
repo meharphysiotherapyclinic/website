@@ -49,3 +49,17 @@ document.addEventListener('DOMContentLoaded', () => {
     carousel.addEventListener('touchcancel', () => carousel.classList.remove('paused'), { passive: true });
   }
 });
+function shareWebsite() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'Mehar Physiotherapy Clinic',
+      text: 'Check out Mehar Physiotherapy Clinic in Gaur City 2 for expert physiotherapy and rehabilitation.',
+      url: window.location.href
+    })
+    .catch((error) => console.log('Error sharing:', error));
+  } else {
+    // Fallback: Copy link to clipboard if sharing is not supported (like on some desktops)
+    navigator.clipboard.writeText(window.location.href);
+    alert("Website link copied to clipboard!");
+  }
+}
