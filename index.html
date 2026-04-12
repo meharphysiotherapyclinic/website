@@ -244,34 +244,34 @@
 </footer> 
 <button id="backToTop" title="Back to Top" style="display: none;">↑</button> 
 <script>
-// ===== Menu Toggle (Handles BOTH Open & Close) =====
+// ===== Menu Toggle (Open / Close + Icon Animation) =====
 const toggle = document.getElementById('menu-toggle');
 const nav = document.getElementById('nav-menu');
 
-// Clicking the burger will now Open if closed, and Close if open
+// Toggle menu on burger click
 toggle.addEventListener('click', (e) => {
-  e.stopPropagation(); 
-  nav.classList.toggle('active'); 
+  e.stopPropagation();
+  nav.classList.toggle('active');
+  toggle.classList.toggle('active'); // ✅ sync burger animation
 });
 
-// Close menu when clicking anywhere else on the screen (outside the box)
+// Close menu when clicking outside
 document.addEventListener('click', (e) => {
-  if (nav.classList.contains('active') && !nav.contains(e.target) && !toggle.contains(e.target)) {
+  if (
+    nav.classList.contains('active') &&
+    !nav.contains(e.target) &&
+    !toggle.contains(e.target)
+  ) {
     nav.classList.remove('active');
+    toggle.classList.remove('active'); // ✅ reset icon
   }
 });
 
-// Close menu automatically when a link inside is clicked
+// Close menu when clicking any link
 document.querySelectorAll('#nav-menu a').forEach(link => {
   link.addEventListener('click', () => {
     nav.classList.remove('active');
-  });
-});
-
-// Optional: Close menu when a link inside it is clicked
-document.querySelectorAll('#nav-menu a').forEach(link => {
-  link.addEventListener('click', () => {
-    nav.classList.remove('active');
+    toggle.classList.remove('active'); // ✅ reset icon
   });
 });
 
