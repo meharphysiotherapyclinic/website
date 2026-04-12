@@ -1,0 +1,20 @@
+{
+  "name": "Mehar Physiotherapy Clinic",
+  "short_name": "Mehar Clinic",
+  "start_url": "/vcard/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0e5a95",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
