@@ -248,3 +248,73 @@
         #faq-preview .faq-question { margin: 0 0 8px; color: #0f6b3a; font-size: 1.1em; } 
         #faq-preview .faq-answer-preview { margin: 0; max-height: 3.6em; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; text-overflow: ellipsis; } 
         #faq-preview .more-link { text-align: right; margin-top: 12px; }
+/* --- Review Section Styles --- */
+.review-carousel {
+  overflow: hidden;
+  width: 100%;
+  padding: 20px 0;
+  cursor: grab;
+  position: relative;
+}
+
+.review-track {
+  display: flex;
+  width: max-content;
+  animation: scrollWebReviews 40s linear infinite;
+}
+
+.review-card {
+  background: rgba(255, 255, 255, 0.6); /* Semi-transparent glass */
+  backdrop-filter: blur(5px);
+  width: 300px;
+  margin: 0 15px;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 121, 107, 0.2); /* Teal border */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  text-align: left;
+  flex-shrink: 0;
+}
+
+.review-stars { color: #fbbc04; font-size: 14px; margin-bottom: 8px; }
+
+.review-text { 
+  font-size: 0.95em; 
+  line-height: 1.5; 
+  color: #333; 
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+.review-author { 
+  border-top: 1px solid rgba(0, 121, 107, 0.1); 
+  padding-top: 10px; 
+  font-size: 0.85em;
+}
+
+.review-author strong { display: block; color: #00796b; }
+.review-author span { color: #666; }
+
+/* Animation Logic */
+@keyframes scrollWebReviews {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Pause Logic */
+@media (hover: hover) {
+  .review-carousel:hover .review-track { animation-play-state: paused; }
+}
+.review-carousel.paused .review-track { animation-play-state: paused; }
+
+/* Dark Mode Adjustments */
+@media (prefers-color-scheme: dark) {
+  .review-card {
+    background: rgba(30, 30, 30, 0.7);
+    border-color: rgba(77, 163, 255, 0.3);
+  }
+  .review-text { color: #f0f0f0; }
+  .review-author strong { color: #4da3ff; }
+}
+
+
