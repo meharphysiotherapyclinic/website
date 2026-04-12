@@ -68,10 +68,10 @@ header img {
 } 
 
 /* ========================================= */
-/* NEW FLOATING MENU CSS                     */
+/* NEW FLOATING MENU CSS - UPDATED           */
 /* ========================================= */
 
-/* 1. Force Burger Button to be visible on BOTH PC and Mobile */
+/* 1. Burger Button Styling */
 .menu-toggle {
   display: flex !important; 
   flex-direction: column;
@@ -79,7 +79,16 @@ header img {
   width: 30px;
   height: 21px;
   cursor: pointer;
-  z-index: 10000; 
+  z-index: 10001; /* Higher than the menu to stay visible */
+  transition: all 0.3s ease;
+}
+
+/* 2. Positioning the burger inside the menu box when active */
+/* This ensures the burger moves to the top-left corner of the teal box */
+body:has(#nav-menu.active) .menu-toggle {
+  position: fixed;
+  top: 30px;
+  left: 30px;
 }
 
 .menu-toggle span { 
@@ -87,70 +96,54 @@ header img {
   width: 100%; 
   background: white; 
   border-radius: 3px; 
-  transition: all 0.3s ease; 
 }
 
-/* 2. Turn the Nav Menu into an Upper-Left Floating Window */
+/* 3. The Teal Floating Window */
 #nav-menu {
   position: fixed;
-  top: 85px; /* Adjust if it overlaps your header */
-  left: 20px; 
-  width: 250px; 
-  background-color: #ffffff; /* Fallback */
-  background-color: var(--bg-color, #ffffff); 
+  top: 15px; 
+  left: 15px; 
+  width: 260px; 
+  background-color: #00796b; /* Teal background */
+  border: 1px solid #ffffff; /* 1px white margin/border */
   border-radius: 12px;
-  box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.2); 
-  padding: 15px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3); /* Slight shadow effect */
+  
+  /* Padding 50px at top creates the "seat" for the burger button */
+  padding: 60px 15px 15px 15px; 
+  
   display: flex;
   flex-direction: column;
   gap: 5px;
-  z-index: 9999;
-  border: 1px solid rgba(0,0,0,0.05); 
+  z-index: 10000;
 
   /* Hidden State & Animation */
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-15px); 
-  transition: all 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  transform: translateX(-20px); 
+  transition: all 0.3s ease-in-out;
 }
 
-/* 3. The "Active" State when Burger is Clicked */
+/* 4. Active State */
 #nav-menu.active {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0); 
+  transform: translateX(0); 
 }
 
-/* 4. Styling the Links inside the Window */
+/* 5. Styling the Links (White text for Teal background) */
 #nav-menu a {
   text-decoration: none;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 17px;
+  font-weight: 600;
   padding: 12px 15px;
   border-radius: 8px;
-  color: #333; /* Dark text for light background */
-  transition: background-color 0.2s ease, padding-left 0.2s ease;
+  color: #ffffff !important; 
+  transition: background 0.2s ease;
 }
 
-/* 5. Hover effect for PC users */
 #nav-menu a:hover {
-  background-color: rgba(0, 121, 107, 0.1); /* Uses your primary green/teal theme color */
-  padding-left: 22px; 
-  color: #00796b; 
-}
-
-@media (prefers-color-scheme: dark) {
-  #nav-menu {
-    background-color: #1e1e1e;
-    border: 1px solid rgba(255,255,255,0.1);
-  }
-  #nav-menu a {
-    color: #e0e0e0;
-  }
-  #nav-menu a:hover {
-    background-color: rgba(77, 163, 255, 0.2);
-    color: #4da3ff;
-  }
+  background-color: rgba(255, 255, 255, 0.15); 
 }
 
 /* ========================================= */
