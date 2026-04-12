@@ -1,20 +1,21 @@
 {
   "name": "Mehar Physiotherapy Clinic",
   "short_name": "Mehar Clinic",
-  "start_url": "/vcard/",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#0e5a95",
+  "theme-color": "#0e5a95",
+  "description": "Expert physiotherapy services in Greater Noida West.",
   "icons": [
     {
-      "src": "logo.png",
+      "src": "logo.webp", 
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/webp"
     },
     {
-      "src": "logo.png",
+      "src": "logo.webp",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/webp"
     }
   ]
 }
