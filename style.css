@@ -56,10 +56,8 @@ header img {
 } 
 
 .header-text {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   text-align: center;
+  justify-self: center; /* exact center */
 }
 
 .header-text h1 {
