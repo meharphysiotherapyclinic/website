@@ -372,3 +372,13 @@ button.contact-btn {
   .review-text { color: #f0f0f0; }
   .review-author strong { color: #4da3ff; }
 }
+/* Ensure the map fills its container properly */
+#map {
+  padding: 10px; /* Reduces padding inside the section for a larger map view */
+  line-height: 0; /* Removes tiny extra space at the bottom of the iframe */
+}
+
+#map iframe {
+  display: block;
+  width: 100%;
+}
