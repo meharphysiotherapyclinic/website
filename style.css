@@ -312,6 +312,21 @@ button.contact-btn {
   cursor: grab;
   position: relative;
 }
+/* ✅ Disable text selection in review section */
+.review-carousel,
+.review-track,
+.review-card,
+.review-text,
+.review-author {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+/* ✅ Improve touch behavior (prevents selection while scrolling) */
+.review-carousel {
+  touch-action: pan-y;
+}
 
 .review-track {
   display: flex;
