@@ -98,27 +98,27 @@ header img {
 /* 3. The Teal Floating Window */
 #nav-menu {
   position: fixed;
-  top: 15px; 
-  left: auto; 
+  top: 70px;          /* ✅ move below header (IMPORTANT FIX) */
+  right: 15px;        /* ✅ anchor to right */
+  left: auto;         /* ✅ ensure no left conflict */
+
   width: 150px; 
-  background-color: #00796b; /* Teal background */
-  border: 1px solid #ffffff; /* 1px white margin/border */
+  background-color: #00796b;
+  border: 1px solid #ffffff;
   border-radius: 12px;
-  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3); /* Slight shadow effect */
-  
-  /* Padding 50px at top creates the "seat" for the burger button */
-  padding: 60px 15px 15px 15px; 
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+
+  padding: 15px;      /* ✅ removed fake top padding */
   
   display: flex;
   flex-direction: column;
   gap: 5px;
   z-index: 10000;
 
-  /* Hidden State & Animation */
   opacity: 0;
   visibility: hidden;
-  transform: translateX(20px); 
-  transition: all 0.3s ease-in-out;
+  transform: translateY(-10px); /* ✅ vertical animation (better UX) */
+  transition: all 0.25s ease;
 }
 
 /* 4. Active State */
