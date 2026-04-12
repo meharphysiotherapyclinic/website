@@ -228,22 +228,28 @@
 </footer> 
 <button id="backToTop" title="Back to Top" style="display: none;">↑</button> 
 <script>
-// ===== Menu Toggle & Click-Outside-To-Close =====
+// ===== Menu Toggle (Handles BOTH Open & Close) =====
 const toggle = document.getElementById('menu-toggle');
 const nav = document.getElementById('nav-menu');
 
-// Toggle menu when clicking the burger
+// Clicking the burger will now Open if closed, and Close if open
 toggle.addEventListener('click', (e) => {
-  e.stopPropagation(); // Prevents the click from instantly triggering the document click listener below
-  nav.classList.toggle('active');
+  e.stopPropagation(); 
+  nav.classList.toggle('active'); 
 });
 
-// Close menu when clicking outside of it
+// Close menu when clicking anywhere else on the screen (outside the box)
 document.addEventListener('click', (e) => {
-  // If the menu is active AND the click wasn't inside the nav menu
-  if (nav.classList.contains('active') && !nav.contains(e.target)) {
+  if (nav.classList.contains('active') && !nav.contains(e.target) && !toggle.contains(e.target)) {
     nav.classList.remove('active');
   }
+});
+
+// Close menu automatically when a link inside is clicked
+document.querySelectorAll('#nav-menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('active');
+  });
 });
 
 // Optional: Close menu when a link inside it is clicked
