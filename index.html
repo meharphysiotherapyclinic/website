@@ -228,31 +228,29 @@
 </footer> 
 <button id="backToTop" title="Back to Top" style="display: none;">↑</button> 
 <script>
-// ===== Mobile Menu Toggle =====
+// ===== Menu Toggle & Click-Outside-To-Close =====
 const toggle = document.getElementById('menu-toggle');
 const nav = document.getElementById('nav-menu');
-toggle.addEventListener('click', () => {
+
+// Toggle menu when clicking the burger
+toggle.addEventListener('click', (e) => {
+  e.stopPropagation(); // Prevents the click from instantly triggering the document click listener below
   nav.classList.toggle('active');
 });
 
-// ===== Back to Top Button =====
-const backToTopBtn = document.getElementById('backToTop');
-function handleBackToTopVisibility() {
-  if (window.innerWidth <= 700) {
-    if (window.pageYOffset > 100) {
-      backToTopBtn.style.display = "block";
-    } else {
-      backToTopBtn.style.display = "none";
-    }
-  } else {
-    backToTopBtn.style.display = "none";
+// Close menu when clicking outside of it
+document.addEventListener('click', (e) => {
+  // If the menu is active AND the click wasn't inside the nav menu
+  if (nav.classList.contains('active') && !nav.contains(e.target)) {
+    nav.classList.remove('active');
   }
-}
-window.addEventListener('scroll', handleBackToTopVisibility);
-window.addEventListener('resize', handleBackToTopVisibility);
-document.addEventListener('DOMContentLoaded', handleBackToTopVisibility);
-backToTopBtn.addEventListener('click', () => {
-  window.scrollTo({top: 0, behavior: 'smooth'});
+});
+
+// Optional: Close menu when a link inside it is clicked
+document.querySelectorAll('#nav-menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('active');
+  });
 });
 
 // ===== UPDATED: Section Scroll Animations (Left/Right Alternating) =====
