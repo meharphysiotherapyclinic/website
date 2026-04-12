@@ -103,7 +103,7 @@ body:has(#nav-menu.active) .menu-toggle {
   position: fixed;
   top: 15px; 
   left: 15px; 
-  width: 260px; 
+  width: 150px; 
   background-color: #00796b; /* Teal background */
   border: 1px solid #ffffff; /* 1px white margin/border */
   border-radius: 12px;
