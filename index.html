@@ -333,6 +333,29 @@ document.querySelectorAll('section').forEach(section => {
       'transform 0.45s cubic-bezier(.17,.67,.83,.67), box-shadow 0.35s';
   });
 });
+    // ===== Back to Top Button Logic =====
+const backToTopBtn = document.getElementById('backToTop');
+
+function handleBackToTopVisibility() {
+    // Only show on mobile screens (max-width: 700px) and when scrolled down
+    if (window.innerWidth <= 700) {
+        if (window.pageYOffset > 100) {
+            backToTopBtn.style.display = "block";
+        } else {
+            backToTopBtn.style.display = "none";
+        }
+    } else {
+        backToTopBtn.style.display = "none";
+    }
+}
+
+window.addEventListener('scroll', handleBackToTopVisibility);
+window.addEventListener('resize', handleBackToTopVisibility);
+document.addEventListener('DOMContentLoaded', handleBackToTopVisibility);
+
+backToTopBtn.addEventListener('click', function() {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+});
 </script>
     <script>
   if ('serviceWorker' in navigator) {
