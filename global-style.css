@@ -1,0 +1,13 @@
+/* ===== Global Mobile Container Spacing ===== */
+section, .container {
+    width: 92%; /* This forces the container to leave 4% empty space on the left and right */
+    max-width: 1200px; /* This ensures it still looks great and doesn't stretch too far on large desktop screens */
+    margin-left: auto; /* Centers the container perfectly */
+    margin-right: auto;
+    box-sizing: border-box; /* Ensures any padding inside doesn't stretch the width */
+}
+
+/* Optional: Add a little bottom margin so sections don't touch each other vertically */
+section {
+    margin-bottom: 20px; 
+}
