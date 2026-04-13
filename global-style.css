@@ -1,31 +1,39 @@
-/* ===== Smart Global Layout ===== */
+/* 1. UNIVERSAL RESET - The most important fix for symmetry */
+/* This ensures padding and borders stay INSIDE the width you set */
+* {
+    box-sizing: border-box;
+}
 
-/* 1. Target the main wrappers of every page */
+/* 2. Main wrappers and top-level containers */
 main, 
 section:not(main section), 
 .container, 
 footer.card {
     width: 92%;
-    max-width: 1000px; /* Balanced width for both index and sub-pages */
+    max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
-    box-sizing: border-box;
     display: block;
 }
 
-/* 2. Fix for nested sections (like the FAQ cards) */
-/* This ensures that if a section is INSIDE a <main> tag, it stays full width */
+/* 3. Nested sections (like FAQ cards) stay within the main container */
 main section {
     width: 100% !important;
     margin-bottom: 20px;
 }
 
-/* 3. Global Mobile Padding Adjustment */
+/* 4. Global Mobile Refinements */
 @media (max-width: 700px) {
     main, .container {
         padding: 10px;
     }
     .card {
-        padding: 15px;
+        padding: 12px;
+    }
+    
+    /* FIX: Reduces the 35px padding that was causing the FAQ overflow */
+    .accordion-button, .accordion-panel {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
     }
 }
