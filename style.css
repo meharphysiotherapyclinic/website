@@ -1,6 +1,7 @@
 html, body {
-  width: 100vw;
-  overflow-x: clip;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 /* ✅ Ensure sections don’t break layout when tilted */
