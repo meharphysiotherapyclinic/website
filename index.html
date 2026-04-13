@@ -267,11 +267,31 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// Close menu when clicking any link
+// Close menu when clicking any link & handle scroll to prevent horizontal shift
 document.querySelectorAll('#nav-menu a').forEach(link => {
-  link.addEventListener('click', () => {
+  link.addEventListener('click', function(e) {
+    // Close the menu
     nav.classList.remove('active');
-    toggle.classList.remove('active'); // ✅ reset icon
+    toggle.classList.remove('active');
+
+    // Prevent horizontal page jump caused by off-screen animated sections
+    const href = this.getAttribute('href');
+    if (href.includes('#')) {
+      const targetId = href.split('#')[1];
+      const targetElement = document.getElementById(targetId);
+      
+      // If the target exists on the current page, scroll to it manually
+      if (targetElement) {
+        e.preventDefault(); 
+        
+        // Calculate vertical position and scroll ONLY the Y-axis
+        const offsetTop = targetElement.getBoundingClientRect().top + window.pageYOffset;
+        window.scrollTo({ 
+          top: offsetTop - 15, // slight padding so it isn't flush against the top
+          behavior: 'smooth' 
+        });
+      }
+    }
   });
 });
 
