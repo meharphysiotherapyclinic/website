@@ -7,18 +7,70 @@
     <meta name="description" content="Discover how physiotherapy helps seniors stay active, independent, and pain-free. Learn benefits such as better balance, strength, recovery after surgery, and improved quality of life at Mehar Physiotherapy Clinic." />
     <meta name="color-scheme" content="light dark">
     <link rel="stylesheet" href="global-style.css">
+    <link rel="stylesheet" href="theme.css">
     <style>
       body {
-        font-family: system-ui, Arial, sans-serif;
-        margin: 0;
-        padding: 20px;
-        line-height: 1.6;
-        background: #fff;
-        color: #222;
-        max-width: 800px;
-        margin-left: auto;
-        margin-right: auto;
-      }
+  margin: 0; /* Changed to 0 so header hits the edges */
+  padding: 0;
+  font-family: system-ui, Arial, sans-serif;
+  line-height: 1.6;
+  background: #fff;
+  color: #222;
+}
+
+/* Header from the main blog page */
+header {
+  background: #00796b;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  margin-bottom: 30px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+header h1 {
+  color: #fff !important; /* Forces white text inside header */
+  margin: 0;
+  font-size: 24px;
+}
+
+header p {
+  margin: 6px 0 0;
+  color: #fff;
+  font-size: 14px;
+}
+
+/* New container to keep text centered and readable */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Floating Navigation Buttons */
+.home-button, .gallery-button {
+  position: fixed;
+  right: 20px;
+  background: rgba(15, 107, 58, 0.5);
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  z-index: 1000;
+  transition: background 0.25s, transform 0.25s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.home-button { bottom: 70px; }
+.gallery-button { bottom: 120px; }
+
+.home-button:hover, .gallery-button:hover {
+  background: rgba(12, 81, 43, 0.7);
+  transform: scale(1.1);
+}
+
 
       h1 {
         color: #00796b;
@@ -31,16 +83,6 @@
         margin-bottom: 10px;
       }
 
-      p {
-        margin-bottom: 15px;
-      }
-
-      .button_list {
-        margin-bottom: 15px;
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-      }
       a.button,
       button.button {
         display: inline-block;
@@ -69,7 +111,19 @@
       button.button:hover {
         background: #00695c;
         color: #ffffff;
+        /* Keep text clearly visible */
         transform: scale(1.05);
+      }
+
+      p {
+        margin-bottom: 15px;
+      }
+
+      .button_list {
+        margin-bottom: 15px;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
       }
 
       ul li a {
@@ -83,11 +137,18 @@
         text-decoration: none;
       }
     </style>
-    <link rel="stylesheet" href="theme.css">
   </head>
   <body>
+<header>
+    <a href="index.html" class="home-button">Home</a>
+    <a href="gallery.html" class="gallery-button">Gallery</a>
+    <h1>Mehar Physiotherapy Clinic Blogs</h1>
+    <p>By Dr. Govindpreet Singh Arneja (B.P.T., M.I.A.P.)</p>
+  </header>
+
+  <div class="container">
     <h1>Staying Active and Independent: How Physiotherapy Helps Seniors</h1>
-    <p><em>Posted on August 18, 2025</em></p>
+    
     <p>Staying active is essential for older adults to maintain strength, balance, and overall quality of life. At <strong>Mehar Physiotherapy Clinic,</strong> I focus on helping seniors move confidently, reduce pain, and prevent injuries.</p>
     <h2>Key Habits and Tips for Seniors</h2>
     <ul>
@@ -102,7 +163,7 @@
     <ul class = "button_list">
       <li><a href="tel:+919810359247" target="_blank" class="button"><img src="https://cdn-icons-png.flaticon.com/512/523/523081.png" alt="Call Now"> Call Now </a></li>
       <li><a href="https://wa.me/919810359247" target="_blank" class="button"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968841.png" alt=""> WhatsApp</a></li>
-      <li><a href="appointment.html" class="button"><img src="https://cdn-icons-png.flaticon.com/512/10692/10692035.png" alt=""> Book Appointment </a></li>
+      <li><a href="appointment.html" target="_blank" class="button"><img src="https://cdn-icons-png.flaticon.com/512/10692/10692035.png" alt=""> Book Appointment </a></li>
     </ul>
     <h2>Related Articles</h2>
     <ul>
@@ -113,6 +174,7 @@
       <li><a href="blog5.html">Is Your Back Aching? Simple Stretches to Relieve Lower Back Pain</a></li>
     </ul>
     <a href="blog.html" class="button">← Back to Blog Page</a>
+</div>
   </body>
 </html>
 </html>
