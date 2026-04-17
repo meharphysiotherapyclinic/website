@@ -373,7 +373,8 @@ button.contact-btn {
 #backToTop:hover {
   background: rgba(0, 77, 64, 0.7);
   transform: scale(1.1);
-} 
+  }
+}
 
 @media (max-width: 480px) { 
   .doctor-photo { 
