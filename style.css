@@ -424,19 +424,19 @@ button.contact-btn {
 
 /* Slide FIX (prevents stretch in landscape) */
 .swiper-slide {
-  width: auto !important;
-  flex: 0 0 auto !important;
   display: flex;
   justify-content: center;
+
+  flex: 0 0 100%;
+  max-width: 100%;
 }
 
 /* ===== REVIEW CARD ===== */
 .review-card {
   flex: 0 0 auto;
 
-  width: 300px;
-  min-width: 300px;
-  max-width: 300px;
+  width: 100%;
+  max-width: 100%;
 
   margin: 0 10px;
   padding: 20px;
@@ -496,5 +496,19 @@ button.contact-btn {
 
     margin: 0 8px !important;
     padding: 14px !important;
+  }
+}
+/* ===== Desktop Review Layout Fix ===== */
+@media (min-width: 768px) {
+  .swiper-slide {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .swiper-slide {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
   }
 }
