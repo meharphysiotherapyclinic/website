@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+
   const websiteReviews = [
     {
       name: "Debangshi Chaterjee",
@@ -22,44 +23,59 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ];
 
-  const track = document.getElementById('review-track');
-  const carousel = document.querySelector('.review-carousel');
-  
-  if (track && carousel) {
-    const fullList = [...websiteReviews, ...websiteReviews];
-    
-    fullList.forEach(rev => {
-      const card = document.createElement('div');
-      card.className = 'review-card';
-      card.innerHTML = `
+  const wrapper = document.getElementById('review-wrapper');
+  if (!wrapper) return;
+
+  // Clear first (prevents duplication bugs)
+  wrapper.innerHTML = '';
+
+  // Create slides
+  websiteReviews.forEach(rev => {
+    const slide = document.createElement('div');
+    slide.className = 'swiper-slide';
+
+    slide.innerHTML = `
+      <div class="review-card">
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">"${rev.text}"</p>
+        <div class="review-text">"${rev.text}"</div>
         <div class="review-author">
           <strong>${rev.name}</strong>
           <span>${rev.service}</span>
         </div>
-      `;
-      track.appendChild(card);
-    });
+      </div>
+    `;
 
-    carousel.addEventListener('touchstart', () => carousel.classList.add('paused'), { passive: true });
-    carousel.addEventListener('touchend', () => {
-      setTimeout(() => carousel.classList.remove('paused'), 50);
-    }, { passive: true });
-    carousel.addEventListener('touchcancel', () => carousel.classList.remove('paused'), { passive: true });
+    wrapper.appendChild(slide);
+  });
+
+  // ✅ Ensure Swiper exists before initializing
+  if (typeof Swiper === 'undefined') {
+    console.error('Swiper not loaded');
+    return;
   }
+
+  // ✅ Professional smooth autoplay
+  new Swiper('.review-swiper', {
+    slidesPerView: 'auto',
+    spaceBetween: 15,
+    loop: true,
+
+    speed: 3000, // smooth continuous feel
+
+    autoplay: {
+      delay: 1,                // 🔥 continuous motion trick
+      disableOnInteraction: false,
+    },
+
+    freeMode: true,
+    freeModeMomentum: false,
+
+    grabCursor: true,
+
+    breakpoints: {
+      0: { spaceBetween: 10 },
+      768: { spaceBetween: 15 }
+    }
+  });
+
 });
-function shareWebsite() {
-  if (navigator.share) {
-    navigator.share({
-      title: 'Mehar Physiotherapy Clinic',
-      text: 'Check out Mehar Physiotherapy Clinic in Gaur City 2 for expert physiotherapy and rehabilitation.',
-      url: window.location.href
-    })
-    .catch((error) => console.log('Error sharing:', error));
-  } else {
-    // Fallback: Copy link to clipboard if sharing is not supported (like on some desktops)
-    navigator.clipboard.writeText(window.location.href);
-    alert("Website link copied to clipboard!");
-  }
-}
