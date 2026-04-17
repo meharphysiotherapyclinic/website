@@ -116,6 +116,7 @@
     <meta name="theme-color" content="#0e5a95">
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" href="logo.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <meta name="color-scheme" content="light dark">
     <link rel="stylesheet" href="global-style.css">
     <link rel="stylesheet" href="style.css">
@@ -196,17 +197,19 @@
 </section> 
     <section id="reviews">
   <h2>Patient Reviews</h2>
-  <div class="review-carousel">
-    <div id="review-track" class="review-track">
-      </div>
+
+  <div class="review-swiper swiper">
+    <div class="swiper-wrapper" id="review-wrapper">
+      <!-- JS will inject cards here -->
+    </div>
   </div>
-  <div class="more-link" style="text-align: center; margin-top: 15px;">
+
+  <div style="text-align:center; margin-top:15px;">
     <a href="https://search.google.com/local/reviews?placeid=ChIJ4_vGaUnvDDkR5vtYeucjsNU" target="_blank" class="contact-btn">
-  <img src="https://cdn-icons-png.flaticon.com/512/281/281764.png" alt="Google" style="width:18px; height:18px; vertical-align:middle; margin-right:8px;">
-  View All on Google
+      View All on Google
     </a>
   </div>
-    </section>
+</section>
     
 <section id="contact"> 
     <h2>Contact</h2>
@@ -389,5 +392,6 @@ backToTopBtn.addEventListener('click', function() {
   }
       </script>
     <script src="reviews.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   </body>
 </html>
