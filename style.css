@@ -257,12 +257,12 @@ footer { background: #333; color: white; text-align: center; padding: 10px; }
   box-shadow: 0 6px 15px rgba(0,0,0,0.25); 
 } 
 
-/* ===== Google Reviews Button ===== */
+/* ===== Google Reviews Button (Refined) ===== */
 
 /* Center container */
 .reviews-btn-container {
   text-align: center;
-  margin-top: 15px;
+  margin-top: 18px;
 }
 
 /* Button layout */
@@ -270,14 +270,38 @@ footer { background: #333; color: white; text-align: center; padding: 10px; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
+
+  padding: 12px 20px;          /* better button size */
+  font-size: 16px;
+  font-weight: 600;
+
+  border-radius: 8px;
 }
 
 /* Google icon */
 .google-icon {
-  width: 22px;
-  height: 22px;
+  width: 26px;                /* bigger and clear */
+  height: 26px;
+
+  flex-shrink: 0;             /* prevents shrinking */
+  display: block;
+
+  object-fit: contain;        /* keeps proportions */
 }
+
+/* Optional: better alignment on small screens */
+@media (max-width: 480px) {
+  .google-btn {
+    gap: 10px;
+    padding: 11px 18px;
+    font-size: 15px;
+  }
+
+  .google-icon {
+    width: 24px;
+    height: 24px;
+  }
 
 button.contact-btn {
   font-size: 16px; 
