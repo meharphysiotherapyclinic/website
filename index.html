@@ -254,11 +254,13 @@
     loading="lazy">
   </iframe>
 </section>
-<footer> 
-    <p>© 2026 Mehar Physiotherapy Clinic. All Rights Reserved.</p> 
+<footer>
+    © <span id="currentYear"></span> Mehar Physiotherapy Clinic. All Rights Reserved.
 </footer> 
 <button id="backToTop" title="Back to Top" style="display: none;"><span>↑</span></button> 
 <script>
+    // Automatically update footer year
+document.getElementById('currentYear').textContent = new Date().getFullYear();
 // ===== Share Website Logic =====
 function shareWebsite() {
   if (navigator.share) {
