@@ -281,8 +281,8 @@
   </div>
 </main>
 
-<footer class="card" role="contentinfo" aria-label="Footer">
-  <p style="text-align:center;margin:0">© 2026 Mehar Physiotherapy Clinic. All Rights Reserved.</p>
+<footer>
+    © <span id="currentYear"></span> Mehar Physiotherapy Clinic. All Rights Reserved.
 </footer>
 
 <button id="backToTop" aria-hidden="true" aria-label="Back to top" class=""><span>↑</span></button>
@@ -297,6 +297,8 @@
   "telephone": "+91-9810359247"
 }
 </script>
+// Automatically update footer year
+document.getElementById('currentYear').textContent = new Date().getFullYear();
 
 <!-- Structured data: FAQPage -->
 <script type="application/ld+json">
