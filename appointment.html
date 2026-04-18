@@ -196,10 +196,12 @@
     </div>
   </div>
   <footer>
-    © 2025 Mehar Physiotherapy Clinic. All Rights Reserved.
-  </footer>
+    © <span id="currentYear"></span> Mehar Physiotherapy Clinic. All Rights Reserved.
+</footer>
 
   <script>
+    // Automatically update footer year
+document.getElementById('currentYear').textContent = new Date().getFullYear();
     const form = document.getElementById('appointmentForm');
 
     form.addEventListener('submit', async function(event) {
