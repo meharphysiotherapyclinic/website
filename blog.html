@@ -226,7 +226,8 @@
     © <span id="currentYear"></span> Mehar Physiotherapy Clinic. All Rights Reserved.
 </footer>
 <script>
-document.getElementById('year').textContent = new Date().getFullYear();
+// Automatically update footer year
+document.getElementById('currentYear').textContent = new Date().getFullYear();
 
 // Back to top button show/hide logic
 const backToTopBtn = document.getElementById('backToTop');
@@ -278,11 +279,6 @@ document.querySelectorAll('.card').forEach(card => {
     card.style.transition = 'transform 0.18s cubic-bezier(.17,.67,.83,.67), box-shadow 0.22s';
   });
 });
-</script><br>
-<br>
-<br>
-<br>
-
-  
+</script>
 </body>
 </html>
