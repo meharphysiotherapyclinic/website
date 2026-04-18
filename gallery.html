@@ -257,10 +257,12 @@
 <button id="backToTop" title="Back to Top" style="display: none;"><span>↑</span></button>
 
 <footer>
-    © 2025 Mehar Physiotherapy Clinic. All Rights Reserved.
+    © <span id="currentYear"></span> Mehar Physiotherapy Clinic. All Rights Reserved.
 </footer>
 
 <script>
+// Automatically update footer year
+document.getElementById('currentYear').textContent = new Date().getFullYear();
 function openLightbox(src) {
     document.getElementById("lightbox").style.display = "flex";
     document.getElementById("lightbox-img").src = src;
