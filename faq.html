@@ -89,9 +89,7 @@
           .accordion-button { color: #4db6ac; }
           .accordion-button[aria-expanded="true"] { background: #004d40; color: #fff !important; }
         }
-        footer.card {
-            margin-bottom: 0px;
-        }
+        footer { background: #333; color: white; text-align: center; padding: 10px; }
     </style>
 </head>
 <body>
@@ -281,11 +279,10 @@
   </div>
 </main>
 
-<footer>
-    © <span id="currentYear"></span> Mehar Physiotherapy Clinic. All Rights Reserved.
-</footer>
-
 <button id="backToTop" aria-hidden="true" aria-label="Back to top" class=""><span>↑</span></button>
+    <footer>
+    © <span id="currentYear"></span> Mehar Physiotherapy Clinic. All Rights Reserved.
+    </footer>
 <!-- Structured data: LocalBusiness -->
 <script type="application/ld+json">
 {
@@ -297,9 +294,6 @@
   "telephone": "+91-9810359247"
 }
 </script>
-// Automatically update footer year
-document.getElementById('currentYear').textContent = new Date().getFullYear();
-
 <!-- Structured data: FAQPage -->
 <script type="application/ld+json">
 {
@@ -391,6 +385,8 @@ document.getElementById('currentYear').textContent = new Date().getFullYear();
 </script>
 
 <script>
+// Automatically update footer year
+document.getElementById('currentYear').textContent = new Date().getFullYear();
 (function () {
   // Ensure JS runs after DOM is ready
   function ready(fn){ if (document.readyState!='loading') fn(); else document.addEventListener('DOMContentLoaded', fn); }
