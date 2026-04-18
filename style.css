@@ -280,11 +280,13 @@ footer { background: #333; color: white; text-align: center; padding: 10px; }
   color: white;
 }
 
-/* Google icon - MATCHES FONT SIZE EXACTLY */
+/* Google icon - FIXED FOR FULL WORD LOGO */
 .google-icon {
-  /* Using 'em' makes the icon height relative to the font-size above */
-  width: 1.2em;                
-  height: 1.2em;               
+  /* Height is tied to font-size. 1.6em makes it prominent but balanced. */
+  height: 1.6em;               
+  
+  /* CRITICAL FIX: Let the width adjust automatically for the rectangular image */
+  width: auto;                
 
   flex-shrink: 0;             
   display: block;
@@ -299,14 +301,8 @@ footer { background: #333; color: white; text-align: center; padding: 10px; }
   .google-btn {
     gap: 10px;
     padding: 10px 20px;
-    /* Icon will automatically shrink because the font-size shrinks */
+    /* The icon will automatically shrink on mobile because this font-size shrinks */
     font-size: 16px; 
-  }
-}
-
-  .google-icon {
-    width: 32px;              /* Mobile-optimized size */
-    height: 32px;
   }
 }
 
