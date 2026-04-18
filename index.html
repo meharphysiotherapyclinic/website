@@ -259,6 +259,22 @@
 </footer> 
 <button id="backToTop" title="Back to Top" style="display: none;"><span>↑</span></button> 
 <script>
+// ===== Share Website Logic =====
+function shareWebsite() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'Mehar Physiotherapy Clinic',
+      text: 'Expert physiotherapy care for back pain, neck pain, and sports injuries in Greater Noida West.',
+      url: window.location.href
+    })
+    .then(() => console.log('Successful share'))
+    .catch((error) => console.log('Error sharing', error));
+  } else {
+    // Fallback for desktop browsers or unsupported devices
+    prompt("Copy this link to share:", window.location.href);
+  }
+}
+
 // ===== Menu Toggle (Open / Close + Icon Animation) =====
 const toggle = document.getElementById('menu-toggle');
 const nav = document.getElementById('nav-menu');
