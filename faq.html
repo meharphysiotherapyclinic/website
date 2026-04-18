@@ -21,8 +21,21 @@
         header h1 { margin: 0; font-size: 1.8em; color: #fff; }
         header p { margin: 5px 0 0; font-size: 1em; color: #e0f2f1; }
         main { padding: 20px; max-width: 900px; margin: 16px auto; }
-        .card { background: var(--panel-bg); padding: 20px; border-radius: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.06); margin-bottom: 16px; }
-        .card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); transition: transform .18s ease, box-shadow .18s ease; }
+        .card { 
+    background: var(--panel-bg); 
+    padding: 20px; 
+    border-radius: 6px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.06); 
+    margin-bottom: 16px; 
+    /* Add this line here */
+    transition: transform .18s ease, box-shadow .18s ease; 
+}
+
+.card:hover { 
+    transform: translateY(-3px); 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08); 
+    /* Remove the transition line from here */
+}
         section h2 { color: #0f6b3a; }
 
         /* Skip link */
@@ -32,7 +45,19 @@
         /* Accordion */
         .accordion { margin: 0; padding: 0; }
         .accordion-item { border-bottom: 1px solid #e6e6e6; padding: 12px 0; }
-        .accordion-button { display: flex;padding-left: 15px;padding-right: 15px;align-items: center; justify-content: space-between; width: 100%; background: transparent; border: none;font-size: 1.05em; text-align: left; color: #0f6b3a; cursor: pointer; }
+        .accordion-button { 
+    display: flex;
+    padding: 12px 15px; 
+    align-items: center; 
+    justify-content: space-between; 
+    width: 100%; 
+    background: transparent; 
+    border: none;
+    font-size: 1.05em; 
+    text-align: left; 
+    color: #0f6b3a; 
+    cursor: pointer; 
+}
         .accordion-button:focus { outline: 3px solid #B2DFDB; outline-offset: 3px; border-radius: 4px; }
         .accordion-icon { margin-left: 12px; font-size: 0.95em; }
         .accordion-panel { max-height: 0; overflow: hidden;padding-left: 35px;padding-right: 35px;transition: max-height 0.28s ease, padding 0.28s ease; }
@@ -84,12 +109,30 @@
         .accordion-button[aria-expanded="true"] { background: var(--brand); color: #fff !important; font-weight: 700; border-radius: 4px; transition: background 0.25s, color 0.25s; padding: 6px; }
 
         @media (prefers-color-scheme: dark) {
-          body { background: #181818; color: #e0e0e0; }
-          .card { background: #232323; color: #e0e0e0; }
-          .accordion-button { color: #4db6ac; }
-          .accordion-button[aria-expanded="true"] { background: #004d40; color: #fff !important; }
-        }
-        footer { background: #333; color: white; text-align: center; padding: 10px; }
+  :root {
+    --panel-bg: #232323;
+    --text: #e0e0e0;
+  }
+  body { 
+    background: #181818; 
+  }
+  .accordion-button { 
+    color: #4db6ac; 
+  }
+  .accordion-button[aria-expanded="true"] { 
+    background: #004d40; 
+    color: #fff !important; 
+  }
+}
+        footer { 
+    background: #333; 
+    color: white; 
+    text-align: center; 
+    padding: 20px; 
+    width: 100%; 
+    box-sizing: border-box; 
+    display: block;
+}
     </style>
 </head>
 <body>
