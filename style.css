@@ -267,36 +267,42 @@ footer { background: #333; color: white; text-align: center; padding: 10px; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;                   /* Slightly wider gap for the larger icon */
+  gap: 12px;
 
-  padding: 12px 24px;          /* Increased padding for a more substantial feel */
-  font-size: 16px;
+  padding: 12px 24px;
+  /* Control the size of BOTH the text and the icon here */
+  font-size: 18px; 
   font-weight: 600;
 
   border-radius: 8px;
-  text-decoration: none;       /* Ensures no underline if it's an <a> tag */
+  text-decoration: none;
+  background: #00796b; /* Match your brand color */
+  color: white;
 }
 
-/* Google icon - INCREASED SIZE */
+/* Google icon - MATCHES FONT SIZE EXACTLY */
 .google-icon {
-  width: 38px;                /* Significant jump from 26px */
-  height: 38px;               /* Significant jump from 26px */
+  /* Using 'em' makes the icon height relative to the font-size above */
+  width: 1.2em;                
+  height: 1.2em;               
 
   flex-shrink: 0;             
   display: block;
-
   object-fit: contain;        
-  /* Adds a subtle lift to the icon colors against the dark background */
-  filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.3)); 
+  
+  /* Makes the logo colors clear on the teal background */
+  filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.3)); 
 }
 
 /* Better alignment on small screens */
 @media (max-width: 480px) {
   .google-btn {
     gap: 10px;
-    padding: 11px 20px;
-    font-size: 15px;
+    padding: 10px 20px;
+    /* Icon will automatically shrink because the font-size shrinks */
+    font-size: 16px; 
   }
+}
 
   .google-icon {
     width: 32px;              /* Mobile-optimized size */
