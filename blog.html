@@ -15,10 +15,11 @@
       --radius: 10px;
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
     }
-    body {
+        body {
       margin: 0;
-      background: #000;
-      color: #222;
+      background: #f4f4f4; /* Sets the light mode background to a soft white/grey */
+      color: #222;         /* Keeps text dark for readability */
+      transition: background 0.3s ease, color 0.3s ease; /* Adds a smooth fade when toggling modes */
     }
     header {
       background: #00796b;
