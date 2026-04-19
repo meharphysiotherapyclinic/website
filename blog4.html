@@ -136,6 +136,16 @@ header p {
         color: #00695c;
         text-decoration: none;
       }
+      footer { 
+  background: #333 !important; 
+  color: #ffffff !important; 
+  text-align: center; 
+  padding: 15px 10px; 
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+  margin-top: 30px; /* Gives some breathing room below your content */
+      }
     </style>
   </head>
   <body>
@@ -175,5 +185,12 @@ header p {
     </ul>
     <a href="blog.html" class="button">← Back to Blog Page</a>
 </div>
+    <footer>
+    © <span id="currentYear"></span> Mehar Physiotherapy Clinic. All Rights Reserved.
+    </footer>
+    <script>
+      // Automatically update footer year
+document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
   </body>
 </html>
