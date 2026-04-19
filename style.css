@@ -276,7 +276,7 @@ footer {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 16px;
 
   padding: 12px 24px;
   /* Control the size of BOTH the text and the icon here */
@@ -291,18 +291,26 @@ footer {
 
 /* Google icon - FIXED FOR FULL WORD LOGO */
 .google-icon {
-  /* Height is tied to font-size. 1.6em makes it prominent but balanced. */
-  height: 1.6em;               
-  
-  /* CRITICAL FIX: Let the width adjust automatically for the rectangular image */
+  height: 1.8em;               /* Slightly larger for prominence */
   width: auto;                
-
   flex-shrink: 0;             
   display: block;
   object-fit: contain;        
   
-  /* Makes the logo colors clear on the teal background */
-  filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.3)); 
+  /* Create a clean white "dock" for the logo colors to pop */
+  background: white;
+  padding: 4px 10px;
+  border-radius: 6px;
+  
+  /* Adds a subtle lift and glow effect */
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4), 0 2px 4px rgba(0,0,0,0.2);
+  
+  /* Smooth transition for hover effects */
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.google-btn:hover .google-icon {
+  transform: scale(1.1); /* Logo grows slightly on hover */
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.6); /* Glow intensifies */
 }
 
 /* Better alignment on small screens */
