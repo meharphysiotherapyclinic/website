@@ -84,3 +84,30 @@ header {
     border-bottom: 3px solid #f1c40f; /* A thin gold/yellow accent line for Dr. Arneja's brand */
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
+
+/* ========================================= */
+/* GLOBAL TEXT SELECTION CONTROL             */
+/* ========================================= */
+
+/* Prevent highlighting everywhere for an app-like feel */
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Allow selection ONLY for things people actually need to copy */
+.addr, 
+.phone, 
+address, 
+a[href^="tel:"], 
+.copy-safe, /* You can add this class to any text you want to remain copyable */
+input, 
+textarea {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
