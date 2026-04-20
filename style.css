@@ -538,3 +538,87 @@ button.contact-btn {
     max-width: 33.33%;
   }
 }
+
+/* ========================================= */
+/* WEBSITE - VCARD STYLE SERVICES GRID       */
+/* ========================================= */
+
+.services-box {
+  background: linear-gradient(135deg, rgba(240, 247, 255, 0.65), rgba(255, 255, 255, 0.8));
+  border-left: 5px solid #00796b; /* Website Teal Theme */
+  padding: 20px;
+  border-radius: 12px;
+  margin: 15px auto;
+  text-align: left;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.service-category {
+  font-size: 14.5px;
+  color: #00796b;
+  margin: 18px 0 8px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding-bottom: 4px;
+  font-weight: 700;
+}
+
+.services-box h3 + .service-category {
+  margin-top: 10px; /* Less margin for the very first category */
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Forces 2 columns like vcard */
+  gap: 8px 10px;
+  margin-bottom: 5px;
+}
+
+@media (min-width: 600px) {
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns on PC/Tablet */
+  }
+}
+
+.services-grid span {
+  background: #ffffff;
+  padding: 8px 6px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  color: #333;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+/* Neurological Services */
+.services-grid span.neuro {
+  background: #eef7ff; 
+  border: 1px solid #adcffa;
+  color: #0e5a95; 
+  font-weight: 600;
+}
+
+/* Highlight (Home Visit) */
+.services-grid span.highlight {
+  background: #e8f5e9; 
+  border: 1px solid #c8e6c9;
+  color: #2e7d32;
+  font-weight: 800;
+  grid-column: 1 / -1; /* Makes it span full width if you want, or remove to keep it pill sized */
+}
+
+/* --- Dark Mode Adjustments --- */
+@media (prefers-color-scheme: dark) {
+  .services-box {
+    background: linear-gradient(135deg, rgba(31, 42, 54, 0.7), rgba(24, 34, 44, 0.7));
+    border-left-color: #4db6ac;
+  }
+  .service-category { color: #4db6ac; border-bottom-color: rgba(255,255,255,0.1); }
+  .services-grid span { background: #2a3542; color: #f0f0f0; }
+  .services-grid span.neuro { background: #1a222c; border: 1px solid #0e5a95; color: #4da3ff; }
+  .services-grid span.highlight { background: #1b3320; border-color: #2e7d32; color: #69ff99; }
+}
