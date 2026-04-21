@@ -111,3 +111,15 @@ textarea {
   -ms-user-select: text;
   user-select: text;
 }
+
+/* ========================================= */
+/* FIX FOR WHITE CORNERS ON BUTTON PRESS     */
+/* ========================================= */
+a, button, .contact-btn, .accordion-button {
+    -webkit-tap-highlight-color: transparent; /* Removes the default mobile tap flash */
+    outline: none; /* Removes browser default focus rings */
+}
+
+a:focus, button:focus, .contact-btn:focus {
+    outline: none;
+}
