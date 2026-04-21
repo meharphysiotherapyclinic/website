@@ -680,21 +680,38 @@ button.contact-btn {
     text-transform: uppercase;
 }
 
-/* Mobile Optimizations - Fixes the Portrait View */
+/* Mobile Optimizations - Optimized for Portrait View */
 @media (max-width: 700px) {
     .hero-container {
-        /* Makes the container taller on mobile so it doesn't squish into a thin strip */
-        aspect-ratio: 4 / 3 !important; 
+        /* 3/4 or 9/16 provides a much taller 'portrait' look.
+           Using min-height ensures it never gets too small on tiny screens.
+        */
+        aspect-ratio: 3 / 4 !important; 
+        min-height: 450px !important; 
         
-        /* Fine-tunes the focal point slightly more to the left for mobile screens */
-        background-position: 60% center !important; 
+        /* Shift the background position to ensure the most important 
+           part of the photo (the therapist/action) stays visible.
+           Adjust the % if the subject is further left or right.
+        */
+        background-position: 75% center !important; 
     }
+
+    .hero-content {
+        padding: 15px;
+        /* Keeps the text centered vertically if the container is tall */
+        margin-top: -40px; 
+    }
+
     .hero-motto {
-        font-size: 1.25rem;
-        padding: 0 10px;
+        font-size: 1.4rem;
+        line-height: 1.2;
+        padding: 0 15px;
     }
+
     .hero-bottom-status {
-        font-size: 0.85rem;
-        padding: 8px 0;
+        font-size: 0.8rem;
+        padding: 10px 5px;
+        letter-spacing: 1px;
     }
 }
+
