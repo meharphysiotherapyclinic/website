@@ -1,3 +1,16 @@
+/* Prevent mobile browsers from automatically inflating text sizes */
+html, body {
+    -webkit-text-size-adjust: 100%; /* Fixes WebKit browsers like Brave/Safari */
+    -moz-text-size-adjust: 100%;    /* Fixes Firefox */
+    text-size-adjust: 100%;         /* Standard property */
+}
+
+/* Ensure long text wraps instead of breaking the layout */
+* {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
 /* 1. UNIVERSAL RESET - The most important fix for symmetry */
 /* This ensures padding and borders stay INSIDE the width you set */
 * {
