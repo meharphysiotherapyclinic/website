@@ -621,20 +621,21 @@ button.contact-btn {
 .hero-container {
     position: relative;
     width: 100%;
-    max-width: 100% !important; /* Forces full width */
-    height: 400px; /* Adjust height as needed */
-    margin: 0 0 30px 0 !important; /* Removes side margins, adds bottom space */
+    max-width: 100% !important;
+    height: 400px;
+    margin: 0 0 30px 0 !important;
     padding: 0 !important;
     
-    /* 🔥 Assuming your filename is welcome-hero.png from previous discussions 🔥 */
-    background-image: url('welcome-hero.png');
+    /* Use the full GitHub path for reliability */
+    background-image: url('https://meharphysiotherapyclinic.github.io/website/welcome-hero.png') !important;
     
     background-size: cover;
     background-position: center;
-    border-radius: 0 !important; /* Professional flat merge with header */
+    background-repeat: no-repeat;
+    border-radius: 0 !important;
     border: none !important;
-    box-shadow: none !important;
-    transform: none !important; /* Disables 3D tilt specifically for this section */
+    transform: none !important;
+    background-color: #1a1a1a; /* Fallback color */
 }
 
 .hero-overlay {
