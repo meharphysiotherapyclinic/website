@@ -136,3 +136,53 @@ a, button, .contact-btn, .accordion-button {
 a:focus, button:focus, .contact-btn:focus {
     outline: none;
 }
+
+/* ========================================= */
+/* CROSS-BROWSER HEADER FIX (BRAVE/CHROME)   */
+/* ========================================= */
+
+/* 1. Force the layout to be flexible but non-collapsing */
+header .header-top {
+    display: flex !important; /* Overrides the grid that causes issues in Brave */
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+}
+
+/* 2. Prevent the logo and menu from being squashed */
+.logo-title, .menu-toggle {
+    flex-shrink: 0 !important;
+    flex-grow: 0 !important;
+}
+
+/* 3. The Magic Fix: Dynamic Text Scaling */
+/* This ensures the title takes up the remaining space and shrinks before it wraps */
+header .header-text {
+    flex-grow: 1 !important;
+    flex-shrink: 1 !important;
+    min-width: 0 !important; /* Essential for flex-shrink to work */
+    text-align: center !important;
+}
+
+header .header-text h1 {
+    /* Using clamp ensures the font is never too big for Brave, but stays nice in Chrome */
+    font-size: clamp(1rem, 4.5vw, 1.8rem) !important;
+    line-height: 1.1 !important;
+    white-space: normal !important; /* Allows wrapping if absolutely necessary */
+    word-break: keep-all !important; /* Prevents breaking words like "Physiotherapy" in half */
+}
+
+header .header-text p {
+    font-size: clamp(0.7rem, 2.5vw, 0.95rem) !important;
+    margin: 0 !important;
+}
+
+/* 4. Brave Shield/Font Fallback Protection */
+/* This forces the browser to calculate character widths more strictly */
+header * {
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    font-variant-ligatures: none !important;
+}
