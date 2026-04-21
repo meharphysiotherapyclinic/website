@@ -186,3 +186,31 @@ header * {
     -webkit-font-smoothing: antialiased !important;
     font-variant-ligatures: none !important;
 }
+
+/* REPLACE the previous Global Scale Fix with this refined version */
+@media (max-width: 600px) {
+    html {
+        /* This dynamically scales the base font size between 90% and 100% 
+           based on the device width. It's smoother than a hard zoom. */
+        font-size: clamp(90%, 2.5vw + 80%, 100%);
+        
+        /* We keep zoom at 1 but use it as a 'buffer' for Chromium browsers */
+        zoom: 1; 
+    }
+}
+
+/* Specific fix for the Hero text to ensure it doesn't overlap the image */
+@media (max-width: 480px) {
+    .hero-motto {
+        font-size: 1.2rem !important; /* Slightly smaller for the narrowest phones */
+        line-height: 1.2 !important;
+    }
+    
+    .hero-container {
+        /* Pushes the content to the top so it doesn't sit 
+           directly over the center of the background image */
+        display: flex;
+        align-items: flex-start; 
+        padding-top: 20px !important;
+    }
+}
