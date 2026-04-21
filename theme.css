@@ -113,3 +113,41 @@
     color: #aaa;
   }
 }
+
+/* FORCE DARK MODE TO MATCH LIGHT MODE DIMENSIONS */
+
+/* 1. If your site uses a 'dark' class on the body */
+body.dark .hero-container, 
+body[data-theme='dark'] .hero-container,
+/* 2. Standard browser dark mode detection */
+@media (prefers-color-scheme: dark) {
+    .hero-container {
+        /* This forces the container back to the wider 'Light Mode' shape */
+        aspect-ratio: 16 / 9 !important; 
+        height: auto !important;
+        min-height: 0 !important; 
+        padding: 0 !important;
+        margin-bottom: 20px !important;
+    }
+
+    .hero-content {
+        /* Ensure no extra padding is pushing the box to be taller */
+        padding: 10px !important;
+        margin: 0 !important;
+    }
+
+    .hero-motto {
+        /* Keep font size small enough so it doesn't force the box to grow */
+        font-size: 1.2rem !important; 
+    }
+}
+
+/* 3. Universal Mobile fix (Max-width 700px) */
+@media (max-width: 700px) {
+    .hero-container {
+        /* 16/9 is the standard 'Wide' look from your Light Mode shot */
+        aspect-ratio: 16 / 9 !important; 
+        background-position: center center !important;
+        background-size: cover !important;
+    }
+}
