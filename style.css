@@ -617,13 +617,13 @@ button.contact-btn {
   .services-grid span.highlight { background: #1b3320; border-color: #2e7d32; color: #69ff99; }
 }
 
-/* ===== FULLY VISIBLE WELCOME HERO SECTION ===== */
+/* ===== FULLY ADAPTIVE WELCOME HERO SECTION ===== */
 .hero-container {
     position: relative;
     width: 100%;
     max-width: 100% !important;
     
-    /* FIX 1: Locks the box to match your exact image shape, preventing cropping */
+    /* Default landscape shape for desktop/tablets */
     aspect-ratio: 16 / 9 !important; 
     height: auto !important; 
     
@@ -631,11 +631,10 @@ button.contact-btn {
     padding: 0 !important;
     
     background-image: url('https://meharphysiotherapyclinic.github.io/website/welcome-hero.png') !important;
-    
     background-size: cover;
     
-    /* FIX 2: Forces the browser to prioritize the right side (therapist & logo) */
-    background-position: right center !important; 
+    /* FIX: Centers the focal point at 65% from the left (directly on the therapist) */
+    background-position: 65% center !important; 
     
     background-repeat: no-repeat;
     border-radius: 0 !important;
@@ -681,8 +680,15 @@ button.contact-btn {
     text-transform: uppercase;
 }
 
-/* Mobile Optimizations - The cropping rule is removed here */
+/* Mobile Optimizations - Fixes the Portrait View */
 @media (max-width: 700px) {
+    .hero-container {
+        /* Makes the container taller on mobile so it doesn't squish into a thin strip */
+        aspect-ratio: 4 / 3 !important; 
+        
+        /* Fine-tunes the focal point slightly more to the left for mobile screens */
+        background-position: 60% center !important; 
+    }
     .hero-motto {
         font-size: 1.25rem;
         padding: 0 10px;
