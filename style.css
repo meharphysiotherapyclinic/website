@@ -616,3 +616,72 @@ button.contact-btn {
   .services-grid span.neuro { background: #1a222c; border: 1px solid #0e5a95; color: #4da3ff; }
   .services-grid span.highlight { background: #1b3320; border-color: #2e7d32; color: #69ff99; }
 }
+
+/* ===== SIMPLIFIED WELCOME HERO SECTION ===== */
+.hero-container {
+    position: relative;
+    width: 100%;
+    max-width: 100% !important; /* Forces full width */
+    height: 400px; /* Adjust height as needed */
+    margin: 0 0 30px 0 !important; /* Removes side margins, adds bottom space */
+    padding: 0 !important;
+    
+    /* 🔥 Assuming your filename is welcome-hero.png from previous discussions 🔥 */
+    background-image: url('welcome-hero.png');
+    
+    background-size: cover;
+    background-position: center;
+    border-radius: 0 !important; /* Professional flat merge with header */
+    border: none !important;
+    box-shadow: none !important;
+    transform: none !important; /* Disables 3D tilt specifically for this section */
+}
+
+.hero-overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35); /* Subtle dark layer for text clarity */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-content {
+    padding: 20px; /* Ensures the motto doesn't hit the screen edges */
+}
+
+/* Removed `.hero-title` style completely */
+
+.hero-motto {
+    color: #ffcc00 !important; /* Gold/Yellow from your branding */
+    font-size: 1.8rem; /* Made slightly larger as it's the main focus now */
+    font-style: italic;
+    font-weight: bold;
+    margin: 0; /* Keep it tight without the title above it */
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+}
+
+.hero-bottom-status {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 121, 107, 0.85); /* Your signature Teal color */
+    color: white;
+    padding: 10px 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+/* Mobile Fixes */
+@media (max-width: 700px) {
+    .hero-container {
+        height: 250px;
+    }
+    .hero-motto {
+        font-size: 1.2rem; /* Keep it clear on mobile */
+    }
+}
