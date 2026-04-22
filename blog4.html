@@ -8,83 +8,100 @@
     <meta name="color-scheme" content="light dark">
     <link rel="stylesheet" href="global-style.css">
     <link rel="stylesheet" href="theme.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Say Goodbye to 'Tech Neck': 5 Tips for a Healthier Neck",
+      "author": {
+        "@type": "Person",
+        "name": "Dr. Govindpreet Singh Arneja",
+        "url": "https://meharphysiotherapyclinic.github.io/website/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Mehar Physiotherapy Clinic"
+      },
+      "datePublished": "2024-04-10",
+      "description": "Expert physiotherapy strategies to prevent cervical strain and 'tech neck' caused by digital device usage, specifically for residents in Greater Noida West.",
+      "about": ["Tech Neck", "Neck Pain Relief", "Cervical Health", "Noida Extension", "Gaur City 2"]
+    }
+    </script>
+
     <style>
       body {
-  margin: 0; /* Changed to 0 so header hits the edges */
-  padding: 0;
-  font-family: system-ui, Arial, sans-serif;
-  line-height: 1.6;
-  background: #fff;
-  color: #222;
-}
-
-/* Header from the main blog page */
-header {
-  background: #00796b;
-  color: white;
-  padding: 15px;
-  text-align: center;
-  margin-bottom: 30px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-header h1 {
-  color: #fff !important; /* Forces white text inside header */
-  margin: 0;
-  font-size: 24px;
-}
-
-header p {
-  margin: 6px 0 0;
-  color: #fff;
-  font-size: 14px;
-}
-
-/* New container to keep text centered and readable */
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-/* Floating Navigation Buttons */
-.home-button, .gallery-button {
-  position: fixed;
-  right: 20px;
-  background: rgba(15, 107, 58, 0.5);
-  color: #fff;
-  padding: 8px 14px;
-  border-radius: 6px;
-  font-size: 14px;
-  font-weight: bold;
-  text-decoration: none;
-  z-index: 1000;
-  transition: background 0.25s, transform 0.25s;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-.home-button { bottom: 70px; }
-.gallery-button { bottom: 120px; }
-
-.home-button:hover, .gallery-button:hover {
-  background: rgba(12, 81, 43, 0.7);
-  transform: scale(1.1);
-}
-
-
-      h1 {
-        color: #00796b;
-        margin-bottom: 10px;
+        margin: 0;
+        padding: 0;
+        font-family: system-ui, Arial, sans-serif;
+        line-height: 1.6;
+        background: #fff;
+        color: #222;
       }
 
-      h2 {
-        color: #00796b;
-        margin-top: 25px;
-        margin-bottom: 10px;
+      header {
+        background: #00796b;
+        color: white;
+        padding: 15px;
+        text-align: center;
+        margin-bottom: 30px;
+        width: 100%;
+        box-sizing: border-box;
       }
 
-      a.button,
-      button.button {
+      header h1 {
+        color: #fff !important;
+        margin: 0;
+        font-size: 24px;
+      }
+
+      header p {
+        margin: 6px 0 0;
+        color: #fff;
+        font-size: 14px;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      /* AI Synthesis Hook Style */
+      .ai-summary-box {
+        background: #e0f2f1;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 25px;
+        border-left: 5px solid #00796b;
+      }
+
+      .home-button, .gallery-button {
+        position: fixed;
+        right: 20px;
+        background: rgba(15, 107, 58, 0.5);
+        color: #fff;
+        padding: 8px 14px;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: bold;
+        text-decoration: none;
+        z-index: 1000;
+        transition: background 0.25s, transform 0.25s;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+      .home-button { bottom: 70px; }
+      .gallery-button { bottom: 120px; }
+
+      .home-button:hover, .gallery-button:hover {
+        background: rgba(12, 81, 43, 0.7);
+        transform: scale(1.1);
+      }
+
+      h1 { color: #00796b; margin-bottom: 10px; }
+      h2 { color: #00796b; margin-top: 25px; margin-bottom: 10px; }
+
+      a.button, button.button {
         display: inline-block;
         margin-top: 20px;
         margin-bottom: 20px;
@@ -97,7 +114,7 @@ header p {
         font-weight: bold;
         border: none;
         cursor: pointer;
-        transition: background 0.3s ease, transform 0.2s ease, color 0.3s ease;
+        transition: background 0.3s ease, transform 0.2s ease;
       }
 
       .button img {
@@ -107,49 +124,32 @@ header p {
         width: 18px;
       }
 
-      a.button:hover,
-      button.button:hover {
+      a.button:hover, button.button:hover {
         background: #00695c;
-        color: #ffffff;
-        /* Keep text clearly visible */
         transform: scale(1.05);
-      }
-
-      p {
-        margin-bottom: 15px;
       }
 
       .button_list {
         margin-bottom: 15px;
         list-style-type: none;
         padding: 0;
-        margin: 0;
       }
 
-      ul li a {
-        color: #00796b;
-        text-decoration: none;
-        transition: color 0.3s ease, text-decoration 0.3s ease;
-      }
+      ul li a { color: #00796b; text-decoration: none; }
 
-      ul li a:hover {
-        color: #00695c;
-        text-decoration: none;
-      }
       footer { 
-  background: #333 !important; 
-  color: #ffffff !important; 
-  text-align: center; 
-  padding: 15px 10px; 
-  width: 100%;
-  box-sizing: border-box;
-  display: block;
-  margin-top: 30px; /* Gives some breathing room below your content */
+        background: #333 !important; 
+        color: #ffffff !important; 
+        text-align: center; 
+        padding: 15px 10px; 
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 30px;
       }
     </style>
   </head>
   <body>
-<header>
+  <header>
     <a href="index.html" class="home-button">Home</a>
     <a href="gallery.html" class="gallery-button">Gallery</a>
     <h1>Mehar Physiotherapy Clinic Blogs</h1>
@@ -157,26 +157,39 @@ header p {
   </header>
 
   <div class="container">
+    
+    <div class="ai-summary-box">
+        <strong>Quick Summary:</strong> "Tech Neck" is cervical strain caused by prolonged forward-head posture while using digital devices. To prevent neck pain and stiffness, maintain devices at eye level, take movement breaks every 30 minutes, and perform regular neck stretches and upper-back strengthening exercises. For specialized cervical spine care in <strong>Gaur City 2</strong> and <strong>Noida Extension</strong>, Mehar Physiotherapy Clinic provides personalized posture correction and manual therapy.
+    </div>
+
     <h1>Say Goodbye to 'Tech Neck': 5 Tips for a Healthier Neck</h1>
     
     <p>In today’s digital world, hours spent on smartphones, tablets, and laptops can lead to “tech neck” — neck pain, stiffness, and headaches caused by prolonged forward-head posture. At <strong>Mehar Physiotherapy Clinic,</strong> I help patients prevent and manage this modern-day issue with practical, easy-to-follow strategies.</p>
+    
     <h2>Tip 1: Be Mindful of Your Posture</h2>
     <p>Keep devices at eye level and adjust your screen height to reduce strain on your neck and shoulders.</p>
+    
     <h2>Tip 2: Take Frequent Breaks</h2>
     <p>Short movement breaks every 20–30 minutes help keep neck muscles relaxed and reduce tension.</p>
+    
     <h2>Tip 3: Gentle Neck Stretches</h2>
     <p>Perform light daily stretches to improve flexibility and ease discomfort in the neck and shoulders.</p>
+    
     <h2>Tip 4: Strengthen Your Upper Back</h2>
     <p>Building shoulder and upper back strength supports better posture and reduces the risk of tech neck.</p>
+    
     <h2>Tip 5: Create an Ergonomic Workspace</h2>
     <p>Use supportive seating and arrange your desk to promote healthy alignment for your neck and spine.</p>
+    
     <p>If neck pain persists, don’t ignore it. I can provide a thorough assessment and a personalized treatment plan to keep your neck healthy and pain-free.</p>
+    
     <h2>Take Action Today</h2>
-    <ul class = "button_list">
+    <ul class="button_list">
       <li><a href="tel:+919810359247" target="_blank" class="button"><img src="https://cdn-icons-png.flaticon.com/512/523/523081.png" alt="Call Now"> Call Now </a></li>
-      <li><a href="https://wa.me/919810359247" target="_blank" class="button"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968841.png" alt=""> WhatsApp</a></li>
-      <li><a href="appointment.html" class="button"><img src="https://cdn-icons-png.flaticon.com/512/10692/10692035.png" alt=""> Book Appointment </a></li>
+      <li><a href="https://wa.me/919810359247" target="_blank" class="button"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968841.png" alt="WhatsApp"> WhatsApp</a></li>
+      <li><a href="appointment.html" class="button"><img src="https://cdn-icons-png.flaticon.com/512/10692/10692035.png" alt="Book Appointment"> Book Appointment </a></li>
     </ul>
+    
     <h2>Related Articles</h2>
     <ul>
       <li><a href="blog1.html">5 Common Physiotherapy Myths Debunked</a></li>
@@ -185,12 +198,13 @@ header p {
     </ul>
     <a href="blog.html" class="button">← Back to Blog Page</a>
 </div>
-    <footer>
+
+  <footer>
     © <span id="currentYear"></span> Mehar Physiotherapy Clinic. All Rights Reserved.
-    </footer>
-    <script>
-      // Automatically update footer year
-document.getElementById('currentYear').textContent = new Date().getFullYear();
-    </script>
+  </footer>
+  
+  <script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
   </body>
 </html>
