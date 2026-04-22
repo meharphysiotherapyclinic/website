@@ -680,42 +680,43 @@ button.contact-btn {
     text-transform: uppercase;
 }
 
-/* ========================================= */
-/* UPDATED MOBILE HERO - MOTTO TO TOP LEFT   */
-/* ========================================= */
+/* ============================================================ */
+/* FINAL MOBILE HERO - MOTTO TOP-LEFT & STATUS BAR CENTERED     */
+/* ============================================================ */
 @media (max-width: 700px) {
     .hero-container {
         aspect-ratio: auto !important; 
-        min-height: 300px !important; /* Slightly taller to give the motto room */
-        
-        /* Focuses the image on the right side so the left stays clear for text */
+        min-height: 300px !important; 
         background-position: 80% center !important; 
     }
 
     .hero-overlay {
-        /* Change from centering to top-left alignment */
         display: flex !important;
         justify-content: flex-start !important; 
         align-items: flex-start !important; 
-        text-align: left !important;
+        /* Removed the global text-align: left to prevent inheritance issues */
     }
 
     .hero-content {
-        /* This padding pushes the motto into the exact red-circled area */
         padding: 40px 20px !important; 
         width: 100%;
     }
 
     .hero-motto {
-        /* 'clamp' keeps font size responsive; text-align: left fits the corner */
         font-size: clamp(1.1rem, 5vw, 1.4rem) !important;
-        text-align: left !important;
-        max-width: 70%; /* Keeps text from stretching across the doctor's face */
-        margin: 0 !important; /* Remove the 'auto' margin that was centering it */
+        /* Keep only the motto left-aligned */
+        text-align: left !important; 
+        max-width: 70%; 
+        margin: 0 !important; 
         line-height: 1.2 !important;
-        
-        /* Subtle glow to ensure readability against the window background */
         text-shadow: 2px 2px 10px rgba(0,0,0,0.7) !important;
     }
-}
 
+    /* FORCE the teal status bar back to the center */
+    .hero-bottom-status {
+        text-align: center !important;
+        width: 100% !important;
+        left: 0 !important;
+        display: block !important;
+    }
+}
