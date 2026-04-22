@@ -686,7 +686,7 @@ button.contact-btn {
         /* Allowing auto height lets the box expand for the text without cramping */
         aspect-ratio: auto !important; 
         min-height: 280px !important; 
-        padding: 40px 10px !important; 
+        padding: 60px 10px 20px 10px !important; 
         
         /* Keeps the focus on the therapist/clinic image */
         background-position: 65% 40% !important; 
