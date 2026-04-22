@@ -146,6 +146,13 @@
         box-sizing: border-box;
         margin-top: 30px;
       }
+
+      /* Dark Mode Overrides */
+      @media (prefers-color-scheme: dark) {
+        body { background: #121212; color: #e0e0e0; }
+        h1, h2, ul li a { color: #26a69a; }
+        .ai-summary-box { background: #1a2726; color: #e0e0e0; border-left-color: #26a69a; }
+      }
     </style>
   </head>
   <body>
