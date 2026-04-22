@@ -680,33 +680,28 @@ button.contact-btn {
     text-transform: uppercase;
 }
 
-/* Optimized Mobile View for both Light/Dark Mode */
+/* PASTE THIS REFINED VERSION INSTEAD */
 @media (max-width: 700px) {
     .hero-container {
-        /* 3/2 ratio is less "zoomed" than 4/3, keeping the clinic visible */
-        aspect-ratio: 3 / 2 !important; 
+        /* Allowing auto height lets the box expand for the text without cramping */
+        aspect-ratio: auto !important; 
+        min-height: 280px !important; 
+        padding: 40px 10px !important; 
         
-        /* background-position: X% Y% 
-           Adjust the 65% to move left/right. 
-           Adjust the 40% to move up/down (lower % shows more of the top).
-        */
+        /* Keeps the focus on the therapist/clinic image */
         background-position: 65% 40% !important; 
-        
-        /* Ensures the container doesn't stretch if text gets long */
-        height: auto !important;
-        min-height: unset !important; 
     }
 
     .hero-motto {
-        font-size: 1.4rem !important;
-        /* Reducing padding helps keep the text from pushing the container taller */
-        padding: 0 15px !important;
+        /* 'clamp' prevents the font from getting too big and crushing the layout */
+        font-size: clamp(1.1rem, 5vw, 1.3rem) !important;
+        max-width: 85%; 
+        margin: 0 auto !important;
+        line-height: 1.3 !important;
         text-shadow: 2px 2px 5px rgba(0,0,0,0.8) !important;
     }
-
+    
     .hero-content {
-        padding: 10px !important;
+        padding: 20px 10px !important;
     }
 }
-
-
