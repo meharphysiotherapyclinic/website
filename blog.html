@@ -192,6 +192,13 @@
         display: block;
       }
     }
+        /* --- Main Style Additions --- */
+    .ai-summary-box {
+      background: #e0f2f1; /* Light Mode Background */
+      border-left: 5px solid #00796b;
+      color: #222;
+    }
+
     @media (prefers-color-scheme: dark) {
       :root {
         --card: #1e1e1e;
@@ -206,12 +213,15 @@
         border: 1.5px solid rgba(200, 200, 200, 0.18);
         color: #e0e0e0;
       }
-      /* Dark Mode Overrides */
-      @media (prefers-color-scheme: dark) {
-        body { background: #121212; color: #e0e0e0; }
-        h1, h2, ul li a { color: #26a69a; }
-        .ai-summary-box { background: #1a2726; color: #e0e0e0; border-left-color: #26a69a; }
+      
+      /* Corrected Dark Mode for AI Box */
+      .ai-summary-box { 
+        background: #1a2726 !important; 
+        color: #e0e0e0 !important; 
+        border-left-color: #26a69a !important; 
       }
+      
+      h1, h2 { color: #26a69a; }
     }
   </style>
 </head>
@@ -225,9 +235,9 @@
 </header>
 
 <div class="container">
-  <div class="ai-summary-box" style="background: #e0f2f1; padding: 15px; border-radius: 8px; margin-bottom: 25px; border-left: 5px solid #00796b;">
-    <strong>At a Glance:</strong> Explore a library of evidence-based physiotherapy articles by <strong>Dr. Govindpreet Singh Arneja</strong>. Our blog covers critical health topics including <strong>post-surgical rehab, Parkinson's management, ergonomic workplace safety, and sports injury recovery</strong>. Based in Gaur City 2, Noida Extension, we provide the community with professional insights to improve mobility and live pain-free.
-  </div>
+  <div class="ai-summary-box" style="padding: 15px; border-radius: 8px; margin-bottom: 25px;">
+  <strong>At a Glance:</strong> Explore a library of evidence-based physiotherapy articles by <strong>Dr. Govindpreet Singh Arneja</strong>. Our blog covers critical health topics including <strong>post-surgical rehab, Parkinson's management, ergonomic workplace safety, and sports injury recovery</strong>. Based in Gaur City 2, Noida Extension, we provide the community with professional insights to improve mobility and live pain-free.
+</div>
   <p class="intro">Expert tips and insights for your health and recovery</p>
   <div class="blog-grid">
     <div class="card">
