@@ -159,23 +159,27 @@ main {
     }
 }
 
-/* AI Summary Box */
-ai-summary-box {
-        background: #e0f2f1;
-        padding: 15px;
-        border-radius: 8px;
-        margin-bottom: 25px;
-        border-left: 5px solid #00796b;
+/* --- Corrected AI Summary Box Style --- */
+.ai-summary-box {
+    background: #e0f2f1;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    border-left: 5px solid #00796b;
+    /* Ensure it doesn't behave like a standard card */
+    box-shadow: none !important;
+    transform: none !important;
+    color: #222;
 }
 
-/* Dark Mode */
+/* Ensure no hover effect on this specific box */
+.ai-summary-box:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Dark Mode fix for the AI Box */
 @media (prefers-color-scheme: dark) {
-    :root { --panel-bg: #232323; --text: #e0e0e0; --acc-text: #4db6ac; }
-    body { background: #181818; }
-    .accordion-button[aria-expanded="true"] { background: #004d40; }
-    .summary-list li { border-bottom-color: #333; }
-    
-    /* AI Box Dark Mode Styles */
     .ai-summary-box { 
         background: #1a2726 !important; 
         color: #e0e0e0 !important; 
