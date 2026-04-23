@@ -160,13 +160,12 @@ main {
 }
 
 /* AI Summary Box */
-.ai-summary-box {
-    background: #e0f2f1;
-    border-left: 5px solid #00796b;
-    color: #222;
-    padding: 15px; 
-    border-radius: 8px; 
-    margin-bottom: 25px;
+ai-summary-box {
+        background: #e0f2f1;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 25px;
+        border-left: 5px solid #00796b;
 }
 
 /* Dark Mode */
