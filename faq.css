@@ -121,13 +121,13 @@ main {
     box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
 }
 
-/* Back to Top - Base Style */
+/* --- Clean Back to Top Section --- */
 #backToTop {
-    display: none; /* Hidden by default */
+    display: none; /* Hidden by default - JS will handle showing it */
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: rgba(15, 107, 58, 0.7); /* Slightly transparent like your other pages */
+    background: rgba(15, 107, 58, 0.7); 
     color: #fff;
     border: none;
     border-radius: 50%;
@@ -138,34 +138,24 @@ main {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     z-index: 9999;
     transition: background 0.25s, transform 0.25s;
-}
-
-/* Only shows when the .show class is added via JavaScript */
-#backToTop.show { 
-    display: flex; 
     align-items: center;
     justify-content: center;
+    outline: none;
 }
 
-/* REMOVE the @media (max-width: 700px) block that was forcing display: block; */
+#backToTop.show { 
+    display: flex; /* Only visible when the 'show' class is added */
+}
 
 #backToTop span {
     color: #fff;
-    text-shadow: 0 2px 8px #00796b, 0 0 20px #fff;
+    text-shadow: 0 2px 8px #00796b;
     font-weight: bold;
 }
 
 #backToTop:hover {
-    background: rgba(12, 81, 43, 0.7);
+    background: rgba(12, 81, 43, 0.9);
     transform: scale(1.1);
-}
-
-#backToTop.show { display: block; }
-
-@media (max-width: 700px) {
-    #backToTop {
-        display: block;
-    }
 }
 
 /* --- Corrected AI Summary Box Style --- */
