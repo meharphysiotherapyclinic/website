@@ -423,39 +423,39 @@ button.contact-btn {
   .review-text { color: #f0f0f0; }
   .review-author strong { color: #4da3ff; }
 }
-/* ========================================= */
-/* FIX: Interactive Map Overlay & Container  */
-/* ========================================= */
-
-#map-container {
+/* Glass Container Wrapper for the Map */
+#map-wrapper {
     position: relative;
     width: 100%;
     height: 250px;
     border-radius: 12px;
     overflow: hidden;
-    padding: 0; /* Ensures the iframe fills the section completely */
+    margin-top: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-/* This creates the 'button' layer over the map to prevent pin movement */
+/* The 'Invisible Shield' - Stops the pin from moving/panning on touch */
 .map-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 10; 
+    z-index: 10;
     background: transparent;
 }
 
-/* Ensure the iframe stays underneath the overlay */
-#map-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
+/* Iframes should fill the wrapper */
+#map-wrapper iframe {
     width: 100%;
     height: 100%;
-    z-index: 1;
-    border: 0;
+    display: block;
+}
+
+/* Hover effect to show the map is interactive */
+#map-wrapper:hover {
+    box-shadow: 0 0 20px rgba(0, 121, 107, 0.3);
+    transition: box-shadow 0.3s ease;
 }
 /* ===== SWIPER REVIEW CAROUSEL (FINAL) ===== */
 
