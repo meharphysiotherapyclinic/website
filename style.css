@@ -432,6 +432,7 @@ button.contact-btn {
     overflow: hidden;
     margin-top: 15px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease;
 }
 
 /* The 'Invisible Shield' - Stops the pin from moving/panning on touch */
