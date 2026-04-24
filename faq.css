@@ -121,9 +121,9 @@ main {
     box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
 }
 
-/* --- Clean Back to Top Section --- */
+/* --- Finalized Back to Top Section (Mobile Only) --- */
 #backToTop {
-    display: none; /* Hidden by default - JS will handle showing it */
+    display: none; /* Hidden by default */
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -143,8 +143,18 @@ main {
     outline: none;
 }
 
-#backToTop.show { 
-    display: flex; /* Only visible when the 'show' class is added */
+/* Logic: Only allow the button to show on screens smaller than 701px */
+@media (max-width: 700px) {
+    #backToTop.show { 
+        display: flex; 
+    }
+}
+
+/* Force hide on PC (Screens wider than 700px) */
+@media (min-width: 701px) {
+    #backToTop {
+        display: none !important;
+    }
 }
 
 #backToTop span {
