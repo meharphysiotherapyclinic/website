@@ -87,13 +87,14 @@ main {
         background: #f9f9f9; 
     }
 }
-.accordion-button:focus {
+
+.accordion-button:not([aria-expanded="true"]):focus {
     background: transparent !important;
     box-shadow: none !important;
 }
 
 .accordion-button[aria-expanded="true"] { 
-    background: var(--brand); 
+    background: var(--brand) !important; 
     color: #fff !important; 
     font-weight: 700; 
 }
@@ -226,7 +227,7 @@ main {
         color: var(--acc-text) !important;
     }
     
-    .accordion-button:focus {
+    .accordion-button:not([aria-expanded="true"]):focus {
         background: transparent !important;
     }
 }
