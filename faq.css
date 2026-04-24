@@ -79,9 +79,15 @@ main {
     color: var(--acc-text); 
     cursor: pointer; 
     border-radius: 6px;
+    -webkit-tap-highlight-color: transparent; 
 }
 
-.accordion-button:hover { background: #f9f9f9; }
+@media (hover: hover) {
+    .accordion-button:hover { 
+        background: #f9f9f9; 
+    }
+}
+
 .accordion-button[aria-expanded="true"] { 
     background: var(--brand); 
     color: #fff !important; 
@@ -209,6 +215,15 @@ main {
         background: #1a2726 !important; 
         color: #e0e0e0 !important; 
         border-left-color: #26a69a !important; 
+    }
+
+    .accordion-button:hover { 
+        background: #2a2a2a !important; 
+        color: var(--acc-text) !important;
+    }
+    
+    .accordion-button:focus {
+        background: transparent !important;
     }
 }
 
