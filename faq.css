@@ -87,6 +87,10 @@ main {
         background: #f9f9f9; 
     }
 }
+.accordion-button:focus {
+    background: transparent !important;
+    box-shadow: none !important;
+}
 
 .accordion-button[aria-expanded="true"] { 
     background: var(--brand); 
