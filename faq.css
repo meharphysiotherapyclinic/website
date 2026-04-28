@@ -242,3 +242,25 @@ footer {
   display: block;
   margin-top: 30px; /* Gives some breathing room below your content */
 }
+
+/* Container styling */
+.summary-list {
+    list-style: none; /* Removes default bullets */
+    padding: 0;
+}
+
+.summary-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+/* Icon styling */
+.list-icon {
+    width: 24px;   /* Sets a uniform width */
+    height: 24px;  /* Sets a uniform height */
+    margin-right: 12px; /* Space between icon and text */
+    object-fit: contain;
+}
