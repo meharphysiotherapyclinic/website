@@ -188,15 +188,21 @@ main {
 
 /* --- Corrected AI Summary Box Style --- */
 .ai-summary-box {
-    background: #e0f2f1;
+    background: #e0f2f1 !important; /* Added !important to beat global glass style */
     padding: 15px;
     border-radius: 8px;
     margin-bottom: 25px;
-    border-left: 5px solid #00796b;
+    
+    /* Force the teal left border and REMOVE the other glass borders */
+    border-left: 5px solid #00796b !important;
+    border-right: none !important;
+    border-top: none !important;
+    border-bottom: none !important;
+
     /* Ensure it doesn't behave like a standard card */
     box-shadow: none !important;
     transform: none !important;
-    color: #222;
+    color: #222 !important;
 }
 
 /* Ensure no hover effect on this specific box */
