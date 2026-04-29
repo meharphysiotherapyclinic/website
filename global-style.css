@@ -214,3 +214,99 @@ header * {
         padding-top: 20px !important;
     }
 }
+
+/* =====================================================
+   FINAL UNIVERSAL OVERRIDE — BRIGHTER SOFT TEAL GLASS
+   Must stay at absolute bottom of global-style.css
+===================================================== */
+
+section,
+.card,
+.container,
+.box,
+.glass-card,
+.section-panel,
+.image-card,
+.review-card,
+.services-box,
+#map-wrapper {
+    background: rgba(255, 255, 255, 0.26) !important;
+    backdrop-filter: blur(16px) saturate(130%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(130%) !important;
+
+    border-radius: 16px !important;
+    border: 1.5px solid rgba(0, 121, 107, 0.18) !important;
+
+    /* Slightly brighter teal margin */
+    box-shadow:
+        0 0 0 3px rgba(0, 121, 107, 0.08),
+        0 6px 16px rgba(0, 0, 0, 0.06),
+        0 0 14px rgba(0, 121, 107, 0.08),
+        inset 0 0 6px rgba(0, 121, 107, 0.02) !important;
+
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* =====================================================
+   HOVER EFFECT
+===================================================== */
+
+section:hover,
+.card:hover,
+.glass-card:hover,
+.image-card:hover,
+.review-card:hover,
+.services-box:hover {
+    box-shadow:
+        0 0 0 4px rgba(0, 121, 107, 0.12),
+        0 10px 20px rgba(0, 0, 0, 0.08),
+        0 0 18px rgba(0, 121, 107, 0.10),
+        inset 0 0 8px rgba(0, 121, 107, 0.025) !important;
+}
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+@media (prefers-color-scheme: dark) {
+    section,
+    .card,
+    .container,
+    .box,
+    .glass-card,
+    .section-panel,
+    .image-card,
+    .review-card,
+    .services-box,
+    #map-wrapper {
+        background: rgba(34, 34, 34, 0.34) !important;
+        backdrop-filter: blur(16px) saturate(130%) !important;
+        -webkit-backdrop-filter: blur(16px) saturate(130%) !important;
+
+        border-radius: 16px !important;
+        border: 1.5px solid rgba(80, 220, 200, 0.22) !important;
+
+        color: #e0e0e0 !important;
+
+        /* Slightly brighter dark mode teal */
+        box-shadow:
+            0 0 0 3px rgba(38, 166, 154, 0.12),
+            0 6px 16px rgba(0, 0, 0, 0.28),
+            0 0 16px rgba(38, 166, 154, 0.12),
+            inset 0 0 6px rgba(38, 166, 154, 0.025) !important;
+    }
+
+    section:hover,
+    .card:hover,
+    .glass-card:hover,
+    .image-card:hover,
+    .review-card:hover,
+    .services-box:hover {
+        box-shadow:
+            0 0 0 4px rgba(38, 166, 154, 0.16),
+            0 10px 22px rgba(0, 0, 0, 0.34),
+            0 0 20px rgba(38, 166, 154, 0.14),
+            inset 0 0 8px rgba(38, 166, 154, 0.04) !important;
+    }
+}
