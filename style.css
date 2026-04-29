@@ -510,26 +510,41 @@ button.contact-btn {
   font-size: 14px;
 }
 
+/* ===== REVIEW CARD TEXT FIX ===== */
 .review-text {
-  color: #eaeaea;
+  /* Dark color for light mode glass background */
+  color: #2c3e50; 
   font-size: 0.95em;
   line-height: 1.5;
   margin-bottom: 12px;
 }
 
 .review-author {
-  border-top: 1px solid rgba(0, 121, 107, 0.2);
+  border-top: 1px solid rgba(0, 121, 107, 0.1);
   padding-top: 10px;
   font-size: 0.85em;
 }
 
 .review-author strong {
   display: block;
-  color: #4db6ac;
+  color: #00796b; /* Solid teal for readability */
 }
 
 .review-author span {
-  color: #bbbbbb;
+  color: #555555; 
+}
+
+/* Ensure visibility in Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .review-text {
+    color: #f0f0f0 !important;
+  }
+  .review-author strong {
+    color: #4db6ac !important;
+  }
+  .review-author span {
+    color: #bbbbbb !important;
+  }
 }
 
 /* ===== LANDSCAPE OPTIMIZATION ===== */
