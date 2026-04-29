@@ -32,18 +32,25 @@ main {
     margin: 16px auto; 
 }
 
-.card { 
-    background: var(--panel-bg); 
-    padding: 20px; 
-    border-radius: 8px; 
-    box-shadow: 0 2px 5px rgba(0,0,0,0.06); 
-    margin-bottom: 16px; 
-    transition: transform .18s ease, box-shadow .18s ease; 
+.card {
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(16px) saturate(130%);
+    -webkit-backdrop-filter: blur(16px) saturate(130%);
+
+    border-radius: 16px;
+    border: 1.5px solid rgba(255, 255, 255, 0.32);
+
+    padding: 20px;
+    margin-bottom: 16px;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
-.card:hover { 
-    transform: translateY(-3px); 
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08); 
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.14);
 }
 
 /* Summary List Styles */
@@ -205,17 +212,31 @@ main {
         --text: #e0e0e0; 
         --acc-text: #4db6ac; 
     }
-    
-    body { background: #181818; }
 
-    /* Force the button card to use the dark variable */
-    .bottom-buttons.card {
-        background-color: var(--panel-bg) !important;
-        border: 1px solid #333;
+    body {
+        background: #181818;
     }
 
-    .accordion-button[aria-expanded="true"] { background: #004d40; }
-    
+    .card {
+        background: rgba(34, 34, 34, 0.33) !important;
+        backdrop-filter: blur(16px) saturate(130%);
+        -webkit-backdrop-filter: blur(16px) saturate(130%);
+
+        border: 1.5px solid rgba(200, 200, 200, 0.18);
+        color: #e0e0e0 !important;
+
+        box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+    }
+
+    .bottom-buttons.card {
+        background: rgba(34, 34, 34, 0.33) !important;
+        border: 1.5px solid rgba(200, 200, 200, 0.18);
+    }
+
+    .accordion-button[aria-expanded="true"] {
+        background: #004d40;
+    }
+
     .ai-summary-box { 
         background: #1a2726 !important; 
         color: #e0e0e0 !important; 
@@ -226,7 +247,7 @@ main {
         background: #2a2a2a !important; 
         color: var(--acc-text) !important;
     }
-    
+
     .accordion-button:not([aria-expanded="true"]):focus {
         background: transparent !important;
     }
