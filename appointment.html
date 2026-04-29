@@ -52,16 +52,21 @@
 
     /* Appointment Container */
     .container {
-      /* keep same max width but allow it to shrink on small screens */
-      max-width: 700px;
-      width: 100%;
-      margin: 40px auto;
-      padding: 30px 15px; /* added left and right padding */
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
-      box-sizing: border-box;
-      overflow-wrap: break-word; /* Ensure long content wraps */
+  max-width: 700px;
+  width: 100%;
+  margin: 40px auto;
+  padding: 30px 15px;
+
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(16px) saturate(130%);
+  -webkit-backdrop-filter: blur(16px) saturate(130%);
+
+  border-radius: 16px;
+  border: 1.5px solid rgba(255, 255, 255, 0.32);
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  overflow-wrap: break-word;
     }
 
     h2 {
