@@ -151,31 +151,3 @@ body[data-theme='dark'] .hero-container,
         background-size: cover !important;
     }
 }
-
-/* =========================================
-   STATUS BAR TOP AREA FIX
-   White in Light Mode / Black in Dark Mode
-========================================= */
-
-/* Light mode */
-html,
-body {
-    background-color: #ffffff !important;
-}
-
-/* Keep header below it with your normal theme */
-header {
-    background: #00796b !important;
-}
-
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-    html,
-    body {
-        background-color: #000000 !important;
-    }
-
-    header {
-        background: #00796b !important;
-    }
-}
