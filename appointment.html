@@ -51,23 +51,23 @@
     }
 
     /* Appointment Container */
-    .container {
+.container {
+  width: calc(100% - 32px);   /* keeps left-right spacing */
   max-width: 700px;
-  width: 100%;
-  margin: 40px auto;
-  padding: 30px 15px;
+  margin: 30px auto;
+  padding: 28px 20px;
 
   background: rgba(255, 255, 255, 0.22);
   backdrop-filter: blur(16px) saturate(130%);
   -webkit-backdrop-filter: blur(16px) saturate(130%);
 
-  border-radius: 16px;
+  border-radius: 18px;
   border: 1.5px solid rgba(255, 255, 255, 0.32);
 
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
-  overflow-wrap: break-word;
-    }
+  overflow: hidden;
+}
 
     h2 {
       text-align: center;
@@ -149,27 +149,34 @@
     }
 
     @media (max-width: 576px) {
-      .container {
-        padding: 15px 10px; /* Reduced padding on small screens */
-        margin: 10px auto;
-        box-shadow: none;
-      }
-      input, textarea, button {
-        padding: 10px;
-        font-size: 0.98rem;
-      }
-      h2 {
-        font-size: 1.25rem;
-        margin-bottom: 10px;
-      }
-      header {
-        padding: 12px 2px;
-        font-size: 0.98rem;
-      }
-      .home-btn-wrapper {
-        margin-top: 15px;
-        margin-bottom: 15px;
-      }
+  .container {
+    width: calc(100% - 24px);   /* proper side spacing */
+    margin: 18px auto;
+    padding: 20px 14px;
+    border-radius: 16px;
+    box-shadow: none;
+  }
+
+  input,
+  textarea,
+  button {
+    padding: 11px;
+    font-size: 0.98rem;
+  }
+
+  h2 {
+    font-size: 1.35rem;
+    margin-bottom: 14px;
+  }
+
+  header {
+    padding: 14px 8px;
+  }
+
+  .home-btn-wrapper {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
     }
   </style>
 </head>
