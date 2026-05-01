@@ -100,46 +100,50 @@
         }
 
         .image-card {
-            width: 100%;
-            max-width: 300px;
-            aspect-ratio: 1/1;
-            overflow: hidden;
-            border-radius: 12px;
-            /* REMOVED background: #fff; to stop white leaks */
-            background: transparent; 
-            border: 1px solid rgba(0, 121, 107, 0.1);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            
-            /* Forces the browser to clip correctly during animation */
-            transform: translateZ(0);
-            -webkit-transform: translateZ(0);
-            isolation: isolate;
-            backface-visibility: hidden;
-            -webkit-backface-visibility: hidden;
-        }
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 1 / 1;
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    background: transparent;
+    border: 1px solid rgba(0, 121, 107, 0.12);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
 
-        .image-card img {
-            display: block; /* Removes bottom gap */
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-            will-change: transform; /* Primes the browser for the hover scale */
-            
-            /* Fix for Webkit clipping bug */
-            -webkit-mask-image: -webkit-radial-gradient(white, black);
-        }
+    /* Strong browser clipping fix */
+    isolation: isolate;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    contain: paint;
+}
 
-        .image-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(0, 121, 107, 0.15);
-        }
+.image-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+    transition: transform 0.5s ease;
+    transform: scale(1);
+    will-change: transform;
 
-        .image-card:hover img {
-            transform: scale(1.1);
-        }
+    /* Final WebKit anti-white-corner fix */
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    transform-origin: center center;
+}
+
+.image-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 14px 28px rgba(0, 121, 107, 0.15);
+}
+
+.image-card:hover img {
+    transform: scale(1.08);
+}
 
         /* Lightbox styling */
         .lightbox {
@@ -211,8 +215,10 @@
                 border-left-color: #26a69a !important; 
             }
             h2 { color: #26a69a; }
-            .image-card { background: #1e1e1e; border-color: #333; }
-        }
+            .image-card {
+    background: transparent;
+    border-color: rgba(255,255,255,0.08);
+            }
 
         @media (max-width: 700px) {
             /* Changed to 1 column to make images look bigger on mobile */
