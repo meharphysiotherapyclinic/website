@@ -110,6 +110,12 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            
+            /* --- FIX FOR GHOST CORNERS --- */
+            isolation: isolate; /* Forces a new stacking context */
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -webkit-transform: translate3d(0, 0, 0); /* Triggers GPU acceleration */
         }
 
         .image-card img {
@@ -117,6 +123,10 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
+            
+            /* --- FIX FOR WEBKIT CLIPPING BUG --- */
+            -webkit-mask-image: -webkit-radial-gradient(white, black);
+            backface-visibility: hidden;
         }
 
         .image-card:hover {
