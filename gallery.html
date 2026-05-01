@@ -1,302 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clinic Gallery - Mehar Physiotherapy Clinic</title>
-    <meta name="description" content="Explore the Clinic Gallery of Mehar Physiotherapy Clinic in Greater Noida. View treatment rooms, rehabilitation equipment, and modern facilities designed for effective physiotherapy care.">
+    <title>Clinic Gallery — Mehar Physiotherapy Clinic, Gaur City 2</title>
+    <meta name="description" content="Take a virtual tour of Mehar Physiotherapy Clinic in Greater Noida West. View our modern treatment rooms, neuro-rehab equipment, and recovery facilities led by Dr. Arneja.">
+    
     <meta name="theme-color" content="#00796b" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#004d40" media="(prefers-color-scheme: dark)">
-<meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#004d40" media="(prefers-color-scheme: dark)">
+    <meta name="color-scheme" content="light dark">
 
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-<link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="logo.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="logo.png">
 
-<link rel="stylesheet" href="global-style.css">
-<link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="global-style.css">
+    <link rel="stylesheet" href="theme.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ImageGallery",
+      "name": "Mehar Physiotherapy Clinic Facility Gallery",
+      "description": "Visual tour of our physiotherapy and rehabilitation center in Noida Extension.",
+      "url": "https://meharphysiotherapyclinic.github.io/website/gallery.html",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "Mehar Physiotherapy Clinic",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Gaur City 2, Noida Extension",
+          "addressRegion": "UP",
+          "addressCountry": "IN"
+        }
+      }
+    }
+    </script>
+
     <style>
+        :root {
+            --brand-green: #00796b;
+            --radius: 16px;
+        }
         body { 
-            font-family: Arial, sans-serif; 
+            font-family: system-ui, -apple-system, sans-serif; 
             background: #f4f4f4; 
             margin: 0; 
             padding: 0; 
+            color: #222;
+            transition: background 0.3s ease;
         }
-        /* Header same as Blog Page */
-header {
-    background: #00796b;
-    color: white;
-    padding: 15px;
-    text-align: center;
-    margin-bottom: 30px;
-    width: 100%;
-    box-sizing: border-box;
-}
+        header {
+            background: #00796b;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        header h1 { color: #fff !important; margin: 0; font-size: 24px; }
+        header p { margin: 6px 0 0; color: #fff; font-size: 14px; }
 
-header h1 {
-    color: #fff !important;
-    margin: 0;
-    font-size: 24px;
-}
-
-header p {
-    margin: 6px 0 0;
-    color: #fff;
-    font-size: 14px;
-}
-        nav a { 
-            color: white; 
-            margin: 0 10px; 
-            text-decoration: none; 
-            font-weight: bold; 
-            transition: background 0.3s, transform 0.2s; 
-            padding: 6px 10px; 
-            border-radius: 4px;
-        }
-        nav a:hover { 
-            text-decoration: none; 
-            background: rgba(255,255,255,0.2);
-            transform: scale(1.05);
-        }
-        section {
-            max-width: 1000px;
-            margin: 20px auto;
-            background: rgba(255,255,255,0.23);
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
             padding: 20px;
-            border-radius: 16px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.10);
-            border: 1.5px solid rgba(255,255,255,0.32);
-            will-change: transform, opacity;
-            transition: box-shadow 0.3s, background 0.3s;
-            transform-style: preserve-3d;
-            perspective: 800px;
         }
-        section.hover-3d {
-            box-shadow: 0 12px 25px rgba(0,0,0,0.25);
-            background: rgba(255,255,255,0.33);
-            transition: box-shadow 0.4s, background 0.4s;
-        }
-        h2 { 
-            color: #00796b; 
-        }
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 2 per row */
-    gap: 20px; /* spacing */
-    justify-items: center;
-}
 
-.image-card {
-    width: 250px;        /* square width */
-    height: 250px;       /* square height */
-    overflow: hidden;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.25);
-    border: 1.5px solid rgba(255, 255, 255, 0.35);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+        .ai-summary-box {
+            background: #e0f2f1;
+            border-left: 5px solid #00796b;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            color: #222;
+        }
 
-.image-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* ensures the image fills the square without distortion */
-    border-radius: 12px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+        section {
+            background: rgba(255,255,255,0.4);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1.5px solid rgba(255,255,255,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        h2 { color: #00796b; margin-top: 0; }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            justify-items: center;
+            margin-top: 20px;
+        }
+
+        .image-card {
+            width: 100%;
+            max-width: 300px;
+            aspect-ratio: 1/1;
+            overflow: hidden;
+            border-radius: 12px;
+            background: #fff;
+            border: 1px solid rgba(0, 121, 107, 0.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
 
         .image-card:hover {
-            transform: scale(1.05) rotateY(5deg) rotateX(3deg);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            background: rgba(255, 255, 255, 0.35);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 121, 107, 0.15);
         }
+
         .image-card:hover img {
-            transform: scale(.8)
+            transform: scale(1.1);
         }
-        
+
+        /* Lightbox styling */
         .lightbox {
             display: none; 
             position: fixed;
-            z-index: 1000;
+            z-index: 5000;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: rgba(0,0,0,0.9);
+            background: rgba(0,0,0,0.95);
             justify-content: center;
             align-items: center;
         }
         .lightbox img {
             max-width: 90%;
-            max-height: 80%;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(255,255,255,0.3);
-        }
-        .lightbox:target {
-            display: flex;
+            max-height: 85%;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(0,121,107,0.4);
         }
         .close {
             position: absolute;
-            top: 20px; right: 30px;
-            font-size: 35px;
+            top: 25px; right: 35px;
+            font-size: 40px;
             color: white;
             text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s, transform 0.2s;
-            padding: 4px 10px;
-            border-radius: 4px;
+            transition: color 0.2s;
         }
-        .close:hover {
-            color: #ff5555;
-            background: rgba(255,255,255,0.1);
-            transform: scale(1.1);
-        }
+        .close:hover { color: #26a69a; }
 
-        /* Back to top button */
-        #backToTop {
-            display: none;
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(0,121,107,0.5);
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            padding: 12px 16px;
-            font-size: 24px;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            z-index: 2000;
-            transition: background 0.25s, transform 0.25s;
-            outline: none;
-        }
-        #backToTop span {
-            color: #fff;
-            text-shadow: 0 2px 8px #00796b, 0 0 20px #fff;
-            font-weight:bold;
-        }
-        #backToTop:hover {
-            background: rgba(0,77,64,0.7);
-            transform: scale(1.1);
-        }
-        @media (max-width: 700px) {
-        .gallery {
-            grid-template-columns: 1fr;
-        }
-
-        .image-card {
-            width: 90%;  /* smaller width on mobile */
-            max-width: 350px;
-            height: auto; 
-            aspect-ratio: 1/1; /* maintain square shape */
-            }
-        }
-        @media (max-width: 700px) {
-            #backToTop {
-                display: block;
-            }
-        }
-
-        /* Fixed Buttons */
+        /* Navigation Buttons */
         .fixed-button {
             position: fixed;
             left: 20px;
-            background: rgba(15, 107, 58, 0.5);
+            background: rgba(15, 107, 58, 0.6);
             color: #fff;
-            padding: 8px 14px;
-            border-radius: 6px;
+            padding: 10px 16px;
+            border-radius: 8px;
             font-size: 14px;
             font-weight: bold;
-            text-align: center;
             text-decoration: none;
             z-index: 3000;
-            transition: background 0.25s, transform 0.25s;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            user-select: none;
-            width: auto;
-            display: block;
+            transition: 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            backdrop-filter: blur(5px);
         }
-        .fixed-button:hover {
-            background: rgba(12, 81, 43, 0.7);
-            transform: scale(1.1);
-        }
-        .home-button {
-    bottom: 70px;
-}
-
-.blogs-button {
-    bottom: 120px;
-}
+        .fixed-button:hover { background: rgba(0,121,107,0.9); transform: scale(1.05); }
+        .home-button { bottom: 70px; }
+        .blogs-button { bottom: 120px; }
 
         /* Footer */
         footer { 
-  background: linear-gradient(to right, #004d40, #00695c) !important; 
-  color: #ffffff !important; 
-  text-align: center; 
-  padding: 15px 10px; 
-  width: 100%;
-  box-sizing: border-box;
-  display: block;
-  margin-top: 30px; /* Gives some breathing room below your content */
-}
+            background: linear-gradient(to right, #004d40, #00695c) !important; 
+            color: #ffffff !important; 
+            text-align: center; 
+            padding: 20px 10px; 
+            width: 100%;
+            margin-top: 40px;
+        }
+
+        /* Dark Mode Overrides */
+        @media (prefers-color-scheme: dark) {
+            body { background: #121212; color: #e0e0e0; }
+            section { 
+                background: rgba(30, 30, 30, 0.6); 
+                border-color: rgba(255,255,255,0.1); 
+            }
+            .ai-summary-box { 
+                background: #1a2726 !important; 
+                color: #e0e0e0 !important; 
+                border-left-color: #26a69a !important; 
+            }
+            h2 { color: #26a69a; }
+            .image-card { background: #1e1e1e; border-color: #333; }
+        }
+
+        @media (max-width: 700px) {
+            /* Changed to 1 column to make images look bigger on mobile */
+            .gallery { grid-template-columns: 1fr; gap: 20px; }
+            .image-card { max-width: 100%; }
+            .fixed-button { padding: 8px 12px; font-size: 12px; }
+            .container { padding: 15px; }
+        }
     </style>
 </head>
 <body>
-<header>
-    <a href="index.html" class="fixed-button home-button" aria-label="Go to Home">Home</a>
-    <a href="blog.html" class="fixed-button blogs-button" aria-label="Go to Blogs">Blogs</a>
 
+<header>
+    <a href="index.html" class="fixed-button home-button">Home</a>
+    <a href="blog.html" class="fixed-button blogs-button">Blogs</a>
     <h1>Mehar Physiotherapy Clinic Gallery</h1>
     <p>By Dr. Govindpreet Singh Arneja (B.P.T., M.I.A.P.)</p>
 </header>
 
-<section style="opacity: 1; transform: translateX(0px) rotateX(0deg) rotateY(0deg);">
-    <h2>Our Clinic in Pictures <small>(click on images to view)</small></h2>
-    <div class="gallery">
-        <div class="image-card" onclick="openLightbox('ex1.jpeg')">
-            <img src="ex1.jpeg" alt="Physiotherapy treatment room at Mehar Physiotherapy Clinic">
-        </div>
-        <div class="image-card" onclick="openLightbox('ex2.jpeg')">
-            <img src="ex2.jpeg" alt="Exercise and rehabilitation equipment at Mehar Physiotherapy Clinic">
-        </div>
-        <div class="image-card" onclick="openLightbox('knee_exercise.webp')">
-            <img src="knee_exercise.webp" alt="Therapeutic knee exercises for post-surgical recovery at Mehar Physiotherapy Clinic, Gaur City 2">
-        </div>
-        <div class="image-card" onclick="openLightbox('logo.webp')">
-            <img src="logo.webp" alt="Official logo of Mehar Physiotherapy Clinic">
-        </div>
-        <div class="image-card" onclick="openLightbox('mpc.jpeg')">
-            <img src="mpc.jpeg" alt="Front view of Mehar Physiotherapy Clinic in Greater Noida">
-        </div>
+<div class="container">
+    <div class="ai-summary-box">
+        <strong>Facility Overview:</strong> Mehar Physiotherapy Clinic, located in <strong>Gaur City 2, Noida Extension</strong>, features a modern clinical environment equipped for <strong>orthopedic and neurological rehabilitation</strong>. Our facility includes specialized zones for PNF training, post-surgical mobilization, and advanced pain management modalities, providing a sterile and professional setting for patients in <strong>Greater Noida West</strong>.
     </div>
-</section>
 
-<div id="lightbox" class="lightbox" onclick="closeLightbox()" style="display: none;">
-    <a href="#" class="close">×</a>
-    <img id="lightbox-img" src="ex2.jpeg" alt="">
+    <section>
+        <h2>Clinic Insights <small style="font-size: 0.6em; vertical-align: middle; opacity: 0.8;">(Click to enlarge)</small></h2>
+        <div class="gallery">
+            <div class="image-card" onclick="openLightbox('ex1.jpeg')">
+                <img src="ex1.jpeg" alt="Private treatment room for physiotherapy in Gaur City 2 Noida Extension">
+            </div>
+            <div class="image-card" onclick="openLightbox('ex2.jpeg')">
+                <img src="ex2.jpeg" alt="Rehabilitation and exercise equipment at Mehar Physiotherapy Clinic Greater Noida West">
+            </div>
+            <div class="image-card" onclick="openLightbox('knee_exercise.webp')">
+                <img src="knee_exercise.webp" alt="Therapeutic knee exercises for post-surgical recovery at Mehar Physiotherapy Clinic, Gaur City 2">
+            </div>
+            <div class="image-card" onclick="openLightbox('mpc.jpeg')">
+                <img src="mpc.jpeg" alt="Entrance of Mehar Physiotherapy Clinic, the best physiotherapist in Noida Extension">
+            </div>
+            <div class="image-card" onclick="openLightbox('logo.webp')">
+                <img src="logo.webp" alt="Official logo of Mehar Physiotherapy Clinic by Dr. Arneja">
+            </div>
+        </div>
+    </section>
 </div>
 
-<button id="backToTop" title="Back to Top" style="display: none;"><span>↑</span></button>
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <a href="javascript:void(0)" class="close">&times;</a>
+    <img id="lightbox-img" src="" alt="Enlarged clinic view">
+</div>
+
+<button id="backToTop" title="Back to Top" style="display: none; position: fixed; bottom: 20px; right: 20px; background: rgba(0,121,107,0.7); color: #fff; border: none; border-radius: 50%; padding: 12px 16px; font-size: 26px; font-weight: 900; cursor: pointer; z-index: 2000; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+    <span style="display: inline-block; transform: scaleX(1.2);">↑</span>
+</button>
 
 <footer>
     © <span id="currentYear"></span> Mehar Physiotherapy Clinic. All Rights Reserved.
 </footer>
 
 <script>
-// Automatically update footer year
+// 1. Automatically update footer year
 document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+// 2. Advanced Lightbox (Prevents background scroll + adds Escape key support)
 function openLightbox(src) {
-    document.getElementById("lightbox").style.display = "flex";
-    document.getElementById("lightbox-img").src = src;
-}
-function closeLightbox() {
-    document.getElementById("lightbox").style.display = "none";
+    const lb = document.getElementById("lightbox");
+    const lbImg = document.getElementById("lightbox-img");
+    lb.style.display = "flex";
+    lbImg.src = src;
+    document.body.style.overflow = "hidden"; 
 }
 
+function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+    document.body.style.overflow = "auto"; 
+}
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === "Escape") closeLightbox();
+});
+
+// 3. Back to Top Button Logic
 const backToTopBtn = document.getElementById('backToTop');
 function handleBackToTopVisibility() {
     if (window.innerWidth <= 700) {
@@ -316,25 +301,23 @@ backToTopBtn.addEventListener('click', function(){
     window.scrollTo({top:0, behavior:'smooth'});
 });
 
-// Floating animation and 3D hover effect for main section
+// 4. Entrance Animations
 document.addEventListener('DOMContentLoaded', function() {
     const section = document.querySelector('section');
     section.style.opacity = "0";
-    section.style.transform = "translateX(-100px)";
+    section.style.transform = "translateY(30px)";
     const observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
             if (entry.isIntersecting) {
                 section.style.opacity = "1";
-                section.style.transform = "translateX(0)";
+                section.style.transform = "translateY(0)";
                 observer.unobserve(section);
             }
         });
     }, {threshold: 0.1});
     observer.observe(section);
-    section.addEventListener('mouseleave', function() {
-        section.style.transform = "translateX(0) rotateX(0) rotateY(0)";
-    });
 });
 </script>
+
 </body>
 </html>
