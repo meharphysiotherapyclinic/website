@@ -177,25 +177,38 @@
         }
         .close:hover { color: #26a69a; }
 
-        /* Navigation Buttons */
-        .fixed-button {
-            position: fixed;
-            left: 20px;
-            background: rgba(15, 107, 58, 0.6);
-            color: #fff;
-            padding: 10px 16px;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: bold;
-            text-decoration: none;
-            z-index: 3000;
-            transition: 0.3s;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            backdrop-filter: blur(5px);
-        }
-        .fixed-button:hover { background: rgba(0,121,107,0.9); transform: scale(1.05); }
-        .home-button { bottom: 70px; }
-        .blogs-button { bottom: 120px; }
+        /* Navigation Buttons — matched with blog page */
+.fixed-button {
+    position: fixed;
+    left: 20px;
+    background: rgba(15, 107, 58, 0.5);
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    z-index: 1000;
+    transition: background 0.25s, transform 0.25s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    user-select: none;
+    display: block;
+    width: auto;
+}
+
+.home-button {
+    bottom: 70px;
+}
+
+.blogs-button {
+    bottom: 120px;
+}
+
+.fixed-button:hover {
+    background: rgba(12, 81, 43, 0.7);
+    transform: scale(1.1);
+}
 
         /* Footer */
         footer { 
@@ -230,7 +243,10 @@
             /* Changed to 1 column to make images look bigger on mobile */
             .gallery { grid-template-columns: 1fr; gap: 20px; }
             .image-card { max-width: 100%; }
-            .fixed-button { padding: 8px 12px; font-size: 12px; }
+            .fixed-button {
+    padding: 8px 14px;
+    font-size: 14px;
+            }
             .container { padding: 15px; }
         }
     </style>
