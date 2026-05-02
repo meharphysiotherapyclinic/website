@@ -96,6 +96,16 @@
 
         h2 { color: #00796b; margin-top: 0; }
 
+        .tap-note {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 500;
+    margin-top: 6px;
+    opacity: 0.75;
+    letter-spacing: 0.2px;
+    color: inherit;
+        }
+
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -266,7 +276,10 @@
     </div>
 
     <section>
-        <h2>Clinic Insights <small style="font-size: 0.6em; vertical-align: middle; opacity: 0.8;">(Click to enlarge)</small></h2>
+        <h2>
+    Clinic Insights
+    <small class="tap-note">Tap any image to enlarge ↗</small>
+        </h2>
         <div class="gallery">
             <div class="image-card" onclick="openLightbox('ex1.webp')">
                 <img src="ex1.webp" alt="Private treatment room for physiotherapy in Gaur City 2 Noida Extension">
