@@ -139,51 +139,48 @@ main {
     box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
 }
 
-/* --- Finalized Back to Top Section (Mobile Only) --- */
+/* --- Back to Top Button (Same as Blog Page) --- */
 #backToTop {
-    display: none; /* Hidden by default */
+    display: none;
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: rgba(15, 107, 58, 0.7); 
+    background: rgba(15, 107, 58, 0.5);
     color: #fff;
     border: none;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    padding: 12px 16px;
     font-size: 24px;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     z-index: 9999;
     transition: background 0.25s, transform 0.25s;
-    align-items: center;
-    justify-content: center;
     outline: none;
-}
-
-/* Logic: Only allow the button to show on screens smaller than 701px */
-@media (max-width: 700px) {
-    #backToTop.show { 
-        display: flex; 
-    }
-}
-
-/* Force hide on PC (Screens wider than 700px) */
-@media (min-width: 701px) {
-    #backToTop {
-        display: none !important;
-    }
 }
 
 #backToTop span {
     color: #fff;
-    text-shadow: 0 2px 8px #00796b;
+    text-shadow: 0 2px 8px #00796b, 0 0 20px #fff;
     font-weight: bold;
 }
 
 #backToTop:hover {
-    background: rgba(12, 81, 43, 0.9);
+    background: rgba(12, 81, 43, 0.7);
     transform: scale(1.1);
+}
+
+/* Show only on mobile screens */
+@media (max-width: 700px) {
+    #backToTop.show {
+        display: block;
+    }
+}
+
+/* Force hide on desktop */
+@media (min-width: 701px) {
+    #backToTop {
+        display: none !important;
+    }
 }
 
 /* --- Corrected AI Summary Box Style --- */
