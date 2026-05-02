@@ -165,7 +165,7 @@ main {
 }
 
 #backToTop:hover {
-    background: rgba(12, 81, 43, 0.7);
+    background: rgba(0, 77, 64, 0.7);
     transform: scale(1.1);
 }
 
