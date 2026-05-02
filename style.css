@@ -596,6 +596,15 @@ button.contact-btn {
   font-weight: 700;
 }
 
+.tap-note {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 500;
+  margin-top: 6px;
+  opacity: 0.75;
+  letter-spacing: 0.2px;
+}
+
 .services-box h3 + .service-category {
   margin-top: 10px; /* Less margin for the very first category */
 }
