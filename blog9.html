@@ -107,10 +107,40 @@
       <li><a href="blog5.html">Is Your Back Aching? Simple Stretches for Relief</a></li>
       <li><a href="blog6.html">Managing Parkinson’s Disease with Physiotherapy</a></li>
     </ul>
-    <a href="blog.html" class="button">← Back to Blog Page</a>
+    <h2>Share This Article</h2>
+
+<a href="javascript:void(0)" class="button" onclick="shareArticle()">
+  <img src="https://cdn-icons-png.flaticon.com/512/929/929610.png" alt="Share">
+  Share Blog
+</a>
+
+<br>
+
+<a href="blog.html" class="button">← Back to Blog Page</a>
   </div>
   
   <footer>© <span id="currentYear"></span> Mehar Physiotherapy Clinic. All Rights Reserved.</footer>
-  <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
+  <script>
+  // Automatically update footer year
+  document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+  // Share blog function
+  function shareArticle() {
+    const shareData = {
+      title: document.title,
+      text: "Check out this helpful physiotherapy blog from Mehar Physiotherapy Clinic.",
+      url: window.location.href
+    };
+
+    if (navigator.share) {
+      navigator.share(shareData)
+        .catch(err => console.log("Share cancelled:", err));
+    } else {
+      navigator.clipboard.writeText(window.location.href)
+        .then(() => alert("Blog link copied to clipboard!"))
+        .catch(() => alert("Unable to copy link."));
+    }
+  }
+  </script>
 </body>
 </html>
