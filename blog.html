@@ -299,6 +299,17 @@
   <strong>At a Glance:</strong> Explore a library of evidence-based physiotherapy articles by <strong>Dr. Govindpreet Singh Arneja</strong>. Our blog covers critical health topics including <strong>post-surgical rehab, Parkinson's management, ergonomic workplace safety, and sports injury recovery</strong>. Based in Gaur City 2, Noida Extension, we provide the community with professional insights to improve mobility and live pain-free.
 </div>
   <p class="intro">Expert tips and insights for your health and recovery</p>
+  <div class="search-box" style="margin-bottom:20px; text-align:center;">
+  <input 
+    type="text" 
+    id="blogSearch" 
+    placeholder="Search topics (e.g. back pain, stroke, knee...)" 
+    style="width:100%; max-width:500px; padding:10px 14px; border-radius:8px; border:1px solid #ccc; font-size:14px; outline:none;">
+</div>
+
+<p id="noResults" style="display:none; text-align:center; color:#888;">
+  No matching blogs found
+</p>
   <div class="blog-grid">
     <div class="card">
       <h2>5 Common Physiotherapy Myths Debunked</h2>
@@ -489,6 +500,29 @@ document.querySelectorAll('.card').forEach(card => {
   card.addEventListener('mouseenter', () => {
     card.style.transition = 'transform 0.18s cubic-bezier(.17,.67,.83,.67), box-shadow 0.22s';
   });
+});
+  // ==== Blog Search Filter ====
+const searchInput = document.getElementById('blogSearch');
+const cards = document.querySelectorAll('.blog-grid .card');
+const noResults = document.getElementById('noResults');
+
+searchInput.addEventListener('input', function () {
+  const query = this.value.toLowerCase();
+  let visibleCount = 0;
+
+  cards.forEach(card => {
+    const title = card.querySelector('h2').textContent.toLowerCase();
+    const desc = card.querySelector('p').textContent.toLowerCase();
+
+    if (title.includes(query) || desc.includes(query)) {
+      card.style.display = "block";
+      visibleCount++;
+    } else {
+      card.style.display = "none";
+    }
+  });
+
+  noResults.style.display = visibleCount === 0 ? "block" : "none";
 });
 </script>
 </body>
