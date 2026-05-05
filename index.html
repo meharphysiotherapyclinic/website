@@ -501,7 +501,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ===== 3D Tilt Effect =====
 document.querySelectorAll('section').forEach(section => {
-  const tiltAmount = 12;
+  const tiltAmount = 2;
   section.addEventListener('mousemove', e => {
     const rect = section.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -514,7 +514,7 @@ document.querySelectorAll('section').forEach(section => {
     const rotateX = -percentY * tiltAmount;
 
     section.style.transform =
-      `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+      `perspective(2000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1)`;
     section.style.boxShadow =
       `0 15px 35px rgba(0,0,0,0.25), 0 ${8 + 5*Math.abs(rotateX)+5*Math.abs(rotateY)}px 20px rgba(0,0,0,0.20)`;
     section.style.transition =
@@ -524,7 +524,7 @@ document.querySelectorAll('section').forEach(section => {
   section.addEventListener('mouseleave', () => {
     // Check if the section is supposed to be animated from scroll before resetting transform
     if (!section.classList.contains('section-animate') || section.classList.contains('active')) {
-        section.style.transform = 'perspective(1000px) translateZ(0) scale(1)';
+        section.style.transform = 'perspective(2000px) translateZ(0) scale(1)';
     }
     section.style.boxShadow = '0 8px 20px rgba(0,0,0,0.15)';
     section.style.transition =
