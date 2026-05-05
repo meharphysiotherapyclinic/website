@@ -283,6 +283,14 @@
     color: #26a69a;
   }
     }
+
+    /* Fix clear icon visibility in dark mode */
+@media (prefers-color-scheme: dark) {
+  #clearSearch img {
+    filter: invert(1);   /* turns black icon to white */
+    opacity: 0.8;
+  }
+}
   </style>
 </head>
 <body>
@@ -299,13 +307,25 @@
   <strong>At a Glance:</strong> Explore a library of evidence-based physiotherapy articles by <strong>Dr. Govindpreet Singh Arneja</strong>. Our blog covers critical health topics including <strong>post-surgical rehab, Parkinson's management, ergonomic workplace safety, and sports injury recovery</strong>. Based in Gaur City 2, Noida Extension, we provide the community with professional insights to improve mobility and live pain-free.
 </div>
   <p class="intro">Expert tips and insights for your health and recovery</p>
-  <div class="search-box" style="margin-bottom:20px; text-align:center;">
+  <div class="search-box" style="margin-bottom:20px; text-align:center; position:relative; max-width:500px; margin-left:auto; margin-right:auto;">
+  
   <input 
     type="text" 
     id="blogSearch" 
     placeholder="Search topics (e.g. back pain, stroke, knee...)" 
-    style="width:100%; max-width:500px; padding:10px 14px; border-radius:8px; border:1px solid #ccc; font-size:14px; outline:none;">
-</div>
+    style="width:100%; padding:10px 38px 10px 14px; border-radius:8px; border:1px solid #ccc; font-size:14px; outline:none;">
+
+  <span id="clearSearch"
+      style="position:absolute; right:10px; top:50%; transform:translateY(-50%); cursor:pointer; display:none;">
+
+  <img 
+    src="https://cdn-icons-png.flaticon.com/512/1828/1828778.png" 
+    alt="Clear search"
+    style="width:16px; height:16px; opacity:0.7;">
+
+</span>
+
+  </div>
 
 <p id="noResults" style="display:none; text-align:center; color:#888;">
   No matching blogs found
@@ -524,6 +544,24 @@ searchInput.addEventListener('input', function () {
 
   noResults.style.display = visibleCount === 0 ? "block" : "none";
 });
+  // ==== Clear Search Button ====
+const clearBtn = document.getElementById('clearSearch');
+
+searchInput.addEventListener('input', function () {
+  clearBtn.style.display = this.value ? "block" : "none";
+});
+
+clearBtn.addEventListener('click', function () {
+  searchInput.value = "";
+  clearBtn.style.display = "none";
+
+  // Reset all cards
+  cards.forEach(card => card.style.display = "block");
+  noResults.style.display = "none";
+
+  searchInput.focus();
+});
+  
 </script>
 </body>
 </html>
