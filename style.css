@@ -707,13 +707,29 @@ button.contact-btn {
     padding: 20px;
 }
 
-.hero-motto {
+.hero-heading {
     color: #ffcc00 !important; 
-    font-size: 2rem; 
+    font-size: 1rem; 
     font-style: italic;
     font-weight: bold;
     margin: 0;
     text-shadow: 2px 2px 8px rgba(0,0,0,0.9);
+}
+
+/* ===== HERO HEADING TOP-LEFT (DESKTOP FIX) ===== */
+.hero-overlay {
+    position: relative; /* required for absolute positioning */
+}
+
+.hero-heading {
+    position: absolute;
+    top: 20%;
+    left: 5%;
+
+    transform: none;
+
+    max-width: 40%;
+    text-align: left;
 }
 
 .hero-bottom-status {
@@ -722,15 +738,15 @@ button.contact-btn {
     width: 100%;
     background: rgba(0, 121, 107, 0.85); 
     color: white;
-    padding: 12px 0;
-    font-size: 1rem;
+    padding: 8px 0;
+    font-size: .75rem;
     font-weight: 700;
     letter-spacing: 1.5px;
     text-transform: uppercase;
 }
 
 /* ============================================================ */
-/* FINAL MOBILE HERO - MOTTO TOP-LEFT & STATUS BAR CENTERED     */
+/* FINAL MOBILE HERO - HEADING TOP-LEFT & STATUS BAR CENTERED     */
 /* ============================================================ */
 @media (max-width: 700px) {
     .hero-container {
@@ -751,8 +767,8 @@ button.contact-btn {
         width: 100%;
     }
 
-    .hero-motto {
-        font-size: clamp(1.1rem, 5vw, 1.4rem) !important;
+    .hero-heading {
+        font-size: clamp(0.9rem, 3.5vw, 1.05rem) !important;
         /* Keep only the motto left-aligned */
         text-align: left !important; 
         max-width: 70%; 
