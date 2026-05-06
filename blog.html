@@ -503,34 +503,43 @@ backToTopBtn.addEventListener('click', function(){
   window.scrollTo({top:0, behavior:'smooth'});
 });
 
-// ==== 3D Mouse-Follow Tilt for Blog Cards ====
+// ==== Minimal 3D Tilt (Subtle & Smooth) ====
 document.querySelectorAll('.card').forEach(card => {
-  const tiltAmount = 12;
+  const tiltAmount = 3; // ↓ reduced from 12 → 3
+
   card.addEventListener('mousemove', e => {
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
+
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
+
     const percentX = (x - centerX) / centerX;
     const percentY = (y - centerY) / centerY;
+
     const rotateY = percentX * tiltAmount;
     const rotateX = -percentY * tiltAmount;
+
     card.style.transform =
-      `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+      `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.01)`;
+
     card.style.boxShadow =
-      `0 15px 35px rgba(0,0,0,0.25), 0 ${8 + 5*Math.abs(rotateX)+5*Math.abs(rotateY)}px 20px rgba(0,0,0,0.20)`;
-    card.style.transition = 'transform 0.18s cubic-bezier(.17,.67,.83,.67), box-shadow 0.22s';
+      `0 8px 18px rgba(0,0,0,0.12), 0 0 12px rgba(0,121,107,0.10)`;
+
+    card.style.transition =
+      'transform 0.12s ease-out, box-shadow 0.15s ease-out';
   });
+
   card.addEventListener('mouseleave', () => {
     card.style.transform =
-      'perspective(1000px) translateZ(0) scale(1)';
+      'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
+
     card.style.boxShadow =
-      '0 4px 10px rgba(0,0,0,0.05)';
-    card.style.transition = 'transform 0.45s cubic-bezier(.17,.67,.83,.67), box-shadow 0.35s';
-  });
-  card.addEventListener('mouseenter', () => {
-    card.style.transition = 'transform 0.18s cubic-bezier(.17,.67,.83,.67), box-shadow 0.22s';
+      '0 4px 10px rgba(0,0,0,0.08)';
+
+    card.style.transition =
+      'transform 0.35s ease, box-shadow 0.35s ease';
   });
 });
   // ==== Blog Search Filter ====
