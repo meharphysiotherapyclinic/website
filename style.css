@@ -573,24 +573,25 @@ button.contact-btn {
   }
 }
 
-/* ========================================= */
-/* WEBSITE - VCARD STYLE SERVICES GRID       */
-/* ========================================= */
+/* =========================================
+   SERVICES GRID — BUTTON STYLE (STABLE)
+========================================= */
 
 .services-box {
-  background: linear-gradient(135deg, rgba(240, 247, 255, 0.65), rgba(255, 255, 255, 0.8));
-  border-left: 5px solid #00796b; /* Website Teal Theme */
+  background: linear-gradient(135deg, rgba(240, 247, 255, 0.65), rgba(255, 255, 255, 0.85));
+  border-left: 5px solid #00796b;
   padding: 20px;
   border-radius: 12px;
   margin: 15px auto;
   text-align: left;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
+/* Category headings */
 .service-category {
   font-size: 14.5px;
   color: #00796b;
-  margin: 18px 0 8px 0;
+  margin: 18px 0 8px;
   border-bottom: 1px solid rgba(0,0,0,0.1);
   padding-bottom: 4px;
   font-weight: 700;
@@ -599,71 +600,133 @@ button.contact-btn {
 .tap-note {
   display: block;
   font-size: 0.72rem;
-  font-weight: 500;
   margin-top: 6px;
   opacity: 0.75;
-  letter-spacing: 0.2px;
 }
 
-.services-box h3 + .service-category {
-  margin-top: 10px; /* Less margin for the very first category */
-}
-
+/* Grid layout */
 .services-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Forces 2 columns like vcard */
-  gap: 8px 10px;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
   margin-bottom: 5px;
 }
 
 @media (min-width: 600px) {
   .services-grid {
-    grid-template-columns: repeat(3, 1fr); /* 3 columns on PC/Tablet */
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-.services-grid span {
-  background: #ffffff;
-  padding: 8px 6px;
-  border-radius: 8px;
-  font-size: 13.5px;
-  color: #333;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.06);
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 500;
-  line-height: 1.2;
+/* Links reset */
+.services-grid a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 
-/* Neurological Services */
-.services-grid span.neuro {
-  background: #eef7ff; 
+/* =========================================
+   SERVICE PILL (LIKE BUTTON)
+========================================= */
+
+.service-pill {
+  display: block;
+  width: 100%;
+
+  padding: 10px 8px;
+  border-radius: 8px;
+
+  background: #ffffff;
+  color: #333;
+  font-size: 13.5px;
+  font-weight: 500;
+  text-align: center;
+
+  border: 1px solid rgba(0,0,0,0.06);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+
+  cursor: pointer;
+}
+
+/* Hover (safe, no blur, no artifacts) */
+.service-pill:hover {
+  background: #f0f7f6;
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* Active press */
+.service-pill:active {
+  transform: scale(0.97);
+}
+
+/* =========================================
+   VARIANTS
+========================================= */
+
+/* Neurological */
+.service-pill.neuro {
+  background: #eef7ff;
   border: 1px solid #adcffa;
-  color: #0e5a95; 
+  color: #0e5a95;
   font-weight: 600;
 }
 
 /* Highlight (Home Visit) */
-.services-grid span.highlight {
-  background: #e8f5e9; 
+.service-pill.highlight {
+  background: #e8f5e9;
   border: 1px solid #c8e6c9;
   color: #2e7d32;
-  font-weight: 800;
-  grid-column: 1 / -1; /* Makes it span full width if you want, or remove to keep it pill sized */
+  font-weight: 700;
+
+  grid-column: 1 / -1;
 }
 
-/* --- Dark Mode Adjustments --- */
+/* =========================================
+   DARK MODE
+========================================= */
+
 @media (prefers-color-scheme: dark) {
+
   .services-box {
-    background: linear-gradient(135deg, rgba(31, 42, 54, 0.7), rgba(24, 34, 44, 0.7));
+    background: linear-gradient(135deg, rgba(30, 40, 50, 0.85), rgba(20, 30, 40, 0.85));
     border-left-color: #4db6ac;
   }
-  .service-category { color: #4db6ac; border-bottom-color: rgba(255,255,255,0.1); }
-  .services-grid span { background: #2a3542; color: #f0f0f0; }
-  .services-grid span.neuro { background: #1a222c; border: 1px solid #0e5a95; color: #4da3ff; }
-  .services-grid span.highlight { background: #1b3320; border-color: #2e7d32; color: #69ff99; }
+
+  .service-category {
+    color: #4db6ac;
+    border-bottom-color: rgba(255,255,255,0.1);
+  }
+
+  .service-pill {
+    background: #2a3542;
+    color: #f0f0f0;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .service-pill:hover {
+    background: #324250;
+    box-shadow:
+      0 4px 12px rgba(0,0,0,0.35);
+  }
+
+  .service-pill.neuro {
+    background: #1a222c;
+    border-color: #0e5a95;
+    color: #4da3ff;
+  }
+
+  .service-pill.highlight {
+    background: #1b3320;
+    border-color: #2e7d32;
+    color: #69ff99;
+  }
 }
 
 /* ===== FULLY ADAPTIVE WELCOME HERO SECTION ===== */
