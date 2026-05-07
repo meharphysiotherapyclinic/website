@@ -633,18 +633,22 @@ button.contact-btn {
   display: block;
   width: 100%;
 
-  padding: 8px 6px; /* reduced height + width */
+  padding: 8px 6px;
   border-radius: 7px;
 
   background: #ffffff;
   color: #333;
-  font-size: 12.8px; /* slightly smaller text */
+  font-size: 12.8px;
   font-weight: 500;
   line-height: 1.25;
 
   text-align: center;
 
-  border: 1px solid rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.09);
+
+  box-shadow:
+    0 1px 2px rgba(0,0,0,0.03),
+    inset 0 0 0 1px rgba(255,255,255,0.35);
 
   transition:
     transform 0.18s ease,
