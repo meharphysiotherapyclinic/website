@@ -660,7 +660,7 @@ button.contact-btn {
 
 /* Hover (safe, no blur, no artifacts) */
 .service-pill:hover {
-  background: #f0f7f6;
+  background: #dcefe2;
   transform: translateY(-2px);
 
   box-shadow:
