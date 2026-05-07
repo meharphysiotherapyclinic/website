@@ -608,8 +608,8 @@ button.contact-btn {
 .services-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-bottom: 5px;
+  gap: 8px; /* tighter spacing */
+  margin-bottom: 4px;
 }
 
 @media (min-width: 600px) {
@@ -633,21 +633,23 @@ button.contact-btn {
   display: block;
   width: 100%;
 
-  padding: 10px 8px;
-  border-radius: 8px;
+  padding: 8px 6px; /* reduced height + width */
+  border-radius: 7px;
 
   background: #ffffff;
   color: #333;
-  font-size: 13.5px;
+  font-size: 12.8px; /* slightly smaller text */
   font-weight: 500;
+  line-height: 1.25;
+
   text-align: center;
 
-  border: 1px solid rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.05);
 
   transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    background 0.2s ease;
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease;
 
   cursor: pointer;
 }
