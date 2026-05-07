@@ -667,6 +667,26 @@ button.contact-btn {
     0 4px 10px rgba(0,0,0,0.08);
 }
 
+/* Neuro hover */
+.service-pill.neuro:hover {
+  background: #dcecff;
+
+  border-color: #8ebeea;
+
+  box-shadow:
+    0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* Home Visit hover */
+.service-pill.highlight:hover {
+  background: #dff3e2;
+
+  border-color: #9fd3a5;
+
+  box-shadow:
+    0 4px 10px rgba(0,0,0,0.08);
+}
+
 /* Active press */
 .service-pill:active {
   transform: scale(0.97);
@@ -722,6 +742,26 @@ button.contact-btn {
     box-shadow:
       0 4px 12px rgba(0,0,0,0.35);
   }
+
+  /* Neuro hover */
+.service-pill.neuro:hover {
+  background: #22384a;
+
+  border-color: rgba(77, 163, 255, 0.42);
+
+  box-shadow:
+    0 4px 12px rgba(0,0,0,0.38);
+}
+
+/* Home Visit hover */
+.service-pill.highlight:hover {
+  background: #24402c;
+
+  border-color: rgba(105, 255, 153, 0.40);
+
+  box-shadow:
+    0 4px 12px rgba(0,0,0,0.38);
+}
 
   .service-pill.neuro {
     background: #1a222c;
