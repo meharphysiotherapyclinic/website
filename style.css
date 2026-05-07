@@ -718,7 +718,7 @@ button.contact-btn {
 
   .service-pill:hover {
     background: #31463f;
-    border-color: rgba(120, 220, 190, 0.34);
+    border-color: rgba(120, 220, 190, 0.37);
     box-shadow:
       0 4px 12px rgba(0,0,0,0.35);
   }
