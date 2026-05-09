@@ -11,13 +11,13 @@
 
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
+<meta name="mobile-web-app-capable" content="yes">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="logo.png">
 
 <link rel="stylesheet" href="global-style.css">
 <link rel="stylesheet" href="theme.css">
-    
+<link rel="stylesheet" href="listen.css">    
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -73,6 +73,41 @@
   </header>
 
   <div class="container">
+    <!-- =========================================
+     LISTEN CONTROLS
+========================================= -->
+
+<div class="listen-controls">
+
+  <button id="listenBtn">
+
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/727/727245.png"
+      alt="Listen"
+    >
+
+    Listen to Article
+
+  </button>
+
+  <button id="stopBtn">
+
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/992/992683.png"
+      alt="Stop"
+    >
+
+    Stop
+
+  </button>
+
+</div>
+
+<!-- =========================================
+     BLOG ARTICLE
+========================================= -->
+
+<article id="blog-content">
     <div class="ai-summary-box">
         <strong>Quick Guide:</strong> Post-surgical physiotherapy is essential for a successful knee or hip replacement. It helps restore range of motion, reduces post-op swelling, and strengthens the muscles supporting the new joint. At <strong>Mehar Physiotherapy Clinic</strong>, Dr. Govindpreet Singh Arneja provides expert guidance to help you walk pain-free and return to your daily routine faster.
     </div>
@@ -93,7 +128,7 @@
     
     <h2>What to Expect in Your Sessions</h2>
     <p>Initially, we focus on gentle movements to prevent blood clots and stiffness. As you progress, we move to functional training—like climbing stairs and walking without aids—to ensure you can return to your life with confidence.</p>
-    
+</article>  
     <h2>Take Action Today</h2>
     <ul class="button_list">
       <li><a href="tel:+919810359247" target="_blank" class="button"><img src="https://cdn-icons-png.flaticon.com/512/523/523081.png" alt="Call Now"> Call Now </a></li>
@@ -142,5 +177,6 @@
     }
   }
   </script>
+    <script src="listen.js"></script>
 </body>
 </html>
