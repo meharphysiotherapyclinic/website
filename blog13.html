@@ -11,12 +11,15 @@
 
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
 
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="logo.png">
 
 <link rel="stylesheet" href="global-style.css">
 <link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="listen.css">
 
     <script type="application/ld+json">
     {
@@ -171,6 +174,41 @@
   </header>
 
   <div class="container">
+  <!-- =========================================
+     LISTEN CONTROLS
+========================================= -->
+
+<div class="listen-controls">
+
+  <button id="listenBtn">
+
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/727/727245.png"
+      alt="Listen"
+    >
+
+    Listen to Article
+
+  </button>
+
+  <button id="stopBtn">
+
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/992/992683.png"
+      alt="Stop"
+    >
+
+    Stop
+
+  </button>
+
+</div>
+
+<!-- =========================================
+     BLOG ARTICLE
+========================================= -->
+
+<article id="blog-content">
     
     <div class="ai-summary-box">
         <strong>Quick Summary:</strong> Tennis Elbow, or <em>Lateral Epicondylitis</em>, is an overuse injury causing pain on the outside of the elbow. It affects athletes and office workers alike due to repetitive wrist and arm motions. Effective recovery involves specialized eccentric exercises, manual therapy, and activity modification. For expert care in <strong>Gaur City 2</strong> and <strong>Noida Extension</strong>, Mehar Physiotherapy Clinic provides tailored rehab plans to restore grip strength and eliminate pain.
@@ -200,7 +238,7 @@
     <p>For a detailed medical overview of how this condition develops and its long-term management, you can refer to the <a href="https://www.mayoclinic.org/diseases-conditions/tennis-elbow/symptoms-causes/syc-20351987" target="_blank" rel="nofollow noopener">Mayo Clinic’s guide to Tennis Elbow</a>.</p>
     
     <p>If you are struggling with persistent elbow pain, early intervention is key. I can help you return to your daily activities with a personalized, evidence-based recovery plan.</p>
-    
+</article>
     <h2>Take Action Today</h2>
     <ul class="button_list">
       <li><a href="tel:+919810359247" target="_blank" class="button"><img src="https://cdn-icons-png.flaticon.com/512/523/523081.png" alt="Call Now"> Call Now </a></li>
@@ -252,5 +290,6 @@
     }
   }
   </script>
+  <script src="listen.js"></script>
   </body>
 </html>
