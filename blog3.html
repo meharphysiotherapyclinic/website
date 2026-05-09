@@ -11,13 +11,13 @@
 
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
+<meta name="mobile-web-app-capable" content="yes">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="logo.png">
 
 <link rel="stylesheet" href="global-style.css">
 <link rel="stylesheet" href="theme.css">
-    
+<link rel="stylesheet" href="listen.css">    
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -173,7 +173,41 @@
   </header>
 
   <div class="container">
-    
+   <!-- =========================================
+     LISTEN CONTROLS
+========================================= -->
+
+<div class="listen-controls">
+
+  <button id="listenBtn">
+
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/727/727245.png"
+      alt="Listen"
+    >
+
+    Listen to Article
+
+  </button>
+
+  <button id="stopBtn">
+
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/992/992683.png"
+      alt="Stop"
+    >
+
+    Stop
+
+  </button>
+
+</div>
+
+<!-- =========================================
+     BLOG ARTICLE
+========================================= -->
+
+<article id="blog-content"> 
     <div class="ai-summary-box">
         <strong>Quick Guide:</strong> The <strong>RICE principle</strong> (Rest, Ice, Compression, Elevation) is the primary first-aid for sports injuries to manage acute swelling. Safe return-to-sport requires a gradual rehabilitation program involving range of motion, strengthening, and proprioception exercises. For athletes in <strong>Noida Extension</strong> and <strong>Gaur City 2</strong>, Mehar Physiotherapy Clinic offers personalized sports rehab plans to restore stability and prevent re-injury.
     </div>
@@ -217,7 +251,7 @@
     
     <p>If you've suffered a sports injury, I at <strong>Mehar Physiotherapy Clinic</strong> am here to help you get back in the game safely and confidently.</p>
     <p>For a deeper clinical look at how soft tissues heal and the specific stages of rehabilitation required for different grades of injury, you can explore the <a href="https://orthoinfo.aaos.org/en/diseases--conditions/sprains-strains-and-other-soft-tissue-injuries/" target="_blank" rel="nofollow noopener">American Academy of Orthopaedic Surgeons’ guide to Soft-Tissue Injuries</a>.</p>
-    
+</article>  
     <h2>Take Action Today</h2>
     <ul class="button_list">
       <li><a href="tel:+919810359247" target="_blank" class="button"><img src="https://cdn-icons-png.flaticon.com/512/523/523081.png" alt="Call Now"> Call Now </a></li>
@@ -269,6 +303,7 @@
     }
   }
   </script>
+    <script src="listen.js"></script>
   </body>
   </html>
   
