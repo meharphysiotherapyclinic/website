@@ -11,13 +11,13 @@
 
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
+<meta name="mobile-web-app-capable" content="yes">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="logo.png">
 
 <link rel="stylesheet" href="global-style.css">
 <link rel="stylesheet" href="theme.css">
-
+<link rel="stylesheet" href="listen.css">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -73,7 +73,41 @@
   </header>
 
   <div class="container">
-    
+  <!-- =========================================
+     LISTEN CONTROLS
+========================================= -->
+
+<div class="listen-controls">
+
+  <button id="listenBtn">
+
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/727/727245.png"
+      alt="Listen"
+    >
+
+    Listen to Article
+
+  </button>
+
+  <button id="stopBtn">
+
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/992/992683.png"
+      alt="Stop"
+    >
+
+    Stop
+
+  </button>
+
+</div>
+
+<!-- =========================================
+     BLOG ARTICLE
+========================================= -->
+
+<article id="blog-content">  
     <div class="ai-summary-box">
         <strong>Quick Summary:</strong> Proprioceptive Neuromuscular Facilitation (PNF) is an advanced stretching technique that involves both the stretching and contracting of targeted muscles. Originally developed for neurological rehabilitation, it is now widely used to improve flexibility, restore range of motion, and enhance athletic performance. At Mehar Physiotherapy Clinic, we utilize PNF to help stroke patients, athletes, and individuals with severe stiffness safely unlock their mobility.
     </div>
@@ -103,7 +137,7 @@
     
     <p>PNF requires a skilled professional to apply the correct amount of resistance safely. If you're struggling with stubborn muscle tightness or neurological deficits in Noida Extension, contact us to see how PNF can aid your recovery.</p>
     <p>To learn more about the science behind Proprioceptive Neuromuscular Facilitation, refer to the <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3588663/" target="_blank" rel="nofollow noopener">National Institutes of Health (NIH) research on PNF stretching and performance</a>.</p>
-
+</article>
     <h2>Take Action Today</h2>
     <ul class="button_list">
       <li><a href="tel:+919810359247" target="_blank" class="button"><img src="https://cdn-icons-png.flaticon.com/512/523/523081.png" alt="Call Now"> Call Now </a></li>
@@ -148,5 +182,6 @@
     }
   }
   </script>
+    <script src="listen.js"></script>
   </body>
 </html>
