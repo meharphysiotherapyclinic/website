@@ -11,11 +11,14 @@
     <meta name="color-scheme" content="light dark">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" href="logo.png">
 
     <link rel="stylesheet" href="global-style.css">
     <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="listen.css">
 
     <script type="application/ld+json">
     {
@@ -73,7 +76,41 @@
   </header>
 
   <div class="container">
-    
+    <!-- =========================================
+     LISTEN CONTROLS
+========================================= -->
+
+<div class="listen-controls">
+
+  <button id="listenBtn">
+
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/727/727245.png"
+      alt="Listen"
+    >
+
+    Listen to Article
+
+  </button>
+
+  <button id="stopBtn">
+
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/992/992683.png"
+      alt="Stop"
+    >
+
+    Stop
+
+  </button>
+
+</div>
+
+<!-- =========================================
+     BLOG ARTICLE
+========================================= -->
+
+<article id="blog-content">
     <div class="ai-summary-box">
         <strong>Quick Guide:</strong> Paralysis is a life-altering condition resulting from a stroke, spinal cord injury, or nerve damage. However, thanks to neuroplasticity, the brain and body can often relearn lost movements. At Mehar Physiotherapy Clinic in Gaur City 2, our specialized neuro-physiotherapy programs focus on preventing muscle stiffness, restoring functional mobility, and helping patients maximize their independence.
     </div>
@@ -97,7 +134,7 @@
     
     <h2>3. A Journey of Patience in Noida Extension</h2>
     <p>Recovery from paralysis is a marathon, not a sprint. It requires immense patience from both the patient and their family. As a dedicated physiotherapist in <strong>Greater Noida West</strong>, my role is to provide consistent support, adjust treatments as milestones are reached, and ensure the highest possible quality of life.</p>
-    
+</article>
     <h2>Take Action Today</h2>
     <ul class="button_list">
       <li><a href="tel:+919810359247" target="_blank" class="button"><img src="https://cdn-icons-png.flaticon.com/512/523/523081.png" alt="Call Now"> Call Now </a></li>
@@ -142,5 +179,6 @@
       }
     }
   </script>
+    <script src="listen.js"></script>
   </body>
 </html>
