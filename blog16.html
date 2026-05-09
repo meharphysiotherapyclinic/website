@@ -11,13 +11,14 @@
 
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="logo.png">
 
 <link rel="stylesheet" href="global-style.css">
 <link rel="stylesheet" href="theme.css">
-
+<link rel="stylesheet" href="listen.css">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -73,7 +74,41 @@
   </header>
 
   <div class="container">
-    
+  <!-- =========================================
+     LISTEN CONTROLS
+========================================= -->
+
+<div class="listen-controls">
+
+  <button id="listenBtn">
+
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/727/727245.png"
+      alt="Listen"
+    >
+
+    Listen to Article
+
+  </button>
+
+  <button id="stopBtn">
+
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/992/992683.png"
+      alt="Stop"
+    >
+
+    Stop
+
+  </button>
+
+</div>
+
+<!-- =========================================
+     BLOG ARTICLE
+========================================= -->
+
+<article id="blog-content">  
     <div class="ai-summary-box">
         <strong>Quick Summary:</strong> Knee Osteoarthritis is a degenerative condition where the protective cartilage in the knee wears down over time, causing pain, stiffness, and a grating sensation. While it might seem counterintuitive, resting too much can actually make the condition worse. Guided physiotherapy is proven to be one of the most effective non-surgical treatments. By strengthening the quadriceps and hamstrings, we can reduce the load on the joint itself. Residents of <strong>Gaur City 2</strong> can access tailored arthritis management programs at Mehar Physiotherapy Clinic.
     </div>
@@ -97,7 +132,7 @@
     <p>For more information on living well with arthritis and the importance of physical activity, you can explore the resources provided by the <a href="https://www.arthritis.org/diseases/osteoarthritis" target="_blank" rel="nofollow noopener">Arthritis Foundation</a>.</p>
     
     <p>You do not have to wait until surgery is your only option. By taking a proactive approach with physiotherapy, you can significantly reduce your pain, improve your mobility, and maintain your independence.</p>
-    
+</article>
     <h2>Take Action Today</h2>
     <ul class="button_list">
       <li><a href="tel:+919810359247" target="_blank" class="button"><img src="https://cdn-icons-png.flaticon.com/512/523/523081.png" alt="Call Now"> Call Now </a></li>
@@ -143,6 +178,7 @@
     }
   }
   </script>
+  <script src="listen.js"></script>
   </body>
   </html>
   
