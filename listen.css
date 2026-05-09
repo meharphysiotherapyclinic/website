@@ -1,0 +1,111 @@
+/* =========================================
+   LISTEN TO ARTICLE
+========================================= */
+
+.listen-controls{
+
+  display:flex;
+  flex-wrap:wrap;
+
+  gap:10px;
+
+  margin:20px 0 25px;
+}
+
+.listen-controls button{
+
+  display:inline-flex;
+  align-items:center;
+
+  gap:8px;
+
+  padding:10px 18px;
+
+  border:none;
+  border-radius:10px;
+
+  background:#00796b;
+  color:#fff;
+
+  font-size:14px;
+  font-weight:600;
+
+  cursor:pointer;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+
+  box-shadow:
+    0 4px 10px rgba(0,0,0,0.08);
+}
+
+.listen-controls button:hover{
+
+  background:#00695c;
+
+  transform:translateY(-2px);
+}
+
+.listen-controls button:active{
+
+  transform:scale(0.98);
+}
+
+/* =========================================
+   LISTEN BUTTON ICONS
+========================================= */
+
+.listen-controls button img{
+
+  width:18px;
+  height:18px;
+
+  object-fit:contain;
+
+  filter:brightness(0) invert(1);
+
+  flex-shrink:0;
+}
+
+/* =========================================
+   CURRENTLY SPOKEN SECTION
+========================================= */
+
+.speaking{
+
+  background:#e8f7f4;
+
+  border-left:4px solid #00796b;
+
+  padding:8px 12px;
+
+  border-radius:8px;
+
+  transition:all 0.3s ease;
+}
+
+/* =========================================
+   DARK MODE
+========================================= */
+
+@media (prefers-color-scheme: dark){
+
+  .speaking{
+
+    background:#103b37;
+
+    border-left-color:#00bfa5;
+  }
+
+  .listen-controls button{
+
+    background:#00897b;
+  }
+
+  .listen-controls button:hover{
+
+    background:#00796b;
+  }
+
+}
