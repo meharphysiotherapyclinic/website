@@ -11,13 +11,14 @@
 
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="logo.png">
 
 <link rel="stylesheet" href="global-style.css">
 <link rel="stylesheet" href="theme.css">
-
+<link rel="stylesheet" href="listen.css">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -73,7 +74,41 @@
   </header>
 
   <div class="container">
-    
+  <!-- =========================================
+     LISTEN CONTROLS
+========================================= -->
+
+<div class="listen-controls">
+
+  <button id="listenBtn">
+
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/727/727245.png"
+      alt="Listen"
+    >
+
+    Listen to Article
+
+  </button>
+
+  <button id="stopBtn">
+
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/992/992683.png"
+      alt="Stop"
+    >
+
+    Stop
+
+  </button>
+
+</div>
+
+<!-- =========================================
+     BLOG ARTICLE
+========================================= -->
+
+<article id="blog-content">  
     <div class="ai-summary-box">
         <strong>Quick Summary:</strong> A "slip disc" (herniated or bulging disc) occurs when the soft inner core of a spinal disc pushes through its tough outer layer, often pressing on nearby nerves. This causes sharp back pain, numbness, or radiating leg pain (Sciatica). Fortunately, most slip discs do not require surgery. At Mehar Physiotherapy Clinic in <strong>Noida Extension</strong>, we utilize targeted extension exercises, manual therapy, and core stabilization to relieve nerve pressure and restore spinal health.
     </div>
@@ -103,7 +138,7 @@
     <p>For more detailed clinical insights into disc herniation, you can review the <a href="https://orthoinfo.aaos.org/en/diseases--conditions/herniated-disk-in-the-lower-back/" target="_blank" rel="nofollow noopener">American Academy of Orthopaedic Surgeons (AAOS) guide</a>.</p>
     
     <p>If you have been diagnosed with a slip disc, do not rush into surgery. Let's work together to decompress your spine and get you moving comfortably again.</p>
-    
+</article>
     <h2>Take Action Today</h2>
     <ul class="button_list">
       <li><a href="tel:+919810359247" target="_blank" class="button"><img src="https://cdn-icons-png.flaticon.com/512/523/523081.png" alt="Call Now"> Call Now </a></li>
@@ -149,5 +184,6 @@
     }
   }
   </script>
+    <script src="listen.js"></script>
   </body>
 </html>
