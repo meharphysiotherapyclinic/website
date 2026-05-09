@@ -228,6 +228,88 @@
       color: #222;
     }
 
+    /* ===== Premium Blog Search Box ===== */
+
+.search-box {
+  position: relative;
+  max-width: 560px;
+  margin: 0 auto 28px auto;
+}
+
+.search-box input {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 14px 46px 14px 18px;
+
+  border-radius: 16px;
+  border: 1.5px solid rgba(0, 121, 107, 0.18);
+
+  background: rgba(255, 255, 255, 0.30);
+
+  backdrop-filter: blur(16px) saturate(130%);
+  -webkit-backdrop-filter: blur(16px) saturate(130%);
+
+  color: #222;
+  font-size: 15px;
+  outline: none;
+
+  box-shadow:
+    0 0 0 5px rgba(0, 121, 107, 0.10),
+    0 10px 24px rgba(0, 0, 0, 0.08),
+    0 0 24px rgba(0, 121, 107, 0.10),
+    inset 0 0 10px rgba(0, 121, 107, 0.03);
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.search-box input:focus {
+  border-color: rgba(0, 121, 107, 0.45);
+
+  box-shadow:
+    0 0 0 6px rgba(0, 121, 107, 0.14),
+    0 14px 30px rgba(0, 0, 0, 0.10),
+    0 0 34px rgba(0, 121, 107, 0.16),
+    inset 0 0 12px rgba(0, 121, 107, 0.04);
+
+  transform: translateY(-1px);
+}
+
+.search-box input::placeholder {
+  color: #6b7280;
+}
+
+#clearSearch {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  cursor: pointer;
+  display: none;
+
+  width: 18px;
+  height: 18px;
+}
+
+#clearSearch img {
+  width: 100%;
+  height: 100%;
+  opacity: 0.72;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+#clearSearch:hover img {
+  opacity: 1;
+  transform: scale(1.12);
+  }
+
     @media (prefers-color-scheme: dark) {
   :root {
     --card: #1e1e1e;
@@ -282,6 +364,34 @@
   h1, h2 {
     color: #26a69a;
   }
+
+  .search-box input {
+  background: rgba(34, 34, 34, 0.38);
+
+  border: 1.5px solid rgba(80, 220, 200, 0.28);
+
+  color: #e0e0e0;
+
+  box-shadow:
+    0 0 0 6px rgba(38, 166, 154, 0.16),
+    0 10px 24px rgba(0, 0, 0, 0.38),
+    0 0 30px rgba(38, 166, 154, 0.18),
+    inset 0 0 12px rgba(38, 166, 154, 0.05);
+}
+
+.search-box input:focus {
+  border-color: rgba(80, 220, 200, 0.45);
+
+  box-shadow:
+    0 0 0 8px rgba(38, 166, 154, 0.22),
+    0 14px 30px rgba(0, 0, 0, 0.45),
+    0 0 40px rgba(38, 166, 154, 0.24),
+    inset 0 0 16px rgba(38, 166, 154, 0.08);
+}
+
+.search-box input::placeholder {
+  color: #bcbcbc;
+}
     }
 
     /* Fix clear icon visibility in dark mode */
@@ -307,23 +417,20 @@
   <strong>At a Glance:</strong> Explore a library of evidence-based physiotherapy articles by <strong>Dr. Govindpreet Singh Arneja</strong>. Our blog covers critical health topics including <strong>post-surgical rehab, Parkinson's management, ergonomic workplace safety, and sports injury recovery</strong>. Based in Gaur City 2, Noida Extension, we provide the community with professional insights to improve mobility and live pain-free.
 </div>
   <p class="intro">Expert tips and insights for your health and recovery</p>
-  <div class="search-box" style="margin-bottom:20px; text-align:center; position:relative; max-width:500px; margin-left:auto; margin-right:auto;">
-  
+  <div class="search-box">
+
   <input 
     type="text" 
     id="blogSearch" 
-    placeholder="Search topics (e.g. back pain, stroke, knee...)" 
-    style="width:100%; padding:10px 38px 10px 14px; border-radius:8px; border:1px solid #ccc; font-size:14px; outline:none;">
+    placeholder="Search topics (e.g. back pain, stroke, knee...)">
 
-  <span id="clearSearch"
-      style="position:absolute; right:10px; top:50%; transform:translateY(-50%); cursor:pointer; display:none;">
+  <span id="clearSearch">
 
-  <img 
-    src="https://cdn-icons-png.flaticon.com/512/1828/1828778.png" 
-    alt="Clear search"
-    style="width:16px; height:16px; opacity:0.7;">
+    <img 
+      src="https://cdn-icons-png.flaticon.com/512/1828/1828778.png" 
+      alt="Clear search">
 
-</span>
+  </span>
 
   </div>
 
