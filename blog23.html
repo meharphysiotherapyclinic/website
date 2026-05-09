@@ -11,13 +11,14 @@
 
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="logo.png">
 
 <link rel="stylesheet" href="global-style.css">
 <link rel="stylesheet" href="theme.css">
-
+<link rel="stylesheet" href="listen.css">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -73,7 +74,41 @@
   </header>
 
   <div class="container">
-    
+    <!-- =========================================
+     LISTEN CONTROLS
+========================================= -->
+
+<div class="listen-controls">
+
+  <button id="listenBtn">
+
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/727/727245.png"
+      alt="Listen"
+    >
+
+    Listen to Article
+
+  </button>
+
+  <button id="stopBtn">
+
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/992/992683.png"
+      alt="Stop"
+    >
+
+    Stop
+
+  </button>
+
+</div>
+
+<!-- =========================================
+     BLOG ARTICLE
+========================================= -->
+
+<article id="blog-content">
     <div class="ai-summary-box">
         <strong>Quick Summary:</strong> A gross motor developmental delay occurs when a child does not reach physical milestones—like rolling, sitting, crawling, or walking—at the expected age. Early intervention through pediatric physiotherapy is highly effective in correcting these delays. By using play-based exercises to build core strength and balance, we help children catch up to their peers. For parents in <strong>Gaur City 2</strong> and <strong>Noida Extension</strong>, Mehar Physiotherapy Clinic offers expert assessments and guided physical therapy for your little ones.
     </div>
@@ -104,7 +139,7 @@
     <p>To view a comprehensive list of what milestones to expect at each age, you can explore the <a href="https://www.cdc.gov/act-early/milestones/?CDC_AAref_Val=https://www.cdc.gov/ncbddd/actearly/milestones/index.html" target="_blank" rel="nofollow noopener">CDC's Developmental Milestones guide</a>.</p>
     
     <p>If you have a "wait and see" feeling about your child's physical development, it is always better to get a professional assessment. Targeted physiotherapy can give your child the gentle push they need to catch up and explore the world independently.</p>
-    
+</article>
     <h2>Take Action Today</h2>
     <ul class="button_list">
       <li><a href="tel:+919810359247" target="_blank" class="button"><img src="https://cdn-icons-png.flaticon.com/512/523/523081.png" alt="Call Now"> Call Now </a></li>
@@ -150,5 +185,6 @@
     }
   }
   </script>
+    <script src="listen.js"></script>
   </body>
 </html>
