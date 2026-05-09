@@ -199,3 +199,60 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+/* =========================================
+   WAKE LOCK
+========================================= */
+
+let wakeLock = null;
+
+async function enableWakeLock() {
+
+  try {
+
+    if ('wakeLock' in navigator) {
+
+      wakeLock =
+        await navigator.wakeLock.request('screen');
+
+      console.log('Wake Lock active');
+
+    }
+
+  } catch (err) {
+
+    console.log(err);
+
+  }
+
+}
+
+async function disableWakeLock() {
+
+  if (wakeLock !== null) {
+
+    await wakeLock.release();
+    wakeLock = null;
+
+    console.log('Wake Lock released');
+
+  }
+
+}
+
+/* Re-enable if tab becomes active again */
+document.addEventListener(
+  'visibilitychange',
+  async () => {
+
+    if (
+      wakeLock !== null &&
+      document.visibilityState === 'visible'
+    ) {
+
+      wakeLock =
+        await navigator.wakeLock.request('screen');
+
+    }
+
+  }
+);
