@@ -11,13 +11,13 @@
 
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
+<meta name="mobile-web-app-capable" content="yes">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="logo.png">
 
 <link rel="stylesheet" href="global-style.css">
 <link rel="stylesheet" href="theme.css">
-    
+<link rel="stylesheet" href="listen.css">    
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -73,6 +73,41 @@
   </header>
 
   <div class="container">
+    <!-- =========================================
+     LISTEN CONTROLS
+========================================= -->
+
+<div class="listen-controls">
+
+  <button id="listenBtn">
+
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/727/727245.png"
+      alt="Listen"
+    >
+
+    Listen to Article
+
+  </button>
+
+  <button id="stopBtn">
+
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/992/992683.png"
+      alt="Stop"
+    >
+
+    Stop
+
+  </button>
+
+</div>
+
+<!-- =========================================
+     BLOG ARTICLE
+========================================= -->
+
+<article id="blog-content">
     <div class="ai-summary-box">
         <strong>Quick Guide:</strong> Though often used interchangeably, <strong>sprains</strong> affect ligaments (bone to bone), while <strong>strains</strong> affect muscles or tendons (muscle to bone). Both cause pain, swelling, and limited movement. At <strong>Mehar Physiotherapy Clinic</strong>, we provide accurate diagnosis and tailor-made rehabilitation protocols to ensure your tissues heal correctly, preventing chronic instability.
     </div>
@@ -98,7 +133,7 @@
     <p>Ignoring a sprain can lead to chronic joint instability, while an untreated strain can result in persistent muscle weakness. At **Mehar Physiotherapy Clinic**, our recovery protocol moves you from acute pain management (using ice, compression, and electrotherapy) into a structured program of strengthening and proprioception (balance) exercises. </p>
     
     <p>We ensure that when you return to your sport or daily life in Gaur City 2, your body is resilient and fully restored.</p>
-    
+</article>   
     <h2>Take Action Today</h2>
     <ul class="button_list">
       <li><a href="tel:+919810359247" target="_blank" class="button"><img src="https://cdn-icons-png.flaticon.com/512/523/523081.png" alt="Call Now"> Call Now </a></li>
@@ -147,5 +182,6 @@
     }
   }
   </script>
+    <script src="listen.js"></script>
   </body>
 </html>
