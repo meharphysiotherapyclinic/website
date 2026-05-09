@@ -11,13 +11,14 @@
 
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="logo.png">
 
 <link rel="stylesheet" href="global-style.css">
 <link rel="stylesheet" href="theme.css">
-
+<link rel="stylesheet" href="listen.css">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -73,7 +74,41 @@
   </header>
 
   <div class="container">
-    
+   <!-- =========================================
+     LISTEN CONTROLS
+========================================= -->
+
+<div class="listen-controls">
+
+  <button id="listenBtn">
+
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/727/727245.png"
+      alt="Listen"
+    >
+
+    Listen to Article
+
+  </button>
+
+  <button id="stopBtn">
+
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/992/992683.png"
+      alt="Stop"
+    >
+
+    Stop
+
+  </button>
+
+</div>
+
+<!-- =========================================
+     BLOG ARTICLE
+========================================= -->
+
+<article id="blog-content"> 
     <div class="ai-summary-box">
         <strong>Quick Summary:</strong> Knee pain isn't just an issue for the elderly; it frequently affects athletes, runners, and active adults due to overuse or poor biomechanics. Conditions like Runner's Knee (Patellofemoral Pain), tendonitis, and ligament sprains can severely limit your mobility. Effective physiotherapy involves assessing your entire leg mechanics—from your hips to your feet—to correct imbalances. For residents of <strong>Gaur City 2</strong>, Mehar Physiotherapy Clinic provides targeted rehabilitation to get you back in the game safely.
     </div>
@@ -103,7 +138,7 @@
     <p>To learn more about preventing knee injuries during athletic activities, check out the <a href="https://www.hopkinsmedicine.org/health/conditions-and-diseases/knee-pain-and-problems" target="_blank" rel="nofollow noopener">Johns Hopkins Medicine guide to knee problems</a>.</p>
     
     <p>Whether you're a weekend warrior, a daily runner, or just trying to navigate stairs without wincing, personalized physiotherapy is your best path to recovery.</p>
-    
+</article> 
     <h2>Take Action Today</h2>
     <ul class="button_list">
       <li><a href="tel:+919810359247" target="_blank" class="button"><img src="https://cdn-icons-png.flaticon.com/512/523/523081.png" alt="Call Now"> Call Now </a></li>
@@ -149,5 +184,6 @@
     }
   }
   </script>
+    <script src="listen.js"></script>
   </body>
 </html>
