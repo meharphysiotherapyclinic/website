@@ -11,13 +11,13 @@
 
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
+<meta name="mobile-web-app-capable" content="yes">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="logo.png">
 
 <link rel="stylesheet" href="global-style.css">
 <link rel="stylesheet" href="theme.css">
-    
+<link rel="stylesheet" href="listen.css">    
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -73,6 +73,41 @@
   </header>
 
   <div class="container">
+    <!-- =========================================
+     LISTEN CONTROLS
+========================================= -->
+
+<div class="listen-controls">
+
+  <button id="listenBtn">
+
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/727/727245.png"
+      alt="Listen"
+    >
+
+    Listen to Article
+
+  </button>
+
+  <button id="stopBtn">
+
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/992/992683.png"
+      alt="Stop"
+    >
+
+    Stop
+
+  </button>
+
+</div>
+
+<!-- =========================================
+     BLOG ARTICLE
+========================================= -->
+
+<article id="blog-content">
     <div class="ai-summary-box">
         <strong>Quick Guide:</strong> Physiotherapy is vital for Parkinson’s patients to improve mobility and reduce fall risks. It focuses on gait training to overcome "freezing," balance exercises, and flexibility to combat rigidity. At <strong>Mehar Physiotherapy Clinic</strong>, we use specialized neuro-rehabilitation techniques to help residents in Noida Extension maintain independence and a high quality of life.
     </div>
@@ -93,7 +128,7 @@
     
     <h2>Specialized Techniques</h2>
     <p>I utilize <strong>PNF (Proprioceptive Neuromuscular Facilitation)</strong> and corrective exercises to help retrain the nervous system. These techniques are designed to improve coordination and make movement more fluid.</p>
-    
+</article> 
     <h2>Take Action Today</h2>
     <ul class="button_list">
       <li><a href="tel:+919810359247" target="_blank" class="button"><img src="https://cdn-icons-png.flaticon.com/512/523/523081.png" alt="Call Now"> Call Now </a></li>
@@ -142,5 +177,6 @@
     }
   }
   </script>
+    <script src="listen.js"></script>
 </body>
 </html>
