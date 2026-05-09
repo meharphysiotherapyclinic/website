@@ -11,12 +11,13 @@
 
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
+<meta name="mobile-web-app-capable" content="yes">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="logo.png">
 
 <link rel="stylesheet" href="global-style.css">
 <link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="listen.css">    
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -168,7 +169,41 @@
   </header>
 
   <div class="container">
-    
+  <!-- =========================================
+     LISTEN CONTROLS
+========================================= -->
+
+<div class="listen-controls">
+
+  <button id="listenBtn">
+
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/727/727245.png"
+      alt="Listen"
+    >
+
+    Listen to Article
+
+  </button>
+
+  <button id="stopBtn">
+
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/992/992683.png"
+      alt="Stop"
+    >
+
+    Stop
+
+  </button>
+
+</div>
+
+<!-- =========================================
+     BLOG ARTICLE
+========================================= -->
+
+<article id="blog-content">  
     <div class="ai-summary-box">
         <strong>Quick Guide:</strong> To find the best physiotherapist in Noida Extension, ensure they are <strong>IAP Registered</strong>, have at least 10+ years of clinical experience, and provide personalized one-on-one sessions. Mehar Physiotherapy Clinic in Gaur City 2 specializes in evidence-based orthopedic and neurological rehabilitation.
     </div>
@@ -199,7 +234,7 @@
 
     <h2>Start Your Recovery Today</h2>
     <p>At <strong>Mehar Physiotherapy Clinic</strong>, Dr. Govindpreet Singh Arneja brings over 20 years of expertise to every session, ensuring you receive the highest standard of care in Noida Extension.</p>
-
+</article>
     <ul class="button_list">
       <li><a href="tel:+919810359247" target="_blank" class="button"><img src="https://cdn-icons-png.flaticon.com/512/523/523081.png" alt="Call Now"> Call Now </a></li>
       <li><a href="https://wa.me/919810359247" target="_blank" class="button"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968841.png" alt="WhatsApp"> WhatsApp</a></li>
@@ -251,5 +286,6 @@
     }
   }
   </script>
+    <script src="listen.js"></script>
 </body>
 </html>
