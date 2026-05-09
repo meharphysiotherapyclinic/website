@@ -5,6 +5,7 @@
    - Highlight current section
    - Stop support
    - Mobile voice compatibility
+   - Screen Wake Lock
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -42,6 +43,110 @@ document.addEventListener("DOMContentLoaded", () => {
   let isStopped = false;
 
   /* =========================================
+     WAKE LOCK
+  ========================================= */
+
+  let wakeLock = null;
+
+  async function enableWakeLock() {
+
+    try {
+
+      if ("wakeLock" in navigator) {
+
+        wakeLock =
+          await navigator.wakeLock.request(
+            "screen"
+          );
+
+        console.log(
+          "Wake Lock active"
+        );
+
+        wakeLock.addEventListener(
+          "release",
+          () => {
+
+            console.log(
+              "Wake Lock released"
+            );
+
+          }
+        );
+
+      } else {
+
+        console.log(
+          "Wake Lock unsupported"
+        );
+
+      }
+
+    } catch (err) {
+
+      console.log(
+        `Wake Lock Error:
+         ${err.name},
+         ${err.message}`
+      );
+
+    }
+
+  }
+
+  async function disableWakeLock() {
+
+    try {
+
+      if (wakeLock !== null) {
+
+        await wakeLock.release();
+
+        wakeLock = null;
+
+      }
+
+    } catch (err) {
+
+      console.log(err);
+
+    }
+
+  }
+
+  /* =========================================
+     RE-ENABLE WHEN TAB RETURNS
+  ========================================= */
+
+  document.addEventListener(
+    "visibilitychange",
+    async () => {
+
+      if (
+        wakeLock !== null &&
+        document.visibilityState ===
+          "visible"
+      ) {
+
+        try {
+
+          wakeLock =
+            await navigator.wakeLock.request(
+              "screen"
+            );
+
+        } catch (err) {
+
+          console.log(err);
+
+        }
+
+      }
+
+    }
+  );
+
+  /* =========================================
      LOAD VOICES
   ========================================= */
 
@@ -57,6 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
           window.speechSynthesis.getVoices();
 
       };
+
   }
 
   /* =========================================
@@ -103,15 +209,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function speakSection(index) {
 
-    if (index >= sections.length || isStopped) {
+    /* ARTICLE COMPLETE */
+
+    if (
+      index >= sections.length ||
+      isStopped
+    ) {
 
       clearHighlight();
 
+      disableWakeLock();
+
       return;
+
     }
 
     const text =
       sections[index].innerText.trim();
+
+    /* SKIP EMPTY */
 
     if (!text) {
 
@@ -120,6 +236,7 @@ document.addEventListener("DOMContentLoaded", () => {
       speakSection(currentIndex);
 
       return;
+
     }
 
     highlightSection(index);
@@ -144,7 +261,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (preferredVoice) {
 
-      utterance.voice = preferredVoice;
+      utterance.voice =
+        preferredVoice;
 
     }
 
@@ -164,7 +282,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     };
 
-    window.speechSynthesis.speak(utterance);
+    utterance.onerror = () => {
+
+      disableWakeLock();
+
+      clearHighlight();
+
+    };
+
+    window.speechSynthesis.speak(
+      utterance
+    );
 
   }
 
@@ -172,87 +300,44 @@ document.addEventListener("DOMContentLoaded", () => {
      LISTEN BUTTON
   ========================================= */
 
-  listenBtn.addEventListener("click", () => {
+  listenBtn.addEventListener(
+    "click",
+    async () => {
 
-    window.speechSynthesis.cancel();
+      /* REQUIRED:
+         Wake Lock MUST begin
+         from user gesture */
 
-    isStopped = false;
+      await enableWakeLock();
 
-    currentIndex = 0;
+      window.speechSynthesis.cancel();
 
-    speakSection(currentIndex);
+      isStopped = false;
 
-  });
+      currentIndex = 0;
+
+      speakSection(currentIndex);
+
+    }
+  );
 
   /* =========================================
      STOP BUTTON
   ========================================= */
 
-  stopBtn.addEventListener("click", () => {
+  stopBtn.addEventListener(
+    "click",
+    async () => {
 
-    isStopped = true;
+      isStopped = true;
 
-    window.speechSynthesis.cancel();
+      window.speechSynthesis.cancel();
 
-    clearHighlight();
+      await disableWakeLock();
 
-  });
+      clearHighlight();
+
+    }
+  );
 
 });
-/* =========================================
-   WAKE LOCK
-========================================= */
-
-let wakeLock = null;
-
-async function enableWakeLock() {
-
-  try {
-
-    if ('wakeLock' in navigator) {
-
-      wakeLock =
-        await navigator.wakeLock.request('screen');
-
-      console.log('Wake Lock active');
-
-    }
-
-  } catch (err) {
-
-    console.log(err);
-
-  }
-
-}
-
-async function disableWakeLock() {
-
-  if (wakeLock !== null) {
-
-    await wakeLock.release();
-    wakeLock = null;
-
-    console.log('Wake Lock released');
-
-  }
-
-}
-
-/* Re-enable if tab becomes active again */
-document.addEventListener(
-  'visibilitychange',
-  async () => {
-
-    if (
-      wakeLock !== null &&
-      document.visibilityState === 'visible'
-    ) {
-
-      wakeLock =
-        await navigator.wakeLock.request('screen');
-
-    }
-
-  }
-);
