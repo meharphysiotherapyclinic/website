@@ -351,13 +351,22 @@ listenBtn.addEventListener(
 
     /* STOP ANY PREVIOUS SPEECH */
 
-    window.speechSynthesis.cancel();
+    isStopped = true;
 
-    await enableWakeLock();
+window.speechSynthesis.cancel();
 
-    isStopped = false;
+/* SMALL DELAY:
+   prevents Android speech overlap */
 
-    currentIndex = 0;
+await new Promise(resolve =>
+  setTimeout(resolve, 120)
+);
+
+await enableWakeLock();
+
+isStopped = false;
+
+currentIndex = 0;
 
     /* =========================================
        LOAD VOICES SAFELY
