@@ -16,28 +16,27 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!article) return;
 
   /* =========================================
-   CONTENT TO READ
-========================================= */
+     CONTENT TO READ
+  ========================================= */
 
-const sections = [
+  const sections =
+    article.querySelectorAll(
+      ".ai-summary-box, h1, h2, h3, p, li"
+    );
 
-  ...article.querySelectorAll(
-    ".ai-summary-box"
-  ),
+  /* =========================================
+     REMOVE DUPLICATE AI SUMMARY PARAGRAPH
+  ========================================= */
 
-  ...article.querySelectorAll(
-    "h1, h2, h3"
-  ),
+  const filteredSections =
+    Array.from(sections).filter(el => {
 
-  ...article.querySelectorAll(
-    "p:not(.ai-summary-box p)"
-  ),
+      return !(
+        el.tagName.toLowerCase() === "p" &&
+        el.closest(".ai-summary-box")
+      );
 
-  ...article.querySelectorAll(
-    "li"
-  )
-
-];
+    });
 
   /* =========================================
      BUTTONS
@@ -130,7 +129,7 @@ const sections = [
   }
 
   /* =========================================
-     RE-ENABLE WHEN TAB RETURNS
+     RE-ENABLE WAKE LOCK
   ========================================= */
 
   document.addEventListener(
@@ -173,7 +172,7 @@ const sections = [
 
   function clearHighlight() {
 
-    sections.forEach(el => {
+    filteredSections.forEach(el => {
 
       el.classList.remove("speaking");
 
@@ -189,7 +188,8 @@ const sections = [
 
     clearHighlight();
 
-    const el = sections[index];
+    const el =
+      filteredSections[index];
 
     if (!el) return;
 
@@ -214,7 +214,7 @@ const sections = [
     /* ARTICLE COMPLETE */
 
     if (
-      index >= sections.length ||
+      index >= filteredSections.length ||
       isStopped
     ) {
 
@@ -227,15 +227,26 @@ const sections = [
     }
 
     let text =
-      sections[index].innerText.trim();
+      filteredSections[index]
+      .innerText
+      .trim();
 
     /* =========================================
-       FIX "Dr." PRONUNCIATION
+       FIX PRONUNCIATION
     ========================================= */
 
     text = text
+
       .replace(/\bDr\./g, "Doctor")
-      .replace(/\bDr\b/g, "Doctor");
+      .replace(/\bDr\b/g, "Doctor")
+
+      .replace(/\bM\.I\.A\.P\.\b/g,
+        "Member of Indian Association of Physiotherapists"
+      )
+
+      .replace(/\bB\.P\.T\.\b/g,
+        "Bachelor of Physiotherapy"
+      );
 
     /* =========================================
        SKIP EMPTY
@@ -266,7 +277,16 @@ const sections = [
 
     utterance.pitch = 1;
 
+    utterance.volume = 1;
+
     const preferredVoice =
+
+      voices.find(v =>
+        v.name.includes("Google")
+      )
+
+      ||
+
       voices.find(v =>
         v.lang.includes("en")
       );
@@ -311,6 +331,10 @@ const sections = [
 
     };
 
+    /* =========================================
+       SPEAK
+    ========================================= */
+
     window.speechSynthesis.speak(
       utterance
     );
@@ -334,7 +358,7 @@ const sections = [
       currentIndex = 0;
 
       /* =========================================
-         ENSURE VOICES LOAD
+         LOAD VOICES
       ========================================= */
 
       voices =
