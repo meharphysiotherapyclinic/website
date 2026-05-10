@@ -224,8 +224,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-    const text =
-      sections[index].innerText.trim();
+    let text =
+  sections[index].innerText.trim();
+
+/* =========================================
+   IMPROVE PRONUNCIATION
+========================================= */
+
+text = text
+  .replace(/\bDr\./g, "Doctor")
+  .replace(/\bMr\./g, "Mister")
+  .replace(/\bMrs\./g, "Misses")
+  .replace(/\bMs\./g, "Miss")
+  .replace(/\bB\.P\.T\./g, "Bachelor of Physiotherapy")
+  .replace(/\bM\.I\.A\.P\./g, "M I A P");
 
     /* SKIP EMPTY */
 
