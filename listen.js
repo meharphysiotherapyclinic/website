@@ -16,13 +16,28 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!article) return;
 
   /* =========================================
-     CONTENT TO READ
-  ========================================= */
+   CONTENT TO READ
+========================================= */
 
-  const sections =
-    article.querySelectorAll(
-      ".ai-summary-box, h1, h2, h3, p, li"
-    );
+const sections = [
+
+  ...article.querySelectorAll(
+    ".ai-summary-box"
+  ),
+
+  ...article.querySelectorAll(
+    "h1, h2, h3"
+  ),
+
+  ...article.querySelectorAll(
+    "p:not(.ai-summary-box p)"
+  ),
+
+  ...article.querySelectorAll(
+    "li"
+  )
+
+];
 
   /* =========================================
      BUTTONS
