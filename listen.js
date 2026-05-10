@@ -147,23 +147,10 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   /* =========================================
-     LOAD VOICES
+     VOICES
   ========================================= */
 
-  let voices =
-    window.speechSynthesis.getVoices();
-
-  if (!voices.length) {
-
-    window.speechSynthesis.onvoiceschanged =
-      () => {
-
-        voices =
-          window.speechSynthesis.getVoices();
-
-      };
-
-  }
+  let voices = [];
 
   /* =========================================
      CLEAR HIGHLIGHT
@@ -204,105 +191,116 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =========================================
-   SPEAK SECTION
-========================================= */
-
-function speakSection(index) {
-
-  /* ARTICLE COMPLETE */
-
-  if (
-    index >= sections.length ||
-    isStopped
-  ) {
-
-    clearHighlight();
-
-    disableWakeLock();
-
-    return;
-
-  }
-
-  let text =
-    sections[index].innerText.trim();
-
-  /* =========================================
-     FIX "Dr." PRONUNCIATION
+     SPEAK SECTION
   ========================================= */
 
-  text = text
-    .replace(/\bDr\./g, "Doctor")
-    .replace(/\bDr\b/g, "Doctor");
+  function speakSection(index) {
 
-  /* SKIP EMPTY */
+    /* ARTICLE COMPLETE */
 
-  if (!text) {
+    if (
+      index >= sections.length ||
+      isStopped
+    ) {
 
-    currentIndex++;
+      clearHighlight();
 
-    speakSection(currentIndex);
+      disableWakeLock();
 
-    return;
+      return;
 
-  }
+    }
 
-  highlightSection(index);
+    let text =
+      sections[index].innerText.trim();
 
-  const utterance =
-    new SpeechSynthesisUtterance(text);
+    /* =========================================
+       FIX "Dr." PRONUNCIATION
+    ========================================= */
 
-  /* =========================================
-     VOICE SETTINGS
-  ========================================= */
+    text = text
+      .replace(/\bDr\./g, "Doctor")
+      .replace(/\bDr\b/g, "Doctor");
 
-  utterance.lang = "en-US";
+    /* =========================================
+       SKIP EMPTY
+    ========================================= */
 
-  utterance.rate = 0.95;
-
-  utterance.pitch = 1;
-
-  const preferredVoice =
-    voices.find(v =>
-      v.lang.includes("en")
-    );
-
-  if (preferredVoice) {
-
-    utterance.voice =
-      preferredVoice;
-
-  }
-
-  /* =========================================
-     NEXT SECTION
-  ========================================= */
-
-  utterance.onend = () => {
-
-    if (!isStopped) {
+    if (!text) {
 
       currentIndex++;
 
       speakSection(currentIndex);
 
+      return;
+
     }
 
-  };
+    highlightSection(index);
 
-  utterance.onerror = () => {
+    const utterance =
+      new SpeechSynthesisUtterance(text);
 
-    disableWakeLock();
+    /* =========================================
+       VOICE SETTINGS
+    ========================================= */
 
-    clearHighlight();
+    utterance.lang = "en-US";
 
-  };
+    utterance.rate = 0.95;
 
-  window.speechSynthesis.speak(
-    utterance
-  );
+    utterance.pitch = 1;
 
-}
+    const preferredVoice =
+      voices.find(v =>
+        v.lang.includes("en")
+      );
+
+    if (preferredVoice) {
+
+      utterance.voice =
+        preferredVoice;
+
+    }
+
+    /* =========================================
+       NEXT SECTION
+    ========================================= */
+
+    utterance.onend = () => {
+
+      if (!isStopped) {
+
+        currentIndex++;
+
+        speakSection(currentIndex);
+
+      }
+
+    };
+
+    /* =========================================
+       ERROR HANDLING
+    ========================================= */
+
+    utterance.onerror = (event) => {
+
+      console.log(
+        "Speech Error:",
+        event.error
+      );
+
+      disableWakeLock();
+
+      clearHighlight();
+
+    };
+
+    window.speechSynthesis.speak(
+      utterance
+    );
+
+  }
 
   /* =========================================
      LISTEN BUTTON
@@ -312,10 +310,6 @@ function speakSection(index) {
     "click",
     async () => {
 
-      /* REQUIRED:
-         Wake Lock MUST begin
-         from user gesture */
-
       await enableWakeLock();
 
       window.speechSynthesis.cancel();
@@ -324,7 +318,30 @@ function speakSection(index) {
 
       currentIndex = 0;
 
-      speakSection(currentIndex);
+      /* =========================================
+         ENSURE VOICES LOAD
+      ========================================= */
+
+      voices =
+        window.speechSynthesis.getVoices();
+
+      if (!voices.length) {
+
+        window.speechSynthesis.onvoiceschanged =
+          () => {
+
+            voices =
+              window.speechSynthesis.getVoices();
+
+            speakSection(currentIndex);
+
+          };
+
+      } else {
+
+        speakSection(currentIndex);
+
+      }
 
     }
   );
