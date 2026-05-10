@@ -342,48 +342,62 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =========================================
-     LISTEN BUTTON
-  ========================================= */
+   LISTEN BUTTON
+========================================= */
 
-  listenBtn.addEventListener(
-    "click",
-    async () => {
+listenBtn.addEventListener(
+  "click",
+  async () => {
 
-      await enableWakeLock();
+    /* STOP ANY PREVIOUS SPEECH */
 
-      window.speechSynthesis.cancel();
+    window.speechSynthesis.cancel();
 
-      isStopped = false;
+    await enableWakeLock();
 
-      currentIndex = 0;
+    isStopped = false;
 
-      /* =========================================
-         LOAD VOICES
-      ========================================= */
+    currentIndex = 0;
 
-      voices =
-        window.speechSynthesis.getVoices();
+    /* =========================================
+       LOAD VOICES SAFELY
+    ========================================= */
 
-      if (!voices.length) {
+    voices =
+      window.speechSynthesis.getVoices();
 
-        window.speechSynthesis.onvoiceschanged =
-          () => {
+    /* =========================================
+       IF VOICES NOT READY
+    ========================================= */
 
-            voices =
-              window.speechSynthesis.getVoices();
+    if (!voices.length) {
 
-            speakSection(currentIndex);
+      window.speechSynthesis.onvoiceschanged =
+        () => {
 
-          };
+          /* PREVENT MULTIPLE TRIGGERS */
 
-      } else {
+          if (voices.length) return;
 
-        speakSection(currentIndex);
+          voices =
+            window.speechSynthesis.getVoices();
 
-      }
+          speakSection(currentIndex);
+
+        };
+
+      return;
 
     }
-  );
+
+    /* =========================================
+       START SPEECH
+    ========================================= */
+
+    speakSection(currentIndex);
+
+  }
+);
 
   /* =========================================
      STOP BUTTON
