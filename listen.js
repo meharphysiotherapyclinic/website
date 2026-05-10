@@ -204,109 +204,105 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =========================================
-     SPEAK SECTION
-  ========================================= */
-
-  function speakSection(index) {
-
-    /* ARTICLE COMPLETE */
-
-    if (
-      index >= sections.length ||
-      isStopped
-    ) {
-
-      clearHighlight();
-
-      disableWakeLock();
-
-      return;
-
-    }
-
-    let text =
-  sections[index].innerText.trim();
-
-/* =========================================
-   IMPROVE PRONUNCIATION
+   SPEAK SECTION
 ========================================= */
 
-text = text
-  .replace(/\bDr\./g, "Doctor")
-  .replace(/\bMr\./g, "Mister")
-  .replace(/\bMrs\./g, "Misses")
-  .replace(/\bMs\./g, "Miss")
-  .replace(/\bB\.P\.T\./g, "Bachelor of Physiotherapy")
-  .replace(/\bM\.I\.A\.P\./g, "M I A P");
+function speakSection(index) {
 
-    /* SKIP EMPTY */
+  /* ARTICLE COMPLETE */
 
-    if (!text) {
+  if (
+    index >= sections.length ||
+    isStopped
+  ) {
+
+    clearHighlight();
+
+    disableWakeLock();
+
+    return;
+
+  }
+
+  let text =
+    sections[index].innerText.trim();
+
+  /* =========================================
+     FIX "Dr." PRONUNCIATION
+  ========================================= */
+
+  text = text
+    .replace(/\bDr\./g, "Doctor")
+    .replace(/\bDr\b/g, "Doctor");
+
+  /* SKIP EMPTY */
+
+  if (!text) {
+
+    currentIndex++;
+
+    speakSection(currentIndex);
+
+    return;
+
+  }
+
+  highlightSection(index);
+
+  const utterance =
+    new SpeechSynthesisUtterance(text);
+
+  /* =========================================
+     VOICE SETTINGS
+  ========================================= */
+
+  utterance.lang = "en-US";
+
+  utterance.rate = 0.95;
+
+  utterance.pitch = 1;
+
+  const preferredVoice =
+    voices.find(v =>
+      v.lang.includes("en")
+    );
+
+  if (preferredVoice) {
+
+    utterance.voice =
+      preferredVoice;
+
+  }
+
+  /* =========================================
+     NEXT SECTION
+  ========================================= */
+
+  utterance.onend = () => {
+
+    if (!isStopped) {
 
       currentIndex++;
 
       speakSection(currentIndex);
 
-      return;
-
     }
 
-    highlightSection(index);
+  };
 
-    const utterance =
-      new SpeechSynthesisUtterance(text);
+  utterance.onerror = () => {
 
-    /* =========================================
-       VOICE SETTINGS
-    ========================================= */
+    disableWakeLock();
 
-    utterance.lang = "en-US";
+    clearHighlight();
 
-    utterance.rate = 0.95;
+  };
 
-    utterance.pitch = 1;
+  window.speechSynthesis.speak(
+    utterance
+  );
 
-    const preferredVoice =
-      voices.find(v =>
-        v.lang.includes("en")
-      );
-
-    if (preferredVoice) {
-
-      utterance.voice =
-        preferredVoice;
-
-    }
-
-    /* =========================================
-       NEXT SECTION
-    ========================================= */
-
-    utterance.onend = () => {
-
-      if (!isStopped) {
-
-        currentIndex++;
-
-        speakSection(currentIndex);
-
-      }
-
-    };
-
-    utterance.onerror = () => {
-
-      disableWakeLock();
-
-      clearHighlight();
-
-    };
-
-    window.speechSynthesis.speak(
-      utterance
-    );
-
-  }
+}
 
   /* =========================================
      LISTEN BUTTON
