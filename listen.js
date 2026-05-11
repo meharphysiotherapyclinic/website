@@ -1,430 +1,147 @@
 /* =========================================================
-   LISTEN TO ARTICLE
-   - Reads AI summary + headings + paragraphs + lists
-   - Auto-scroll
-   - Highlight current section
-   - Stop support
-   - Mobile voice compatibility
-   - Screen Wake Lock
+   LISTEN TO ARTICLE - UPDATED FOR INSTANT START
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
-
-  const article =
-    document.getElementById("blog-content");
-
+  const article = document.getElementById("blog-content");
   if (!article) return;
 
-  /* =========================================
-     CONTENT TO READ
-  ========================================= */
+  const sections = article.querySelectorAll(".ai-summary-box, h1, h2, h3, p, li");
+  const filteredSections = Array.from(sections).filter(el => {
+    return !(el.tagName.toLowerCase() === "p" && el.closest(".ai-summary-box"));
+  });
 
-  const sections =
-    article.querySelectorAll(
-      ".ai-summary-box, h1, h2, h3, p, li"
-    );
-
-  /* =========================================
-     REMOVE DUPLICATE AI SUMMARY PARAGRAPH
-  ========================================= */
-
-  const filteredSections =
-    Array.from(sections).filter(el => {
-
-      return !(
-        el.tagName.toLowerCase() === "p" &&
-        el.closest(".ai-summary-box")
-      );
-
-    });
-
-  /* =========================================
-     BUTTONS
-  ========================================= */
-
-  const listenBtn =
-    document.getElementById("listenBtn");
-
-  const stopBtn =
-    document.getElementById("stopBtn");
-
-  /* =========================================
-     STATE
-  ========================================= */
+  const listenBtn = document.getElementById("listenBtn");
+  const stopBtn = document.getElementById("stopBtn");
 
   let currentIndex = 0;
-
   let isStopped = false;
-
-  /* =========================================
-     WAKE LOCK
-  ========================================= */
-
   let wakeLock = null;
-
-  async function enableWakeLock() {
-
-    try {
-
-      if ("wakeLock" in navigator) {
-
-        wakeLock =
-          await navigator.wakeLock.request(
-            "screen"
-          );
-
-        console.log(
-          "Wake Lock active"
-        );
-
-        wakeLock.addEventListener(
-          "release",
-          () => {
-
-            console.log(
-              "Wake Lock released"
-            );
-
-          }
-        );
-
-      } else {
-
-        console.log(
-          "Wake Lock unsupported"
-        );
-
-      }
-
-    } catch (err) {
-
-      console.log(
-        `Wake Lock Error:
-         ${err.name},
-         ${err.message}`
-      );
-
-    }
-
-  }
-
-  async function disableWakeLock() {
-
-    try {
-
-      if (wakeLock !== null) {
-
-        await wakeLock.release();
-
-        wakeLock = null;
-
-      }
-
-    } catch (err) {
-
-      console.log(err);
-
-    }
-
-  }
-
-  /* =========================================
-     RE-ENABLE WAKE LOCK
-  ========================================= */
-
-  document.addEventListener(
-    "visibilitychange",
-    async () => {
-
-      if (
-        wakeLock !== null &&
-        document.visibilityState ===
-          "visible"
-      ) {
-
-        try {
-
-          wakeLock =
-            await navigator.wakeLock.request(
-              "screen"
-            );
-
-        } catch (err) {
-
-          console.log(err);
-
-        }
-
-      }
-
-    }
-  );
-
-  /* =========================================
-     VOICES
-  ========================================= */
-
   let voices = [];
 
   /* =========================================
-     CLEAR HIGHLIGHT
+     PRE-LOAD VOICES (The Fix)
   ========================================= */
+  function loadVoices() {
+    voices = window.speechSynthesis.getVoices();
+  }
 
-  function clearHighlight() {
+  // Initial call
+  loadVoices();
 
-    filteredSections.forEach(el => {
-
-      el.classList.remove("speaking");
-
-    });
-
+  // Chrome and other browsers trigger this when voices are ready
+  if (window.speechSynthesis.onvoiceschanged !== undefined) {
+    window.speechSynthesis.onvoiceschanged = loadVoices;
   }
 
   /* =========================================
-     HIGHLIGHT CURRENT SECTION
+     WAKE LOCK FUNCTIONS
   ========================================= */
+  async function enableWakeLock() {
+    try {
+      if ("wakeLock" in navigator) {
+        wakeLock = await navigator.wakeLock.request("screen");
+      }
+    } catch (err) {
+      console.log(`Wake Lock Error: ${err.message}`);
+    }
+  }
+
+  async function disableWakeLock() {
+    if (wakeLock !== null) {
+      await wakeLock.release();
+      wakeLock = null;
+    }
+  }
+
+  /* =========================================
+     HIGHLIGHT & SPEECH LOGIC
+  ========================================= */
+  function clearHighlight() {
+    filteredSections.forEach(el => el.classList.remove("speaking"));
+  }
 
   function highlightSection(index) {
-
     clearHighlight();
-
-    const el =
-      filteredSections[index];
-
+    const el = filteredSections[index];
     if (!el) return;
-
     el.classList.add("speaking");
-
-    el.scrollIntoView({
-
-      behavior: "smooth",
-
-      block: "center"
-
-    });
-
+    el.scrollIntoView({ behavior: "smooth", block: "center" });
   }
 
-  /* =========================================
-     SPEAK SECTION
-  ========================================= */
-
   function speakSection(index) {
-
-    /* ARTICLE COMPLETE */
-
-    if (
-      index >= filteredSections.length ||
-      isStopped
-    ) {
-
+    if (index >= filteredSections.length || isStopped) {
       clearHighlight();
-
       disableWakeLock();
-
       return;
-
     }
 
-    let text =
-      filteredSections[index]
-      .innerText
-      .trim();
+    let text = filteredSections[index].innerText.trim();
 
-    /* =========================================
-       FIX PRONUNCIATION
-    ========================================= */
-
+    // Pronunciation fixes
     text = text
-
       .replace(/\bDr\./g, "Doctor")
       .replace(/\bDr\b/g, "Doctor")
-
-      .replace(/\bM\.I\.A\.P\.\b/g,
-        "Member of Indian Association of Physiotherapists"
-      )
-
-      .replace(/\bB\.P\.T\.\b/g,
-        "Bachelor of Physiotherapy"
-      );
-
-    /* =========================================
-       SKIP EMPTY
-    ========================================= */
+      .replace(/\bM\.I\.A\.P\.\b/g, "Member of Indian Association of Physiotherapists")
+      .replace(/\bB\.P\.T\.\b/g, "Bachelor of Physiotherapy");
 
     if (!text) {
-
       currentIndex++;
-
       speakSection(currentIndex);
-
       return;
-
     }
 
     highlightSection(index);
 
-    const utterance =
-      new SpeechSynthesisUtterance(text);
-
-    /* =========================================
-       VOICE SETTINGS
-    ========================================= */
-
+    const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = "en-US";
-
     utterance.rate = 0.95;
 
-    utterance.pitch = 1;
-
-    utterance.volume = 1;
-
-    const preferredVoice =
-
-      voices.find(v =>
-        v.name.includes("Google")
-      )
-
-      ||
-
-      voices.find(v =>
-        v.lang.includes("en")
-      );
-
-    if (preferredVoice) {
-
-      utterance.voice =
-        preferredVoice;
-
-    }
-
-    /* =========================================
-       NEXT SECTION
-    ========================================= */
+    // Use pre-loaded voices
+    const preferredVoice = voices.find(v => v.name.includes("Google")) || voices.find(v => v.lang.includes("en"));
+    if (preferredVoice) utterance.voice = preferredVoice;
 
     utterance.onend = () => {
-
       if (!isStopped) {
-
         currentIndex++;
-
         speakSection(currentIndex);
-
       }
-
     };
 
-    /* =========================================
-       ERROR HANDLING
-    ========================================= */
-
-    utterance.onerror = (event) => {
-
-      console.log(
-        "Speech Error:",
-        event.error
-      );
-
+    utterance.onerror = () => {
       disableWakeLock();
-
       clearHighlight();
-
     };
 
-    /* =========================================
-       SPEAK
-    ========================================= */
-
-    window.speechSynthesis.speak(
-      utterance
-    );
-
+    window.speechSynthesis.speak(utterance);
   }
 
   /* =========================================
-   LISTEN BUTTON
-========================================= */
-
-listenBtn.addEventListener(
-  "click",
-  async () => {
-
-    /* STOP ANY PREVIOUS SPEECH */
-
+     LISTEN BUTTON (Simplified)
+  ========================================= */
+  listenBtn.addEventListener("click", async () => {
+    // Cancel any current speech
+    window.speechSynthesis.cancel();
     isStopped = true;
 
-window.speechSynthesis.cancel();
+    // Small delay to ensure the cancel command is processed by the hardware
+    await new Promise(resolve => setTimeout(resolve, 100));
 
-/* SMALL DELAY:
-   prevents Android speech overlap */
+    await enableWakeLock();
+    isStopped = false;
+    currentIndex = 0;
 
-await new Promise(resolve =>
-  setTimeout(resolve, 120)
-);
-
-await enableWakeLock();
-
-isStopped = false;
-
-currentIndex = 0;
-
-    /* =========================================
-       LOAD VOICES SAFELY
-    ========================================= */
-
-    voices =
-      window.speechSynthesis.getVoices();
-
-    /* =========================================
-       IF VOICES NOT READY
-    ========================================= */
-
-    if (!voices.length) {
-
-      window.speechSynthesis.onvoiceschanged =
-        () => {
-
-          /* PREVENT MULTIPLE TRIGGERS */
-
-          if (voices.length) return;
-
-          voices =
-            window.speechSynthesis.getVoices();
-
-          speakSection(currentIndex);
-
-        };
-
-      return;
-
-    }
-
-    /* =========================================
-       START SPEECH
-    ========================================= */
-
+    // Start immediately because voices are already loaded
     speakSection(currentIndex);
-
-  }
-);
+  });
 
   /* =========================================
      STOP BUTTON
   ========================================= */
-
-  stopBtn.addEventListener(
-    "click",
-    async () => {
-
-      isStopped = true;
-
-      window.speechSynthesis.cancel();
-
-      await disableWakeLock();
-
-      clearHighlight();
-
-    }
-  );
-
+  stopBtn.addEventListener("click", async () => {
+    isStopped = true;
+    window.speechSynthesis.cancel();
+    await disableWakeLock();
+    clearHighlight();
+  });
 });
