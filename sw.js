@@ -1,46 +1,53 @@
-// Bumped to v2 since we are adding new files
-const CACHE_NAME = "mehar-main-v2"; 
+const CACHE_NAME = "mehar-main-v3"; // Bumped version
+const DYNAMIC_CACHE = "mehar-dynamic-v1";
 
 const urlsToCache = [
   "./",
   "./index.html",
-  "./global-style.css", // Added missing CSS
+  "./faq.html",
+  "./gallery.html",
+  "./appointment.html",
+  "./blog.html",
+  "./global-style.css",
   "./style.css",
   "./theme.css",
   "./logo.webp",
-  "./logo.png",         // Added for iOS (Make sure you upload this!)
+  "./logo.png",
   "./doctor.webp"
 ];
 
-// 1. Install Event (Caches files)
+// Install: Cache the core UI
 self.addEventListener("install", event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      return cache.addAll(urlsToCache);
-    })
+    caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
   );
 });
 
-// 2. Fetch Event (Serves from cache when offline)
+// Fetch: Serve from cache, and dynamically cache new pages (like blogs)
 self.addEventListener("fetch", event => {
   event.respondWith(
-    caches.match(event.request).then(response => {
-      return response || fetch(event.request);
+    caches.match(event.request).then(cacheRes => {
+      return cacheRes || fetch(event.request).then(fetchRes => {
+        // Only cache successful responses and internal pages (blogs)
+        if (event.request.url.includes('.html') || event.request.url.includes('.webp')) {
+          return caches.open(DYNAMIC_CACHE).then(cache => {
+            cache.put(event.request.url, fetchRes.clone());
+            return fetchRes;
+          });
+        }
+        return fetchRes;
+      });
     })
   );
 });
 
-// 3. Activate Event (Deletes old caches automatically)
+// Activate: Clean up old caches
 self.addEventListener("activate", event => {
   event.waitUntil(
-    caches.keys().then(cacheNames => {
+    caches.keys().then(keys => {
       return Promise.all(
-        cacheNames.map(cache => {
-          if (cache !== CACHE_NAME) {
-            console.log("Deleting old cache:", cache);
-            return caches.delete(cache);
-          }
-        })
+        keys.filter(key => key !== CACHE_NAME && key !== DYNAMIC_CACHE)
+            .map(key => caches.delete(key))
       );
     })
   );
