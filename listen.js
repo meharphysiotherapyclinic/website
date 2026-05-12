@@ -78,13 +78,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let text = filteredSections[index].innerText.trim();
 
-    // Pronunciation fixes
-    text = text
-      .replace(/\bDr\./g, "Doctor")
-      .replace(/\bDr\b/g, "Doctor")
-      .replace(/\bM\.I\.A\.P\.\b/g, "Member of Indian Association of Physiotherapists")
-      .replace(/\bB\.P\.T\.\b/g, "Bachelor of Physiotherapy");
+    /* =========================================
+   FIX PRONUNCIATION
+========================================= */
 
+text = text
+  .replace(/\bDr\./g, "Doctor")
+  .replace(/\bDr\b/g, "Doctor")
+  .replace(/\bM\.I\.A\.P\.\b/g, "Member of Indian Association of Physiotherapists")
+  .replace(/\bB\.P\.T\.\b/g, "Bachelor of Physiotherapy")
+  /* New pronunciation rule for Mehar */
+  .replace(/\bMehar\b/gi, "meher");
+     
     if (!text) {
       currentIndex++;
       speakSection(currentIndex);
