@@ -84,7 +84,6 @@ document.addEventListener("DOMContentLoaded", () => {
       .replace(/\bDr\b/g, "Doctor")
       .replace(/\bM\.I\.A\.P\.\b/g, "Member of Indian Association of Physiotherapists")
       .replace(/\bB\.P\.T\.\b/g, "Bachelor of Physiotherapy");
-      .replace(/\bMehar\b/gi, "meher");
 
     if (!text) {
       currentIndex++;
