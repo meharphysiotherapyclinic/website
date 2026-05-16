@@ -219,17 +219,62 @@ header img {
 /* ===== SCROLL ANIMATION STYLES ===== */
 .section-animate {
   opacity: 0;
-  transition: transform 0.7s ease-out, opacity 0.7s ease-out;
 }
-.section-animate.from-left {
-  transform: translateX(-100px);
+
+/* Desktop: full alternating slide */
+@keyframes slideFromLeft {
+  from {
+    opacity: 0;
+    transform: perspective(1000px) translateX(-80px) translateZ(0) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1000px) translateX(0) translateZ(0) scale(1);
+  }
 }
-.section-animate.from-right {
-  transform: translateX(100px);
+
+@keyframes slideFromRight {
+  from {
+    opacity: 0;
+    transform: perspective(1000px) translateX(80px) translateZ(0) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1000px) translateX(0) translateZ(0) scale(1);
+  }
 }
-.section-animate.active {
-  opacity: 1;
-  transform: translateX(0);
+
+.section-animate.from-left.active {
+  animation: slideFromLeft 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.section-animate.from-right.active {
+  animation: slideFromRight 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Mobile: reduced distance to prevent overflow flash */
+@media (max-width: 700px) {
+  @keyframes slideFromLeft {
+    from {
+      opacity: 0;
+      transform: perspective(1000px) translateX(-30px) translateZ(0) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: perspective(1000px) translateX(0) translateZ(0) scale(1);
+    }
+  }
+
+  @keyframes slideFromRight {
+    from {
+      opacity: 0;
+      transform: perspective(1000px) translateX(30px) translateZ(0) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: perspective(1000px) translateX(0) translateZ(0) scale(1);
+    }
+  }
 }
 
 h1 { color: #ffffff; } 
