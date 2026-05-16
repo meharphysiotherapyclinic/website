@@ -14,9 +14,9 @@ section:not(.hero-container):hover {
 @media (prefers-color-scheme: dark) {
     section:not(.hero-container):hover {
         box-shadow:
-            0 0 0 3px rgba(0, 121, 107, 0.18),
-            0 20px 35px rgba(0, 0, 0, 0.45),
-            0 8px 20px rgba(0, 150, 120, 0.08) !important;
+            0 0 0 3px rgba(0, 121, 107, 0.25),
+            0 20px 30px rgba(0, 0, 0, 0.6),
+            0 12px 20px rgba(255, 255, 255, 0.04) !important;
     }
 }
 body{font-family:Arial,sans-serif;margin:0;padding:0;background:#f4f4f4;color:#333;transition:background 0.3s ease;overflow-x:hidden}
