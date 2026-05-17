@@ -14,8 +14,8 @@ section:not(.hero-container):hover {
 @media (prefers-color-scheme: dark) {
     section:not(.hero-container):hover {
         box-shadow:
-            0 0 0 5px rgba(0, 121, 107, 0.2),
-            0 20px 30px rgba(255, 255, 255, 0.03),
+            0 0 0 3px rgba(0, 121, 107, 0.2),
+            0 20px 30px rgba(0, 180, 150, 0.06),
             0 8px 15px rgba(255, 255, 255, 0.02) !important;
     }
 }
