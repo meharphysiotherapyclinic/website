@@ -1,5 +1,12 @@
 /* =========================================================
-   LISTEN TO ARTICLE - UPDATED FOR INSTANT START
+   LISTEN TO ARTICLE - FULL FIXED VERSION
+   Fixes:
+   - iOS gesture context (synchronous speak call)
+   - iOS silent pause bug (resume hack)
+   - iOS voice selection (localService)
+   - iOS onerror interrupted/canceled ignored
+   - NoSleep.js for screen wake on iOS
+   - Wake lock retained for Android/desktop
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -18,24 +25,29 @@ document.addEventListener("DOMContentLoaded", () => {
   let isStopped = false;
   let wakeLock = null;
   let voices = [];
+  let iosResumeInterval = null;
+  const noSleep = new NoSleep(); // NoSleep instance
 
   /* =========================================
-     PRE-LOAD VOICES (The Fix)
+     DETECT iOS
+  ========================================= */
+  const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent) ||
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
+  /* =========================================
+     PRE-LOAD VOICES
   ========================================= */
   function loadVoices() {
     voices = window.speechSynthesis.getVoices();
   }
 
-  // Initial call
   loadVoices();
-
-  // Chrome and other browsers trigger this when voices are ready
   if (window.speechSynthesis.onvoiceschanged !== undefined) {
     window.speechSynthesis.onvoiceschanged = loadVoices;
   }
 
   /* =========================================
-     WAKE LOCK FUNCTIONS
+     WAKE LOCK (Android & Desktop)
   ========================================= */
   async function enableWakeLock() {
     try {
@@ -55,7 +67,39 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =========================================
-     HIGHLIGHT & SPEECH LOGIC
+     iOS RESUME HACK
+     Safari silently pauses speech after ~10-15s.
+     pause() + resume() every 10s keeps it alive.
+  ========================================= */
+  function startIosResumeHack() {
+    if (!isIOS) return;
+    stopIosResumeHack();
+    iosResumeInterval = setInterval(() => {
+      if (isStopped || !window.speechSynthesis.speaking) return;
+      window.speechSynthesis.pause();
+      window.speechSynthesis.resume();
+    }, 10000);
+  }
+
+  function stopIosResumeHack() {
+    if (iosResumeInterval) {
+      clearInterval(iosResumeInterval);
+      iosResumeInterval = null;
+    }
+  }
+
+  /* =========================================
+     CLEANUP — called on stop & article end
+  ========================================= */
+  function fullStop() {
+    stopIosResumeHack();
+    disableWakeLock();
+    noSleep.disable();
+    clearHighlight();
+  }
+
+  /* =========================================
+     HIGHLIGHT LOGIC
   ========================================= */
   function clearHighlight() {
     filteredSections.forEach(el => el.classList.remove("speaking"));
@@ -69,27 +113,27 @@ document.addEventListener("DOMContentLoaded", () => {
     el.scrollIntoView({ behavior: "smooth", block: "center" });
   }
 
+  /* =========================================
+     SPEAK LOGIC
+  ========================================= */
   function speakSection(index) {
+    // Article finished or manually stopped
     if (index >= filteredSections.length || isStopped) {
-      clearHighlight();
-      disableWakeLock();
+      fullStop();
       return;
     }
 
     let text = filteredSections[index].innerText.trim();
 
-    /* =========================================
-   FIX PRONUNCIATION
-========================================= */
+    /* ---- FIX PRONUNCIATION ---- */
+    text = text
+      .replace(/\bDr\./g, "Doctor")
+      .replace(/\bDr\b/g, "Doctor")
+      .replace(/\bM\.I\.A\.P\.\b/g, "Member of Indian Association of Physiotherapists")
+      .replace(/\bB\.P\.T\.\b/g, "Bachelor of Physiotherapy")
+      .replace(/\bMehar\b/gi, "meher");
 
-text = text
-  .replace(/\bDr\./g, "Doctor")
-  .replace(/\bDr\b/g, "Doctor")
-  .replace(/\bM\.I\.A\.P\.\b/g, "Member of Indian Association of Physiotherapists")
-  .replace(/\bB\.P\.T\.\b/g, "Bachelor of Physiotherapy")
-  /* New pronunciation rule for Mehar */
-  .replace(/\bMehar\b/gi, "meher");
-     
+    // Skip empty sections
     if (!text) {
       currentIndex++;
       speakSection(currentIndex);
@@ -102,9 +146,16 @@ text = text
     utterance.lang = "en-US";
     utterance.rate = 0.95;
 
-    // Use pre-loaded voices
-    const preferredVoice = voices.find(v => v.name.includes("Google")) || voices.find(v => v.lang.includes("en"));
-    if (preferredVoice) utterance.voice = preferredVoice;
+    // iOS: prefer local built-in English voice
+    // Android/Desktop: prefer Google voice
+    if (isIOS) {
+      const iosVoice = voices.find(v => v.lang.startsWith("en") && v.localService);
+      if (iosVoice) utterance.voice = iosVoice;
+    } else {
+      const preferredVoice = voices.find(v => v.name.includes("Google")) ||
+                             voices.find(v => v.lang.includes("en"));
+      if (preferredVoice) utterance.voice = preferredVoice;
+    }
 
     utterance.onend = () => {
       if (!isStopped) {
@@ -113,40 +164,41 @@ text = text
       }
     };
 
-    utterance.onerror = () => {
-      disableWakeLock();
-      clearHighlight();
+    utterance.onerror = (e) => {
+      // iOS fires 'interrupted'/'canceled' on cancel() — expected, safe to ignore
+      if (e.error === "interrupted" || e.error === "canceled") return;
+      console.warn("Speech error:", e.error);
+      fullStop();
     };
 
     window.speechSynthesis.speak(utterance);
   }
 
   /* =========================================
-     LISTEN BUTTON (Simplified)
+     LISTEN BUTTON
+     speak() MUST be called synchronously inside
+     the click handler on iOS — no await before it.
   ========================================= */
-  listenBtn.addEventListener("click", async () => {
-    // Cancel any current speech
+  listenBtn.addEventListener("click", () => {
     window.speechSynthesis.cancel();
-    isStopped = true;
-
-    // Small delay to ensure the cancel command is processed by the hardware
-    await new Promise(resolve => setTimeout(resolve, 100));
-
-    await enableWakeLock();
     isStopped = false;
     currentIndex = 0;
 
-    // Start immediately because voices are already loaded
+    enableWakeLock();   // fire-and-forget — works on Android/Desktop
+    noSleep.enable();   // works on iOS (silent video loop)
+    startIosResumeHack();
+
+    // Synchronous call — preserves iOS gesture context
     speakSection(currentIndex);
   });
 
   /* =========================================
      STOP BUTTON
   ========================================= */
-  stopBtn.addEventListener("click", async () => {
+  stopBtn.addEventListener("click", () => {
     isStopped = true;
     window.speechSynthesis.cancel();
-    await disableWakeLock();
-    clearHighlight();
+    fullStop();
   });
+
 });
