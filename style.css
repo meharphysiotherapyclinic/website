@@ -3,11 +3,11 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}
 section{box-sizing:border-box;max-width:900px;margin:auto;overflow:visible;padding:20px;background:rgba(255,255,255,0.23);backdrop-filter:blur(15px) saturate(130%);-webkit-backdrop-filter:blur(15px) saturate(130%);border-radius:16px;border:1.5px solid rgba(255,255,255,0.32);transform-style:preserve-3d;transform:perspective(1000px) translateZ(0);box-shadow:0 8px 20px rgba(0,0,0,0.15);margin-bottom:30px;transition:transform 0.4s ease,box-shadow 0.4s ease,background 0.3s ease;will-change:transform,opacity}
 /* ✅ When the section scales/rotates, keep it inside the viewport */
 section:not(.hero-container):hover {
-    transform: perspective(1000px) translateY(-3px) !important;
+    transform: perspective(1000px) translateY(-3px);
     box-shadow:
         0 0 0 5px rgba(0, 121, 107, 0.18),
         0 25px 55px rgba(0, 0, 0, 0.25),
-        0 0 45px rgba(0, 121, 107, 0.25) !important;
+        0 0 45px rgba(0, 121, 107, 0.25);
     will-change: transform;
 }
 
@@ -16,7 +16,7 @@ section:not(.hero-container):hover {
         box-shadow:
             0 0 0 3px rgba(0, 121, 107, 0.2),
             0 20px 30px rgba(0, 180, 150, 0.06),
-            0 8px 15px rgba(255, 255, 255, 0.02) !important;
+            0 8px 15px rgba(255, 255, 255, 0.02);
     }
 }
 body{font-family:Arial,sans-serif;margin:0;padding:0;background:#f4f4f4;color:#333;transition:background 0.3s ease;overflow-x:hidden}
