@@ -59,6 +59,105 @@ h1{color:#ffffff}section h2{color:#00796b}footer{background:linear-gradient(to r
 /* Dark mode */
 @media (prefers-color-scheme:dark){.services-box{background:linear-gradient(135deg,rgba(30,40,50,0.85),rgba(20,30,40,0.85));border-left-color:#4db6ac}.service-category{color:#4db6ac;border-bottom-color:rgba(255,255,255,0.1)}.service-pill{background:#2a3542;color:#f0f0f0;border:1px solid rgba(255,255,255,0.08)}.service-pill:hover{background:#31463f;border-color:rgba(120,220,190,0.37);box-shadow:0 4px 12px rgba(0,0,0,0.35)}.service-pill.neuro:hover{background:#22384a;border-color:rgba(77,163,255,0.42);box-shadow:0 4px 12px rgba(0,0,0,0.38)}.service-pill.highlight:hover{background:#24402c;border-color:rgba(105,255,153,0.40);box-shadow:0 4px 12px rgba(0,0,0,0.38)}.service-pill.neuro{background:#1a222c;border-color:#0e5a95;color:#4da3ff}.service-pill.highlight{background:#1b3320;border-color:#2e7d32;color:#69ff99}}
 /* ========================================= HERO SECTION ========================================= */
-.hero-container{position:relative;width:100%;max-width:100%!important;aspect-ratio:16 / 9!important;height:auto!important;margin:0 0 30px 0!important;padding:0!important;background-image:url('welcome-hero.webp')!important;background-size:cover;background-position:65% center!important;background-repeat:no-repeat;border-radius:0!important;border:none!important;transform:none!important;background-color:#1a1a1a}.hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.4);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}.hero-content{padding:20px}.hero-heading{position:absolute;top:20%;left:5%;transform:none;max-width:40%;text-align:left;color:#ffcc00!important;font-size:1.5rem;font-style:italic;font-weight:bold;margin:0;text-shadow:2px 2px 8px rgba(0,0,0,0.9)}.hero-bottom-status{position:absolute;bottom:0;width:100%;background:rgba(0,121,107,0.85);color:white;padding:10px 0;font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase}
+.hero-container{
+    position:relative;
+    width:100%;
+    max-width:100%!important;
+    aspect-ratio:16 / 9!important;
+    height:auto!important;
+    margin:0 0 30px 0!important;
+    padding:0!important;
+    background-image:url('welcome-hero.webp')!important; /* Ensure this matches your new generated filename */
+    background-size:cover;
+    background-position:65% center!important;
+    background-repeat:no-repeat;
+    border-radius:0!important;
+    border:none!important;
+    transform:none!important;
+    background-color:#1a1a1a
+}
+
+/* ✅ ENHANCED: Changed to a smooth left-to-right gradient. This makes white text razor-sharp on the left without darkening the doctor on the right. */
+.hero-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to right, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.2) 65%, rgba(0, 0, 0, 0) 100%);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center
+}
+
+.hero-content{
+    padding:20px
+}
+
+/* ✅ ENHANCED: Swapped the dated yellow italics for a crisp, authoritative medical white. Adjusted positioning for better breathing room. */
+.hero-heading{
+    position:absolute;
+    top:25%;
+    left:6%;
+    transform:none;
+    max-width:42%;
+    text-align:left;
+    color:#ffffff!important;
+    font-size:1.6rem;
+    font-weight:bold;
+    margin:0;
+    text-shadow:2px 2px 12px rgba(0,0,0,0.85);
+    line-height:1.35
+}
+
+.hero-bottom-status{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    background:rgba(0,121,107,0.85);
+    color:white;
+    padding:10px 0;
+    font-size:.75rem;
+    font-weight:700;
+    letter-spacing:1.5px;
+    text-transform:uppercase
+}
+
 /* Mobile hero */
-@media (max-width:700px){.hero-container{aspect-ratio:auto!important;min-height:300px!important;background-position:80% center!important}.hero-overlay{display:flex!important;justify-content:flex-start!important;align-items:flex-start!important}.hero-content{padding:40px 20px!important;width:100%}.hero-heading{font-size:clamp(0.9rem,3.5vw,1.05rem)!important;text-align:left!important;max-width:70%;margin:0!important;line-height:1.2!important;text-shadow:2px 2px 10px rgba(0,0,0,0.7)!important}.hero-bottom-status{text-align:center!important;width:100%!important;left:0!important;display:block!important}}
+@media (max-width:700px){
+    /* ✅ ENHANCED: Shifted background-position to 72% to bring Dr. Arneja slightly more inward from the right screen crop. */
+    .hero-container{
+        aspect-ratio:auto!important;
+        min-height:320px!important;
+        background-position:72% center!important
+    }
+    
+    /* ✅ ENHANCED: Changed to a top-to-bottom gradient blend so text remains perfectly legible when it stacks on small viewports. */
+    .hero-overlay{
+        display:flex!important;
+        justify-content:flex-start!important;
+        align-items:flex-start!important;
+        background:linear-gradient(to bottom, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.4) 60%, rgba(0, 0, 0, 0.1) 100%)!important
+    }
+    
+    .hero-content{
+        padding:35px 20px!important;
+        width:100%
+    }
+    
+    .hero-heading{
+        font-size:clamp(1.05rem, 4.5vw, 1.25rem)!important;
+        text-align:left!important;
+        max-width:85%;
+        margin:0!important;
+        line-height:1.3!important;
+        text-shadow:2px 2px 10px rgba(0,0,0,0.9)!important
+    }
+    
+    /* 🐛 BUG FIX: Added missing '%' unit to width (was 'width:100') to prevent broken containers on mobile webkit engines. */
+    .hero-bottom-status{
+        text-align:center!important;
+        width:100%!important;
+        left:0!important;
+        display:block!important
+    }
+}
