@@ -94,7 +94,6 @@ p {
 
 header {
     background: linear-gradient(135deg, #00796b 0%, #004d40 100%);
-    border-bottom: 3px solid #f1c40f; /* A thin gold/yellow accent line for Dr. Arneja's brand */
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
