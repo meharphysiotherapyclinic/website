@@ -146,14 +146,23 @@ document.addEventListener("DOMContentLoaded", () => {
     utterance.lang = "en-US";
     utterance.rate = 0.95;
 
-    // iOS: prefer local built-in English voice
-    // Android/Desktop: prefer Google voice
+        // iOS: prefer local built-in English voice
+    // Android/Desktop: prefer UK/US Female voices
     if (isIOS) {
       const iosVoice = voices.find(v => v.lang.startsWith("en") && v.localService);
       if (iosVoice) utterance.voice = iosVoice;
     } else {
-      const preferredVoice = voices.find(v => v.name.includes("Google")) ||
-                             voices.find(v => v.lang.includes("en"));
+      // LAPTOP / DESKTOP LOGIC: Target UK or US Female English Voices
+      const preferredVoice = voices.find(v => 
+        (v.lang === "en-GB" || v.lang === "en-US") && 
+        (/susan|hazel|zira|aria|maisie|female/i.test(v.name) || v.name === "Google US English")
+      ) || 
+      voices.find(v => v.lang === "en-GB" && /google/i.test(v.name)) || // Fallback to Google UK
+      voices.find(v => v.lang === "en-US" && /google/i.test(v.name)) || // Fallback to Google US
+      voices.find(v => v.lang === "en-GB") ||                          // Any UK Voice
+      voices.find(v => v.lang === "en-US") ||                          // Any US Voice
+      voices.find(v => v.lang.startsWith("en"));                       // Any generic English voice
+
       if (preferredVoice) utterance.voice = preferredVoice;
     }
 
