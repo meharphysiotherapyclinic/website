@@ -148,15 +148,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // iOS: prefer local built-in English voice
     // Android/Desktop: prefer UK/US Female voices
+        // =========================================================
+    // VOICE SELECTION: Target US/UK Female Voices across devices
+    // =========================================================
     if (isIOS) {
-      const iosVoice = voices.find(v => v.lang.startsWith("en") && v.localService);
+      // iOS LOGIC: Target Samantha (US), Serena, or Stephanie (UK)
+      const iosVoice = voices.find(v => 
+        (v.lang === "en-US" || v.lang === "en-GB") && 
+        /samantha|serena|stephanie/i.test(v.name)
+      ) || 
+      voices.find(v => v.lang === "en-US" && v.localService) ||    // Fallback to any local US voice
+      voices.find(v => v.lang === "en-GB" && v.localService) ||    // Fallback to any local UK voice
+      voices.find(v => v.lang.startsWith("en") && v.localService); // Fallback to any local English voice
+
       if (iosVoice) utterance.voice = iosVoice;
-    } else {
-      // LAPTOP / DESKTOP LOGIC: Target UK or US Female English Voices
+        } else {
+      // ANDROID / DESKTOP / LAPTOP LOGIC: Target UK or US Female English Voices
       const preferredVoice = voices.find(v => 
         (v.lang === "en-GB" || v.lang === "en-US") && 
         (/susan|hazel|zira|aria|maisie|female/i.test(v.name) || v.name === "Google US English")
       ) || 
+      // ... rest of your fallback chain remains exactly the same 
       voices.find(v => v.lang === "en-GB" && /google/i.test(v.name)) || // Fallback to Google UK
       voices.find(v => v.lang === "en-US" && /google/i.test(v.name)) || // Fallback to Google US
       voices.find(v => v.lang === "en-GB") ||                          // Any UK Voice
