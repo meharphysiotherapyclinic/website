@@ -74,7 +74,7 @@ h1{color:#ffffff}section h2{color:#00796b}footer{background:linear-gradient(to r
     border-radius:0!important;
     border:none!important;
     transform:none!important;
-    background-color:#1a1a1a
+    background-color:#1a1a1a;
 }
 
 /* ✅ ENHANCED: Changed to a smooth left-to-right gradient. This makes white text razor-sharp on the left without darkening the doctor on the right. */
@@ -86,11 +86,11 @@ h1{color:#ffffff}section h2{color:#00796b}footer{background:linear-gradient(to r
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    text-align:center
+    text-align:center;
 }
 
 .hero-content{
-    padding:20px
+    padding:20px;
 }
 
 /* ✅ ENHANCED: Swapped the dated yellow italics for a crisp, authoritative medical white. Adjusted positioning for better breathing room. */
@@ -106,7 +106,7 @@ h1{color:#ffffff}section h2{color:#00796b}footer{background:linear-gradient(to r
     font-weight:bold;
     margin:0;
     text-shadow:2px 2px 12px rgba(0,0,0,0.85);
-    line-height:1.35
+    line-height:1.35;
 }
 
 .hero-bottom-status{
@@ -119,7 +119,7 @@ h1{color:#ffffff}section h2{color:#00796b}footer{background:linear-gradient(to r
     font-size:.75rem;
     font-weight:700;
     letter-spacing:1.5px;
-    text-transform:uppercase
+    text-transform:uppercase;
 }
 
 /* Mobile hero */
@@ -128,7 +128,7 @@ h1{color:#ffffff}section h2{color:#00796b}footer{background:linear-gradient(to r
     .hero-container{
         aspect-ratio:auto!important;
         min-height:320px!important;
-        background-position:72% center!important
+        background-position:72% center!important;
     }
     
         .hero-overlay{
@@ -136,12 +136,12 @@ h1{color:#ffffff}section h2{color:#00796b}footer{background:linear-gradient(to r
         justify-content:flex-start!important;
         align-items:flex-start!important;
         /* Changed from 'to bottom' to a 135-degree diagonal angle */
-        background:linear-gradient(135deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.25) 45%, rgba(0, 0, 0, 0) 75%)!important
+        background:linear-gradient(135deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.25) 45%, rgba(0, 0, 0, 0) 75%)!important;
     }
     
     .hero-content{
         padding:35px 20px!important;
-        width:100%
+        width:100%;
     }
     
     .hero-heading{
@@ -150,7 +150,8 @@ h1{color:#ffffff}section h2{color:#00796b}footer{background:linear-gradient(to r
         max-width:85%;
         margin:0!important;
         line-height:1.3!important;
-        text-shadow:2px 2px 10px rgba(0,0,0,0.9)!important
+        text-shadow:2px 2px 10px rgba(0,0,0,0.9)!important;
+        top: 12% !important;
     }
     
     /* 🐛 BUG FIX: Added missing '%' unit to width (was 'width:100') to prevent broken containers on mobile webkit engines. */
@@ -158,6 +159,6 @@ h1{color:#ffffff}section h2{color:#00796b}footer{background:linear-gradient(to r
         text-align:center!important;
         width:100%!important;
         left:0!important;
-        display:block!important
+        display:block!important;
     }
 }
