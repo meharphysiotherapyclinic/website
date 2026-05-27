@@ -131,12 +131,12 @@ h1{color:#ffffff}section h2{color:#00796b}footer{background:linear-gradient(to r
         background-position:72% center!important
     }
     
-    /* ✅ ENHANCED: Changed to a top-to-bottom gradient blend so text remains perfectly legible when it stacks on small viewports. */
-    .hero-overlay{
+        .hero-overlay{
         display:flex!important;
         justify-content:flex-start!important;
         align-items:flex-start!important;
-        background:linear-gradient(to bottom, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.4) 60%, rgba(0, 0, 0, 0.1) 100%)!important
+        /* Changed from 'to bottom' to a 135-degree diagonal angle */
+        background:linear-gradient(135deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.25) 45%, rgba(0, 0, 0, 0) 75%)!important
     }
     
     .hero-content{
