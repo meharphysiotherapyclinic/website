@@ -68,9 +68,9 @@ h1{color:#ffffff}section h2{color:#00796b}footer{background:linear-gradient(to r
     margin:0 0 30px 0!important;
     padding:0!important;
     background-image:url('welcome-hero.webp')!important; /* Ensure this matches your new generated filename */
-    background-size:cover;
+    background-size:cover!important;
     background-position:65% center!important;
-    background-repeat:no-repeat;
+    background-repeat:no-repeat!important;
     border-radius:0!important;
     border:none!important;
     transform:none!important;
