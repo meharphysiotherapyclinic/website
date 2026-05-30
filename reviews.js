@@ -1,26 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   const websiteReviews = [
-    {
-      name: "Debangshi Chaterjee",
-      text: "Dr. Govind Ji is extraordinary. He treated my mother-in-law for knee replacement. She started walking without support in 25 days.",
-      service: "Knee Replacement Rehab"
-    },
-    {
-      name: "Ankit Kumar Nayak",
-      text: "Highly recommended for honest recommendations and effective treatment. Experienced doctor and high-end equipment.",
-      service: "Post-Accident Recovery"
-    },
-    {
-      name: "Mridula Tyagi",
-      text: "Massive thanks to Dr. Arneja. After my slip disc, I didn't think I could live a normal life without surgery.",
-      service: "Slip Disc Treatment"
-    },
-    {
-      name: "Nirupa Chaurasia",
-      text: "After knee replacement, I am finally happy with my leg movement thanks to Govind ji.",
-      service: "Knee Rehab"
-    }
+  {
+    name: "Debangshi Chaterjee",
+    text: "Dr. Govind Ji is extraordinary. He treated my mother-in-law for knee replacement. She started walking without support in 25 days and was perfectly fine in 45 days. Truly grateful.",
+    service: "Knee Replacement Rehab"
+  },
+  {
+    name: "Ankit Kumar Nayak",
+    text: "Highly recommended for honest recommendations and effective treatment. I've been taking sessions for 5 months post-accident. Experienced doctor and high-end equipment.",
+    service: "Post-Accident Recovery"
+  },
+  {
+    name: "Mridula Tyagi",
+    text: "Massive thanks to Dr. Arneja for his amazing work. After my slip disc, I didn't think I could live a normal life without surgery. He is the best physiotherapist.",
+    service: "Slip Disc Treatment"
+  },
+  {
+    name: "Nirupa Chaurasia",
+    text: "After knee replacement, I tried two other professionals but wasn't satisfied. After two months with Govind ji, I am finally happy with my leg movement.",
+    service: "Knee Rehab"
+  }
   ];
 
   const wrapper = document.getElementById('review-wrapper');
