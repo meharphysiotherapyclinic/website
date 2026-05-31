@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .replace(/\bB\.P\.T\.\b/g, "Bachelor of Physiotherapy")
       .replace(/\bMehar\b/gi, "meher")
       .replace(/\bGaur\b/gi, "gor")
-      .replace(/\bArneja\b/gi, "Arneja");
+      .replace(/\bArneja\b/gi, "Ar nay jah");
 
     // Skip empty sections
     if (!text) {
