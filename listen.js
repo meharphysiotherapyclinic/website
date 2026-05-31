@@ -132,7 +132,8 @@ document.addEventListener("DOMContentLoaded", () => {
       .replace(/\bM\.I\.A\.P\.\b/g, "Member of Indian Association of Physiotherapists")
       .replace(/\bB\.P\.T\.\b/g, "Bachelor of Physiotherapy")
       .replace(/\bMehar\b/gi, "meher")
-      .replace(/\bGaur\b/gi, "gor");
+      .replace(/\bGaur\b/gi, "gor")
+      .replace(/\bArneja\b/gi, "Ar-neh-ja");
 
     // Skip empty sections
     if (!text) {
