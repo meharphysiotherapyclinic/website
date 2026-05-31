@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .replace(/\bB\.P\.T\.\b/g, "Bachelor of Physiotherapy")
       .replace(/\bMehar\b/gi, "meher")
       .replace(/\bGaur\b/gi, "gor")
-      .replace(/\bArneja\b/gi, "Urnayjaa");
+      .replace(/\bArneja\b/gi, "Arnayjaa");
 
     // Skip empty sections
     if (!text) {
@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = "en-US";
-    utterance.rate = 0.95;
+    utterance.rate = 0.88;
 
         // iOS: prefer local built-in English voice
     // Android/Desktop: prefer UK/US Female voices
