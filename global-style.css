@@ -309,3 +309,13 @@ section:hover,
             inset 0 0 8px rgba(38, 166, 154, 0.04) !important;
     }
 }
+
+/* Add external link icon to text links inside the article (excluding buttons) */
+article a[target="_blank"]:not(.button)::after {
+  content: " \29C9"; /* This is the unicode for ⧉ */
+  font-size: 0.9em;
+  margin-left: 4px;
+  text-decoration: none;
+  display: inline-block;
+  opacity: 0.8;
+}
