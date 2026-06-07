@@ -37,7 +37,7 @@ h1{color:#ffffff}section h2{color:#00796b}footer{background:linear-gradient(to r
 /* ===== CONTACT BUTTON ===== */
 .contact-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;background:#00796b;color:white;text-decoration:none;border-radius:8px;margin-top:0;font-weight:600;font-size:0.92em;letter-spacing:0.3px;transition:background 0.25s ease,transform 0.25s ease,box-shadow 0.25s ease;box-shadow:0 2px 8px rgba(0,0,0,0.15)}.contact-btn:hover{background:#00695c;transform:translateY(-2px);box-shadow:0 5px 14px rgba(0,0,0,0.2)}button.contact-btn{font-size:0.92em;line-height:normal;appearance:none;-webkit-appearance:none;border:none;cursor:pointer}
 /* ===== CONTACT GRID ===== */
-.contact-grid{display:grid;grid-template-columns:calc(50% - 5px) calc(50% - 5px);gap:10px;margin-top:4px;width:100%;box-sizing:border-box}
+.contact-grid{display:grid;grid-template-columns:calc(50% - 5px) calc(50% - 5px);gap:10px;margin-top:4px;width:100%;box-sizing:border-box}.contact-grid .contact-btn{font-size:0.82em;padding:10px 8px;text-align:center;white-space:normal;word-break:break-word;min-height:52px;align-items:center}
 .contact-btn-full{grid-column:1 / -1;width:100%;text-align:center}
 /* ===== GOOGLE REVIEWS BUTTON ===== */
 .reviews-btn-container{text-align:center;margin-top:18px}.google-btn{display:inline-flex;align-items:center;justify-content:center;gap:16px;padding:12px 24px;font-size:18px;font-weight:600;border-radius:8px;text-decoration:none;background:#00796b;color:white}.google-icon{height:1.8em;width:auto;flex-shrink:0;display:block;object-fit:contain;background:white;padding:4px 10px;border-radius:6px;box-shadow:0 0 8px rgba(255,255,255,0.4),0 2px 4px rgba(0,0,0,0.2);transition:transform 0.3s cubic-bezier(0.175,0.885,0.32,1.275)}.google-btn:hover .google-icon{transform:scale(1.1);box-shadow:0 0 12px rgba(255,255,255,0.6)}@media (max-width:480px){.google-btn{gap:10px;padding:10px 20px;font-size:16px}}
@@ -166,5 +166,6 @@ h1{color:#ffffff}section h2{color:#00796b}footer{background:linear-gradient(to r
         left:0!important;
         display:block!important;
     }
-    }
-                                                                                                                                                                                                                                                                      
+}
+                                                                                                                                                                                                                                                        }
+             
