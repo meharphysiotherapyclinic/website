@@ -1,8 +1,24 @@
+/* =====================================================
+   GLOBAL-STYLE.CSS — Mehar Physiotherapy Clinic
+   Scope: Entire website (all pages)
+   Load order: 1st (base foundation)
+   ===================================================== */
+
+
+/* =====================================================
+   1. UNIVERSAL RESETS
+   ===================================================== */
+
 /* Prevent mobile browsers from automatically inflating text sizes */
 html, body {
-    -webkit-text-size-adjust: 100%; /* Fixes WebKit browsers like Brave/Safari */
-    -moz-text-size-adjust: 100%;    /* Fixes Firefox */
-    text-size-adjust: 100%;         /* Standard property */
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+/* Box model — padding and borders stay INSIDE the width you set */
+*, *::before, *::after {
+    box-sizing: border-box;
 }
 
 /* Ensure long text wraps instead of breaking the layout */
@@ -11,16 +27,62 @@ html, body {
     word-wrap: break-word;
 }
 
-/* 1. UNIVERSAL RESET - The most important fix for symmetry */
-/* This ensures padding and borders stay INSIDE the width you set */
-* {
-    box-sizing: border-box;
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
 }
 
-/* 2. Main wrappers and top-level containers */
-main, 
-section:not(main section), 
-.container, 
+
+/* =====================================================
+   2. BODY — single consolidated declaration
+   ===================================================== */
+
+body {
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #2c3e50;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    transition: background 0.3s ease;
+
+    /* Prevent text selection for app-like feel */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+}
+
+/* Allow selection only where users need to copy */
+.addr,
+.phone,
+address,
+a[href^="tel:"],
+.copy-safe,
+input,
+textarea {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+p {
+    margin-bottom: 1.2em;
+}
+
+
+/* =====================================================
+   3. LAYOUT — main wrappers and containers
+   ===================================================== */
+
+main,
+section:not(main section),
+.container,
 footer.card {
     width: 92%;
     max-width: 1000px;
@@ -29,195 +91,18 @@ footer.card {
     display: block;
 }
 
-/* 3. Nested sections (like FAQ cards) stay within the main container */
+/* Nested sections (e.g. FAQ cards) stay within the main container */
 main section {
     width: 100% !important;
     margin-bottom: 20px;
 }
 
-/* 4. Global Mobile Refinements */
-@media (max-width: 700px) {
-    main, .container {
-        padding: 10px;
-    }
-    .card {
-        padding: 12px;
-    }
-    
-    /* FIX: Reduces the 35px padding that was causing the FAQ overflow */
-    .accordion-button, .accordion-panel {
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-    }
-}
-
-/* Update your .card class with this */
-.card {
-    background: var(--panel-bg);
-    border: 1px solid rgba(0, 0, 0, 0.05); /* Very faint border */
-    border-radius: 12px; /* Slightly rounder for a friendlier feel */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
-                box-shadow 0.3s ease;
-}
-
-/* Elegant lift on hover */
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-}
-
-/* Smoothly animate everything */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Make buttons feel expensive */
-.contact-btn, .back-home, .accordion-button {
-    transition: all 0.25s ease-in-out;
-    letter-spacing: 0.3px; /* Slightly more space between letters */
-}
-
-.contact-btn:active {
-    transform: scale(0.96); /* Subtle "click" feel */
-}
-
-body {
-    line-height: 1.65; /* Standard is 1.2; 1.6+ is the "sweet spot" for readability */
-    -webkit-font-smoothing: antialiased; /* Makes fonts look crisper on Mac/iPhone */
-    color: #2c3e50; /* A slightly softer black is easier on the eyes */
-}
-
-p {
-    margin-bottom: 1.2em;
-}
-
-header {
-    background: linear-gradient(135deg, #004d40, #00695c) !important;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
-}
-
-/* ========================================= */
-/* GLOBAL TEXT SELECTION CONTROL             */
-/* ========================================= */
-
-/* Prevent highlighting everywhere for an app-like feel */
-body {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-touch-callout: none;
-}
-
-/* Allow selection ONLY for things people actually need to copy */
-.addr, 
-.phone, 
-address, 
-a[href^="tel:"], 
-.copy-safe, /* You can add this class to any text you want to remain copyable */
-input, 
-textarea {
-  -webkit-user-select: text;
-  -moz-user-select: text;
-  -ms-user-select: text;
-  user-select: text;
-}
-
-/* ========================================= */
-/* FIX FOR WHITE CORNERS ON BUTTON PRESS     */
-/* ========================================= */
-a, button, .contact-btn, .accordion-button {
-    -webkit-tap-highlight-color: transparent; /* Removes the default mobile tap flash */
-    outline: none; /* Removes browser default focus rings */
-}
-
-a:focus, button:focus, .contact-btn:focus {
-    outline: none;
-}
-
-/* ========================================= */
-/* CROSS-BROWSER HEADER FIX (BRAVE/CHROME)   */
-/* ========================================= */
-
-/* 1. Force the layout to be flexible but non-collapsing */
-header .header-top {
-    display: flex !important; /* Overrides the grid that causes issues in Brave */
-    flex-wrap: nowrap !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    gap: 8px !important;
-    width: 100% !important;
-}
-
-/* 2. Prevent the logo and menu from being squashed */
-.logo-title, .menu-toggle {
-    flex-shrink: 0 !important;
-    flex-grow: 0 !important;
-}
-
-/* 3. The Magic Fix: Dynamic Text Scaling */
-/* This ensures the title takes up the remaining space and shrinks before it wraps */
-header .header-text {
-    flex-grow: 1 !important;
-    flex-shrink: 1 !important;
-    min-width: 0 !important; /* Essential for flex-shrink to work */
-    text-align: center !important;
-}
-
-header .header-text h1 {
-    /* Using clamp ensures the font is never too big for Brave, but stays nice in Chrome */
-    font-size: clamp(1rem, 4.5vw, 1.8rem) !important;
-    line-height: 1.1 !important;
-    white-space: normal !important; /* Allows wrapping if absolutely necessary */
-    word-break: keep-all !important; /* Prevents breaking words like "Physiotherapy" in half */
-}
-
-header .header-text p {
-    font-size: clamp(0.7rem, 2.5vw, 0.95rem) !important;
-    margin: 0 !important;
-}
-
-/* 4. Brave Shield/Font Fallback Protection */
-/* This forces the browser to calculate character widths more strictly */
-header * {
-    text-rendering: optimizeLegibility !important;
-    -webkit-font-smoothing: antialiased !important;
-    font-variant-ligatures: none !important;
-}
-
-/* REPLACE the previous Global Scale Fix with this refined version */
-@media (max-width: 600px) {
-    html {
-        /* This dynamically scales the base font size between 90% and 100% 
-           based on the device width. It's smoother than a hard zoom. */
-        font-size: clamp(90%, 2.5vw + 80%, 100%);
-        
-        /* We keep zoom at 1 but use it as a 'buffer' for Chromium browsers */
-        zoom: 1; 
-    }
-}
-
-/* Specific fix for the Hero text to ensure it doesn't overlap the image */
-@media (max-width: 480px) {
-    .hero-motto {
-        font-size: 1.2rem !important; /* Slightly smaller for the narrowest phones */
-        line-height: 1.2 !important;
-    }
-    
-    .hero-container {
-        /* Pushes the content to the top so it doesn't sit 
-           directly over the center of the background image */
-        display: flex;
-        align-items: flex-start; 
-        padding-top: 20px !important;
-    }
-}
 
 /* =====================================================
-   FINAL UNIVERSAL OVERRIDE — BRIGHTER SOFT TEAL GLASS
-   Must stay at absolute bottom of global-style.css
-===================================================== */
+   4. GLASSMORPHISM — canonical section / card style
+   Applied last in this file so it is the final word
+   for all pages. home page style.css inherits this.
+   ===================================================== */
 
 section,
 .card,
@@ -232,42 +117,33 @@ section,
     background: rgba(255, 255, 255, 0.26) !important;
     backdrop-filter: blur(16px) saturate(130%) !important;
     -webkit-backdrop-filter: blur(16px) saturate(130%) !important;
-
     border-radius: 16px !important;
     border: 1.5px solid rgba(0, 121, 107, 0.18) !important;
-
-    /* Slightly brighter teal margin */
     box-shadow:
         0 0 0 3px rgba(0, 121, 107, 0.08),
         0 6px 16px rgba(0, 0, 0, 0.06),
         0 0 14px rgba(0, 121, 107, 0.08),
         inset 0 0 6px rgba(0, 121, 107, 0.02) !important;
-
     overflow: hidden;
-    box-sizing: border-box;
 }
 
-/* =====================================================
-   HOVER EFFECT
-===================================================== */
-
-section:hover,
-.card:hover,
-.glass-card:hover,
-.image-card:hover,
-.review-card:hover,
-.services-box:hover {
-    box-shadow:
-        0 0 0 4px rgba(0, 121, 107, 0.12),
-        0 10px 20px rgba(0, 0, 0, 0.08),
-        0 0 18px rgba(0, 121, 107, 0.10),
-        inset 0 0 8px rgba(0, 121, 107, 0.025) !important;
+/* Glassmorphism hover glow */
+@media (hover: hover) {
+    section:hover,
+    .card:hover,
+    .glass-card:hover,
+    .image-card:hover,
+    .review-card:hover,
+    .services-box:hover {
+        box-shadow:
+            0 0 0 4px rgba(0, 121, 107, 0.12),
+            0 10px 20px rgba(0, 0, 0, 0.08),
+            0 0 18px rgba(0, 121, 107, 0.10),
+            inset 0 0 8px rgba(0, 121, 107, 0.025) !important;
+    }
 }
 
-/* =====================================================
-   DARK MODE
-===================================================== */
-
+/* Dark mode glass */
 @media (prefers-color-scheme: dark) {
     section,
     .card,
@@ -282,13 +158,9 @@ section:hover,
         background: rgba(34, 34, 34, 0.34) !important;
         backdrop-filter: blur(16px) saturate(130%) !important;
         -webkit-backdrop-filter: blur(16px) saturate(130%) !important;
-
         border-radius: 16px !important;
         border: 1.5px solid rgba(80, 220, 200, 0.22) !important;
-
         color: #e0e0e0 !important;
-
-        /* Slightly brighter dark mode teal */
         box-shadow:
             0 0 0 3px rgba(38, 166, 154, 0.12),
             0 6px 16px rgba(0, 0, 0, 0.28),
@@ -296,26 +168,184 @@ section:hover,
             inset 0 0 6px rgba(38, 166, 154, 0.025) !important;
     }
 
-    section:hover,
-    .card:hover,
-    .glass-card:hover,
-    .image-card:hover,
-    .review-card:hover,
-    .services-box:hover {
-        box-shadow:
-            0 0 0 4px rgba(38, 166, 154, 0.16),
-            0 10px 22px rgba(0, 0, 0, 0.34),
-            0 0 20px rgba(38, 166, 154, 0.14),
-            inset 0 0 8px rgba(38, 166, 154, 0.04) !important;
+    @media (hover: hover) {
+        section:hover,
+        .card:hover,
+        .glass-card:hover,
+        .image-card:hover,
+        .review-card:hover,
+        .services-box:hover {
+            box-shadow:
+                0 0 0 4px rgba(38, 166, 154, 0.16),
+                0 10px 22px rgba(0, 0, 0, 0.34),
+                0 0 20px rgba(38, 166, 154, 0.14),
+                inset 0 0 8px rgba(38, 166, 154, 0.04) !important;
+        }
     }
 }
 
-/* Add external link icon to text links inside the article (excluding buttons) */
+
+/* =====================================================
+   5. .card BASE STYLE (non-section cards)
+   ===================================================== */
+
+.card {
+    background: var(--panel-bg);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+                box-shadow 0.3s ease;
+}
+
+@media (hover: hover) {
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    }
+}
+
+
+/* =====================================================
+   6. HEADER — canonical gradient, wins everywhere
+   ===================================================== */
+
+header {
+    background: linear-gradient(135deg, #004d40, #00695c) !important;
+    color: white;
+    padding: 15px 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+header h1,
+header p {
+    color: #fff;
+}
+
+/* Cross-browser header layout fix (Brave / Chrome) */
+header .header-top {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+}
+
+.logo-title,
+.menu-toggle {
+    flex-shrink: 0 !important;
+    flex-grow: 0 !important;
+}
+
+header .header-text {
+    flex-grow: 1 !important;
+    flex-shrink: 1 !important;
+    min-width: 0 !important;
+    text-align: center !important;
+}
+
+header .header-text h1 {
+    font-size: clamp(1rem, 4.5vw, 1.8rem) !important;
+    line-height: 1.1 !important;
+    white-space: normal !important;
+    word-break: keep-all !important;
+}
+
+header .header-text p {
+    font-size: clamp(0.7rem, 2.5vw, 0.95rem) !important;
+    margin: 0 !important;
+}
+
+/* Brave / Chrome font rendering fix */
+header * {
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    font-variant-ligatures: none !important;
+}
+
+
+/* =====================================================
+   7. BUTTONS & INTERACTIVE ELEMENTS
+   ===================================================== */
+
+.contact-btn,
+.back-home,
+.accordion-button {
+    transition: all 0.25s ease-in-out;
+    letter-spacing: 0.3px;
+}
+
+.contact-btn:active {
+    transform: scale(0.96);
+}
+
+/* Remove tap highlight flash on mobile */
+a, button, .contact-btn, .accordion-button {
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+a:focus,
+button:focus,
+.contact-btn:focus {
+    outline: none;
+}
+
+
+/* =====================================================
+   8. EXTERNAL LINK ICON (blog / article pages)
+   ===================================================== */
+
 article a[target="_blank"]:not(.button)::after {
-  content: " \29C9"; /* This is the unicode for ⧉ */
-  font-size: 0.9em;
-  margin-left: 4px;
-  text-decoration: none;
-  display: inline-block;
-  opacity: 0.8;
+    content: " \29C9";
+    font-size: 0.9em;
+    margin-left: 4px;
+    text-decoration: none;
+    display: inline-block;
+    opacity: 0.8;
+}
+
+
+/* =====================================================
+   9. GLOBAL MOBILE REFINEMENTS
+   ===================================================== */
+
+@media (max-width: 700px) {
+    main, .container {
+        padding: 10px;
+    }
+
+    .card {
+        padding: 12px;
+    }
+
+    /* Reduce the 35px padding that was causing FAQ overflow */
+    .accordion-button,
+    .accordion-panel {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+}
+
+/* Dynamic base font scaling for narrow phones */
+@media (max-width: 600px) {
+    html {
+        font-size: clamp(90%, 2.5vw + 80%, 100%);
+        zoom: 1;
+    }
+}
+
+/* Hero text safety on narrowest phones */
+@media (max-width: 480px) {
+    .hero-motto {
+        font-size: 1.2rem !important;
+        line-height: 1.2 !important;
+    }
+
+    .hero-container {
+        display: flex;
+        align-items: flex-start;
+        padding-top: 20px !important;
+    }
 }
