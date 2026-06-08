@@ -666,11 +666,9 @@ button.contact-btn {
     cursor: pointer;
 }
 
-@media (hover: hover) {
-    .service-pill:hover         { background: #dcefe2; transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
-    .service-pill.neuro:hover   { background: #dcecff; border-color: #8ebeea;       box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
-    .service-pill.highlight:hover { background: #dff3e2; border-color: #9fd3a5;     box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
-}
+.service-pill:hover           { background: #dcefe2; transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
+.service-pill.neuro:hover     { background: #dcecff; border-color: #8ebeea;       box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
+.service-pill.highlight:hover { background: #dff3e2; border-color: #9fd3a5;       box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
 
 .service-pill:active { transform: scale(0.97); }
 
