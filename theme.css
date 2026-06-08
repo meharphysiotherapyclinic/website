@@ -1,152 +1,142 @@
-/* =======================================
+/* =====================================================
+   THEME.CSS — Mehar Physiotherapy Clinic
+   Scope: Entire website (all pages)
+   Load order: 2nd (after global-style.css)
+
+   Responsibility: colour, typography, and form-field
+   theming ONLY. Layout, glassmorphism, shadows, and
+   backgrounds on section/container are owned by
+   global-style.css and must NOT be redeclared here.
+   ===================================================== */
+
+
+/* =====================================================
    LIGHT MODE (default)
-   ======================================= */
+   ===================================================== */
+
 @media (prefers-color-scheme: light) {
-  html, body {
-    background: #f7f7f7;
-    color: #222;
-  }
 
-  /* Header / Branding */
-  header {
-    background: #00796b;
-    color: #fff;
-  }
-  header h1,
-  header p {
-    color: #fff; /* always white inside header */
-  }
+    html, body {
+        background: #f7f7f7;
+        color: #222;
+    }
 
-  /* Main sections / containers */
-  .container,
-  section {
-    background: #fff;
-    color: #222;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
-  }
+    /* Headings outside header */
+    h1, h2, h3, h4, h5, h6 {
+        color: #00796b;
+    }
 
-  /* Headings outside header */
-  h1, h2, h3, h4, h5, h6 {
-    color: #00796b;
-  }
+    /* Footer */
+    footer {
+        background: #f0f0f0;
+        color: #555;
+    }
 
-  /* Footer */
-  footer {
-    background: #f0f0f0;
-    color: #555;
-  }
+    /* Buttons */
+    button {
+        background: #00796b;
+        color: #fff;
+    }
 
-  /* Buttons */
-  button {
-    background: #00796b;
-    color: #fff;
-  }
-  button:hover {
-    background: #00695c;
-  }
+    button:hover {
+        background: #00695c;
+    }
 
-  /* Form fields */
-  input, textarea {
-    background: #fff;
-    color: #222;
-    border: 1px solid #ccc;
-  }
+    /* Form fields */
+    input, textarea {
+        background: #fff;
+        color: #222;
+        border: 1px solid #ccc;
+    }
 }
 
 
-/* =======================================
+/* =====================================================
    DARK MODE
-   ======================================= */
+   ===================================================== */
+
 @media (prefers-color-scheme: dark) {
-  html, body {
-    background: #121212 !important;
-    color: #e0e0e0 !important;
-  }
 
-  /* Header / Branding */
-  header {
-    background: #004d40;
-    color: #fff;
-  }
-  header h1,
-  header p {
-    color: #fff; /* keep branding visible */
-  }
+    html, body {
+        background: #121212 !important;
+        color: #e0e0e0 !important;
+    }
 
-  /* Main sections / containers */
-  .container,
-  section {
-    background: #1e1e1e !important;
-    color: #e0e0e0 !important;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
-  }
+    /* Headings outside header */
+    h1, h2, h3, h4, h5, h6 {
+        color: #4db6ac;
+    }
 
-  /* Headings outside header */
-  h1, h2, h3, h4, h5, h6 {
-    color: #4db6ac; /* softer accent for dark mode */
-  }
+    /* Footer */
+    footer {
+        background: #1a1a1a;
+        color: #ccc;
+    }
 
-  /* Footer */
-  footer {
-    background: #1a1a1a;
-    color: #ccc;
-  }
+    /* Buttons */
+    button {
+        background: #009688;
+        color: #fff;
+    }
 
-  /* Buttons */
-  button {
-    background: #009688;
-    color: #fff;
-  }
-  button:hover {
-    background: #00796b;
-  }
+    button:hover {
+        background: #00796b;
+    }
 
-  /* Form fields */
-  input, textarea {
-    background: #2a2a2a;
-    color: #f5f5f5;
-    border: 1px solid #555;
-  }
+    /* Form fields */
+    input, textarea {
+        background: #2a2a2a;
+        color: #f5f5f5;
+        border: 1px solid #555;
+    }
 
-  input::placeholder,
-  textarea::placeholder {
-    color: #aaa;
-  }
+    input::placeholder,
+    textarea::placeholder {
+        color: #aaa;
+    }
 }
 
-/* FORCE DARK MODE TO MATCH LIGHT MODE DIMENSIONS */
 
-/* 1. If your site uses a 'dark' class on the body */
-body.dark .hero-container, 
-body[data-theme='dark'] .hero-container,
-/* 2. Standard browser dark mode detection */
+/* =====================================================
+   HERO CONTAINER — dark-mode and mobile dimension fix
+   (system dark mode and class-based dark mode kept
+   as separate valid rules — no mixed selector/at-rule)
+   ===================================================== */
+
+/* Class-based dark mode (body.dark or data-theme="dark") */
+body.dark .hero-container,
+body[data-theme='dark'] .hero-container {
+    aspect-ratio: 16 / 9 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    margin-bottom: 20px !important;
+}
+
+/* System dark mode */
 @media (prefers-color-scheme: dark) {
     .hero-container {
-        /* This forces the container back to the wider 'Light Mode' shape */
-        aspect-ratio: 16 / 9 !important; 
+        aspect-ratio: 16 / 9 !important;
         height: auto !important;
-        min-height: 0 !important; 
+        min-height: 0 !important;
         padding: 0 !important;
         margin-bottom: 20px !important;
     }
 
     .hero-content {
-        /* Ensure no extra padding is pushing the box to be taller */
         padding: 10px !important;
         margin: 0 !important;
     }
 
     .hero-motto {
-        /* Keep font size small enough so it doesn't force the box to grow */
-        font-size: 1.2rem !important; 
+        font-size: 1.2rem !important;
     }
 }
 
-/* 3. Universal Mobile fix (Max-width 700px) */
+/* Universal mobile hero shape */
 @media (max-width: 700px) {
     .hero-container {
-        /* 16/9 is the standard 'Wide' look from your Light Mode shot */
-        aspect-ratio: 16 / 9 !important; 
+        aspect-ratio: 16 / 9 !important;
         background-position: center center !important;
         background-size: cover !important;
     }
