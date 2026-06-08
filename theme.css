@@ -133,11 +133,31 @@ body[data-theme='dark'] .hero-container {
     }
 }
 
-/* Universal mobile hero shape */
+/* Universal mobile hero shape — auto height wins on all modes */
 @media (max-width: 700px) {
     .hero-container {
-        aspect-ratio: 16 / 9 !important;
-        background-position: center center !important;
+        aspect-ratio: auto !important;
+        min-height: 320px !important;
+        background-position: 72% center !important;
         background-size: cover !important;
+    }
+}
+
+/* Dark mode + mobile — prevent 16/9 from overriding mobile auto shape */
+@media (prefers-color-scheme: dark) and (max-width: 700px) {
+    .hero-container {
+        aspect-ratio: auto !important;
+        min-height: 320px !important;
+        background-position: 72% center !important;
+    }
+}
+
+/* Class-based dark mode + mobile */
+@media (max-width: 700px) {
+    body.dark .hero-container,
+    body[data-theme='dark'] .hero-container {
+        aspect-ratio: auto !important;
+        min-height: 320px !important;
+        background-position: 72% center !important;
     }
 }
