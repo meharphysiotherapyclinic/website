@@ -299,14 +299,9 @@ body {
 
 /* ---- About text ---- */
 .about-text p {
-    font-size: 0.92em;
-    line-height: 1.78;
-    color: #3a3a3a;
-    margin: 0 0 12px;
-}
-
-.about-text p:first-of-type {
     font-size: 0.95em;
+    line-height: 1.75;
+    margin: 0 0 12px;
 }
 
 /* Specializations highlight strip */
@@ -400,11 +395,8 @@ body {
         margin: 0 auto 12px !important;
     }
     #about .about-text p {
-        font-size: 0.82em !important;
+        font-size: 0.88em !important;
         line-height: 1.65 !important;
-    }
-    #about .about-text p:first-of-type {
-        font-size: 0.85em !important;
     }
     .specialization-strip {
         justify-content: center;
