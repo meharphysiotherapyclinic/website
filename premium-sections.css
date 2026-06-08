@@ -1,17 +1,32 @@
-/* ============================================================
-   PREMIUM HOME & ABOUT — Mehar Physiotherapy Clinic
-   Drop these rules after your existing global-style.css
-   ============================================================ */
+/* =====================================================
+   PREMIUM-SECTIONS.CSS — Mehar Physiotherapy Clinic
+   Scope: Home page only (index.html)
+   Load order: 4th (after global-style.css, theme.css, style.css)
 
-/* ---------- SHARED UTILITY ---------- */
+   Responsibility: premium typographic upgrades, section
+   heading accents, doctor photo wrap, credential tag,
+   specialization tags, stat badge, section mesh
+   backgrounds. Does NOT re-declare glassmorphism,
+   box-shadows or section backgrounds — those are
+   owned by global-style.css.
+   ===================================================== */
+
+
+/* =====================================================
+   1. FONT IMPORT & BODY OVERRIDE
+   ===================================================== */
+
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap');
 
-/* DM Sans for entire home page */
 body {
-    font-family: 'DM Sans', Arial, sans-serif;
+    font-family: 'DM Sans', Arial, sans-serif !important;
 }
 
-/* Normalize font size across all sections */
+
+/* =====================================================
+   2. NORMALISED PARAGRAPH SIZE — all home sections
+   ===================================================== */
+
 #home p,
 #about p,
 #services p,
@@ -23,24 +38,28 @@ body {
     line-height: 1.75;
 }
 
-/* ============================================================
-   HOME SECTION
-   ============================================================ */
+
+/* =====================================================
+   3. HOME SECTION
+   ===================================================== */
+
 #home {
     position: relative;
     padding: 36px 28px 32px !important;
     overflow: hidden !important;
 }
 
-/* Decorative corner accent */
+/* Decorative left-edge teal bar */
 #home::before {
     content: '';
     position: absolute;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     width: 5px;
     height: 100%;
     background: linear-gradient(to bottom, #00796b, transparent);
     border-radius: 16px 0 0 16px;
+    pointer-events: none;
 }
 
 /* Subtle teal mesh in background */
@@ -50,12 +69,12 @@ body {
     inset: 0;
     background:
         radial-gradient(ellipse at 95% 10%, rgba(0, 121, 107, 0.07) 0%, transparent 55%),
-        radial-gradient(ellipse at 5% 90%, rgba(0, 121, 107, 0.05) 0%, transparent 50%);
+        radial-gradient(ellipse at 5%  90%, rgba(0, 121, 107, 0.05) 0%, transparent 50%);
     pointer-events: none;
     border-radius: inherit;
 }
 
-/* Main heading — premium serif upgrade */
+/* Main heading — premium serif */
 #home h2 {
     font-family: 'DM Serif Display', Georgia, serif;
     font-size: clamp(1.45rem, 3.5vw, 2rem);
@@ -65,7 +84,7 @@ body {
     letter-spacing: -0.3px;
 }
 
-/* Animated underline rule beneath h2 */
+/* Animated underline beneath h2 */
 #home h2::after {
     content: '';
     display: block;
@@ -81,7 +100,7 @@ body {
     width: 80px;
 }
 
-/* Lead bold line */
+/* Lead bold paragraph */
 #home > p:first-of-type {
     font-size: 1.02em;
     font-weight: 600;
@@ -98,7 +117,7 @@ body {
     margin: 0 0 12px;
 }
 
-/* Stat badge — "20+ Years" */
+/* Stat badge — e.g. "20+ Years" */
 .home-stat-badge {
     display: inline-flex;
     align-items: center;
@@ -133,8 +152,9 @@ body {
 
 /* Dark mode — home */
 @media (prefers-color-scheme: dark) {
-    #home > p:first-of-type { color: #4db6ac; }
-    #home > p:not(:first-of-type) { color: #d0d0d0; }
+    #home > p:first-of-type        { color: #4db6ac; }
+    #home > p:not(:first-of-type)  { color: #d0d0d0; }
+
     .home-stat-badge {
         background: rgba(0, 121, 107, 0.14);
         border-color: rgba(77, 182, 172, 0.3);
@@ -143,9 +163,10 @@ body {
 }
 
 
-/* ============================================================
-   ABOUT SECTION
-   ============================================================ */
+/* =====================================================
+   4. ABOUT SECTION
+   ===================================================== */
+
 #about {
     position: relative;
     padding: 32px 28px !important;
@@ -181,7 +202,7 @@ body {
     flex-shrink: 0;
 }
 
-/* ---- Photo wrapper with credential badge ---- */
+/* Doctor photo wrapper */
 .doctor-photo-wrap {
     position: relative;
     flex-shrink: 0;
@@ -197,7 +218,7 @@ body {
     max-width: 100%;
     display: block;
     border-radius: 12px;
-    box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
     transition: box-shadow 0.3s ease;
 }
 
@@ -243,68 +264,14 @@ body {
     letter-spacing: 0.3px;
 }
 
-/* ============================================================
-   UNIFORM SECTION BACKGROUNDS
-   ============================================================ */
-#services::after,
-#faq-preview::after,
-#reviews::after,
-#contact::after,
-#map-section::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(ellipse at 95% 10%, rgba(0, 121, 107, 0.07) 0%, transparent 55%),
-        radial-gradient(ellipse at 5% 90%, rgba(0, 121, 107, 0.05) 0%, transparent 50%);
-    pointer-events: none;
-    border-radius: inherit;
-}
-
-#services,
-#faq-preview,
-#reviews,
-#contact,
-#map-section {
-    position: relative;
-    overflow: hidden !important;
-}
-
-#services h2:first-of-type,
-#faq-preview h2,
-#reviews h2,
-#contact h2,
-#map-section h2 {
-    font-family: 'DM Serif Display', Georgia, serif;
-    font-size: clamp(1.35rem, 3vw, 1.75rem);
-    margin: 0 0 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-#services h2:first-of-type::before,
-#faq-preview h2::before,
-#reviews h2::before,
-#contact h2::before,
-#map-section h2::before {
-    content: '';
-    display: inline-block;
-    width: 4px;
-    height: 1.2em;
-    background: #00796b;
-    border-radius: 2px;
-    flex-shrink: 0;
-}
-
-/* ---- About text ---- */
+/* About body text */
 .about-text p {
     font-size: 0.95em;
     line-height: 1.75;
     margin: 0 0 12px;
 }
 
-/* Specializations highlight strip */
+/* Specialization tags */
 .specialization-strip {
     display: flex;
     flex-wrap: wrap;
@@ -323,7 +290,7 @@ body {
     color: #00695c;
 }
 
-/* Experience line at bottom of about */
+/* Experience line */
 .about-exp-line {
     display: flex;
     align-items: center;
@@ -347,21 +314,83 @@ body {
 
 /* Dark mode — about */
 @media (prefers-color-scheme: dark) {
-    .about-text p { color: #d0d0d0; }
+    .about-text p         { color: #d0d0d0; }
+    .about-exp-line        { color: #aaa; }
+
     .doctor-credential {
         color: #4db6ac;
         background: rgba(0, 121, 107, 0.15);
         border-color: rgba(77, 182, 172, 0.3);
     }
+
     .spec-tag {
         background: rgba(0, 121, 107, 0.14);
         border-color: rgba(77, 182, 172, 0.28);
         color: #4db6ac;
     }
-    .about-exp-line { color: #aaa; }
+}
 
-    /* Uniform dark mode text for all sections */
-    #home > p:not(:first-of-type) { color: #d0d0d0; }
+
+/* =====================================================
+   5. UNIFORM SECTION HEADINGS & MESH BACKGROUNDS
+   (services, faq-preview, reviews, contact, map-section)
+   ===================================================== */
+
+#services,
+#faq-preview,
+#reviews,
+#contact,
+#map-section {
+    position: relative;
+    overflow: hidden !important;
+}
+
+#services::after,
+#faq-preview::after,
+#reviews::after,
+#contact::after,
+#map-section::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 95% 10%, rgba(0, 121, 107, 0.07) 0%, transparent 55%),
+        radial-gradient(ellipse at 5%  90%, rgba(0, 121, 107, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    border-radius: inherit;
+}
+
+/* Uniform h2 style across all home sections */
+#services h2:first-of-type,
+#faq-preview h2,
+#reviews h2,
+#contact h2,
+#map-section h2 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: clamp(1.35rem, 3vw, 1.75rem);
+    margin: 0 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Teal vertical bar accent before each h2 */
+#services h2:first-of-type::before,
+#faq-preview h2::before,
+#reviews h2::before,
+#contact h2::before,
+#map-section h2::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 1.2em;
+    background: #00796b;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+/* Dark mode paragraph text for all sections */
+@media (prefers-color-scheme: dark) {
     #services p,
     #faq-preview p,
     #reviews p,
@@ -371,14 +400,21 @@ body {
     }
 }
 
-/* Mobile adjustments */
+
+/* =====================================================
+   6. MOBILE ADJUSTMENTS
+   ===================================================== */
+
 @media (max-width: 700px) {
-    #home, #about {
+    #home,
+    #about {
         padding: 24px 18px 22px !important;
     }
+
     #about .about-container {
         display: block !important;
     }
+
     #about .about-text {
         display: block !important;
         width: 100% !important;
@@ -386,6 +422,7 @@ body {
         max-width: 100% !important;
         box-sizing: border-box !important;
     }
+
     #about .doctor-photo-wrap {
         display: flex !important;
         flex-direction: column !important;
@@ -394,13 +431,16 @@ body {
         max-width: 110px !important;
         margin: 0 auto 12px !important;
     }
+
     #about .about-text p {
         font-size: 0.88em !important;
         line-height: 1.65 !important;
     }
+
     .specialization-strip {
         justify-content: center;
     }
+
     #home p,
     #services p,
     #faq-preview p,
@@ -425,32 +465,3 @@ body {
         max-width: 120px !important;
     }
 }
-
-#backToTop {
-    display: none;
-    position: fixed;
-    bottom: 50px;
-    right: 20px;
-    background: rgba(0, 121, 107, 0.5);
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    padding: 12px 16px;
-    font-size: 24px;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    z-index: 9999;
-    transition: background 0.25s, transform 0.25s;
-    outline: none;
-}
-
-#backToTop span {
-    color: #fff;
-    text-shadow: 0 2px 8px #00796b, 0 0 20px #fff;
-    font-weight: bold;
-}
-
-#backToTop:hover {
-    background: rgba(0, 77, 64, 0.7);
-    transform: scale(1.1);
-      }
