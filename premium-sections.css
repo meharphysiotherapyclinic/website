@@ -437,7 +437,7 @@ body {
 #backToTop {
     display: none;
     position: fixed;
-    bottom: 20px;
+    bottom: 50px;
     right: 20px;
     background: rgba(0, 121, 107, 0.5);
     color: #fff;
