@@ -1,170 +1,858 @@
-html,body{width:100%;max-width:100%;overflow-x:hidden}
-/* ✅ Ensure sections don't break layout when tilted */
-section{box-sizing:border-box;max-width:900px;margin:auto;overflow:visible;padding:20px;background:rgba(255,255,255,0.23);backdrop-filter:blur(15px) saturate(130%);-webkit-backdrop-filter:blur(15px) saturate(130%);border-radius:16px;border:1.5px solid rgba(255,255,255,0.32);transform-style:preserve-3d;transform:perspective(1000px) translateZ(0);box-shadow:0 8px 20px rgba(0,0,0,0.15);margin-bottom:30px;transition:transform 0.4s ease,box-shadow 0.4s ease,background 0.3s ease;will-change:transform,opacity}
-/* ✅ When the section scales/rotates, keep it inside the viewport */
-section:not(.hero-container):hover {
-    transform: perspective(1000px) translateY(-3px);
-    box-shadow:
-        0 0 0 5px rgba(0, 121, 107, 0.18),
-        0 25px 55px rgba(0, 0, 0, 0.25),
-        0 0 45px rgba(0, 121, 107, 0.25) !important;
-    will-change: transform;
+/* =====================================================
+   STYLE.CSS — Mehar Physiotherapy Clinic
+   Scope: Home page only (index.html)
+   Load order: 3rd (after global-style.css, theme.css)
+
+   Owns: section layout/animation, header markup,
+   nav menu, footer, contact buttons, FAQ preview,
+   map, review carousel, services grid, hero section.
+   Glassmorphism backgrounds are inherited from
+   global-style.css — NOT redeclared here.
+   ===================================================== */
+
+
+/* =====================================================
+   1. HTML / BODY (home page overrides)
+   ===================================================== */
+
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: Arial, sans-serif; /* overridden by premium-sections.css DM Sans */
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+    color: #333;
+}
+
+
+/* =====================================================
+   2. SECTION — layout, 3D tilt setup, animation
+   Backgrounds/borders/shadows are from global-style.css
+   ===================================================== */
+
+section {
+    box-sizing: border-box;
+    max-width: 900px;
+    margin: auto;
+    overflow: visible;
+    padding: 20px;
+    border-radius: 16px;
+
+    /* 3D tilt base state */
+    transform-style: preserve-3d;
+    transform: perspective(1000px) translateZ(0);
+
+    margin-bottom: 30px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.3s ease;
+    will-change: transform, opacity;
+}
+
+/* Hover lift — only on devices with a real pointer */
+@media (hover: hover) {
+    section:not(.hero-container):hover {
+        transform: perspective(1000px) translateY(-3px);
+    }
+}
+
+
+/* =====================================================
+   3. SCROLL ENTRANCE ANIMATIONS
+   ===================================================== */
+
+.section-animate {
+    opacity: 0;
+}
+
+@keyframes slideFromLeft {
+    from { opacity: 0; transform: perspective(1000px) translateX(-55px) translateZ(0) scale(0.98); }
+    to   { opacity: 1; transform: perspective(1000px) translateX(0)     translateZ(0) scale(1); }
+}
+
+@keyframes slideFromRight {
+    from { opacity: 0; transform: perspective(1000px) translateX(55px)  translateZ(0) scale(0.98); }
+    to   { opacity: 1; transform: perspective(1000px) translateX(0)     translateZ(0) scale(1); }
+}
+
+.section-animate.from-left.active  { animation: slideFromLeft  0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.section-animate.from-right.active { animation: slideFromRight 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+/* Mobile — reduced slide distance */
+@media (max-width: 700px) {
+    @keyframes slideFromLeft {
+        from { opacity: 0; transform: perspective(1000px) translateX(-30px) translateZ(0) scale(0.98); }
+        to   { opacity: 1; transform: perspective(1000px) translateX(0)     translateZ(0) scale(1); }
+    }
+    @keyframes slideFromRight {
+        from { opacity: 0; transform: perspective(1000px) translateX(30px)  translateZ(0) scale(0.98); }
+        to   { opacity: 1; transform: perspective(1000px) translateX(0)     translateZ(0) scale(1); }
+    }
+}
+
+
+/* =====================================================
+   4. HEADER
+   ===================================================== */
+
+header {
+    background: #00796b; /* fallback; gradient from global-style.css !important wins */
+    color: white;
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.header-top {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-self: start;
+}
+
+header img {
+    max-height: 50px;
+    width: auto;
+    border-radius: 5px;
+}
+
+.header-text {
+    text-align: center;
+    justify-self: center;
+}
+
+.header-text h1 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+.header-text p {
+    margin: 2px 0 0;
+    font-size: 0.95em;
+}
+
+
+/* =====================================================
+   5. FLOATING NAV MENU
+   ===================================================== */
+
+.menu-toggle {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 22px;
+    cursor: pointer;
+    justify-self: end;
+    position: relative;
+    z-index: 10001;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: white;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+.menu-toggle.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+.menu-toggle.active span:nth-child(2) { opacity: 0; }
+.menu-toggle.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+#nav-menu {
+    position: fixed;
+    top: 70px;
+    right: 15px;
+    left: auto;
+    width: 150px;
+    background-color: #00796b;
+    border: 1px solid #ffffff;
+    border-radius: 12px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 9999;
+    max-height: calc(100vh - 90px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.25s ease;
+}
+
+#nav-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+#nav-menu::-webkit-scrollbar { width: 4px; }
+#nav-menu::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+}
+
+#nav-menu a {
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 600;
+    padding: 12px 15px;
+    border-radius: 8px;
+    color: #ffffff !important;
+    transition: background 0.2s ease;
+}
+
+#nav-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+@media (max-width: 700px) {
+    .header-top {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+    .menu-toggle { display: flex; }
+}
+
+
+/* =====================================================
+   6. BASE TYPOGRAPHY & FOOTER
+   ===================================================== */
+
+h1 { color: #ffffff; }
+
+section h2 { color: #00796b; }
+
+footer {
+    background: linear-gradient(to right, #004d40, #00695c) !important;
+    color: #ffffff !important;
+    text-align: center;
+    padding: 15px 10px;
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+    margin-top: 30px;
+}
+
+
+/* =====================================================
+   7. CONTACT BUTTONS
+   ===================================================== */
+
+.contact-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 18px;
+    background: #00796b;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    margin-top: 0;
+    font-weight: 600;
+    font-size: 0.92em;
+    letter-spacing: 0.3px;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.contact-btn:hover {
+    background: #00695c;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.2);
+}
+
+button.contact-btn {
+    font-size: 0.92em;
+    line-height: normal;
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Contact grid layout */
+.contact-grid {
+    display: grid;
+    grid-template-columns: calc(50% - 5px) calc(50% - 5px);
+    gap: 10px;
+    margin-top: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.contact-grid .contact-btn {
+    font-size: 0.82em;
+    padding: 10px 8px;
+    text-align: center;
+    white-space: normal;
+    word-break: break-word;
+    min-height: 52px;
+    align-items: center;
+}
+
+.contact-btn-full {
+    grid-column: 1 / -1;
+    width: 100%;
+    text-align: center;
+}
+
+
+/* =====================================================
+   8. GOOGLE REVIEWS BUTTON
+   ===================================================== */
+
+.reviews-btn-container {
+    text-align: center;
+    margin-top: 18px;
+}
+
+.google-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    background: #00796b;
+    color: white;
+}
+
+.google-icon {
+    height: 1.8em;
+    width: auto;
+    flex-shrink: 0;
+    display: block;
+    object-fit: contain;
+    background: white;
+    padding: 4px 10px;
+    border-radius: 6px;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.4), 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.google-btn:hover .google-icon {
+    transform: scale(1.1);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 480px) {
+    .google-btn {
+        gap: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+}
+
+
+/* =====================================================
+   9. ABOUT SECTION — base layout
+   (premium-sections.css adds the photo wrap & badges)
+   ===================================================== */
+
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+/* Base doctor photo — overridden by .doctor-photo-wrap in premium-sections.css */
+.doctor-photo {
+    width: 150px;
+    max-width: 40%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+}
+
+.about-text {
+    flex: 1;
+    min-width: 250px;
+}
+
+@media (max-width: 700px) {
+    .about-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .about-text {
+        min-width: 100%;
+        text-align: left;
+    }
+    .doctor-photo {
+        width: 100px;
+        max-width: 60%;
+    }
+}
+
+@media (max-width: 480px) {
+    .doctor-photo {
+        width: 80px;
+        max-width: 80%;
+    }
+}
+
+
+/* =====================================================
+   10. CONTACT SECTION
+   ===================================================== */
+
+#contact {
+    overflow: hidden !important;
+    box-sizing: border-box;
+    padding: 20px !important;
+}
+
+
+/* =====================================================
+   11. FAQ PREVIEW
+   ===================================================== */
+
+#faq-preview .faq-item {
+    border-left: 3px solid #00796b;
+    padding: 12px 16px;
+    margin: 14px 0;
+    background: rgba(0, 121, 107, 0.06);
+    border-radius: 0 8px 8px 0;
+}
+
+#faq-preview .faq-question {
+    margin: 0 0 8px;
+    color: #00796b;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+#faq-preview .faq-answer-preview {
+    margin: 0;
+    font-size: 0.88em;
+    line-height: 1.6;
+    opacity: 0.8;
+    max-height: 3.6em;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+#faq-preview .more-link {
+    text-align: right;
+    margin-top: 16px;
 }
 
 @media (prefers-color-scheme: dark) {
-    section:not(.hero-container):hover {
-        box-shadow:
-            0 0 0 3px rgba(0, 121, 107, 0.2),
-            0 20px 30px rgba(0, 180, 150, 0.06),
-            0 8px 15px rgba(255, 255, 255, 0.02) !important;
+    #faq-preview .faq-item {
+        background: rgba(0, 121, 107, 0.1);
     }
 }
-body{font-family:Arial,sans-serif;margin:0;padding:0;background:#f4f4f4;color:#333;transition:background 0.3s ease;overflow-x:hidden}
-/* ===== HEADER ===== */
-header{background:#00796b;color:white;padding:15px 20px;box-shadow:0 2px 5px rgba(0,0,0,0.2)}.header-top{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 10px}.logo-title{display:flex;align-items:center;gap:10px;justify-self:start}header img{max-height:50px;width:auto;border-radius:5px}.header-text{text-align:center;justify-self:center}.header-text h1{margin:0;font-size:1.8em}.header-text p{margin:2px 0 0;font-size:0.95em}
-/* ========================================= FLOATING MENU ========================================= */
-.menu-toggle{display:flex!important;flex-direction:column;justify-content:space-between;width:28px;height:22px;cursor:pointer;justify-self:end;position:relative;z-index:10001}.menu-toggle span{display:block;height:3px;width:100%;background:white;border-radius:3px;transition:all 0.3s ease;transform-origin:center}.menu-toggle.active span:nth-child(1){transform:translateY(9px) rotate(45deg)}.menu-toggle.active span:nth-child(2){opacity:0}.menu-toggle.active span:nth-child(3){transform:translateY(-9px) rotate(-45deg)}
-/* Teal Floating Window */
-#nav-menu{position:fixed;top:70px;right:15px;left:auto;width:150px;background-color:#00796b;border:1px solid #ffffff;border-radius:12px;box-shadow:0px 10px 30px rgba(0,0,0,0.3);padding:15px;display:flex;flex-direction:column;gap:5px;z-index:9999;max-height:calc(100vh - 90px);overflow-y:auto;-webkit-overflow-scrolling:touch;opacity:0;visibility:hidden;transform:translateY(-10px);transition:all 0.25s ease}#nav-menu.active{opacity:1;visibility:visible;transform:translateX(0)}
-/* Scrollbar */
-#nav-menu::-webkit-scrollbar{width:4px}#nav-menu::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.4);border-radius:10px}#nav-menu a{text-decoration:none;font-size:17px;font-weight:600;padding:12px 15px;border-radius:8px;color:#ffffff!important;transition:background 0.2s ease}#nav-menu a:hover{background-color:rgba(255,255,255,0.15)}@media (max-width:700px){.header-top{flex-direction:row;justify-content:space-between;text-align:left}.menu-toggle{display:flex}}
-/* ===== SCROLL ANIMATIONS ===== */
-.section-animate{opacity:0}@keyframes slideFromLeft{from{opacity:0;transform:perspective(1000px) translateX(-55px) translateZ(0) scale(0.98)}to{opacity:1;transform:perspective(1000px) translateX(0) translateZ(0) scale(1)}}@keyframes slideFromRight{from{opacity:0;transform:perspective(1000px) translateX(55px) translateZ(0) scale(0.98)}to{opacity:1;transform:perspective(1000px) translateX(0) translateZ(0) scale(1)}}.section-animate.from-left.active{animation:slideFromLeft 0.75s cubic-bezier(0.16,1,0.3,1) forwards}.section-animate.from-right.active{animation:slideFromRight 0.75s cubic-bezier(0.16,1,0.3,1) forwards}
-/* Mobile — reduced slide distance */
-@media (max-width:700px){@keyframes slideFromLeft{from{opacity:0;transform:perspective(1000px) translateX(-30px) translateZ(0) scale(0.98)}to{opacity:1;transform:perspective(1000px) translateX(0) translateZ(0) scale(1)}}@keyframes slideFromRight{from{opacity:0;transform:perspective(1000px) translateX(30px) translateZ(0) scale(0.98)}to{opacity:1;transform:perspective(1000px) translateX(0) translateZ(0) scale(1)}}}
-/* ===== BASE TYPOGRAPHY & FOOTER ===== */
-h1{color:#ffffff}section h2{color:#00796b}footer{background:linear-gradient(to right,#004d40,#00695c)!important;color:#ffffff!important;text-align:center;padding:15px 10px;width:100%;box-sizing:border-box;display:block;margin-top:30px}
-/* ===== CONTACT BUTTON ===== */
-.contact-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;background:#00796b;color:white;text-decoration:none;border-radius:8px;margin-top:0;font-weight:600;font-size:0.92em;letter-spacing:0.3px;transition:background 0.25s ease,transform 0.25s ease,box-shadow 0.25s ease;box-shadow:0 2px 8px rgba(0,0,0,0.15)}.contact-btn:hover{background:#00695c;transform:translateY(-2px);box-shadow:0 5px 14px rgba(0,0,0,0.2)}button.contact-btn{font-size:0.92em;line-height:normal;appearance:none;-webkit-appearance:none;border:none;cursor:pointer}
-/* ===== CONTACT GRID ===== */
-.contact-grid{display:grid;grid-template-columns:calc(50% - 5px) calc(50% - 5px);gap:10px;margin-top:4px;width:100%;box-sizing:border-box}.contact-grid .contact-btn{font-size:0.82em;padding:10px 8px;text-align:center;white-space:normal;word-break:break-word;min-height:52px;align-items:center}
-.contact-btn-full{grid-column:1 / -1;width:100%;text-align:center}
-/* ===== GOOGLE REVIEWS BUTTON ===== */
-.reviews-btn-container{text-align:center;margin-top:18px}.google-btn{display:inline-flex;align-items:center;justify-content:center;gap:16px;padding:12px 24px;font-size:18px;font-weight:600;border-radius:8px;text-decoration:none;background:#00796b;color:white}.google-icon{height:1.8em;width:auto;flex-shrink:0;display:block;object-fit:contain;background:white;padding:4px 10px;border-radius:6px;box-shadow:0 0 8px rgba(255,255,255,0.4),0 2px 4px rgba(0,0,0,0.2);transition:transform 0.3s cubic-bezier(0.175,0.885,0.32,1.275)}.google-btn:hover .google-icon{transform:scale(1.1);box-shadow:0 0 12px rgba(255,255,255,0.6)}@media (max-width:480px){.google-btn{gap:10px;padding:10px 20px;font-size:16px}}
-/* ===== ABOUT SECTION ===== */
-.about-container{display:flex;flex-wrap:wrap;align-items:flex-start;gap:20px}.doctor-photo{width:150px;max-width:40%;height:auto;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.2);flex-shrink:0}.about-text{flex:1;min-width:250px}@media (max-width:700px){.about-container{flex-direction:column;align-items:center;text-align:center}.about-text{min-width:100%;text-align:left}.doctor-photo{width:100px;max-width:60%}#backToTop{display:none;position:fixed;bottom:20px;right:20px;background:rgba(0,121,107,0.5);color:#fff;border:none;border-radius:50%;padding:12px 16px;font-size:24px;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,0.3);z-index:9999;transition:background 0.25s,transform 0.25s;outline:none}#backToTop span{color:#fff;text-shadow:0 2px 8px #00796b,0 0 20px #fff;font-weight:bold}#backToTop:hover{background:rgba(0,77,64,0.7);transform:scale(1.1)}}@media (max-width:480px){.doctor-photo{width:80px;max-width:80%}}#backToTop{display:none}
-/* ===== CONTACT ===== */
-#contact{overflow:hidden !important;box-sizing:border-box;padding:20px !important}
-/* ===== FAQ PREVIEW ===== */
-#faq-preview .faq-item{border-left:3px solid #00796b;padding:12px 16px;margin:14px 0;background:rgba(0,121,107,0.06);border-radius:0 8px 8px 0}#faq-preview .faq-question{margin:0 0 8px;color:#00796b;font-size:1em;line-height:1.4}#faq-preview .faq-answer-preview{margin:0;font-size:0.88em;line-height:1.6;opacity:0.8;max-height:3.6em;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}#faq-preview .more-link{text-align:right;margin-top:16px}@media (prefers-color-scheme:dark){#faq-preview .faq-item{background:rgba(0,121,107,0.1)}}
-/* ===== MAP ===== */
-#map-wrapper{position:relative;width:100%;height:250px;border-radius:12px;overflow:hidden;margin-top:15px;box-shadow:0 4px 15px rgba(0,0,0,0.1);transition:box-shadow 0.3s ease}.map-overlay{position:absolute;top:0;left:0;width:100%;height:100%;z-index:10;background:transparent}#map-wrapper iframe{width:100%;height:100%;display:block}#map-wrapper:hover{box-shadow:0 0 20px rgba(0,121,107,0.3)}
-/* ========================================= SWIPER REVIEW CAROUSEL ========================================= */
-.review-swiper{width:100%;padding:20px 0;overflow:hidden}.swiper-wrapper{display:flex;align-items:stretch}.swiper-slide{display:flex;justify-content:center;flex:0 0 100%;max-width:100%}.review-card{flex:0 0 auto;width:100%;max-width:100%;margin:0 10px;padding:20px;background:rgba(20,20,20,0.75);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:12px;border:3px solid rgba(0,121,107,0.9);box-shadow:0 0 15px rgba(0,121,107,0.45),0 6px 20px rgba(0,0,0,0.25);text-align:left}.review-stars{color:#fbbc04;margin-bottom:8px;font-size:14px}.review-text{color:#2c3e50;font-size:0.95em;line-height:1.5;margin-bottom:12px}.review-author{border-top:1px solid rgba(0,121,107,0.1);padding-top:10px;font-size:0.85em}.review-author strong{display:block;color:#00796b}.review-author span{color:#555555}
-/* Dark mode */
-@media (prefers-color-scheme:dark){.review-card{background:rgba(30,30,30,0.7);border-color:rgba(0,121,107,1);box-shadow:0 0 20px rgba(0,121,107,0.7),0 6px 20px rgba(0,0,0,0.5)}.review-text{color:#f0f0f0!important}.review-author strong{color:#4db6ac!important}.review-author span{color:#bbbbbb!important}}@media (max-width:800px) and (orientation:landscape){.review-card{width:240px!important;min-width:240px!important;max-width:240px!important;margin:0 8px!important;padding:14px!important}}
-/* Desktop layout — 2 and 3 columns */
-@media (min-width:768px){.swiper-slide{flex:0 0 50%;max-width:50%}}@media (min-width:1000px){.swiper-slide{flex:0 0 33.33%;max-width:33.33%}}
-/* ========================================= SERVICES GRID ========================================= */
-.services-box{background:linear-gradient(135deg,rgba(240,247,255,0.65),rgba(255,255,255,0.85));border-left:5px solid #00796b;padding:20px;border-radius:12px;margin:15px auto;text-align:left;box-shadow:0 4px 12px rgba(0,0,0,0.05)}.service-category{font-size:14.5px;color:#00796b;margin:18px 0 8px;border-bottom:1px solid rgba(0,0,0,0.1);padding-bottom:4px;font-weight:700}.tap-note{display:block;font-size:0.72rem;margin-top:6px;opacity:0.75}.services-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:4px}@media (min-width:600px){.services-grid{grid-template-columns:repeat(3,1fr)}}.services-grid a{text-decoration:none;color:inherit;display:block}
-/* ===== SERVICE PILL ===== */
-.service-pill{display:block;width:100%;padding:8px 6px;border-radius:7px;background:#ffffff;color:#333;font-size:12.8px;font-weight:500;line-height:1.25;text-align:center;border:1px solid rgba(0,0,0,0.14);box-shadow:0 2px 4px rgba(0,0,0,0.05),inset 0 0 0 1px rgba(255,255,255,0.35);transition:transform 0.18s ease,box-shadow 0.18s ease,background 0.18s ease;cursor:pointer}.service-pill:hover{background:#dcefe2;transform:translateY(-2px);box-shadow:0 4px 10px rgba(0,0,0,0.08)}.service-pill.neuro:hover{background:#dcecff;border-color:#8ebeea;box-shadow:0 4px 10px rgba(0,0,0,0.08)}.service-pill.highlight:hover{background:#dff3e2;border-color:#9fd3a5;box-shadow:0 4px 10px rgba(0,0,0,0.08)}.service-pill:active{transform:scale(0.97)}
-/* Variants */
-.service-pill.neuro{background:#eef7ff;border:1px solid #adcffa;color:#0e5a95;font-weight:600}.service-pill.highlight{background:#e8f5e9;border:1px solid #c8e6c9;color:#2e7d32;font-weight:700;grid-column:1 / -1}
-/* Dark mode */
-@media (prefers-color-scheme:dark){.services-box{background:linear-gradient(135deg,rgba(30,40,50,0.85),rgba(20,30,40,0.85));border-left-color:#4db6ac}.service-category{color:#4db6ac;border-bottom-color:rgba(255,255,255,0.1)}.service-pill{background:#2a3542;color:#f0f0f0;border:1px solid rgba(255,255,255,0.08)}.service-pill:hover{background:#31463f;border-color:rgba(120,220,190,0.37);box-shadow:0 4px 12px rgba(0,0,0,0.35)}.service-pill.neuro:hover{background:#22384a;border-color:rgba(77,163,255,0.42);box-shadow:0 4px 12px rgba(0,0,0,0.38)}.service-pill.highlight:hover{background:#24402c;border-color:rgba(105,255,153,0.40);box-shadow:0 4px 12px rgba(0,0,0,0.38)}.service-pill.neuro{background:#1a222c;border-color:#0e5a95;color:#4da3ff}.service-pill.highlight{background:#1b3320;border-color:#2e7d32;color:#69ff99}}
-/* ========================================= HERO SECTION ========================================= */
-.hero-container{
-    position:relative;
-    width:100%;
-    max-width:100%!important;
-    aspect-ratio:16 / 9!important;
-    height:auto!important;
-    margin:0 0 30px 0!important;
-    padding:0!important;
-    background-image:url('welcome-hero.webp')!important; /* Ensure this matches your new generated filename */
-    background-size:cover!important;
-    background-position:65% center!important;
-    background-repeat:no-repeat!important;
-    border-radius:0!important;
-    border:none!important;
-    transform:none!important;
-    background-color:#1a1a1a;
+
+
+/* =====================================================
+   12. MAP
+   ===================================================== */
+
+#map-wrapper {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
 }
 
-/* ✅ ENHANCED: Changed to a smooth left-to-right gradient. This makes white text razor-sharp on the left without darkening the doctor on the right. */
-.hero-overlay{
-    position:absolute;
-    inset:0;
-    background:linear-gradient(to right, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.2) 65%, rgba(0, 0, 0, 0) 100%);
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
+.map-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background: transparent;
 }
 
-.hero-content{
-    padding:20px;
+#map-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
 }
 
-/* ✅ ENHANCED: Swapped the dated yellow italics for a crisp, authoritative medical white. Adjusted positioning for better breathing room. */
-.hero-heading{
-    position:absolute;
-    top:25%;
-    left:6%;
-    transform:none;
-    max-width:42%;
-    text-align:left;
-    color:#ffffff!important;
-    font-size:1.6rem;
-    font-weight:bold;
-    margin:0;
-    text-shadow:2px 2px 12px rgba(0,0,0,0.85);
-    line-height:1.35;
+#map-wrapper:hover {
+    box-shadow: 0 0 20px rgba(0, 121, 107, 0.3);
 }
 
-.hero-bottom-status{
-    position:absolute;
-    bottom:0;
-    width:100%;
-    background:rgba(0,121,107,0.85);
-    color:white;
-    padding:10px 0;
-    font-size:.75rem;
-    font-weight:700;
-    letter-spacing:1.5px;
-    text-transform:uppercase;
+
+/* =====================================================
+   13. REVIEW CAROUSEL
+   ===================================================== */
+
+.review-swiper {
+    width: 100%;
+    padding: 20px 0;
+    overflow: hidden;
+}
+
+.swiper-wrapper {
+    display: flex;
+    align-items: stretch;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.review-card {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 10px;
+    padding: 20px;
+    background: rgba(20, 20, 20, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: 3px solid rgba(0, 121, 107, 0.9);
+    box-shadow: 0 0 15px rgba(0, 121, 107, 0.45), 0 6px 20px rgba(0, 0, 0, 0.25);
+    text-align: left;
+}
+
+.review-stars {
+    color: #fbbc04;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.review-text {
+    color: #2c3e50;
+    font-size: 0.95em;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.review-author {
+    border-top: 1px solid rgba(0, 121, 107, 0.1);
+    padding-top: 10px;
+    font-size: 0.85em;
+}
+
+.review-author strong {
+    display: block;
+    color: #00796b;
+}
+
+.review-author span {
+    color: #555555;
+}
+
+/* Review carousel dark mode */
+@media (prefers-color-scheme: dark) {
+    .review-card {
+        background: rgba(30, 30, 30, 0.7);
+        border-color: rgba(0, 121, 107, 1);
+        box-shadow: 0 0 20px rgba(0, 121, 107, 0.7), 0 6px 20px rgba(0, 0, 0, 0.5);
+    }
+    .review-text        { color: #f0f0f0 !important; }
+    .review-author strong { color: #4db6ac !important; }
+    .review-author span  { color: #bbbbbb !important; }
+}
+
+/* Landscape mobile */
+@media (max-width: 800px) and (orientation: landscape) {
+    .review-card {
+        width: 240px !important;
+        min-width: 240px !important;
+        max-width: 240px !important;
+        margin: 0 8px !important;
+        padding: 14px !important;
+    }
+}
+
+/* Desktop multi-column carousel */
+@media (min-width: 768px) {
+    .swiper-slide { flex: 0 0 50%;     max-width: 50%; }
+}
+@media (min-width: 1000px) {
+    .swiper-slide { flex: 0 0 33.33%;  max-width: 33.33%; }
+}
+
+
+/* =====================================================
+   14. SERVICES GRID
+   ===================================================== */
+
+.services-box {
+    background: linear-gradient(135deg, rgba(240, 247, 255, 0.65), rgba(255, 255, 255, 0.85));
+    border-left: 5px solid #00796b;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 15px auto;
+    text-align: left;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.service-category {
+    font-size: 14.5px;
+    color: #00796b;
+    margin: 18px 0 8px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 4px;
+    font-weight: 700;
+}
+
+.tap-note {
+    display: block;
+    font-size: 0.72rem;
+    margin-top: 6px;
+    opacity: 0.75;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+@media (min-width: 600px) {
+    .services-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.services-grid a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+/* Service pill */
+.service-pill {
+    display: block;
+    width: 100%;
+    padding: 8px 6px;
+    border-radius: 7px;
+    background: #ffffff;
+    color: #333;
+    font-size: 12.8px;
+    font-weight: 500;
+    line-height: 1.25;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.14);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    cursor: pointer;
+}
+
+@media (hover: hover) {
+    .service-pill:hover         { background: #dcefe2; transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
+    .service-pill.neuro:hover   { background: #dcecff; border-color: #8ebeea;       box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
+    .service-pill.highlight:hover { background: #dff3e2; border-color: #9fd3a5;     box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
+}
+
+.service-pill:active { transform: scale(0.97); }
+
+/* Pill variants */
+.service-pill.neuro {
+    background: #eef7ff;
+    border: 1px solid #adcffa;
+    color: #0e5a95;
+    font-weight: 600;
+}
+
+.service-pill.highlight {
+    background: #e8f5e9;
+    border: 1px solid #c8e6c9;
+    color: #2e7d32;
+    font-weight: 700;
+    grid-column: 1 / -1;
+}
+
+/* Services dark mode */
+@media (prefers-color-scheme: dark) {
+    .services-box {
+        background: linear-gradient(135deg, rgba(30, 40, 50, 0.85), rgba(20, 30, 40, 0.85));
+        border-left-color: #4db6ac;
+    }
+    .service-category {
+        color: #4db6ac;
+        border-bottom-color: rgba(255, 255, 255, 0.1);
+    }
+    .service-pill {
+        background: #2a3542;
+        color: #f0f0f0;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .service-pill:hover          { background: #31463f; border-color: rgba(120, 220, 190, 0.37); box-shadow: 0 4px 12px rgba(0,0,0,0.35); }
+    .service-pill.neuro:hover    { background: #22384a; border-color: rgba(77, 163, 255, 0.42);  box-shadow: 0 4px 12px rgba(0,0,0,0.38); }
+    .service-pill.highlight:hover { background: #24402c; border-color: rgba(105, 255, 153, 0.40); box-shadow: 0 4px 12px rgba(0,0,0,0.38); }
+    .service-pill.neuro    { background: #1a222c; border-color: #0e5a95; color: #4da3ff; }
+    .service-pill.highlight { background: #1b3320; border-color: #2e7d32; color: #69ff99; }
+}
+
+
+/* =====================================================
+   15. HERO SECTION
+   ===================================================== */
+
+.hero-container {
+    position: relative;
+    width: 100%;
+    max-width: 100% !important;
+    aspect-ratio: 16 / 9 !important;
+    height: auto !important;
+    margin: 0 0 30px 0 !important;
+    padding: 0 !important;
+    background-image: url('welcome-hero.webp') !important;
+    background-size: cover !important;
+    background-position: 65% center !important;
+    background-repeat: no-repeat !important;
+    border-radius: 0 !important;
+    border: none !important;
+    transform: none !important;
+    background-color: #1a1a1a;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right,
+        rgba(0, 0, 0, 0.65)  0%,
+        rgba(0, 0, 0, 0.20) 65%,
+        rgba(0, 0, 0, 0)   100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-content {
+    padding: 20px;
+}
+
+.hero-heading {
+    position: absolute;
+    top: 25%;
+    left: 6%;
+    transform: none;
+    max-width: 42%;
+    text-align: left;
+    color: #ffffff !important;
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin: 0;
+    text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.85);
+    line-height: 1.35;
+}
+
+.hero-bottom-status {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 121, 107, 0.85);
+    color: white;
+    padding: 10px 0;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
 }
 
 /* Mobile hero */
-@media (max-width:700px){
-    /* ✅ ENHANCED: Shifted background-position to 72% to bring Dr. Arneja slightly more inward from the right screen crop. */
-    .hero-container{
-        aspect-ratio:auto!important;
-        min-height:320px!important;
-        background-position:72% center!important;
+@media (max-width: 700px) {
+    .hero-container {
+        aspect-ratio: auto !important;
+        min-height: 320px !important;
+        background-position: 72% center !important;
     }
-    
-        .hero-overlay{
-        display:flex!important;
-        justify-content:flex-start!important;
-        align-items:flex-start!important;
-        /* Changed from 'to bottom' to a 135-degree diagonal angle */
-        background:linear-gradient(135deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.25) 45%, rgba(0, 0, 0, 0) 75%)!important;
+
+    .hero-overlay {
+        display: flex !important;
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+        background: linear-gradient(135deg,
+            rgba(0, 0, 0, 0.75)  0%,
+            rgba(0, 0, 0, 0.25) 45%,
+            rgba(0, 0, 0, 0)    75%) !important;
     }
-    
-    .hero-content{
-        padding:35px 20px!important;
-        width:100%;
+
+    .hero-content {
+        padding: 35px 20px !important;
+        width: 100%;
     }
-    
-    .hero-heading{
-        font-size:clamp(1.05rem, 4.5vw, 1.25rem)!important;
-        text-align:left!important;
-        max-width:85%;
-        margin:0!important;
-        line-height:1.3!important;
-        text-shadow:2px 2px 10px rgba(0,0,0,0.9)!important;
+
+    .hero-heading {
+        font-size: clamp(1.05rem, 4.5vw, 1.25rem) !important;
+        text-align: left !important;
+        max-width: 85%;
+        margin: 0 !important;
+        line-height: 1.3 !important;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9) !important;
         top: 12% !important;
     }
-    
-    /* 🐛 BUG FIX: Added missing '%' unit to width (was 'width:100') to prevent broken containers on mobile webkit engines. */
-    .hero-bottom-status{
-        text-align:center!important;
-        width:100%!important;
-        left:0!important;
-        display:block!important;
+
+    .hero-bottom-status {
+        text-align: center !important;
+        width: 100% !important;
+        left: 0 !important;
+        display: block !important;
     }
 }
-             
+
+
+/* =====================================================
+   16. BACK TO TOP BUTTON
+   (single canonical declaration — not inside media query)
+   ===================================================== */
+
+#backToTop {
+    display: none;
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    background: rgba(0, 121, 107, 0.5);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 12px 16px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    transition: background 0.25s, transform 0.25s;
+    outline: none;
+}
+
+#backToTop span {
+    color: #fff;
+    text-shadow: 0 2px 8px #00796b, 0 0 20px #fff;
+    font-weight: bold;
+}
+
+#backToTop:hover {
+    background: rgba(0, 77, 64, 0.7);
+    transform: scale(1.1);
+}
