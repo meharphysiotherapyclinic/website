@@ -489,7 +489,7 @@ button.contact-btn {
 @media (prefers-color-scheme: dark) {
     .ai-summary-box {
         background: rgba(0, 121, 107, 0.12);
-        border-left-color: #26a69a;
+        border-left-color: #00796b;
         color: #e0e0e0;
     }
 }
