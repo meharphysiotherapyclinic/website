@@ -135,6 +135,12 @@ header img {
     font-size: 1.8em;
 }
 
+.header-text .clinic-name {
+    margin: 0;
+    font-size: 1.8em;
+    font-weight: 700;
+}
+
 .header-text p {
     margin: 2px 0 0;
     font-size: 0.95em;
@@ -238,6 +244,18 @@ header img {
 h1 { color: #ffffff; }
 
 section h2 { color: #00796b; }
+
+/* AI Summary Box — visible clinic intro card (home page + blogs) */
+.ai-summary-box {
+    background: rgba(0, 121, 107, 0.07);
+    border-left: 4px solid #00796b;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 0 0 20px;
+    font-size: 0.95em;
+    line-height: 1.7;
+    color: inherit;
+}
 
 footer {
     background: linear-gradient(to right, #004d40, #00695c) !important;
@@ -465,6 +483,14 @@ button.contact-btn {
 @media (prefers-color-scheme: dark) {
     #faq-preview .faq-item {
         background: rgba(0, 121, 107, 0.1);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .ai-summary-box {
+        background: rgba(0, 121, 107, 0.12);
+        border-left-color: #26a69a;
+        color: #e0e0e0;
     }
 }
 
