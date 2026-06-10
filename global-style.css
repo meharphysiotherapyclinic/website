@@ -252,8 +252,14 @@ header .header-text h1 {
     word-break: keep-all !important;
 }
 
-header .header-text p {
+header .header-text p:not(.clinic-name) {
     font-size: clamp(0.7rem, 2.5vw, 0.95rem) !important;
+    margin: 0 !important;
+}
+
+header .header-text .clinic-name {
+    font-size: clamp(1rem, 4.5vw, 1.8rem) !important;
+    font-weight: 700 !important;
     margin: 0 !important;
 }
 
