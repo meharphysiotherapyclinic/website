@@ -880,3 +880,39 @@ button.contact-btn {
     background: rgba(0, 77, 64, 0.7);
     transform: scale(1.1);
 }
+
+/* ========================================================
+   FIX: Force Welcome Hero Banner to be 100% Full Width 
+   ======================================================== */
+
+/* 1. Prevent unwanted horizontal scrollbars across the site */
+html, body {
+  overflow-x: hidden !important;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. Break the hero banner out of any container or <main> layout constraints */
+#welcome-hero {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  position: relative !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  
+  /* Remove all inherited card layout parameters, shadows, and borders */
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-top: 0 !important;
+  padding: 0 !important;
+  border-radius: 0 !important;      /* Removes the rounded corners */
+  border: none !important;          /* Wipes out card outline borders */
+  box-shadow: none !important;      /* Wipes out background box shadows */
+  box-sizing: border-box !important;
+}
+
+/* 3. Ensure the semi-transparent overlay stretching behaves correctly */
+#welcome-hero .hero-overlay {
+  width: 100% !important;
+  border-radius: 0 !important;
+}
