@@ -916,3 +916,13 @@ html, body {
   width: 100% !important;
   border-radius: 0 !important;
 }
+
+/* Fix gap between header and hero */
+main, #main-content, [role="main"] {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+#welcome-hero {
+  margin-top: 0 !important;
+}
