@@ -2,6 +2,12 @@
    GLOBAL-STYLE.CSS — Mehar Physiotherapy Clinic
    Scope: Entire website (all pages)
    Load order: 1st (base foundation)
+
+   Merged from: global-style.css + theme.css
+   Owns: resets, body, layout wrappers, glassmorphism,
+   card base, header, buttons, external-link icon,
+   mobile refinements, colour theming (light + dark),
+   hero container dimension fixes.
    ===================================================== */
 
 
@@ -143,47 +149,6 @@ section,
     }
 }
 
-/* Dark mode glass */
-@media (prefers-color-scheme: dark) {
-    section,
-    .card,
-    .container,
-    .box,
-    .glass-card,
-    .section-panel,
-    .image-card,
-    .review-card,
-    .services-box,
-    #map-wrapper {
-        background: rgba(34, 34, 34, 0.34) !important;
-        backdrop-filter: blur(16px) saturate(130%) !important;
-        -webkit-backdrop-filter: blur(16px) saturate(130%) !important;
-        border-radius: 16px !important;
-        border: 1.5px solid rgba(80, 220, 200, 0.22) !important;
-        color: #e0e0e0 !important;
-        box-shadow:
-            0 0 0 3px rgba(38, 166, 154, 0.12),
-            0 6px 16px rgba(0, 0, 0, 0.28),
-            0 0 16px rgba(38, 166, 154, 0.12),
-            inset 0 0 6px rgba(38, 166, 154, 0.025) !important;
-    }
-
-    @media (hover: hover) {
-        section:hover,
-        .card:hover,
-        .glass-card:hover,
-        .image-card:hover,
-        .review-card:hover,
-        .services-box:hover {
-            box-shadow:
-                0 0 0 4px rgba(38, 166, 154, 0.16),
-                0 10px 22px rgba(0, 0, 0, 0.34),
-                0 0 20px rgba(38, 166, 154, 0.14),
-                inset 0 0 8px rgba(38, 166, 154, 0.04) !important;
-        }
-    }
-}
-
 
 /* =====================================================
    5. .card BASE STYLE (non-section cards)
@@ -314,7 +279,153 @@ article a[target="_blank"]:not(.button)::after {
 
 
 /* =====================================================
-   9. GLOBAL MOBILE REFINEMENTS
+   9. LIGHT MODE THEME
+   (colour, typography, form fields — no layout/glass)
+   ===================================================== */
+
+@media (prefers-color-scheme: light) {
+
+    html, body {
+        background: #f7f7f7;
+        color: #222;
+    }
+
+    /* Headings outside header */
+    h1, h2, h3, h4, h5, h6 {
+        color: #00796b;
+    }
+
+    /* Footer */
+    footer {
+        background: #f0f0f0;
+        color: #555;
+    }
+
+    /* Buttons */
+    button {
+        background: #00796b;
+        color: #fff;
+    }
+
+    button:hover {
+        background: #00695c;
+    }
+
+    /* Form fields */
+    input, textarea {
+        background: #fff;
+        color: #222;
+        border: 1px solid #ccc;
+    }
+}
+
+
+/* =====================================================
+   10. DARK MODE — glass + theme (single merged block)
+   ===================================================== */
+
+@media (prefers-color-scheme: dark) {
+
+    /* Base colours */
+    html, body {
+        background: #121212 !important;
+        color: #e0e0e0 !important;
+    }
+
+    /* Headings outside header */
+    h1, h2, h3, h4, h5, h6 {
+        color: #4db6ac;
+    }
+
+    /* Footer */
+    footer {
+        background: #1a1a1a;
+        color: #ccc;
+    }
+
+    /* Buttons */
+    button {
+        background: #009688;
+        color: #fff;
+    }
+
+    button:hover {
+        background: #00796b;
+    }
+
+    /* Form fields */
+    input, textarea {
+        background: #2a2a2a;
+        color: #f5f5f5;
+        border: 1px solid #555;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+        color: #aaa;
+    }
+
+    /* Glassmorphism — dark variant */
+    section,
+    .card,
+    .container,
+    .box,
+    .glass-card,
+    .section-panel,
+    .image-card,
+    .review-card,
+    .services-box,
+    #map-wrapper {
+        background: rgba(34, 34, 34, 0.34) !important;
+        backdrop-filter: blur(16px) saturate(130%) !important;
+        -webkit-backdrop-filter: blur(16px) saturate(130%) !important;
+        border-radius: 16px !important;
+        border: 1.5px solid rgba(80, 220, 200, 0.22) !important;
+        color: #e0e0e0 !important;
+        box-shadow:
+            0 0 0 3px rgba(38, 166, 154, 0.12),
+            0 6px 16px rgba(0, 0, 0, 0.28),
+            0 0 16px rgba(38, 166, 154, 0.12),
+            inset 0 0 6px rgba(38, 166, 154, 0.025) !important;
+    }
+
+    @media (hover: hover) {
+        section:hover,
+        .card:hover,
+        .glass-card:hover,
+        .image-card:hover,
+        .review-card:hover,
+        .services-box:hover {
+            box-shadow:
+                0 0 0 4px rgba(38, 166, 154, 0.16),
+                0 10px 22px rgba(0, 0, 0, 0.34),
+                0 0 20px rgba(38, 166, 154, 0.14),
+                inset 0 0 8px rgba(38, 166, 154, 0.04) !important;
+        }
+    }
+
+    /* Hero — dark mode dimension fix */
+    .hero-container {
+        aspect-ratio: 16 / 9 !important;
+        height: auto !important;
+        min-height: 0 !important;
+        padding: 0 !important;
+        margin-bottom: 20px !important;
+    }
+
+    .hero-content {
+        padding: 10px !important;
+        margin: 0 !important;
+    }
+
+    .hero-motto {
+        font-size: 1.2rem !important;
+    }
+}
+
+
+/* =====================================================
+   11. GLOBAL MOBILE REFINEMENTS
    ===================================================== */
 
 @media (max-width: 700px) {
@@ -353,5 +464,48 @@ article a[target="_blank"]:not(.button)::after {
         display: flex;
         align-items: flex-start;
         padding-top: 20px !important;
+    }
+}
+
+
+/* =====================================================
+   12. HERO CONTAINER — dimension rules
+   (all breakpoints and colour-scheme variants)
+   ===================================================== */
+
+/* Class-based dark mode (body.dark or data-theme="dark") */
+body.dark .hero-container,
+body[data-theme='dark'] .hero-container {
+    aspect-ratio: 16 / 9 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    margin-bottom: 20px !important;
+}
+
+/* Universal mobile hero shape — auto height wins on all modes */
+@media (max-width: 700px) {
+    .hero-container {
+        aspect-ratio: auto !important;
+        min-height: 320px !important;
+        background-position: 72% center !important;
+        background-size: cover !important;
+    }
+
+    /* Class-based dark + mobile */
+    body.dark .hero-container,
+    body[data-theme='dark'] .hero-container {
+        aspect-ratio: auto !important;
+        min-height: 320px !important;
+        background-position: 72% center !important;
+    }
+}
+
+/* Dark mode + mobile — prevent 16/9 from overriding mobile auto shape */
+@media (prefers-color-scheme: dark) and (max-width: 700px) {
+    .hero-container {
+        aspect-ratio: auto !important;
+        min-height: 320px !important;
+        background-position: 72% center !important;
     }
 }
