@@ -1,16 +1,23 @@
 /* =====================================================
    STYLE.CSS — Mehar Physiotherapy Clinic
    Scope: Home page only (index.html)
-   Load order: 3rd (after global-style.css, theme.css)
+   Load order: 2nd (after global-style.css)
 
    Merged from: style.css + premium-sections.css
-   Owns: font import, body override, section layout,
-   scroll animations, header, nav menu, typography,
-   footer, contact buttons, about section, FAQ preview,
-   map, review carousel, services grid, hero section,
-   back-to-top, premium headings, mesh backgrounds,
-   doctor photo wrap, credential tag, spec tags,
-   stat badge, section h2 accents, dark mode coverage.
+   Owns: font import, body font-family, section layout
+   (max-width 900px, 3D tilt, overflow visible),
+   scroll animations, header supplemental, nav menu,
+   footer gradient, contact buttons, about section,
+   FAQ preview, map, review carousel, services grid,
+   hero section, back-to-top, premium headings,
+   mesh backgrounds, doctor photo wrap, credential tag,
+   spec tags, stat badge, section h2 accents,
+   dark mode coverage for all of the above.
+
+   Does NOT own: body background/color (global §9/§10),
+   html/body resets (global §1), glassmorphism backgrounds
+   (global §4/§10), header gradient (global §6),
+   header .header-top layout (global §6).
    ===================================================== */
 
 
@@ -26,18 +33,11 @@
    1. HTML / BODY
    ===================================================== */
 
-html, body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-    margin: 0;
-    padding: 0;
-}
-
+/* width/overflow/margin/padding owned by global-style.css §1+§2 */
 body {
+    /* Home-page font — DM Sans replaces the global stack */
     font-family: 'DM Sans', Arial, sans-serif;
-    background: #f4f4f4;
-    color: #333;
+    /* background and color owned by global-style.css §9/§10 (light/dark blocks) */
 }
 
 
@@ -48,8 +48,11 @@ body {
 
 section {
     box-sizing: border-box;
-    max-width: 900px;
+    max-width: 900px;  /* intentional: 900px for home page vs global's 1000px */
     margin: auto;
+    /* Intentional override of global-style.css glassmorphism overflow:hidden.
+       visible is needed for the 3D tilt / perspective effect.
+       Individual sections re-apply overflow:hidden via #id rules below. */
     overflow: visible;
     padding: 20px;
     border-radius: 16px;
@@ -116,18 +119,21 @@ header {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+/* global-style.css §6 sets header .header-top { display: flex !important }
+   which overrides any display:grid here. These rules are written as
+   flex-compatible — justify-self has no effect under flex, so we use
+   margin-auto patterns instead. Global's flex + space-between already
+   positions logo-left / text-center / toggle-right correctly. */
 .header-top {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
     padding: 0 10px;
+    /* display, justify-content, align-items, gap, width all set by global */
 }
 
 .logo-title {
     display: flex;
     align-items: center;
     gap: 10px;
-    justify-self: start;
+    /* flex-shrink:0, flex-grow:0 set by global §6 */
 }
 
 header img {
@@ -136,9 +142,9 @@ header img {
     border-radius: 5px;
 }
 
+/* text-align:center, flex-grow:1, flex-shrink:1 set by global §6 */
 .header-text {
     text-align: center;
-    justify-self: center;
 }
 
 .header-text h1 {
@@ -239,9 +245,8 @@ header img {
 }
 
 @media (max-width: 700px) {
+    /* global §6 already sets flex, space-between, align-items on header .header-top */
     .header-top {
-        flex-direction: row;
-        justify-content: space-between;
         text-align: left;
     }
     .menu-toggle { display: flex; }
