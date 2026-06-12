@@ -186,6 +186,11 @@
 <link rel="stylesheet" href="theme.css">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="premium-sections.css">
+<link
+  rel="preload"
+  as="image"
+  href="welcome-hero.webp"
+  fetchpriority="high">
 </head> 
 <body> 
 <header> 
@@ -193,7 +198,12 @@
 
   <!-- LEFT: Logo -->
   <div class="logo-title"> 
-    <img src="logo.webp" alt="Mehar Physiotherapy Clinic Logo - Best Physiotherapist in Greater Noida West" width="60" height="60">
+    <img
+src="logo.webp"
+alt="Mehar Physiotherapy Clinic Logo"
+width="60"
+height="60"
+decoding="async">
   </div> 
 
   <!-- CENTER: Title -->
@@ -247,7 +257,7 @@
     <!-- Stat badge — sits just below heading -->
     <div class="home-stat-badge">
         <span class="badge-icon">
-            <img src="https://cdn-icons-png.flaticon.com/512/2966/2966327.png" alt="Years of Experience" width="26" height="26" loading="lazy">
+            <span>🏆</span>
         </span>
         20+ Years Experience
     </div>
@@ -264,7 +274,14 @@
 
         <!-- Photo wrapped in new element for credential badge -->
         <div class="doctor-photo-wrap">
-            <img src="doctor.webp" width="175" height="238" alt="Dr. Govindpreet Singh Arneja" class="doctor-photo" fetchpriority="high">
+            <img
+     src="doctor.webp"
+     width="175"
+     height="238"
+     alt="Dr. Govindpreet Singh Arneja"
+     class="doctor-photo"
+     loading="lazy"
+     decoding="async">
             <span class="doctor-credential">
     <span class="cred-degrees">B.P.T. · M.I.A.P.</span>
     <span class="cred-title">Senior Physiotherapist</span>
@@ -536,6 +553,7 @@
 
   <div id="map-wrapper">
     <iframe
+loading="lazy"
       data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.266205463774!2d77.41937927550044!3d28.62177577566904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cee4969c6fb23%3A0xd5b023e77a58fbe6!2sMehar%20Physiotherapy%20Clinic!5e0!3m2!1sen!2sin!4v1714000000000!5m2!1sen!2sin"
       title="Mehar Physiotherapy Clinic Location in Gaur City 2 Greater Noida West"
       width="100%"
@@ -844,7 +862,7 @@ backToTopBtn.addEventListener('click', function() {
     });
   }
       </script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="reviews.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script defer src="reviews.js"></script>
   </body>
 </html>
