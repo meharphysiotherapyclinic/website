@@ -332,27 +332,56 @@ button.contact-btn {
 /* Contact grid layout */
 .contact-grid {
     display: grid;
-    grid-template-columns: calc(50% - 5px) calc(50% - 5px);
-    gap: 10px;
+    grid-template-columns: repeat(3, 1fr); /* 3-col on web — sleeker */
+    gap: 8px;
     margin-top: 4px;
     width: 100%;
     box-sizing: border-box;
 }
 
 .contact-grid .contact-btn {
-    font-size: 0.82em;
-    padding: 10px 8px;
+    display: flex;         /* override base inline-flex — allows width:100% to work */
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 0.80em;
+    padding: 8px 10px;
     text-align: center;
-    white-space: normal;
-    word-break: break-word;
-    min-height: 52px;
+    white-space: nowrap;
+    min-height: 38px;
     align-items: center;
+    justify-content: center;
+    border-radius: 6px;
 }
 
 .contact-btn-full {
     grid-column: 1 / -1;
     width: 100%;
     text-align: center;
+}
+
+/* Mobile — Strict 50/50 layout where text conforms to button size */
+@media (max-width: 700px) {
+    .contact-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+    }
+
+    .contact-grid .contact-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 0.72em;
+        padding: 8px 6px;
+        white-space: normal;
+        word-break: break-word;
+        line-height: 1.2;
+        text-align: center;
+        min-height: 42px;
+        letter-spacing: 0;
+    }
 }
 
 
