@@ -1,4 +1,4 @@
-const CACHE_NAME = "mehar-main-v3"; // Bumped version
+const CACHE_NAME = "mehar-main-v4"; // Bumped: theme.css removed
 const DYNAMIC_CACHE = "mehar-dynamic-v1";
 
 const urlsToCache = [
@@ -10,7 +10,6 @@ const urlsToCache = [
   "./blog.html",
   "./global-style.css",
   "./style.css",
-  "./theme.css",
   "./logo.webp",
   "./logo.png",
   "./doctor.webp"
