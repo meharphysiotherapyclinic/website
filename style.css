@@ -738,111 +738,212 @@ button.contact-btn {
 
 
 /* =====================================================
-   15. HERO SECTION
-   ===================================================== */
+   HERO SECTION – FINAL CURATED VERSION
+===================================================== */
 
-.hero-container {
-    position: relative;
-    width: 100%;
-    max-width: 100% !important;
-    aspect-ratio: 16 / 9 !important;
-    height: auto !important;
-    margin: 0 0 30px 0 !important;
-    padding: 0 !important;
-    background-image: url('welcome-hero.webp') !important;
-    background-size: cover !important;
-    background-position: 65% center !important;
-    background-repeat: no-repeat !important;
-    border-radius: 0 !important;
-    border: none !important;
-    transform: none !important;
-    background-color: #1a1a1a;
+/* Prevent horizontal scroll */
+html,
+body{
+    margin:0;
+    padding:0;
+    overflow-x:hidden;
 }
 
-.hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to right,
-        rgba(0, 0, 0, 0.65)  0%,
-        rgba(0, 0, 0, 0.20) 65%,
-        rgba(0, 0, 0, 0)   100%);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+/* Remove spacing above hero */
+main,
+#main-content,
+[role="main"]{
+    margin-top:0 !important;
+    padding-top:0 !important;
 }
 
-.hero-content {
-    padding: 20px;
+/* HERO */
+#welcome-hero,
+.hero-container{
+
+    position:relative;
+
+    width:100vw !important;
+    max-width:100vw !important;
+
+    left:50%;
+    transform:translateX(-50%);
+
+    aspect-ratio:16 / 9;
+
+    min-height:420px;
+
+    margin:0 0 30px 0 !important;
+
+    padding:0 !important;
+
+    background-image:url("welcome-hero.webp") !important;
+
+    background-size:cover !important;
+
+    background-position:65% center !important;
+
+    background-repeat:no-repeat !important;
+
+    background-color:#1a1a1a;
+
+    border:none !important;
+
+    border-radius:0 !important;
+
+    overflow:hidden;
+
+    box-shadow:none;
+
+    box-sizing:border-box;
 }
 
-.hero-heading {
-    position: absolute;
-    top: 25%;
-    left: 6%;
-    transform: none;
-    max-width: 42%;
-    text-align: left;
-    color: #ffffff !important;
-    font-size: 1.6rem;
-    font-weight: bold;
-    margin: 0;
-    text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.85);
-    line-height: 1.35;
+/* Overlay */
+.hero-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            to right,
+            rgba(0,0,0,.65) 0%,
+            rgba(0,0,0,.20) 65%,
+            rgba(0,0,0,0) 100%
+        );
 }
 
-.hero-bottom-status {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background: rgba(0, 121, 107, 0.85);
-    color: white;
-    padding: 10px 0;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
+/* Content */
+.hero-content{
+
+    position:relative;
+
+    width:100%;
+
+    height:100%;
+
+    padding:20px;
 }
 
-/* Mobile hero */
-@media (max-width: 700px) {
-    .hero-container {
-        aspect-ratio: auto !important;
-        min-height: 320px !important;
-        background-position: 72% center !important;
+/* Heading */
+.hero-heading{
+
+    position:absolute;
+
+    top:25%;
+
+    left:6%;
+
+    margin:0;
+
+    max-width:42%;
+
+    color:#fff;
+
+    font-size:1.6rem;
+
+    font-weight:700;
+
+    line-height:1.35;
+
+    text-align:left;
+
+    text-shadow:
+        2px 2px 12px rgba(0,0,0,.85);
+}
+
+/* Bottom strip */
+.hero-bottom-status{
+
+    position:absolute;
+
+    left:0;
+
+    bottom:0;
+
+    width:100%;
+
+    padding:10px 0;
+
+    background:
+        rgba(0,121,107,.85);
+
+    color:#fff;
+
+    text-align:center;
+
+    font-size:.75rem;
+
+    font-weight:700;
+
+    letter-spacing:1.5px;
+
+    text-transform:uppercase;
+}
+
+/* MOBILE */
+@media (max-width:700px){
+
+    #welcome-hero,
+    .hero-container{
+
+        aspect-ratio:auto !important;
+
+        min-height:320px !important;
+
+        background-position:72% center !important;
     }
 
-    .hero-overlay {
-        display: flex !important;
-        justify-content: flex-start !important;
-        align-items: flex-start !important;
-        background: linear-gradient(135deg,
-            rgba(0, 0, 0, 0.75)  0%,
-            rgba(0, 0, 0, 0.25) 45%,
-            rgba(0, 0, 0, 0)    75%) !important;
+    .hero-overlay{
+
+        justify-content:flex-start;
+
+        align-items:flex-start;
+
+        background:
+            linear-gradient(
+                135deg,
+                rgba(0,0,0,.75) 0%,
+                rgba(0,0,0,.25) 45%,
+                rgba(0,0,0,0) 75%
+            );
     }
 
-    .hero-content {
-        padding: 35px 20px !important;
-        width: 100%;
+    .hero-content{
+
+        padding:35px 20px;
     }
 
-    .hero-heading {
-        font-size: clamp(1.05rem, 4.5vw, 1.25rem) !important;
-        text-align: left !important;
-        max-width: 85%;
-        margin: 0 !important;
-        line-height: 1.3 !important;
-        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9) !important;
-        top: 12% !important;
+    .hero-heading{
+
+        top:12%;
+
+        left:6%;
+
+        max-width:85%;
+
+        font-size:
+            clamp(
+                1.05rem,
+                4.5vw,
+                1.25rem
+            );
+
+        line-height:1.3;
     }
 
-    .hero-bottom-status {
-        text-align: center !important;
-        width: 100% !important;
-        left: 0 !important;
-        display: block !important;
+    .hero-bottom-status{
+
+        width:100%;
     }
 }
 
@@ -879,50 +980,4 @@ button.contact-btn {
 #backToTop:hover {
     background: rgba(0, 77, 64, 0.7);
     transform: scale(1.1);
-}
-
-/* ========================================================
-   FIX: Force Welcome Hero Banner to be 100% Full Width 
-   ======================================================== */
-
-/* 1. Prevent unwanted horizontal scrollbars across the site */
-html, body {
-  overflow-x: hidden !important;
-  margin: 0;
-  padding: 0;
-}
-
-/* 2. Break the hero banner out of any container or <main> layout constraints */
-#welcome-hero {
-  width: 100vw !important;
-  max-width: 100vw !important;
-  position: relative !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  
-  /* Remove all inherited card layout parameters, shadows, and borders */
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  margin-top: 0 !important;
-  padding: 0 !important;
-  border-radius: 0 !important;      /* Removes the rounded corners */
-  border: none !important;          /* Wipes out card outline borders */
-  box-shadow: none !important;      /* Wipes out background box shadows */
-  box-sizing: border-box !important;
-}
-
-/* 3. Ensure the semi-transparent overlay stretching behaves correctly */
-#welcome-hero .hero-overlay {
-  width: 100% !important;
-  border-radius: 0 !important;
-}
-
-/* Fix gap between header and hero */
-main, #main-content, [role="main"] {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-}
-
-#welcome-hero {
-  margin-top: 0 !important;
 }
