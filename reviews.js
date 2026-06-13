@@ -1,36 +1,38 @@
-document.addEventListener('DOMContentLoaded', () => {
+(function () {
 
   const websiteReviews = [
-  {
-    name: "Debangshi Chaterjee",
-    text: "Dr. Govind Ji is extraordinary. He treated my mother-in-law for knee replacement. She started walking without support in 25 days and was perfectly fine in 45 days. Truly grateful.",
-    service: "Knee Replacement Rehab"
-  },
-  {
-    name: "Ankit Kumar Nayak",
-    text: "Highly recommended for honest recommendations and effective treatment. I've been taking sessions for 5 months post-accident. Experienced doctor and high-end equipment.",
-    service: "Post-Accident Recovery"
-  },
-  {
-    name: "Mridula Tyagi",
-    text: "Massive thanks to Dr. Arneja for his amazing work. After my slip disc, I didn't think I could live a normal life without surgery. He is the best physiotherapist.",
-    service: "Slip Disc Treatment"
-  },
-  {
-    name: "Nirupa Chaurasia",
-    text: "After knee replacement, I tried two other professionals but wasn't satisfied. After two months with Govind ji, I am finally happy with my leg movement.",
-    service: "Knee Rehab"
-  }
+    {
+      name: "Debangshi Chaterjee",
+      text: "Dr. Govind Ji is extraordinary. He treated my mother-in-law for knee replacement. She started walking without support in 25 days and was perfectly fine in 45 days. Truly grateful.",
+      service: "Knee Replacement Rehab"
+    },
+    {
+      name: "Ankit Kumar Nayak",
+      text: "Highly recommended for honest recommendations and effective treatment. I've been taking sessions for 5 months post-accident. Experienced doctor and high-end equipment.",
+      service: "Post-Accident Recovery"
+    },
+    {
+      name: "Mridula Tyagi",
+      text: "Massive thanks to Dr. Arneja for his amazing work. After my slip disc, I didn't think I could live a normal life without surgery. He is the best physiotherapist.",
+      service: "Slip Disc Treatment"
+    },
+    {
+      name: "Nirupa Chaurasia",
+      text: "After knee replacement, I tried two other professionals but wasn't satisfied. After two months with Govind ji, I am finally happy with my leg movement.",
+      service: "Knee Rehab"
+    }
   ];
 
   const wrapper = document.getElementById('review-wrapper');
+
   if (!wrapper) return;
 
-  // Clear first (prevents duplication bugs)
+  // Prevent duplicate slides
   wrapper.innerHTML = '';
 
   // Create slides
   websiteReviews.forEach(rev => {
+
     const slide = document.createElement('div');
     slide.className = 'swiper-slide';
 
@@ -46,25 +48,27 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
 
     wrapper.appendChild(slide);
+
   });
 
-  // ✅ Ensure Swiper exists before initializing
+  // Safety check
   if (typeof Swiper === 'undefined') {
     console.error('Swiper not loaded');
     return;
   }
 
-  // ✅ Professional smooth autoplay
+  // Initialize Swiper
   new Swiper('.review-swiper', {
+
     slidesPerView: 'auto',
     spaceBetween: 15,
     loop: true,
 
-    speed: 3000, // smooth continuous feel
+    speed: 3000,
 
     autoplay: {
-      delay: 1,                // 🔥 continuous motion trick
-      disableOnInteraction: false,
+      delay: 1,
+      disableOnInteraction: false
     },
 
     freeMode: true,
@@ -73,9 +77,14 @@ document.addEventListener('DOMContentLoaded', () => {
     grabCursor: true,
 
     breakpoints: {
-      0: { spaceBetween: 10 },
-      768: { spaceBetween: 15 }
+      0: {
+        spaceBetween: 10
+      },
+      768: {
+        spaceBetween: 15
+      }
     }
+
   });
 
-});
+})();
