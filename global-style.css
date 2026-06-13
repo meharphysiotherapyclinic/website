@@ -13,6 +13,81 @@
    those are home-page scoped and owned by style.css.
    ===================================================== */
 
+/* DM Sans */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./fonts/dm-sans-v17-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('./fonts/dm-sans-v17-latin-500.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('./fonts/dm-sans-v17-latin-600.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('fonts/dm-sans-v17-latin-700.woff2') format('woff2');
+}
+
+/* DM Serif Display */
+@font-face {
+  font-family: 'DM Serif Display';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./fonts/dm-serif-display-v17-latin-regular.woff2') format('woff2');
+}
+
+/* =====================================================
+   GLOBAL TYPOGRAPHY SYSTEM
+   ===================================================== */
+
+/* Base font */
+body {
+    font-family: 'DM Sans', Arial, sans-serif;
+}
+
+/* Main page titles */
+h1 {
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+}
+
+/* Premium section headings */
+h2 {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+}
+
+/* Secondary headings */
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-weight: 600;
+}
 
 /* =====================================================
    1. UNIVERSAL RESETS
