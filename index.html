@@ -4,7 +4,6 @@
     <link rel="canonical" href="https://meharphysiotherapyclinic.github.io/website/">
     
     <!-- Preconnect to external origins to accelerate asset discovery -->
-    <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdn-icons-png.flaticon.com" crossorigin>
@@ -181,7 +180,6 @@
 <meta property="twitter:description" content="Expert physiotherapy care for back pain, neck pain, and sports injuries in Greater Noida West.">
 <meta property="twitter:image" content="https://meharphysiotherapyclinic.github.io/website/logo.webp">
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 <link rel="stylesheet" href="global-style.css">
 <link rel="stylesheet" href="style.css">
 <link
@@ -860,7 +858,26 @@ backToTopBtn.addEventListener('click', function() {
     });
   }
       </script>
-    <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script defer src="reviews.js"></script>
+    <script>
+  (function () {
+
+    const css = document.createElement('link');
+    css.rel = 'stylesheet';
+    css.href = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css';
+    document.head.appendChild(css);
+
+    const swiperJS = document.createElement('script');
+    swiperJS.src = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js';
+
+    swiperJS.onload = () => {
+      const reviewsJS = document.createElement('script');
+      reviewsJS.src = 'reviews.js';
+      document.body.appendChild(reviewsJS);
+    };
+
+    document.body.appendChild(swiperJS);
+
+  })();
+</script>
   </body>
 </html>
