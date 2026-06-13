@@ -175,24 +175,42 @@ header img {
 }
 
 /* text-align:center, flex-grow:1, flex-shrink:1 set by global §6 */
+/* =====================================================
+   HEADER TEXT TYPOGRAPHY
+   ===================================================== */
+
 .header-text {
     text-align: center;
 }
 
-.header-text h1 {
+.header-text h1,
+.header-text .clinic-name {
     margin: 0;
+    font-family: 'DM Sans', Arial, sans-serif;
     font-size: 1.8em;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
 }
 
 .header-text p {
     margin: 2px 0 0;
+    font-family: 'DM Sans', Arial, sans-serif;
     font-size: 0.95em;
+    font-weight: 500;
+    line-height: 1.4;
 }
 
-.header-text .clinic-name {
-    margin: 0;
-    font-size: 1.8em;
-    font-weight: 700;
+/* Mobile */
+@media (max-width: 700px) {
+    .header-text h1,
+    .header-text .clinic-name {
+        font-size: 1.55em;
+    }
+
+    .header-text p {
+        font-size: 0.9em;
+    }
 }
 
 
