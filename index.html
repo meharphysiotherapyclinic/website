@@ -864,9 +864,25 @@ backToTopBtn.addEventListener('click', function() {
     const css = document.createElement('link');
     css.rel = 'stylesheet';
     css.href = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css';
-    document.head.appendChild(css);
+    css.onload = () => {
 
-    const swiperJS = document.createElement('script');
+  const swiperJS = document.createElement('script');
+  swiperJS.src =
+    'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js';
+
+  swiperJS.onload = () => {
+
+    const reviewsJS = document.createElement('script');
+    reviewsJS.src = 'reviews.js';
+    document.body.appendChild(reviewsJS);
+
+  };
+
+  document.body.appendChild(swiperJS);
+
+};
+
+document.head.appendChild(css);
     swiperJS.src = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js';
 
     swiperJS.onload = () => {
