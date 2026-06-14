@@ -9,6 +9,11 @@
     <!-- Preconnect to external origins used above the fold -->
     <link rel="preconnect" href="https://upload.wikimedia.org">
     <link rel="preconnect" href="https://cdn-icons-png.flaticon.com">
+    <link rel="preload" href="fonts/dm-sans-v17-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/dm-sans-v17-latin-500.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/dm-sans-v17-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/dm-sans-v17-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/dm-serif-display-v17-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
 
     <!-- =====================================================
          CRITICAL CSS — above-the-fold only (header + hero)
@@ -920,39 +925,24 @@ backToTopBtn.addEventListener('click', function() {
       </script>
     <script>
   (function () {
-
     const css = document.createElement('link');
     css.rel = 'stylesheet';
     css.href = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css';
+
     css.onload = () => {
+      const swiperJS = document.createElement('script');
+      swiperJS.src = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js';
 
-  const swiperJS = document.createElement('script');
-  swiperJS.src =
-    'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js';
+      swiperJS.onload = () => {
+        const reviewsJS = document.createElement('script');
+        reviewsJS.src = 'reviews.js';
+        document.body.appendChild(reviewsJS);
+      };
 
-  swiperJS.onload = () => {
-
-    const reviewsJS = document.createElement('script');
-    reviewsJS.src = 'reviews.js';
-    document.body.appendChild(reviewsJS);
-
-  };
-
-  document.body.appendChild(swiperJS);
-
-};
-
-document.head.appendChild(css);
-    swiperJS.src = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js';
-
-    swiperJS.onload = () => {
-      const reviewsJS = document.createElement('script');
-      reviewsJS.src = 'reviews.js';
-      document.body.appendChild(reviewsJS);
+      document.body.appendChild(swiperJS);
     };
 
-    document.body.appendChild(swiperJS);
-
+    document.head.appendChild(css);
   })();
 </script>
   </body>
