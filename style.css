@@ -1328,10 +1328,11 @@ main,
 }
 
 .home-stat-badge .badge-icon span {
-    font-size: 12px !important;
+    font-size: 14px !important;
     line-height: 1;
-    display: block;
-    transform: translateY(-1px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Stat badge dark mode */
@@ -1348,7 +1349,6 @@ main,
 
     .home-stat-badge .badge-icon span {
         line-height: 1;
-        transform: translateY(-1px);
     }
 }
 
