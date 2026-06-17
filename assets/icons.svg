@@ -7,100 +7,57 @@
     <path fill="#FFD700" d="M12 2l.24 .004a7 7 0 0 1 6.76 6.996l-.003 .193l-.007 .192l-.018 .245l-.026 .242l-.024 .178a6.985 6.985 0 0 1 -.317 1.268l-.116 .308l-.153 .348a7.001 7.001 0 0 1 -12.688 -.028l-.13 -.297l-.052 -.133l-.08 -.217l-.095 -.294a6.96 6.96 0 0 1 -.093 -.344l-.06 -.271l-.049 -.271l-.02 -.139l-.039 -.323l-.024 -.365l-.006 -.292a7 7 0 0 1 6.76 -6.996l.24 -.004z" />
   </symbol>
 
-  <symbol id="icon-doctor" viewBox="0 0 520 720">
+  <symbol id="icon-doctor" viewBox="0 0 520 620">
 
-  <!-- BODY / SCRUBS -->
-  <path d="M0 720 L0 540
-           Q20 490 80 468 Q150 444 210 438
-           L210 455 Q240 468 260 470 Q280 468 310 455
-           L310 438 Q370 444 440 468 Q500 490 520 540
-           L520 720 Z"
-        fill="#4B9FE5"/>
+    <!-- BODY / APRON (white) -->
+    <path d="M0 620 L0 545
+             Q20 495 80 472 Q150 448 210 442
+             L210 460 Q240 474 260 476 Q280 474 310 460
+             L310 442 Q370 448 440 472 Q500 495 520 545
+             L520 620 Z" fill="#FFFFFF" stroke="#E3E6EA" stroke-width="2"/>
 
-  <!-- Teal V-neck -->
-  <path d="M210 438 Q225 448 260 495 Q295 448 310 438
-           Q285 505 260 528 Q235 505 210 438 Z"
-        fill="#29B6AC"/>
+    <!-- Teal V-neck undershirt -->
+    <path d="M210 442 Q225 452 260 500 Q295 452 310 442 Q285 510 260 533 Q235 510 210 442 Z"
+          fill="#29B6AC"/>
 
-  <!-- Neck -->
-  <rect x="218" y="372" width="84" height="90" rx="22"
-        fill="#F0BC80"/>
+    <!-- NECK -->
+    <rect x="212" y="368" width="96" height="98" rx="24" fill="#F0BC80"/>
 
-  <!-- Head -->
-  <ellipse cx="260" cy="248" rx="128" ry="138"
-           fill="#F0BC80"/>
+    <!-- HEAD -->
+    <ellipse cx="260" cy="246" rx="146" ry="156" fill="#F0BC80"/>
 
-  <!-- Ears -->
-  <ellipse cx="141" cy="272" rx="15" ry="21"
-           fill="#E8AA70"/>
+    <!-- EARS — drawn before hair so hair sides cover them -->
+    <ellipse cx="121" cy="272" rx="16" ry="23" fill="#E8AA70"/>
+    <ellipse cx="399" cy="272" rx="16" ry="23" fill="#E8AA70"/>
 
-  <ellipse cx="379" cy="272" rx="15" ry="21"
-           fill="#E8AA70"/>
-
-  <!-- Hair -->
-  <ellipse cx="260" cy="152" rx="128" ry="90"
-           fill="#1B2840"/>
-
-  <ellipse cx="138" cy="242" rx="36" ry="68"
-           fill="#1B2840"/>
-
-  <ellipse cx="382" cy="242" rx="36" ry="68"
-           fill="#1B2840"/>
-
-  <path d="M138 222 Q142 96 260 88 Q378 96 382 222
-           Q358 155 260 152 Q162 155 138 222 Z"
-        fill="#1B2840"/>
-
-  <path d="M258 90 Q292 74 318 92
-           Q300 118 278 122
-           Q264 123 258 108 Z"
-        fill="#1B2840"/>
-
-  <!-- Eyes -->
-  <circle cx="218" cy="262" r="17"
+    <!-- HAIR -->
+    <ellipse cx="260" cy="142" rx="146" ry="100" fill="#1B2840"/>
+    <ellipse cx="116" cy="240" rx="40" ry="76" fill="#1B2840"/>
+    <ellipse cx="404" cy="240" rx="40" ry="76" fill="#1B2840"/>
+    <path d="M116 218 Q120 70 260 60 Q400 70 404 218
+             Q376 144 260 140 Q144 144 116 218 Z" fill="#1B2840"/>
+    <path d="M258 62 Q296 44 324 64 Q304 92 280 97 Q265 98 258 82 Z"
           fill="#1B2840"/>
 
-  <circle cx="302" cy="262" r="17"
-          fill="#1B2840"/>
+    <!-- EYES -->
+    <circle cx="214" cy="258" r="19" fill="#1B2840"/>
+    <circle cx="306" cy="258" r="19" fill="#1B2840"/>
 
-  <!-- Smile -->
-  <path d="M222 318 Q260 350 298 318"
-        stroke="#1B2840"
-        stroke-width="12"
-        fill="none"
-        stroke-linecap="round"/>
+    <!-- SMILE -->
+    <path d="M219 322 Q260 358 301 322"
+          stroke="#1B2840" stroke-width="13" fill="none" stroke-linecap="round"/>
 
-  <!-- Stethoscope -->
-  <path d="M222 390 Q185 390 165 420
-           Q148 450 162 490
-           Q172 520 210 538"
-        stroke="#8B98AA"
-        stroke-width="26"
-        fill="none"
-        stroke-linecap="round"/>
+    <!-- STETHOSCOPE -->
+    <path d="M220 396 Q180 396 158 428 Q140 460 155 502 Q166 534 208 552"
+          stroke="#8B98AA" stroke-width="27" fill="none" stroke-linecap="round"/>
+    <path d="M300 396 Q340 396 362 428 Q380 460 365 502 Q354 534 312 552"
+          stroke="#8B98AA" stroke-width="27" fill="none" stroke-linecap="round"/>
+    <path d="M208 552 Q234 565 260 567 Q286 565 312 552"
+          stroke="#8B98AA" stroke-width="27" fill="none" stroke-linecap="round"/>
+    <circle cx="260" cy="574" r="40" fill="#6C7A8C"/>
+    <circle cx="260" cy="574" r="25" fill="#B5C2CC"/>
 
-  <path d="M298 390 Q335 390 355 420
-           Q372 450 358 490
-           Q348 520 310 538"
-        stroke="#8B98AA"
-        stroke-width="26"
-        fill="none"
-        stroke-linecap="round"/>
-
-  <path d="M210 538 Q235 550 260 552
-           Q285 550 310 538"
-        stroke="#8B98AA"
-        stroke-width="26"
-        fill="none"
-        stroke-linecap="round"/>
-
-  <circle cx="260" cy="558" r="38"
-          fill="#6C7A8C"/>
-
-  <circle cx="260" cy="558" r="24"
-          fill="#B5C2CC"/>
-
-</symbol>
+  </symbol>
   
   <symbol id="icon-home" viewBox="0 0 24 24">
 
