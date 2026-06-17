@@ -583,3 +583,73 @@ body[data-theme='dark'] .hero-container {
         background-position: 72% center !important;
     }
 }
+
+/* =====================================================
+   SVG SPRITE ICON SYSTEM
+   Global for entire website
+   ===================================================== */
+
+.icon{
+    width: 1.8em;
+    height: 1.8em;
+
+    display: inline-block;
+    flex-shrink: 0;
+
+    fill: currentColor;
+    color: inherit;
+
+    vertical-align: middle;
+
+    overflow: visible;
+}
+
+.nav-icon-home{
+    width: 1.6em;
+    height: 1.6em;
+}
+
+/* Small buttons */
+.contact-btn .icon,
+.action-btn .icon,
+.btn .icon{
+    width: 26px;
+    height: 26px;
+    margin-right: 8px;
+}
+
+/* Contact cards */
+.contact-card .icon,
+.contact-item .icon{
+    width: 24px;
+    height: 24px;
+}
+
+/* Large feature cards */
+.contact-box .icon,
+.quick-action .icon{
+    width: 32px;
+    height: 32px;
+}
+
+/* Social icons */
+.social-link .icon{
+    width: 22px;
+    height: 22px;
+}
+
+/* Heading icons */
+h2 .icon,
+.section-title .icon{
+    width: 0.9em;
+    height: 0.9em;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark){
+
+    .icon{
+        color: inherit;
+    }
+
+}
