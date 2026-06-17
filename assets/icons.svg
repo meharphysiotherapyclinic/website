@@ -6,6 +6,139 @@
     <path fill="#FFD700" d="M11.43 17.982l-1.966 3.408a1.001 1.001 0 0 1 -1.622 .157l-.076 -.1l-.064 -.114l-1.304 -2.635l-2.931 .19a1.001 1.001 0 0 1 -1.022 -1.29l.04 -.107l.05 -.1l1.968 -3.409a8.994 8.994 0 0 0 6.927 4.001z" />
     <path fill="#FFD700" d="M12 2l.24 .004a7 7 0 0 1 6.76 6.996l-.003 .193l-.007 .192l-.018 .245l-.026 .242l-.024 .178a6.985 6.985 0 0 1 -.317 1.268l-.116 .308l-.153 .348a7.001 7.001 0 0 1 -12.688 -.028l-.13 -.297l-.052 -.133l-.08 -.217l-.095 -.294a6.96 6.96 0 0 1 -.093 -.344l-.06 -.271l-.049 -.271l-.02 -.139l-.039 -.323l-.024 -.365l-.006 -.292a7 7 0 0 1 6.76 -6.996l.24 -.004z" />
   </symbol>
+
+  <symbol id="icon-doctor" viewBox="0 0 520 720">
+
+  <!-- BODY / SCRUBS -->
+  <path d="M0 720 L0 540
+           Q20 490 80 468 Q150 444 210 438
+           L210 455 Q240 468 260 470 Q280 468 310 455
+           L310 438 Q370 444 440 468 Q500 490 520 540
+           L520 720 Z"
+        fill="#4B9FE5"/>
+
+  <!-- V-NECK -->
+  <path d="M210 438 Q225 448 260 495 Q295 448 310 438
+           Q285 505 260 528 Q235 505 210 438 Z"
+        fill="#29B6AC"/>
+
+  <!-- NECK -->
+  <rect x="218"
+        y="372"
+        width="84"
+        height="90"
+        rx="22"
+        fill="#F0BC80"/>
+
+  <!-- HEAD -->
+  <ellipse cx="260"
+           cy="248"
+           rx="128"
+           ry="138"
+           fill="#F0BC80"/>
+
+  <!-- EARS -->
+  <ellipse cx="141"
+           cy="272"
+           rx="15"
+           ry="21"
+           fill="#E8AA70"/>
+
+  <ellipse cx="379"
+           cy="272"
+           rx="15"
+           ry="21"
+           fill="#E8AA70"/>
+
+  <!-- HAIR -->
+  <ellipse cx="260"
+           cy="152"
+           rx="128"
+           ry="90"
+           fill="#1B2840"/>
+
+  <ellipse cx="138"
+           cy="242"
+           rx="36"
+           ry="68"
+           fill="#1B2840"/>
+
+  <ellipse cx="382"
+           cy="242"
+           rx="36"
+           ry="68"
+           fill="#1B2840"/>
+
+  <path d="M138 222
+           Q142 96 260 88
+           Q378 96 382 222
+           Q358 155 260 152
+           Q162 155 138 222 Z"
+        fill="#1B2840"/>
+
+  <path d="M258 90
+           Q292 74 318 92
+           Q300 118 278 122
+           Q264 123 258 108 Z"
+        fill="#1B2840"/>
+
+  <!-- EYES -->
+  <circle cx="218"
+          cy="262"
+          r="17"
+          fill="#1B2840"/>
+
+  <circle cx="302"
+          cy="262"
+          r="17"
+          fill="#1B2840"/>
+
+  <!-- SMILE -->
+  <path d="M222 318 Q260 350 298 318"
+        stroke="#1B2840"
+        stroke-width="12"
+        fill="none"
+        stroke-linecap="round"/>
+
+  <!-- STETHOSCOPE -->
+  <path d="M222 390
+           Q185 390 165 420
+           Q148 450 162 490
+           Q172 520 210 538"
+        stroke="#8B98AA"
+        stroke-width="26"
+        fill="none"
+        stroke-linecap="round"/>
+
+  <path d="M298 390
+           Q335 390 355 420
+           Q372 450 358 490
+           Q348 520 310 538"
+        stroke="#8B98AA"
+        stroke-width="26"
+        fill="none"
+        stroke-linecap="round"/>
+
+  <path d="M210 538
+           Q235 550 260 552
+           Q285 550 310 538"
+        stroke="#8B98AA"
+        stroke-width="26"
+        fill="none"
+        stroke-linecap="round"/>
+
+  <circle cx="260"
+          cy="558"
+          r="38"
+          fill="#6C7A8C"/>
+
+  <circle cx="260"
+          cy="558"
+          r="24"
+          fill="#B5C2CC"/>
+
+</symbol>
+  
   <symbol id="icon-home" viewBox="0 0 24 24">
 
   <!-- Dark outline -->
