@@ -17,92 +17,61 @@
            L520 720 Z"
         fill="#4B9FE5"/>
 
-  <!-- V-NECK -->
+  <!-- Teal V-neck -->
   <path d="M210 438 Q225 448 260 495 Q295 448 310 438
            Q285 505 260 528 Q235 505 210 438 Z"
         fill="#29B6AC"/>
 
-  <!-- NECK -->
-  <rect x="218"
-        y="372"
-        width="84"
-        height="90"
-        rx="22"
+  <!-- Neck -->
+  <rect x="218" y="372" width="84" height="90" rx="22"
         fill="#F0BC80"/>
 
-  <!-- HEAD -->
-  <ellipse cx="260"
-           cy="248"
-           rx="128"
-           ry="138"
+  <!-- Head -->
+  <ellipse cx="260" cy="248" rx="128" ry="138"
            fill="#F0BC80"/>
 
-  <!-- EARS -->
-  <ellipse cx="141"
-           cy="272"
-           rx="15"
-           ry="21"
+  <!-- Ears -->
+  <ellipse cx="141" cy="272" rx="15" ry="21"
            fill="#E8AA70"/>
 
-  <ellipse cx="379"
-           cy="272"
-           rx="15"
-           ry="21"
+  <ellipse cx="379" cy="272" rx="15" ry="21"
            fill="#E8AA70"/>
 
-  <!-- HAIR -->
-  <ellipse cx="260"
-           cy="152"
-           rx="128"
-           ry="90"
+  <!-- Hair -->
+  <ellipse cx="260" cy="152" rx="128" ry="90"
            fill="#1B2840"/>
 
-  <ellipse cx="138"
-           cy="242"
-           rx="36"
-           ry="68"
+  <ellipse cx="138" cy="242" rx="36" ry="68"
            fill="#1B2840"/>
 
-  <ellipse cx="382"
-           cy="242"
-           rx="36"
-           ry="68"
+  <ellipse cx="382" cy="242" rx="36" ry="68"
            fill="#1B2840"/>
 
-  <path d="M138 222
-           Q142 96 260 88
-           Q378 96 382 222
-           Q358 155 260 152
-           Q162 155 138 222 Z"
+  <path d="M138 222 Q142 96 260 88 Q378 96 382 222
+           Q358 155 260 152 Q162 155 138 222 Z"
         fill="#1B2840"/>
 
-  <path d="M258 90
-           Q292 74 318 92
+  <path d="M258 90 Q292 74 318 92
            Q300 118 278 122
            Q264 123 258 108 Z"
         fill="#1B2840"/>
 
-  <!-- EYES -->
-  <circle cx="218"
-          cy="262"
-          r="17"
+  <!-- Eyes -->
+  <circle cx="218" cy="262" r="17"
           fill="#1B2840"/>
 
-  <circle cx="302"
-          cy="262"
-          r="17"
+  <circle cx="302" cy="262" r="17"
           fill="#1B2840"/>
 
-  <!-- SMILE -->
+  <!-- Smile -->
   <path d="M222 318 Q260 350 298 318"
         stroke="#1B2840"
         stroke-width="12"
         fill="none"
         stroke-linecap="round"/>
 
-  <!-- STETHOSCOPE -->
-  <path d="M222 390
-           Q185 390 165 420
+  <!-- Stethoscope -->
+  <path d="M222 390 Q185 390 165 420
            Q148 450 162 490
            Q172 520 210 538"
         stroke="#8B98AA"
@@ -110,8 +79,7 @@
         fill="none"
         stroke-linecap="round"/>
 
-  <path d="M298 390
-           Q335 390 355 420
+  <path d="M298 390 Q335 390 355 420
            Q372 450 358 490
            Q348 520 310 538"
         stroke="#8B98AA"
@@ -119,22 +87,17 @@
         fill="none"
         stroke-linecap="round"/>
 
-  <path d="M210 538
-           Q235 550 260 552
+  <path d="M210 538 Q235 550 260 552
            Q285 550 310 538"
         stroke="#8B98AA"
         stroke-width="26"
         fill="none"
         stroke-linecap="round"/>
 
-  <circle cx="260"
-          cy="558"
-          r="38"
+  <circle cx="260" cy="558" r="38"
           fill="#6C7A8C"/>
 
-  <circle cx="260"
-          cy="558"
-          r="24"
+  <circle cx="260" cy="558" r="24"
           fill="#B5C2CC"/>
 
 </symbol>
