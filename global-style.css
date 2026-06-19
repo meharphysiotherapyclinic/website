@@ -651,5 +651,33 @@ h2 .icon,
     .icon{
         color: inherit;
     }
+}
 
+/* ==========================================================================
+   GLOBAL BLOG LINK OVERRIDES 
+   (Automatically forces consistency across all internal blog styles)
+   ========================================================================== */
+
+/* Light Mode Baseline & Hover */
+.container ul li a {
+  color: #00796b;
+  text-decoration: none;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.container ul li a:hover {
+  color: #00695c;
+  text-decoration: none;
+}
+
+/* Dark Mode Alignment */
+@media (prefers-color-scheme: dark) {
+  .container ul li a {
+    color: #26a69a;
+  }
+  
+  .container ul li a:hover {
+    color: #80cbc4; /* High-contrast, clean teal accent for dark mode hover states */
+    text-decoration: none;
+  }
 }
