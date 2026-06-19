@@ -652,3 +652,27 @@ h2 .icon,
         color: inherit;
     }
 }
+
+/* ==========================================================================
+   SAFE GLOBAL BLOG LINK OVERRIDES 
+   (Targets text links but completely ignores the Action Buttons)
+   ========================================================================== */
+
+/* Light Mode: Only targets plain text links in lists */
+.container ul li a:not(.button) {
+  color: #00796b;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.container ul li a:not(.button):hover {
+  color: #00695c;
+  text-decoration: none;
+}
+
+/* Dark Mode: Only targets plain text links in lists */
+@media (prefers-color-scheme: dark) {
+  .container ul li a:not(.button) {
+    color: #26a69a;
+  }
+}
