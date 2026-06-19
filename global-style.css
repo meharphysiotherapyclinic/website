@@ -652,34 +652,3 @@ h2 .icon,
         color: inherit;
     }
 }
-
-/* ==========================================================================
-   GLOBAL HIGH-VISIBILITY BLOG LINK OVERRIDES 
-   (Forces a clear, noticeable hover state across all blogs)
-   ========================================================================== */
-
-/* Light Mode: Base State */
-.container ul li a {
-  color: #00796b;
-  text-decoration: none;
-  transition: color 0.2s ease-in-out;
-}
-
-/* Light Mode: Highly Visible Hover State */
-.container ul li a:hover {
-  color: #004d40;            /* Deeper, high-contrast teal for clear visibility */
-  text-decoration: underline; /* Instant visual confirmation on hover */
-}
-
-/* Dark Mode: Perfect Visibility Alignment */
-@media (prefers-color-scheme: dark) {
-  .container ul li a {
-    color: #26a69a;
-    text-decoration: none;
-  }
-  
-  .container ul li a:hover {
-    color: #ffffff;            /* Turns crisp white on dark backgrounds */
-    text-decoration: underline; /* Keeps behavior identical to light mode */
-  }
-}
