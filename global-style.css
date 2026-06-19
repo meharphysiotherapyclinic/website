@@ -654,25 +654,31 @@ h2 .icon,
 }
 
 /* ==========================================================================
-   SAFE GLOBAL BLOG LINK OVERRIDES 
-   (Targets text links but completely ignores the Action Buttons)
+   TEXT-ONLY LINK HOVER FIX 
+   (Leaves "Take Action Today" buttons completely safe and untouched)
    ========================================================================== */
 
-/* Light Mode: Only targets plain text links in lists */
+/* Light Mode: Base State */
 .container ul li a:not(.button) {
   color: #00796b;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: opacity 0.2s ease, color 0.2s ease;
 }
 
+/* Light Mode: Visible, Elegant Hover */
 .container ul li a:not(.button):hover {
-  color: #00695c;
-  text-decoration: none;
+  color: #0f6b3a;            /* Shifts to your brand's deep green so it's clearly visible */
+  text-decoration: underline; /* Adds an underline ONLY to text links, not buttons */
 }
 
-/* Dark Mode: Only targets plain text links in lists */
+/* Dark Mode: Perfect Visibility */
 @media (prefers-color-scheme: dark) {
   .container ul li a:not(.button) {
     color: #26a69a;
+  }
+  
+  .container ul li a:not(.button):hover {
+    color: #80cbc4;            /* Brightens up beautifully against the dark background */
+    text-decoration: underline;
   }
 }
