@@ -4,102 +4,55 @@ Official website of **Mehar Physiotherapy Clinic**, Greater Noida West, Uttar Pr
 
 **Live Website:** https://meharphysiotherapyclinic.github.io/website/
 
-The website provides information about physiotherapy services, clinical expertise, rehabilitation services, patient resources, articles, frequently asked questions, gallery content, reviews, and appointment requests.
+The website provides information about physiotherapy services, rehabilitation, patient resources, articles, FAQs, gallery, reviews, and appointment requests.
 
----
+## About
 
-## About the Clinic
+The clinic is led by **Dr. Govindpreet Singh Arneja (B.P.T., M.I.A.P.)**, Senior Physiotherapist with over 20 years of clinical experience.
 
-**Mehar Physiotherapy Clinic** is led by **Dr. Govindpreet Singh Arneja (B.P.T., M.I.A.P.)**, Senior Physiotherapist with over 20 years of clinical experience.
+## Features
 
-### Key Services
-
-- Orthopedic Physiotherapy
-- Neurological Rehabilitation
-- Sports Injury Rehabilitation
-- Post-Surgical Rehabilitation
-- Manual Therapy and Mobilisation
-- PNF Techniques
-- Spinal and Musculoskeletal Rehabilitation
-- Stroke Rehabilitation
-- Pediatric Physiotherapy
-- Gait Analysis
-- Knee Replacement Rehabilitation
-
----
-
-## Website Features
-
-- Responsive design for mobile, tablet and desktop
-- Modern clinic-focused UI
+- Responsive, mobile-first design
 - Light and dark system-theme support
+- Optimized WebP imagery
 - Self-hosted web fonts
-- Optimized hero imagery
-- SVG icon sprite
+- SVG icon system
 - Appointment request form
-- Patient-friendly physiotherapy information
-- Blog/article section
-- FAQ section
-- Gallery
+- Physiotherapy services and patient resources
+- Blog and article section
+- FAQ and gallery
 - Patient reviews
 - "Listen to Article" functionality
 - Progressive Web App (PWA) support
-- Service worker caching
-- SEO-optimized page structure
-- Schema.org structured data
-- XML sitemap
-- `robots.txt`
-- Google Search Console verification
-- Bing Webmaster verification
-- Automated sitemap generation through GitHub Actions
+- Service-worker caching
+- SEO and Schema.org structured data
+- XML sitemap and `robots.txt`
+- Automated sitemap maintenance with GitHub Actions
 
----
-
-## Technology Stack
-
-This is a lightweight static website and does not require a traditional backend.
-
-### Frontend
+## Technology
 
 - HTML5
 - CSS3
 - Vanilla JavaScript
 - SVG
-- WebP images
-- Web Fonts (`.woff2`)
+- WebP
+- WOFF2 fonts
+- GitHub Pages
+- GitHub Actions
+- Formspree
+- Google Maps
 
-### External Services
-
-- GitHub Pages — website hosting
-- Formspree — appointment form submission
-- Google Maps — location/map integration
-- Google Search Console — search indexing and monitoring
-- Bing Webmaster Tools — search indexing and monitoring
-
-### Automation
-
-GitHub Actions automatically regenerates the XML sitemap and updates `lastmod` dates based on the latest Git history of HTML files.
-
----
+This is a lightweight static website and does not require a traditional backend.
 
 ## Project Structure
 
 ```text
 .
-├── .github/
-│   └── workflows/
-│       └── update-sitemap.yml
-│
+├── .github/workflows/
+│   └── update-sitemap.yml
 ├── assets/
 │   └── icons.svg
-│
 ├── fonts/
-│   ├── dm-sans-v17-latin-regular.woff2
-│   ├── dm-sans-v17-latin-500.woff2
-│   ├── dm-sans-v17-latin-600.woff2
-│   ├── dm-sans-v17-latin-700.woff2
-│   └── dm-serif-display-v17-latin-regular.woff2
-│
 ├── index.html
 ├── appointment.html
 ├── thankyou.html
@@ -107,141 +60,47 @@ GitHub Actions automatically regenerates the XML sitemap and updates `lastmod` d
 ├── gallery.html
 ├── blog.html
 ├── blog1.html
-├── blog2.html
 ├── ...
-├── blog31.html
-│
 ├── global-style.css
 ├── style.css
 ├── faq.css
 ├── listen.css
 ├── listen.js
 ├── reviews.js
-│
 ├── manifest.json
 ├── sw.js
 ├── robots.txt
 ├── sitemap.xml
-│
-├── logo.webp
-├── logo.png
-├── doctor.webp
-├── doctor-175w.webp
-├── welcome-hero.webp
-├── ...
-│
 └── README.md
 ```
 
----
+## SEO & Performance
 
-## Design and Performance
+The website uses:
 
-The website uses a responsive, mobile-first approach with:
-
-- Fluid typography
-- Responsive layouts
-- Optimized WebP imagery
+- Structured data and canonical metadata
+- Responsive layouts and optimized imagery
 - Self-hosted fonts
-- CSS-based theme support
-- SVG icons
 - Lazy/dynamic resource loading where appropriate
-- Preloaded critical hero imagery
-- Minimal JavaScript dependencies
-- Browser caching through the service worker
+- Service-worker caching
+- `robots.txt` and XML sitemap
+- Automated sitemap and `lastmod` maintenance
 
-The website is designed to remain lightweight while maintaining a polished clinical/professional appearance.
-
----
-
-## SEO
-
-The website includes several technical SEO components:
-
-- Unique page titles
-- Meta descriptions
-- Canonical website structure
-- Schema.org structured data
-- LocalBusiness / PhysiotherapyClinic structured data
-- Person structured data for the physiotherapist
-- Geographic information
-- Service information
-- `robots.txt`
-- XML sitemap
-- Search-engine verification files
-- Automated sitemap maintenance
-
-The primary website URL is:
-
-```text
-https://meharphysiotherapyclinic.github.io/website/
-```
-
----
-
-## Sitemap Automation
-
-The workflow:
-
-```text
-.github/workflows/update-sitemap.yml
-```
-
-automatically:
-
-1. Checks out the repository.
-2. Sets up Node.js.
-3. Generates the sitemap.
-4. Reads the Git modification date of HTML pages.
-5. Updates the corresponding `lastmod` values.
-6. Commits the updated `sitemap.xml`.
-
-The workflow runs:
-
-- On pushes to `main`
-- Automatically every day
-- Manually through GitHub Actions
-
----
-
-## Progressive Web App
-
-The website includes:
-
-```text
-manifest.json
-sw.js
-```
-
-The manifest provides installation metadata, while the service worker caches selected core resources for improved repeat-visit performance and basic offline resilience.
-
----
+The sitemap workflow runs automatically through GitHub Actions on repository updates, on a scheduled basis, and manually when required.
 
 ## Appointment Requests
 
-Appointment requests are submitted through:
+The appointment page uses **Formspree** for form submission and redirects successful submissions to the dedicated thank-you page.
 
 ```text
-appointment.html
+appointment.html → Formspree → thankyou.html
 ```
 
-The form uses Formspree for submission and redirects successful requests to:
+## Deployment
 
-```text
-thankyou.html
-```
+The website is designed for **GitHub Pages**.
 
-No traditional server-side application is required.
-
----
-
-## Local Development
-
-Because the website is static, it can be opened directly in a browser.
-
-For a more accurate development environment, use a local HTTP server.
-
-For example, with Python:
+For local testing:
 
 ```bash
 python -m http.server 8000
@@ -253,142 +112,15 @@ Then open:
 http://localhost:8000/
 ```
 
----
+## Maintenance
 
-## Deployment
-
-The website is designed for deployment through **GitHub Pages**.
-
-### Recommended repository settings
-
-1. Push the project to the `main` branch.
-2. Open **Settings → Pages** in the GitHub repository.
-3. Select **Deploy from a branch**.
-4. Select:
-   - Branch: `main`
-   - Folder: `/ (root)`
-5. Save the settings.
-
-GitHub Pages will publish the static website.
-
----
-
-## Updating the Website
-
-When modifying the website:
-
-### Content
-
-Edit the relevant HTML page.
-
-### Global styling
-
-Use:
-
-```text
-global-style.css
-style.css
-```
-
-### FAQ styling
-
-Use:
-
-```text
-faq.css
-```
-
-### Article listening functionality
-
-Use:
-
-```text
-listen.js
-listen.css
-```
-
-### Reviews
-
-Use:
-
-```text
-reviews.js
-```
-
-### Icons
-
-Add or modify SVG symbols in:
-
-```text
-assets/icons.svg
-```
-
-### Images
-
-Prefer optimized WebP images where practical.
-
-### Sitemap
-
-Normally, `sitemap.xml` should not need to be manually maintained because the GitHub Actions workflow regenerates it.
-
----
-
-## Important Maintenance Guidelines
-
-- Keep the website mobile responsive.
-- Avoid unnecessary JavaScript libraries.
-- Prefer WebP/optimized images.
-- Keep critical resources lightweight.
-- Preserve structured-data accuracy.
-- Update page titles and descriptions when adding new pages.
-- Test appointment submission after changing the appointment form.
-- Test both light and dark system themes after major CSS changes.
-- Check mobile layouts after significant header or navigation changes.
-- Do not commit passwords, API keys, private tokens or other secrets.
-- Keep external service credentials/configuration out of publicly visible source files whenever possible.
-
----
-
-## Browser Support
-
-The website is intended for modern browsers including:
-
-- Google Chrome
-- Microsoft Edge
-- Mozilla Firefox
-- Safari
-- Android browsers
-- iOS Safari
-
-Some advanced features, such as service-worker functionality and certain browser APIs, depend on browser support and secure-context requirements.
-
----
+- Keep page content, SEO metadata, and structured data accurate.
+- Keep images optimized.
+- Test appointment submission after form changes.
+- Test mobile layouts and light/dark themes after major CSS changes.
+- Keep external credentials and private tokens out of the repository.
+- Let GitHub Actions maintain `sitemap.xml` rather than editing it manually.
 
 ## License
 
-The website and its original content are proprietary to **Mehar Physiotherapy Clinic**.
-
-Unless explicitly stated otherwise, the website's:
-
-- Text
-- Images
-- Branding
-- Logo
-- Clinical content
-- Design
-- Original code
-
-may not be reproduced, redistributed or used commercially without permission.
-
----
-
-## Contact
-
-**Mehar Physiotherapy Clinic**  
-Gaur City-2, Greater Noida West, Uttar Pradesh, India
-
-**Website:**  
-https://meharphysiotherapyclinic.github.io/website/
-
-**Physiotherapist:**  
-Dr. Govindpreet Singh Arneja, B.P.T., M.I.A.P.
+The website, branding, content, images, design, and original source code are proprietary to **Mehar Physiotherapy Clinic** and may not be reproduced, redistributed, or used commercially without permission.
